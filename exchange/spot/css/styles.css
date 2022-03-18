@@ -1,0 +1,55 @@
+/* Reverse orderbook and trades */
+
+#orderbook-buy, #trades-market-data, #trades-my-data {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+/* Orderbook */
+
+#orderbook-buy, #orderbook-sell {
+    height: 360px;
+}
+
+#orderbook-sell .row:hover {
+    border-top: 1px dashed var(--color-text);  
+}
+
+#orderbook-buy .row:hover {
+    border-bottom: 1px dashed var(--color-text);
+}
+
+/* Markets */
+
+#markets-table {
+    height: 308px;
+}
+
+/* Trades */
+
+#trades-market-data, #trades-my-data {
+    height: 310px;
+}
+
+/* Orders */
+
+#orders-open-data, #orders-history-data {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+}
+
+/* TradingView */
+
+#chart-candles {
+    height: 500px;
+}
+
+/* Hoverable rows */
+#markets-table .row:hover, #orders-open-data .row:hover, #orders-history-data .row:hover,
+#trades-market-data .row:hover, #trades-my-data .row:hover, #orderbook-buy .row:hover, #orderbook-buy .row:hover ~ .row,
+#orderbook-sell .row:hover, #orderbook-sell .row:hover ~ .row {
+    background-color: var(--color-input);
+    cursor: pointer;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <?php include('../templates/head.php'); ?>
+        <script src="/js/validate.js"></script>
+    </head>
+    <body class="vh-100 body-background">
+    
+        <!-- Preloader -->
+        <?php include('../templates/preloader.html'); ?>
+        
+        <!-- Navbar -->
+        <?php include('../templates/navbar.html'); ?>
+        
+        <!-- Root container -->
+        <div id="root" class="container-fluid container-1500 pt-2 guest-only container-rest">
+        <div class="row m-0 h-100">
+        
+        <!-- Main column -->
+        <div class="col-12 col-lg-6 m-auto ui-card-high rounded">
+        <div class="row m-0">
+            
+            <!-- Left -->
+            <div class="col-12 col-lg-7 p-4">
+            
+                <h1 class="pb-4">Vayamos Exchange Password Reset</h1>
+        
+                <div id="forget-form-step1-wrapper">
+                    <p>Enter your account details.</p>
+                    <form id="forget-form-step1" class="d-grid gap-3">
+                        <div class="form-group">
+                            <label for="forget-email">Email:</label>
+                            <input type="email" class="form-control" id="forget-email">
+                            <small id="help-email" class="form-text" style="display: none">Incorrect e-mail format</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            
+                <div id="forget-form-step2-wrapper">
+                    <p>Verification code has been sent to your email address.</p>
+                    <form id="forget-form-step2" class="d-grid gap-3">
+                        <div class="form-group">
+                            <label for="forget-code">Verification code:</label>
+                            <input type="text" class="form-control" id="forget-code">
+                            <small id="help-code" class="form-text" style="display: none">8 characters, only alphanumeric</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="forget-password">New password:</label>
+                            <input type="password" class="form-control" id="forget-password">
+                            <small id="help-password" class="form-text" style="display: none">Password a-a A-A 0-0 x8</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="forget-password2">Confirm password:</label>
+                            <input type="password" class="form-control" id="forget-password2">
+                            <small id="help-password2" class="form-text" style="display: none">Passwords not match</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Change password</button>
+                    </form>
+                </div>
+            
+            <!-- / Left -->
+            </div>
+            
+            <!-- Right -->
+            <div class="col-12 col-lg-5 p-4 my-auto">
+                <div class="row py-3">
+                    <div class="col-auto my-auto text-center" style="width: 60px">
+                        <i style="color: var(--color-ultra)" class="fa-solid fa-lock fa-2x"></i>
+                    </div>
+                    <div class="col font-1 my-auto">
+                        Make sure you are visiting:<br>
+                        <strong class="text-hi">https://vayamos.cc</strong>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-auto my-auto text-center" style="width: 60px">
+                        <i style="color: var(--color-ultra)" class="fa-solid fa-user fa-2x"></i>
+                    </div>
+                    <div class="col font-1 my-auto">
+                        <a class="link-ultra" href="/account/login">Back to login</a>
+                    </div>
+                </div>
+            </div>
+            <!-- / Right -->
+            
+        
+        <!-- / Main column -->
+        </div>
+        </div>
+            
+        <!-- / Root container -->    
+        </div>
+        </div>
+        
+        <script src="/account/forget.js"></script>
+        <?php include('../templates/modals.html'); ?>
+    
+    </body>
+</html>

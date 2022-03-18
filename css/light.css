@@ -1,0 +1,14 @@
+:root {
+    --color-text: rgb(110, 120, 130);
+    --color-background: rgb(248, 249, 250);
+    --color-background-high: white;
+    --color-navbar: rgb(10, 15, 20);
+    --color-highlight: black;
+    --color-border: rgb(220, 230, 240);
+    --color-input: rgb(230, 235, 240);
+    --color-ultra: rgb(55, 113, 200);
+}
+
+.body-background {
+    background-image: url('/img/bg_light.svg');   
+}

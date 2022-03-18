@@ -1,0 +1,65 @@
+const tvConfigurationData = {
+    supported_resolutions: ['1', '3', '5', '15', '30', '60', '120', '240', '360', '480', '720', '1D', '3D', '1W', '1M']
+};
+
+class TvDatafeed {
+    static onReady(callback) {
+        setTimeout(() => callback(tvConfigurationData));
+    };
+  
+    static searchSymbols(userInput, exchange, symbolType, onResultReadyCallback) {
+    };
+  
+    static resolveSymbol(symbolName, onSymbolResolvedCallback, onResolveErrorCallback) {
+        const symbolInfo = {
+            ticker: window.currentPair,
+            name: window.currentPair,
+            description: '',
+            type: 'crypto',
+            session: '24x7',
+            timezone: 'Etc/UTC',
+            exchange: '',
+            minmov: 1,
+            pricescale: 100,
+            has_intraday: false,
+            has_no_volume: true,
+            has_weekly_and_monthly: false,
+            supported_resolutions: tvConfigurationData.supported_resolutions,
+            volume_precision: window.currentBasePrecision,
+            data_status: 'streaming',
+        };
+
+        setTimeout(() => onSymbolResolvedCallback(symbolInfo));
+    };
+  
+    static getBars(symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) {  
+        $.ajax({
+            url: config.apiUrl + '/spot/klines',
+            type: 'POST',
+            data: JSON.stringify({
+                pair: symbolInfo.base_name,
+                resolution: resolution,
+                from: from,
+                to: to
+            }),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .done(function (data) {
+            if(data.success) {    
+                onHistoryCallback(data.klines, { noData: false });
+            } else {
+                onErrorCalback(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            onErrorCallback(textStatus);  
+        });
+    };
+  
+    static subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) {
+    };
+  
+    static unsubscribeBars(subscriberUID) {
+    };
+};

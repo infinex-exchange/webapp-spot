@@ -1,0 +1,101 @@
+<nav class="navbar navbar-master navbar-dark shadow-sm navbar-expand-lg">
+    <div class="container-fluid container-1500">
+        <a class="navbar-brand" href="/">
+            <img src="/img/logo.svg" alt="Vayamos Exchange" width="160" class="d-inline-block align-text-top">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/spot">Spot</a>
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav mb-2 mb-lg-0 user-only">
+                <li class="nav-item dropdown dropdown-on-hover">
+                    <a class="nav-link" href="#">
+                        <i class="fa-solid fa-wallet fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <a class="dropdown-item" href="/wallet">
+                                <i class="fa-solid fa-table-list"></i>
+                                Overview
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/wallet/deposit">
+                                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                Deposit
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/wallet/withdraw">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                Withdraw
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item dropdown dropdown-on-hover">
+                    <a class="nav-link" href="#">
+                        <i class="fa-solid fa-circle-user fa-lg"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li class="user-only">
+                            <a class="dropdown-item font-1" href="#">
+                                <i class="fa-solid fa-circle-user"></i>
+                                <span id="navbar-user-name"></span>
+                            </a>
+                        </li>
+                        <li class="user-only">
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="user-only">
+                            <a class="dropdown-item" href="/account">
+                                Overview
+                            </a>
+                        </li>
+                        <li class="guest-only">
+                            <a class="dropdown-item" href="/account/login">
+                                <i class="fa-solid fa-user"></i>
+                                Login
+                            </a>
+                        </li>
+                        <li class="guest-only">
+                            <a class="dropdown-item" href="/account/register">
+                                <i class="fa-solid fa-user-plus"></i>
+                                Register
+                            </a>
+                        </li>
+                        <li class="user-only">
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="user-only">
+                            <a class="dropdown-item" href="javascript:logOut()">
+                                <i class="fa-solid fa-power-off"></i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <a id="switch-to-light" class="nav-link" href="#">
+                <i class="fa-solid fa-sun fa-lg"></i>
+            </a>
+            <a id="switch-to-dark" class="nav-link" href="#" style="display: none">
+                <i class="fa-solid fa-moon fa-lg"></i>
+            </a>
+        </div>
+        
+    </div>
+</nav>
+<script src="/js/navbar.js"></script>

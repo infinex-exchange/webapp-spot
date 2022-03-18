@@ -1,0 +1,21 @@
+function msgBox(message) {
+    $('#modal-text').html(message);
+    $('#modal-close').unbind('click');
+    $('#modal').modal('show');
+}
+
+function msgBoxNoConn() {
+    msgBox('No connection');
+}
+
+function msgBoxRedirect(message, to) {
+    $('#modal-text').html(message);
+    $('#modal-close').click(function() {
+        window.location.replace(to);
+    });    
+    $('#modal').modal('show');
+}
+
+function msgBoxUnauthorized() {
+    msgBoxRedirect('You have no authorization to view this site', '/');
+}
