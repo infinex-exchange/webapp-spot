@@ -91,7 +91,7 @@ h5 {
 /* Input type text */
 
 input[type=text], input[type=text]:focus, input[type=email], input[type=email]:focus,
-input[type=password], input[type=password]:focus {
+input[type=password], input[type=password]:focus, input[type=text][readonly] {
     background-color: var(--color-input);
     border-width: 0px;
     outline: none !important;
@@ -302,4 +302,38 @@ input[type=range] {
 
 .btn-sm {
     font-size: var(--font-1);
+}
+
+/* Coin selector */
+
+#select-coin-wrapper {
+    max-width: 300px;
+}
+
+#select-coin-dropdown {
+    display: none;
+}
+
+#select-coin-data {
+    height: 250px;
+}
+
+input#select-coin {
+    cursor: pointer;
+}
+
+.select-coin-item {
+    cursor: pointer;
+}
+
+/* Flip 180deg */
+
+.flippable {
+    -moz-transition: transform 1s;
+    -webkit-transition: transform 1s;
+    transition: transform 1s;
+}
+
+.flip {
+    transform: rotate(180deg);
 }
