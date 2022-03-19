@@ -4,8 +4,9 @@ function msgBox(message) {
     $('#modal').modal('show');
 }
 
-function msgBoxNoConn() {
-    msgBox('No connection');
+function msgBoxNoConn(redirect = false) {
+    if(redirect) msgBoxRedirect('No connection', '/');
+    else msgBox('No connection');
 }
 
 function msgBoxRedirect(message, to) {

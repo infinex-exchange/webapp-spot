@@ -11,6 +11,9 @@
 <!-- jQuery Bind First -->
 <script src="/js/jquery.bind-first-0.2.3.min.js"></script>
 
+<!-- jQuery Ajax Retry -->
+<script src="/js/jquery.ajax-retry.min.js"></script>
+
 <!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/b6851ceb36.js" crossorigin="anonymous"></script>
 

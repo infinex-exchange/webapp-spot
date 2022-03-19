@@ -52,6 +52,7 @@ $(document).on('authChecked', function() {
             contentType: "application/json",
             dataType: "json",
         })
+        .retry(config.retry)
         .done(function (data) {
             if(data.success) {
                 $.each(data.balances, function() {
@@ -87,7 +88,8 @@ $(document).on('authChecked', function() {
                 $(document).trigger('renderingStage');
             }
         })
-        .fail(function (jqXHR, textStatus, errorThrown) {  
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(true);
         });
     
         $.ajax({
@@ -99,6 +101,7 @@ $(document).on('authChecked', function() {
             contentType: "application/json",
             dataType: "json",
         })
+        .retry(config.retry)
         .done(function (data) {
             if(data.success) {
                 $.each(data.transactions, function() {
@@ -172,7 +175,7 @@ $(document).on('authChecked', function() {
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
-            msgBoxNoConn();  
+            msgBoxNoConn(true);
         });
     }
 });
