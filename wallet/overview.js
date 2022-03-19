@@ -14,86 +14,102 @@ var txStatusIconDict = {
     DONE: 'fa-solid fa-check'
 };
 
-function searchAssets(q) {
-    $('.assets-item').show();
-    
-    if($('#asset-hide-zero').prop('checked')) {
-        $('.assets-item[zero=1]').hide();
-    }
-    
-    if(q != '') {
-        q = q.replace(/[^a-z0-9]/gi, '');
-        q = q.toUpperCase();
-        $('.assets-item').hide();
-        $('.assets-item[search *= "' + q + '"]').show();
-    }
-}
-
 $(document).ready(function() {
     window.renderingStagesTarget = 2;
     
     $('#asset-search').on('input', function() {
-        searchAssets($(this).val());
+        var query = $(this).val();
+        if(query == '')
+            delete window.assetAS.data.search;
+        else
+            window.assetAS.data.search = query;
+        window.assetAS.reset();
     });
     
     $('#asset-hide-zero').change(function() {
-        searchAssets($('#asset-search').val());
+        var elements = $('#asset-data').find('[zero="1"]');
+        
+        if($(this).prop('checked'))
+            elements.hide();
+        else
+            elements.show();
     });
 });
 
 $(document).on('authChecked', function() {
     if(window.loggedIn) {
-        $.ajax({
-            url: config.apiUrl + '/wallet/balances_ex',
-            type: 'POST',
-            data: JSON.stringify({
-                api_key: window.apiKey,
-                offset: 0
-            }),
-            contentType: "application/json",
-            dataType: "json",
-        })
-        .retry(config.retry)
-        .done(function (data) {
-            if(data.success) {
-                $.each(data.balances, function(k, v) {
-                    fullName = v.name.toUpperCase();
-                    zero = 0;
-                    if(v.total.startsWith('0.')) zero = 1;
-                    $('#asset-data').append(`
-                        <div class="assets-item row p-1 hoverable" search="${k} ${fullName}" zero="${zero}">
-                            <div class="col-1 my-auto">
-                                <img width="40px" height="40px" src="${v.icon_url}">
-                            </div>
-                            <div class="col-2 my-auto">
-                                ${k}<br>
-                                <span class="font-1">${v.name}</span>
-                            </div>
-                            <div class="col-2 text-end my-auto">
-                                ${v.total} ${k}
-                            </div>
-                            <div class="col-2 text-end my-auto">
-                                ${v.avbl} ${k}
-                            </div>
-                            <div class="col-2 text-end my-auto">
-                                ${v.locked} ${k}
-                            </div>
-                            <div class="col-3 my-auto">
-                                <a href="/wallet/deposit/${k}" class="btn btn-primary btn-sm font-1">Deposit</a>
-                                <a href="/wallet/withdraw/${k}" class="btn btn-primary btn-sm font-1">Withdraw</a>
-                            </div>
-                        </div>
-                    `);
-                });
+        window.assetAS = new AjaxScroll(
+            $('#asset-data'),
+            $('#asset-data-preloader'),
+            {
+                api_key: window.apiKey
+            },
+            function() {
                 
-                $(document).trigger('renderingStage');
-            } else {
-                msgBoxRedirect(data.error);
+                //---
+                this.data.offset = this.offset;
+                var thisAS = this;
+                
+                $.ajax({
+                    url: config.apiUrl + '/wallet/balances_ex',
+                    type: 'POST',
+                    data: JSON.stringify(thisAS.data),
+                    contentType: "application/json",
+                    dataType: "json",
+                })
+                .retry(config.retry)
+                .done(function (data) {
+                    if(data.success) {
+                        $.each(data.balances, function(k, v) {
+                            zero = 0;
+                            if(v.total.startsWith('0.')) zero = 1;
+                            
+                            thisAS.append(`
+                                <div class="assets-item row p-1 hoverable" zero="${zero}">
+                                    <div class="col-1 my-auto">
+                                        <img width="40px" height="40px" src="${v.icon_url}">
+                                    </div>
+                                    <div class="col-2 my-auto">
+                                        ${k}<br>
+                                        <span class="font-1">${v.name}</span>
+                                    </div>
+                                    <div class="col-2 text-end my-auto">
+                                        ${v.total} ${k}
+                                    </div>
+                                    <div class="col-2 text-end my-auto">
+                                        ${v.avbl} ${k}
+                                    </div>
+                                    <div class="col-2 text-end my-auto">
+                                        ${v.locked} ${k}
+                                    </div>
+                                    <div class="col-3 my-auto">
+                                        <a href="/wallet/deposit/${k}" class="btn btn-primary btn-sm font-1">Deposit</a>
+                                        <a href="/wallet/withdraw/${k}" class="btn btn-primary btn-sm font-1">Withdraw</a>
+                                    </div>
+                                </div>
+                            `);
+                        });
+                        
+                        thisAS.done();
+                
+                        if(thisAS.offset == 0)
+                            $(document).trigger('renderingStage');
+                    } else {
+                        msgBoxRedirect(data.error);
+                        thisAS.done();
+                        thisAS.noMoreData();
+                    }
+                })
+                .fail(function (jqXHR, textStatus, errorThrown) {
+                    msgBoxNoConn(true);
+                    thisAS.done();
+                    thisAS.noMoreData();
+                });
+                //---
+                
             }
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            msgBoxNoConn(true);
-        });
+        );
+        
     
         $.ajax({
             url: config.apiUrl + '/wallet/transactions',

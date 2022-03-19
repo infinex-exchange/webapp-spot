@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
+        <script src="/js/ajax_scroll.js"></script>
     </head>
     <body>
     
