@@ -40,6 +40,7 @@ $(document).ready(function() {
         dataType: "json",
         async: false
     })
+    .retry(config.retry)
     .done(function (data) {
         if(data.success) {
             window.apiKey = sessionStorage.getItem("apiKey");
@@ -53,7 +54,7 @@ $(document).ready(function() {
         $(document).trigger('authChecked');
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn();
+        msgBoxNoConn(true);
     });
 });
 
