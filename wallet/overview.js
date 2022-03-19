@@ -47,7 +47,8 @@ $(document).on('authChecked', function() {
             url: config.apiUrl + '/wallet/balances_ex',
             type: 'POST',
             data: JSON.stringify({
-                api_key: window.apiKey
+                api_key: window.apiKey,
+                offset: 0
             }),
             contentType: "application/json",
             dataType: "json",
@@ -55,37 +56,39 @@ $(document).on('authChecked', function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                $.each(data.balances, function() {
-                    fullName = this.full_name.toUpperCase();
+                $.each(data.balances, function(k, v) {
+                    fullName = v.name.toUpperCase();
                     zero = 0;
-                    if(this.total == 0) zero = 1;
+                    if(v.total.startsWith('0.')) zero = 1;
                     $('#asset-data').append(`
-                        <div class="assets-item row p-1 hoverable" search="${this.symbol} ${fullName}" zero="${zero}">
+                        <div class="assets-item row p-1 hoverable" search="${k} ${fullName}" zero="${zero}">
                             <div class="col-1 my-auto">
-                                <img width="40px" height="40px" src="${this.icon}">
+                                <img width="40px" height="40px" src="${v.icon_url}">
                             </div>
                             <div class="col-2 my-auto">
-                                ${this.symbol}<br>
-                                <span class="font-1">${this.full_name}</span>
+                                ${k}<br>
+                                <span class="font-1">${v.name}</span>
                             </div>
                             <div class="col-2 text-end my-auto">
-                                ${this.total} ${this.symbol}
+                                ${v.total} ${k}
                             </div>
                             <div class="col-2 text-end my-auto">
-                                ${this.available} ${this.symbol}
+                                ${v.avbl} ${k}
                             </div>
                             <div class="col-2 text-end my-auto">
-                                ${this.locked} ${this.symbol}
+                                ${v.locked} ${k}
                             </div>
                             <div class="col-3 my-auto">
-                                <a href="/wallet/deposit/${this.symbol}" class="btn btn-primary btn-sm font-1">Deposit</a>
-                                <a href="/wallet/withdraw/${this.symbol}" class="btn btn-primary btn-sm font-1">Withdraw</a>
+                                <a href="/wallet/deposit/${k}" class="btn btn-primary btn-sm font-1">Deposit</a>
+                                <a href="/wallet/withdraw/${k}" class="btn btn-primary btn-sm font-1">Withdraw</a>
                             </div>
                         </div>
                     `);
                 });
                 
                 $(document).trigger('renderingStage');
+            } else {
+                msgBoxRedirect(data.error);
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
@@ -96,7 +99,8 @@ $(document).on('authChecked', function() {
             url: config.apiUrl + '/wallet/transactions',
             type: 'POST',
             data: JSON.stringify({
-                api_key: window.apiKey
+                api_key: window.apiKey,
+                offset: 0
             }),
             contentType: "application/json",
             dataType: "json",
@@ -108,20 +112,20 @@ $(document).on('authChecked', function() {
                     var innerhtml = '';
                     var amount = '';
                     var innerhtml2 = `
-                        <span class="text-hi">Time:</span> ${this.time}
+                        <span class="text-hi">Time:</span> ${this.creation_date}
                     `;
                 
                     if(this.type == 'TRADE_SPOT') {
                         innerhtml = `
                             <div style="position: relative">
-                                <img width="20" height="20" src="${this.src_icon}">
-                                <img style="position: absolute; top: 20px; left: 20px;" width="20" height="20" src="${this.dst_icon}">
+                                <img width="20" height="20" src="${this.icon_url}">
+                                <img style="position: absolute; top: 20px; left: 20px;" width="20" height="20" src="${this.opposite_icon_url}">
                                 <img style="position: absolute; top: 0px; left: 20px; transform: scaleX(-1) rotate(90deg);" src="/img/swap_arrow.svg" width="20" height="20">
                                 <img style="position: absolute; top: 20px; left: 0px;" src="/img/swap_arrow.svg" width="20" height="20">
                             </div>
                         `;
-                        amount = this.src_amount + ' ' + this.src_coin + ' <i class="fa-solid fa-arrow-right-long"></i> '
-                            + this.dst_amount + ' ' + this.dst_coin;
+                        amount = this.amount + ' ' + this.asset + ' <i class="fa-solid fa-arrow-right-long"></i> '
+                            + this.opposite_amount + ' ' + this.opposite_asset;
                         innerhtml2 += `
                             <br>
                             <span class="text-hi">Avg price:</span> ${this.avg_price}
@@ -130,24 +134,26 @@ $(document).on('authChecked', function() {
                     else {
                         innerhtml = `
                             <div class="p-2" style="position: relative">
-                                <img width="40" height="40" src="${this.icon}">
+                                <img width="40" height="40" src="${this.icon_url}">
                                 <div style="position: absolute; bottom: 0px">
                                     <i style="font-size: 16px; color: var(--color-ultra);" class="${txTypeIconDict[this.type]}"></i>
                                 </div>
                             </div>
                         `;
-                        amount = this.amount + ' ' + this.coin;
+                        amount = this.amount + ' ' + this.asset;
                         if(this.type == 'DEPOSIT') {
                             innerhtml2 += `
                                 <br>
                                 <span class="text-hi">Confirmations:</span> ${this.confirms}/${this.confirms_target}
                             `;
                         }
-                        var txiduser = showTxid(this.txid);
-                        innerhtml2 += `
-                            <br>
-                            <span class="text-hi">TxID:</span> ${txiduser}
-                        `;
+                        if(typeof(this.txid) !== 'undefined') {
+                            var txiduser = showTxid(this.txid);
+                            innerhtml2 += `
+                                <br>
+                                <span class="text-hi">TxID:</span> ${txiduser}
+                            `;
+                        }
                     }
             
                     $('#recent-tx-data').append(`
@@ -172,6 +178,9 @@ $(document).on('authChecked', function() {
                 });
                 
                 $(document).trigger('renderingStage');
+            }
+            else {
+                msgBoxRedirect(data.error);
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
