@@ -74,7 +74,7 @@
                 <h1>Recent transactions</h1>
             </div>
             
-            <div class="reverse-rows" id="recent-tx-data">
+            <div id="recent-tx-data">
             </div>
         
         <!-- / Right column -->
