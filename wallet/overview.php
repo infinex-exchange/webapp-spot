@@ -84,6 +84,7 @@
         </div>
         </div>
         
+        <script src="/js/recent_tx.js"></script>
         <script src="/wallet/overview.js"></script>
         
         <?php include('../templates/modals.html'); ?>

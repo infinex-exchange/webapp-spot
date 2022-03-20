@@ -47,6 +47,7 @@ $(document).ready(function() {
                     
                     $('.select-coin-item').on('click', function() {
                         $('#select-coin').val($(this).attr('data-asset'));
+                        $('#select-coin').trigger('change');
                         $('#select-coin-dropdown').toggle();
                         $('#select-coin-arrow').toggleClass('flip');
                     });
