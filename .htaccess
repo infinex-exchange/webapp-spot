@@ -8,6 +8,7 @@ RewriteRule ^account/forget/?$ /account/forget.php [L]
 RewriteRule ^wallet/?$ /wallet/overview.php [L]
 RewriteRule ^wallet/deposit/([^/]+)/?$ /wallet/deposit.php [L]
 RewriteRule ^wallet/deposit/?$ /wallet/deposit.php [L]
+RewriteRule ^wallet/withdraw/([^/]+)/?$ /wallet/withdraw.php [L]
 RewriteRule ^wallet/withdraw/?$ /wallet/withdraw.php [L]
 
 RewriteRule ^spot/?$ /exchange/spot/index.php [L]
