@@ -1,4 +1,15 @@
 function internalLogOut() {
+    $.ajax({
+        url: config.apiUrl + '/account/logout',
+        type: 'POST',
+        data: JSON.stringify({
+            api_key: window.apiKey
+        }),
+        contentType: "application/json",
+        dataType: "json"
+    })
+    .retry(config.retry);
+    
     window.apiKey = null;
     window.loggedIn = false;
     sessionStorage.removeItem('userName');
@@ -31,27 +42,30 @@ $(document).ready(function() {
     
     // Check is session alive, unset lS and sS when not
     $.ajax({
-        url: config.apiUrl + '/account/session_check',
+        url: config.apiUrl + '/account/session/check',
         type: 'POST',
         data: JSON.stringify({
             api_key: sessionStorage.getItem("apiKey")
         }),
         contentType: "application/json",
         dataType: "json",
-        async: false
     })
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            window.apiKey = sessionStorage.getItem("apiKey");
-            window.userName = sessionStorage.getItem("userName");
-            window.loggedIn = true;
+            if(data.valid) {
+                window.apiKey = sessionStorage.getItem("apiKey");
+                window.userName = sessionStorage.getItem("userName");
+                window.loggedIn = true;
+            }
+            else {
+                internalLogOut();
+            }
+            
+            $(document).trigger('authChecked');
         } else {
-            // Logout now
-            internalLogOut();
+            msgBoxRedirect(data.error);
         }
-        
-        $(document).trigger('authChecked');
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(true);

@@ -4,6 +4,7 @@ RewriteRule ^account/register/?$ /account/register.php [L]
 RewriteRule ^account/verify/?$ /account/verify.php [L]
 RewriteRule ^account/login/?$ /account/login.php [L]
 RewriteRule ^account/forget/?$ /account/forget.php [L]
+RewriteRule ^account/sessions/?$ /account/sessions.php [L]
 
 RewriteRule ^wallet/?$ /wallet/overview.php [L]
 RewriteRule ^wallet/deposit/([^/]+)/?$ /wallet/deposit.php [L]

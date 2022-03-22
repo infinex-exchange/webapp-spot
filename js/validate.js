@@ -18,3 +18,7 @@ function validateVeriCode(code) {
 function validateCaptchaResp(captcha) {
     return captcha.match(/^[a-np-zA-NP-Z1-9]{4}$/);
 }
+
+function validateApiKeyDescription(desc) {
+    return desc.match(/^[a-zA-Z0-9]{1,255}$/);
+}
