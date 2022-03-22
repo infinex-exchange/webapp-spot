@@ -78,9 +78,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Edit API key</h5>
-                <button type="button" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="api-key-description-form">
                 <div class="modal-body">

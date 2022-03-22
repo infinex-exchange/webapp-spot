@@ -13,3 +13,8 @@
 .body-background {
     background-image: url('/img/bg_dark.svg');   
 }
+
+.btn-close {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}

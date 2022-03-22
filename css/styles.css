@@ -344,3 +344,18 @@ input#select-coin, input#select-net {
     background-color: white;
     padding: 16px;
 }
+
+/* Modals */
+
+.modal-content {
+    background-color: var(--color-background-high);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-highlight);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--color-border);
+}
