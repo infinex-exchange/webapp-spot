@@ -11,4 +11,13 @@ $(document).ready(function() {
         $('#select-net-dropdown').hide();
         $('#select-net-arrow').removeClass('flip');
     });
+    
+    $('#select-net').on('dataReady', function() {
+        var items = $('.select-net-item');
+        if(items.length == 1) {
+            $(this).val($(items[0]).attr('data-description'));
+            $(this).attr('data-network', $(items[0]).attr('data-network'));
+            $(this).trigger('change');
+        }
+    });
 });

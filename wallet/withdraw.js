@@ -36,6 +36,7 @@ $(document).ready(function() {
                         </div>
                     `);
                 });
+                $('#select-net').trigger('dataReady');
                 $('.select-net-item').on('click', function() {
                     $('#select-net').val($(this).attr('data-description'));
                     $('#select-net').attr('data-network', $(this).attr('data-network'));
