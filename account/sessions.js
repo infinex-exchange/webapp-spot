@@ -190,25 +190,34 @@ $(document).on('authChecked', function() {
                         else if(v.os.includes('Linux'))
                             osIcon = 'fa-brands fa-linux';
                         
+                        var csInfo = '';
+                        var csOnClick = 'killSession(' + sid + ')';
+                        var csButton = 'Kill';
+                        if(v.current_session) {
+                            csInfo = '<br>(Current session)';
+                            csOnClick = 'logOut()';
+                            csButton = 'Logout';
+                        }
+                        
                         $('#sessions-data').append(`
                             <div class="sessions-item row p-2 hoverable" data-sid="${sid}">
                                 <div class="col-2">
-                                    <i class="${deviceTypeIconDict[v.device]} fa-2x"></i>
-                                    ${v.device}
-                                </div>
-                                <div class="col-2">
-                                    <i class="${browserIcon} fa-2x"></i>
-                                    ${v.browser}
-                                </div>
-                                <div class="col-2">
-                                    <i class="${osIcon} fa-2x"></i>
-                                    ${v.os}
+                                    #${sid}
+                                    ${csInfo}
                                 </div>
                                 <div class="col-3">
+                                    <i class="${deviceTypeIconDict[v.device]}"></i>
+                                    ${v.device}<br>
+                                    <i class="${browserIcon}"></i>
+                                    ${v.browser}<br>
+                                    <i class="${osIcon}"></i>
+                                    ${v.os}
+                                </div>
+                                <div class="col-4">
                                     ${v.lastact}
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-primary btn-sm font-1" onClick="killSession(${sid})">Kill</a>
+                                    <button type="button" class="btn btn-primary btn-sm font-1" onClick="${csOnClick}">${csButton}</a>
                                 </div>
                             </div>
                         `);

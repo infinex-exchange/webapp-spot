@@ -25,15 +25,12 @@
             
             <div class="row p-2 text-hi">
                 <div class="col-2">
-                Device type
-                </div>
-                <div class="col-2">
-                Browser
-                </div>
-                <div class="col-2">
-                OS
+                Session ID
                 </div>
                 <div class="col-3">
+                Info
+                </div>
+                <div class="col-4">
                 Last activity
                 </div>
                 <div class="col-3">
