@@ -305,13 +305,23 @@ input[type=range] {
 }
 
 /* Coin and network selector */
-
 #select-coin-wrapper, #select-net-wrapper {
     max-width: 300px;
 }
 
 #select-coin-dropdown, #select-net-dropdown {
     display: none;
+    position: absolute;
+    background-color: var(--color-background-high);
+    z-index: 1000;
+    max-width: 300px;
+    width: 300px;
+    border: 1px solid var(--color-border);
+    padding: 10px;
+}
+
+#select-coin-dropdown > input, #select-net-dropdown > input {
+    margin-bottom: 10px;
 }
 
 #select-coin-data, #select-net-data {
@@ -320,10 +330,24 @@ input[type=range] {
 
 input#select-coin, input#select-net {
     cursor: pointer;
+    max-width: 300px;
+    width: 300px;
 }
 
 .select-coin-item, .select-net-item {
     cursor: pointer;
+}
+
+.select-arrow {
+    position: relative;
+    max-width: 300px;
+    width: 300px;
+}
+
+.select-arrow > i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 /* Flip 180deg */
