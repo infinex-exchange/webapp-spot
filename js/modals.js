@@ -17,7 +17,3 @@ function msgBoxNoConn(redirect = false) {
     if(redirect) msgBoxRedirect('No connection');
     else msgBox('No connection');
 }
-
-function msgBoxUnauthorized() {
-    msgBoxRedirect('You have no authorization to view this site');
-}

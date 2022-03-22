@@ -79,11 +79,11 @@ $(document).onFirst('authChecked', function() {
         $('.guest-only').hide();
         $('.user-only').show();
         if($('#root').hasClass('guest-only'))
-            msgBoxUnauthorized();
+            msgBoxRedirect('You have no authorization to view this site');
     } else {
         $('.guest-only').show();
         $('.user-only').hide();
         if($('#root').hasClass('user-only'))
-            msgBoxUnauthorized();
+            gotoLogin();
     }
 });
