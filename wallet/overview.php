@@ -13,8 +13,8 @@
         <?php include('../templates/navbar.html'); ?>
         
         <!-- Root container -->
-        <div id="root" class="container-fluid container-1500 pt-2 user-only">
-        <div class="row m-0">
+        <div id="root" class="container-fluid container-1500 container-rest pt-2 user-only">
+        <div class="row m-0 h-100">
         
         <!-- Main column -->
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">

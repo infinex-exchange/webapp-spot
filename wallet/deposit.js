@@ -41,8 +41,6 @@ $(document).ready(function() {
                     $('#select-net').val($(this).attr('data-description'));
                     $('#select-net').attr('data-network', $(this).attr('data-network'));
                     $('#select-net').trigger('change');
-                    $('#select-net-dropdown').toggle();
-                    $('#select-net-arrow').toggleClass('flip');
                 });
                 $('#deposit-step2').show();
             } else {

@@ -1,7 +1,15 @@
 $(document).ready(function() {
-    $('#select-coin').on('click', function() {
+    $('#select-coin').on('click', function(event) {
         $('#select-coin-dropdown').toggle();
         $('#select-coin-arrow').toggleClass('flip');
+        $('#select-net-dropdown').hide();
+        $('#select-net-arrow').removeClass('flip');
+        event.stopPropagation();
+    });
+    
+    $('html').on('click', function() {
+        $('#select-coin-dropdown').hide();
+        $('#select-coin-arrow').removeClass('flip');
     });
     
     $('#select-coin-search').on('input', function() {
@@ -45,11 +53,9 @@ $(document).ready(function() {
                         `);
                     });
                     
-                    $('.select-coin-item').on('click', function() {
+                    $('.select-coin-item').on('click', function(event) {
                         $('#select-coin').val($(this).attr('data-asset'));
                         $('#select-coin').trigger('change');
-                        $('#select-coin-dropdown').toggle();
-                        $('#select-coin-arrow').toggleClass('flip');
                     });
                         
                     thisAS.done();
