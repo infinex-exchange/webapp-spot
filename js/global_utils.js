@@ -11,12 +11,11 @@ $( document ).ready(function() {
         $(this).find('.dropdown-menu').removeClass('show');
     }); 
     
-    // Double borders
-    /*$('.ui-card').each(function() {
-        var thisOffset = $(this).offset();
-        var rootOffset = $('#root').offset();
-        if(thisOffset.left - rootOffset.left > 30) {
-            $(this).css('border-left', 'none');
+    // Auto active menu item
+    $('.auto-active').each(function() {
+        if(window.location.pathname.startsWith($(this).attr('href'))) {
+            $(this).addClass('active');
+            return;
         }
-    });*/
+    });
 });

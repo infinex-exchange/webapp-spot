@@ -51,7 +51,7 @@
         </div>
         </div>
         
-        <script src="/account/sessions.js"></script>
+        <script src="/account/security.js"></script>
         
         <?php include('../templates/modals.html'); ?>
     
