@@ -35,6 +35,62 @@ function killSession(sid) {
 
 $(document).ready(function() {
     window.renderingStagesTarget = 1;
+    
+    $('#chp-old').on('input', function() {
+        if(validatePassword($(this).val()))
+            $('#help-chp-old').hide();
+        else
+            $('#help-chp-old').show();
+    });
+    
+    $('#chp-new').on('input', function() {
+        if(validatePassword($(this).val()))
+            $('#help-chp-new').hide();
+        else
+            $('#help-chp-new').show();
+    });
+    
+    $('#chp-new, #chp-new2').on('input', function() {
+        if($('#chp-new').val() == $('#chp-new2').val())
+            $('#help-chp-new2').hide();
+        else
+            $('#help-chp-new2').show();        
+    });
+    
+    $('#chp-form').submit(function(event) {
+        event.preventDefault();
+        
+        var oldP = $('#chp-old').val();
+        var newP = $('#chp-new').val();
+        var newP2 = $('#chp-new2').val();
+        
+        if(!validatePassword(oldP) || !validatePassword(newP) || newP != newP2) {
+            msgBox('fill in the form correctly first');
+            return;
+        }
+        
+        $.ajax({
+            url: config.apiUrl + '/account/change',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey,
+                password: newP,
+                old_password: oldP
+            }),
+            datatype: 'json'
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                alert(1);
+            } else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false);
+        });
+    });
 });
 
 $(document).on('authChecked', function() {

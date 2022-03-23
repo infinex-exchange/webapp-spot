@@ -43,6 +43,31 @@
             
             <div id="sessions-data">
             </div>
+            
+            <div class="row p-2">
+                <h1>Change password</h1>
+            </div>
+            
+            <div class="row p-2">
+                <form id="chp-form" class="d-grid gap-3">
+                        <div class="form-group">
+                            <label for="chp-old">Old password:</label>
+                            <input type="password" class="form-control" id="chp-old">
+                            <small id="help-chp-old" class="form-text" style="display: none">Password a-a A-A 0-0 x8</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="chp-new">New password:</label>
+                            <input type="password" class="form-control" id="chp-new">
+                            <small id="help-chp-new" class="form-text" style="display: none">Password a-a A-A 0-0 x8</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="chp-new2">Confirm password:</label>
+                            <input type="password" class="form-control" id="chp-new2">
+                            <small id="help-chp-new2" class="form-text" style="display: none">Passwords not match</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Change password</button>
+                    </form>
+            </div>
         
         <!-- / Main column -->
         </div>
