@@ -33,20 +33,25 @@ function removeAK(sid) {
     });     
 }
 
+function copyAK(sid) {
+    navigator.clipboard.writeText($('.sessions-item[data-sid=' + sid + ']').attr('data-api-key'));     
+}
+
 function addChangeApiKey(sid, api_key, description) {
     var elem = $('.sessions-item[data-sid=' + sid + ']');
     if(elem.length) {
         elem.find('.api-key-description').html(description);
     }
     else $('#api-keys-data').append(`
-        <div class="sessions-item row p-2 hoverable" data-sid="${sid}" data-description="${description}">
-            <div class="col-4">
-                ${api_key}
-            </div>
+        <div class="sessions-item row p-2 hoverable" data-sid="${sid}" data-api-key="${api_key}" data-description="${description}">
             <div class="col-4">
                 <span class="api-key-description">${description}</span>
             </div>
-            <div class="col-4">
+            <div class="col-5 wrap">
+                ${api_key}
+            </div>
+            <div class="col-3">
+                <button type="button" class="btn btn-primary btn-sm font-1" onClick="copyAK(${sid})">Copy</a>
                 <button type="button" class="btn btn-primary btn-sm font-1" onClick="showEditAKPrompt(${sid})">Rename</a>
                 <button type="button" class="btn btn-primary btn-sm font-1" onClick="removeAK(${sid})">Remove</a>
             </div>

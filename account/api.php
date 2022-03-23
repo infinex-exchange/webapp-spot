@@ -34,12 +34,12 @@
             
             <div class="row p-2 text-hi">
                 <div class="col-4">
-                API key
-                </div>
-                <div class="col-4">
                 Description
                 </div>
-                <div class="col-4">
+                <div class="col-5">
+                API key
+                </div>
+                <div class="col-3">
                 Options
                 </div>
             </div>

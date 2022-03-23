@@ -78,7 +78,7 @@ $(document).on('authChecked', function() {
                         var csOnClick = 'killSession(' + sid + ')';
                         var csButton = 'Kill';
                         if(v.current_session) {
-                            csInfo = '<br>(Current session)';
+                            csInfo = '<br>(<strong>Current</strong>)';
                             csOnClick = 'logOut()';
                             csButton = 'Logout';
                         }
@@ -91,11 +91,17 @@ $(document).on('authChecked', function() {
                                 </div>
                                 <div class="col-3">
                                     <i class="${deviceTypeIconDict[v.device]}"></i>
-                                    ${v.device}<br>
+                                    <span class="d-none d-lg-inline">
+                                        ${v.device}<br>
+                                    </span>
                                     <i class="${browserIcon}"></i>
-                                    ${v.browser}<br>
+                                    <span class="d-none d-lg-inline">
+                                        ${v.browser}<br>
+                                    </span>
                                     <i class="${osIcon}"></i>
-                                    ${v.os}
+                                    <span class="d-none d-lg-inline">
+                                        ${v.os}
+                                    </span>
                                 </div>
                                 <div class="col-4">
                                     ${v.lastact}

@@ -303,6 +303,7 @@ input[type=range] {
 
 .btn-sm {
     font-size: var(--font-1);
+    margin: 4px;
 }
 
 /* Coin and network selector */
@@ -383,4 +384,10 @@ input#select-coin, input#select-net {
 
 .modal-footer {
     border-top: 1px solid var(--color-border);
+}
+
+/* Wrap long text (API key) */
+
+.wrap {
+    word-wrap: break-word;
 }
