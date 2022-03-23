@@ -391,3 +391,18 @@ input#select-coin, input#select-net {
 .wrap {
     word-wrap: break-word;
 }
+
+/* Bottom mobile menu */
+
+.navbar-mobile {
+ background-image: linear-gradient(var(--color-input), var(--color-background-high));
+ border-top: 1px solid var(--color-border);
+ padding-bottom: min(10px, env(safe-area-inset-bottom, 0)) !important;
+ z-index: 1000;
+}
+
+/* Dropdown menu */
+
+.dropdown-menu {
+    background-color: var(--color-background-high);
+}
