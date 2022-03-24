@@ -1,4 +1,17 @@
 function updateBalance() {
+    function updateBalanceAfter() {
+        if(typeof(window.balanceUpdatedFirstTime) === 'undefined') {
+            window.balanceUpdatedFirstTime = true;
+            $(document).trigger('renderingStage'); // 9
+        }
+                
+        $('#form-base-balance').html(window.currentBaseBalance.toFixed() + ' ' + window.currentBase);
+        $('#form-quote-balance').html(window.currentQuoteBalance.toFixed() + ' ' + window.currentQuote);
+        
+        $('#form-sell-range, #form-sell-submit').prop('disabled', window.currentBaseBalance.isEqualTo(0));
+        $('#form-buy-range, #form-buy-submit').prop('disabled', window.currentQuoteBalance.isEqualTo(0));
+    }
+    
     if(window.loggedIn) {
         $.ajax({
             url: config.apiUrl + '/wallet/balances',
@@ -16,13 +29,9 @@ function updateBalance() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                if(typeof(window.currentBaseBalance) === 'undefined')
-                    $(document).trigger('renderingStage'); // 9
-                
                 window.currentBaseBalance = new BigNumber(data.balances[window.currentBase].avbl);
                 window.currentQuoteBalance = new BigNumber(data.balances[window.currentQuote].avbl);
-                $('#form-base-balance').html(window.currentBaseBalance.toFixed() + ' ' + window.currentBase);
-                $('#form-quote-balance').html(window.currentQuoteBalance.toFixed() + ' ' + window.currentQuote);
+                updateBalanceAfter();
             }
             else {
                 msgBoxRedirect(data.error);
@@ -33,13 +42,9 @@ function updateBalance() {
         });
     }
     else {
-        if(typeof(window.currentBaseBalance) === 'undefined')
-            $(document).trigger('renderingStage'); // 9
-        
         window.currentBaseBalance = new BigNumber(0);
         window.currentQuoteBalance = new BigNumber(0);
-        $('#form-base-balance').html('0 ' + window.currentBase);
-        $('#form-quote-balance').html('0 ' + window.currentQuote);
+        updateBalanceAfter();
     }
 }
 
@@ -59,6 +64,7 @@ function postOrder(data) {
     .done(function (data) {
         if(data.success) {
             // notification
+            setTimeout(updateBalance, 500);
         }
         else {
             msgBox(data.error);
@@ -105,6 +111,23 @@ $(document).on('pairSelected', function() {
     .on('focusout', function() {
         if(this.value.slice(-1) == '.') {
             this.value = this.value.substring(0, this.value.length - 1);
+        }
+    });
+    
+    // Auto market price
+    $('#form-buy-amount, #form-buy-total, #form-buy-range').onFirst('input', function() {
+        if($('#form-buy-price').val() == '') {
+            $('#form-buy-price').val(
+                window.currentMarketPrice.toFixed(window.currentQuotePrecision)
+            );
+        }
+    });
+    
+    $('#form-sell-amount, #form-sell-total, #form-sell-range').onFirst('input', function() {
+        if($('#form-sell-price').val() == '') {
+            $('#form-sell-price').val(
+                window.currentMarketPrice.toFixed(window.currentQuotePrecision)
+            );
         }
     });
     
@@ -155,13 +178,6 @@ $(document).on('pairSelected', function() {
             
     // Slider
     $('#form-buy-range').on('input', function() {
-        // Get market price if price not set
-        if($('#form-buy-price').val() == '') {
-            $('#form-buy-price').val(
-                window.currentMarketPrice.toFixed(window.currentQuotePrecision)
-            );
-        }
-        
         var buyTotal = window.currentQuoteBalance.
             multipliedBy( $(this).val() ).
             dividedBy(100);
@@ -172,13 +188,6 @@ $(document).on('pairSelected', function() {
     });
     
     $('#form-sell-range').on('input', function() {
-        // Get market price if price not set
-        if($('#form-sell-price').val() == '') {
-            $('#form-sell-price').val(
-                window.currentMarketPrice.toFixed(window.currentQuotePrecision)
-            );
-        }
-        
         var sellAmount = window.currentBaseBalance.
             multipliedBy( $(this).val() ).
             dividedBy(100);
