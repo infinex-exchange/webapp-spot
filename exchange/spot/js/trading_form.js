@@ -43,6 +43,32 @@ function updateBalance() {
     }
 }
 
+function postOrder(data) {
+    Object.assign(data, {
+        api_key: window.apiKey,
+        pair: window.currentPair
+    });
+    $.ajax({
+        url: config.apiUrl + '/spot/order',
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            // notification
+        }
+        else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false);
+    });
+}
+
 $(document).on('pairSelected', function() {
     // Update balance
     updateBalance();
@@ -160,5 +186,26 @@ $(document).on('pairSelected', function() {
         $('#form-sell-amount').val(
             sellAmount.toFixed(window.currentBasePrecision)
         ).trigger('prevalidated');
+    });
+    
+    // Submit order
+    $('#form-buy-submit').on('click', function() {
+        var data = {
+            side: 'BUY',
+            type: 'LIMIT',
+            amount: $('#form-buy-amount').val(),
+            price: $('#form-buy-price').val()
+        };
+        postOrder(data);
+    });
+    
+    $('#form-sell-submit').on('click', function() {
+        var data = {
+            side: 'SELL',
+            type: 'LIMIT',
+            amount: $('#form-sell-amount').val(),
+            price: $('#form-sell-price').val()
+        };
+        postOrder(data);
     });
 });
