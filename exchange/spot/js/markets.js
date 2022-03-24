@@ -18,7 +18,7 @@ function filterMarketsByQuote(q) {
 $(document).ready(function() {
     // Set rendering stages target
     
-    window.renderingStagesTarget = 1; //8
+    window.renderingStagesTarget = 2; //9
     
     // Set DOM event handlers
     

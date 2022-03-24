@@ -1,30 +1,52 @@
 function updateBalance() {
-    $.ajax({
-        url: config.apiUrl + '/wallet/balances',
-        type: 'POST',
-        data: JSON.stringify({
-            api_key: window.apiKey,
-            query: [
-                window.currentBase,
-                window.currentQuote
-            ]
-        }),
-        contentType: "application/json",
-        dataType: "json",
-    })
-    .done(function (data) {
-        if(data.success) {
-            window.currentBaseBalance = data.balances[window.currentBase];
-            window.currentQuoteBalance = data.balances[window.currentQuote];
-            $('#form-base-balance').html(window.currentBaseBalance + ' ' + window.currentBase);
-            $('#form-quote-balance').html(window.currentQuoteBalance + ' ' + window.currentQuote);
-        }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {  
-    });
+    if(window.loggedIn) {
+        $.ajax({
+            url: config.apiUrl + '/wallet/balances',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey,
+                symbols: [
+                    window.currentBase,
+                    window.currentQuote
+                ]
+            }),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                if(typeof(window.currentBaseBalance) === 'undefined')
+                    $(document).trigger('renderingStage'); // 9
+                
+                window.currentBaseBalance = window.BNB(data.balances[window.currentBase].avbl);
+                window.currentQuoteBalance = window.BNQ(data.balances[window.currentQuote].avbl);
+                $('#form-base-balance').html(window.currentBaseBalance.toFixed() + ' ' + window.currentBase);
+                $('#form-quote-balance').html(window.currentQuoteBalance.toFixed() + ' ' + window.currentQuote);
+            }
+            else {
+                msgBoxRedirect(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(true);
+        });
+    }
+    else {
+        if(typeof(window.currentBaseBalance) === 'undefined')
+            $(document).trigger('renderingStage'); // 9
+        
+        window.currentBaseBalance = window.BNB(0);
+        window.currentQuoteBalance = window.BNQ(0);
+        $('#form-base-balance').html('0 ' + window.currentBase);
+        $('#form-quote-balance').html('0 ' + window.currentQuote);
+    }
 }
 
 $(document).on('pairSelected', function() {
+    // Update balance
+    updateBalance();
+    
     // Suffixes
     $('.form-base-suffix').html(window.currentBase);
     $('.form-quote-suffix').html(window.currentQuote);
@@ -60,16 +82,7 @@ $(document).on('pairSelected', function() {
         }
     });
     
-    // Update balance
-    window.currentBaseBalance = 0;
-    window.currentQuoteBalance = 0;
-    sessionStart();
-    if(apiKey()) {
-        updateBalance();
-    }
-    
-    // One changes another - on prevalidated
-    
+    // One changes another - on prevalidated 
     $('#form-buy-price').on('prevalidated', function() {
         $('#form-buy-total').val(
             parseFloat($(this).val() * $('#form-buy-amount').val())
