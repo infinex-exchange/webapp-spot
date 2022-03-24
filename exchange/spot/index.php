@@ -197,7 +197,7 @@
                             </div>
                             <div>
                                 <span class="range-value" for="form-buy-range" suffix="%"></span>
-                                <input id="form-buy-range" type="range" class="form-range" min="0" max="100" step="25" value="0">
+                                <input id="form-buy-range" type="range" class="form-range" min="0" max="100" step="5" value="0">
                             </div>
                             <button type="button" class="btn btn-success btn-block user-only">BUY</button>
                             <div class="guest-only font-1 border border-success rounded p-2 text-center">
@@ -228,7 +228,7 @@
                             </div>
                             <div>
                                 <span class="range-value" for="form-sell-range" suffix="%"></span>
-                                <input id="form-sell-range" type="range" class="form-range" min="0" max="100" step="25" value="0">
+                                <input id="form-sell-range" type="range" class="form-range" min="0" max="100" step="5" value="0">
                             </div>
                             <button type="button" class="btn btn-danger btn-block user-only">SELL</button>
                             <div class="guest-only font-1 border border-danger rounded p-2 text-center">
