@@ -19,8 +19,8 @@ function updateBalance() {
                 if(typeof(window.currentBaseBalance) === 'undefined')
                     $(document).trigger('renderingStage'); // 9
                 
-                window.currentBaseBalance = window.BNB(data.balances[window.currentBase].avbl);
-                window.currentQuoteBalance = window.BNQ(data.balances[window.currentQuote].avbl);
+                window.currentBaseBalance = new BigNumber(data.balances[window.currentBase].avbl);
+                window.currentQuoteBalance = new BigNumber(data.balances[window.currentQuote].avbl);
                 $('#form-base-balance').html(window.currentBaseBalance.toFixed() + ' ' + window.currentBase);
                 $('#form-quote-balance').html(window.currentQuoteBalance.toFixed() + ' ' + window.currentQuote);
             }
@@ -36,8 +36,8 @@ function updateBalance() {
         if(typeof(window.currentBaseBalance) === 'undefined')
             $(document).trigger('renderingStage'); // 9
         
-        window.currentBaseBalance = window.BNB(0);
-        window.currentQuoteBalance = window.BNQ(0);
+        window.currentBaseBalance = new BigNumber(0);
+        window.currentQuoteBalance = new BigNumber(0);
         $('#form-base-balance').html('0 ' + window.currentBase);
         $('#form-quote-balance').html('0 ' + window.currentQuote);
     }
@@ -83,60 +83,82 @@ $(document).on('pairSelected', function() {
     });
     
     // One changes another - on prevalidated 
-    $('#form-buy-price').on('prevalidated', function() {
+    $('#form-buy-price, #form-buy-amount').on('prevalidated', function() {
+        var buyPrice = new BigNumber($('#form-buy-price').val());
+        var buyAmount = new BigNumber($('#form-buy-amount').val());
+        
+        var buyTotal = buyAmount.multipliedBy(buyPrice);
+        
         $('#form-buy-total').val(
-            parseFloat($(this).val() * $('#form-buy-amount').val())
-                .toFixed(window.currentQuotePrecision)
-        );
-    });
-    
-    $('#form-buy-amount').on('prevalidated', function() {
-        $('#form-buy-total').val(
-            parseFloat($(this).val() * $('#form-buy-price').val())
-                .toFixed(window.currentBasePrecision)
+            buyTotal.toFixed(window.currentQuotePrecision)
         );
     });
     
     $('#form-buy-total').on('prevalidated', function() {
+        var buyPrice = new BigNumber($('#form-buy-price').val());
+        var buyTotal = new BigNumber($('#form-buy-total').val());
+        
+        var buyAmount = buyTotal.dividedBy(buyPrice);
+        
         $('#form-buy-amount').val(
-            parseFloat($(this).val() / $('#form-buy-price').val())
-                .toFixed(window.currentBasePrecision)
+            buyAmount.toFixed(window.currentBasePrecision)
         );
     });
     
-    $('#form-sell-price').on('prevalidated', function() {
+    $('#form-sell-price, #form-sell-amount').on('prevalidated', function() {
+        var sellPrice = new BigNumber($('#form-sell-price').val());
+        var sellAmount = new BigNumber($('#form-sell-amount').val());
+        
+        var sellTotal = sellAmount.multipliedBy(sellPrice);
+        
         $('#form-sell-total').val(
-            parseFloat($(this).val() * $('#form-sell-amount').val())
-                .toFixed(window.currentQuotePrecision)
-        );
-    });
-    
-    $('#form-sell-amount').on('prevalidated', function() {
-        $('#form-buy-total').val(
-            parseFloat($(this).val() * $('#form-sell-price').val())
-                .toFixed(window.currentBasePrecision)
+            sellTotal.toFixed(window.currentQuotePrecision)
         );
     });
     
     $('#form-sell-total').on('prevalidated', function() {
-        $('#form-sell-total').val(
-            parseFloat($(this).val() / $('#form-sell-price').val())
-                .toFixed(window.currentBasePrecision)
+        var sellPrice = new BigNumber($('#form-sell-price').val());
+        var sellTotal = new BigNumber($('#form-sell-total').val());
+        
+        var sellAmount = sellTotal.dividedBy(sellPrice);
+        
+        $('#form-sell-amount').val(
+            sellAmount.toFixed(window.currentBasePrecision)
         );
     });
             
     // Slider
-    $('#form-sell-range').on('input', function() {
-        $('#form-sell-amount').val(
-            parseFloat($(this).val() / 100 * window.currentBaseBalance)
-                .toFixed(window.currentBasePrecision)
+    $('#form-buy-range').on('input', function() {
+        // Get market price if price not set
+        if($('#form-buy-price').val() == '') {
+            $('#form-buy-price').val(
+                window.currentMarketPrice.toFixed(window.currentQuotePrecision)
+            );
+        }
+        
+        var buyTotal = window.currentQuoteBalance.
+            multipliedBy( $(this).val() ).
+            dividedBy(100);
+        
+        $('#form-buy-total').val(
+            buyTotal.toFixed(window.currentQuotePrecision)
         ).trigger('prevalidated');
     });
-            
-    $('#form-buy-range').on('input', function() {
-        $('#form-buy-total').val(
-            parseFloat($(this).val() / 100 * window.currentQuoteBalance)
-                .toFixed(window.currentQuotePrecision)
+    
+    $('#form-sell-range').on('input', function() {
+        // Get market price if price not set
+        if($('#form-sell-price').val() == '') {
+            $('#form-sell-price').val(
+                window.currentMarketPrice.toFixed(window.currentQuotePrecision)
+            );
+        }
+        
+        var sellAmount = window.currentBaseBalance.
+            multipliedBy( $(this).val() ).
+            dividedBy(100);
+        
+        $('#form-sell-amount').val(
+            sellAmount.toFixed(window.currentBasePrecision)
         ).trigger('prevalidated');
-    });  
+    });
 });

@@ -223,7 +223,7 @@
                             </div>
                             <div class="input-ps-group">
                                 <span>Total</span>
-                                <input id="form-buy-total" type="text" class="form-control">
+                                <input id="form-sell-total" type="text" class="form-control">
                                 <span class="suffix form-quote-suffix"></span>
                             </div>
                             <div>

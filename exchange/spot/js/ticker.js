@@ -30,8 +30,7 @@ $(document).on('prePairSelected', function() {
             window.currentQuote = v.quote;
             window.currentBasePrecision = v.base_precision;
             window.currentQuotePrecision = v.quote_precision;
-            window.BNB = BigNumber.clone({ DECIMAL_PLACES: v.base_precision });
-            window.BNQ = BigNumber.clone({ DECIMAL_PLACES: v.quote_precision });
+            window.currentMarketPrice = new BigNumber(v.price);
             $(document).trigger('pairSelected');
             
             // Document title
