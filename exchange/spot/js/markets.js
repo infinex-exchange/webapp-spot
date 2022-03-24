@@ -1,136 +1,138 @@
-function gotoMarket(base, quote) {
-    window.location.replace('/spot/' + base + '_' + quote);
-}
-
-function filterMarketsByQuoteInternal(q) {
-    $('.markets-item').hide();
-    $('.markets-item[quote=' + q + ']').show();
-    $('.markets-filter-btn').removeClass('active');
-    $('.markets-filter-btn[quote=' + q + ']').addClass('active');
-    window.selectedQuote = q;
+function gotoMarket(pair) {
+    window.location.replace('/spot/' + pair.replace('/', '_'));
 }
 
 function filterMarketsByQuote(q) {
-    filterMarketsByQuoteInternal(q);
-    updateMarketsSub();
-}
-
-function searchMarkets(q) {
-    if(q == '')
-        filterMarketsByQuoteInternal(window.selectedQuote);
-    else {
-        q = q.replace(/[^a-z0-9]/gi, '');
-        q = q.toUpperCase();
-        $('.markets-item').hide();
-        $('.markets-item[base *= "' + q + '"], .markets-item[quote *= "' + q + '"]').show();
-    }
-}
-
-function updateMarketsSub() {
-    if(typeof(window.marketsSub) == 'undefined') {
-        window.marketsSub = [];
-    }
+    window.defaultQuoteFilter = q;
     
-    var sub = [];
-    var unsub = [];
+    delete window.marketsAS.data.search;
+    $('#markets-search').val('');
     
-    $('.markets-item').each(function() {
-        var pair = $(this).attr('name');
-        
-        if($(this).is(':visible')) {
-            if(! window.marketsSub.includes(pair)) {
-                sub.push(pair);
-                window.marketsSub.push(pair);
-            }
-        } else {
-            if(window.marketsSub.includes(pair)) {
-                unsub.push(pair);
-            }
-        }
-    });
+    window.marketsAS.data.quote = q;
+    window.marketsAS.reset();
     
-    console.log({sub: sub, unsub: unsub});
+    $('.markets-filter-btn').removeClass('active');
+    $('.markets-filter-btn[data-quote="' + q + '"]').addClass('active');
 }
 
 $(document).ready(function() {
-    window.renderingStagesTarget = 8;
+    // Set rendering stages target
+    
+    window.renderingStagesTarget = 1; //8
+    
+    // Set DOM event handlers
     
     $('#markets-search').on('input', function() {
-        searchMarkets($(this).val());
+        var query = $(this).val();
+        if(query == '') {
+            filterMarketsByQuote(window.defaultQuoteFilter);
+        }
+        else {
+            $('.markets-filter-btn').removeClass('active');
+            delete window.marketsAS.data.quote;
+            window.marketsAS.data.search = query;
+            window.marketsAS.reset();
+        }  
     });
     
-    /*var timerId;
-    $('#markets-table').on('scroll', function() {
-        clearTimeout(timerId);
-        timerId = setTimeout(function(){
-            updateMarketsSub();          
-        }, 200);
-    });*/
+    // Create AjaxScroll but don't run it
     
+    window.marketsAS = new AjaxScroll(
+        $('#markets-table'),
+        $('#markets-table-preloader'),
+        {},
+        function() {
+            this.data.offset = this.offset;
+            var thisAS = this;
+            
+            //---
     $.ajax({
-        url: config.apiUrl + '/spot/tickers',
+        url: config.apiUrl + '/spot/markets',
         type: 'POST',
-        data: JSON.stringify({}),
+        data: JSON.stringify(thisAS.data),
         contentType: "application/json",
         dataType: "json",
     })
+    .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            $(data.tickers).each(function() {
-                var splitArray = this.name.split('/');
-                this.base = splitArray[0];
-                this.quote = splitArray[1];
-            });
-            
-            window.markets = data.tickers;
-            $(document).trigger('marketsLoaded');
-            
-            var quotes = [];
-            
-            $(window.markets).each(function() {  
-                if(quotes.indexOf(this.quote) == -1) {
-                    quotes.push(this.quote);
-                    $('#markets-quotes').append(`
-                        <a class="markets-filter-btn nav-link" href="#" quote="${this.quote}"
-                        onClick="filterMarketsByQuote('${this.quote}')">${this.quote}</a>
-                    `);
-                }
-                
+            $.each(data.markets, function(k, v) {  
                 var color = '';
-                if(this.change > 0) color = 'text-success';
-                if(this.change < 0) color = 'text-danger';
+                if(v.change > 0) color = 'text-success';
+                if(v.change < 0) color = 'text-danger';
                 
-                $('#markets-table').append(`
-                    <div class="row markets-item" name="${this.name}" base="${this.base}" quote="${this.quote}"
-                    onClick="gotoMarket('${this.base}', '${this.quote}')">
+                thisAS.append(`
+                    <div class="row markets-item" onClick="gotoMarket('${k}')">
                         <div class="col-1">
-                            <img width="16px" height="16px" src="${this.icon}">
+                            <img width="16px" height="16px" src="${v.icon_url}">
                         </div>
                         <div class="col-3">
-                            ${this.base}/${this.quote}
+                            ${k}
                         </div>
                         <div class="col-4 text-end">
-                            ${this.price}
+                            ${v.price}
                         </div>
                         <div class="col-3 text-end">
                             <span class="${color}">
-                                ${this.change}%
+                                ${v.change}%
                             </span>
                         </div>
                     </div>
                 `);
             });
             
-            filterMarketsByQuote(quotes[0]);
+            thisAS.done();
             
-            $(document).trigger('renderingStage'); // 1
+            if(thisAS.offset == 0)
+                $(document).trigger('renderingStage'); // 1
             
+            if(data.markets.length != 25)
+                thisAS.noMoreData(); 
+        }
+        else {
+            msgBoxRedirect(data.error);
+            thisAS.done();
+            thisAS.noMoreData();
         }
     })
-    .fail(function (jqXHR, textStatus, errorThrown) {  
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);
+        thisAS.done();
+        thisAS.noMoreData();  
     });
-});
-
-$(document).onFirst('marketsLoaded', function() {
-    window.multiEvents['marketsLoaded'] = true;
+            //---
+        
+        },
+        false // Don't run it
+    );
+    
+    // Get quotes list, then select first of them and run markets AjaxScroll
+    
+    $.ajax({
+        url: config.apiUrl + '/spot/quotes',
+        type: 'POST',
+        data: JSON.stringify({}),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            $.each(data.quotes, function() {
+                $('#markets-quotes').append(`
+                    <a class="markets-filter-btn nav-link" href="#" data-quote="${this}"
+                        onClick="filterMarketsByQuote('${this}')">${this}</a>
+                `);
+            });
+            
+            // Now it's time to run AjaxScroll
+            filterMarketsByQuote(data.quotes[0]);
+        }
+        else {
+            msgBoxRedirect(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true); 
+    });
 });

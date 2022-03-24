@@ -1,5 +1,5 @@
 class AjaxScroll {
-    constructor(container, preloader, data, callback) {
+    constructor(container, preloader, data, callback, runNow = true) {
         this.container = container;
         this.preloader = preloader;
         this.data = data;
@@ -15,7 +15,7 @@ class AjaxScroll {
             }
         });
         
-        this.reset();
+        if(runNow) this.reset();
     }
     
     work() {

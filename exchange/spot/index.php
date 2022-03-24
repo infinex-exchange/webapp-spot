@@ -5,6 +5,7 @@
         <?php include('../../templates/tradingview.html'); ?>
         <link rel="stylesheet" href="/spot/css/styles.css">
         <script type="text/javascript" src="/spot/js/tv_datafeed.js"></script>
+        <script src="/js/ajax_scroll.js"></script>
     </head>
     <body>
     
@@ -356,6 +357,8 @@
         <!-- / Root container -->    
         </div>
         </div>
+        
+        <?php include('../../templates/modals.html'); ?>
         
         <script type="text/javascript" src="/js/range_value.js"></script>
         <script type="text/javascript" src="/spot/js/markets.js"></script>
