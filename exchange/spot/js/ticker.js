@@ -1,57 +1,62 @@
-$(document).on('marketsLoaded', function() {
+$(document).on('prePairSelected', function() {
+    // Pair from URL
+    
     var pathArray = window.location.pathname.split('/');
     var pathPairName = pathArray[pathArray.length - 1].replace('_', '/');
-    
-    $(window.markets).each(function() {
-        if(this.name == pathPairName) {
-            window.currentPair = this.name;
-        }
-    });
-    if(typeof(window.currentPair) == 'undefined') {
-        window.currentPair = window.markets[0].name;
+    if(pathPairName != 'spot')
+        window.currentPair = pathPairName;
+    else
         window.history.replaceState(null, document.title, '/spot/' + window.currentPair.replace('/', '_'));
-    }
-    
-    var pairExplode = window.currentPair.split('/');
-    window.currentBase = pairExplode[0];
-    window.currentQuote = pairExplode[1];
 
+    // Get extended ticker
+    
     $.ajax({
-        url: config.apiUrl + '/spot/tickers_ex',
+        url: config.apiUrl + '/spot/markets_ex',
         type: 'POST',
         data: JSON.stringify({
-            'query': [window.currentPair]
+            pair: window.currentPair
         }),
         contentType: "application/json",
         dataType: "json",
     })
+    .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            var ticker = data.tickers[0];
+            var k = Object.keys(data.markets)[0];
+            var v = data.markets[k];
             
-            window.currentBasePrecision = ticker.base_precision;
-            window.currentQuotePrecision = ticker.quote_precision;
+            // Global variables and event pairSelected
+            window.currentBase = v.base;
+            window.currentQuote = v.quote;
+            window.currentBasePrecision = v.base_precision;
+            window.currentQuotePrecision = v.quote_precision;
             $(document).trigger('pairSelected');
             
-            document.title = ticker.price + ' | ' + ticker.name + ' | Vayamos Spot';
+            // Document title
+            document.title = v.price + ' | ' + k + ' | Vayamos Spot';
             
-            $('#ticker-name').html(ticker.name);
-            $('#ticker-base-name').html(ticker.base_name);
-            $('#ticker-price').html(ticker.price);
-            $('#ticker-change').html(ticker.change + '%');
-            if(ticker.change < 0) $('#ticker-change').addClass('text-danger');
-            if(ticker.change > 0) $('#ticker-change').addClass('text-success');
-            $('#ticker-high').html(ticker.high);
-            $('#ticker-low').html(ticker.low);
-            $('#ticker-vol-base').html(ticker.vol_base);
-            $('#ticker-vol-quote').html(ticker.vol_quote);
+            // Ticker HTML
+            $('#ticker-name').html(k);
+            $('#ticker-base-name').html(v.base_name);
+            $('#ticker-price').html(v.price);
+            $('#ticker-change').html(v.change + '%');
+            if(v.change < 0) $('#ticker-change').addClass('text-danger');
+            if(v.change > 0) $('#ticker-change').addClass('text-success');
+            $('#ticker-high').html(v.high);
+            $('#ticker-low').html(v.low);
+            $('#ticker-vol-base').html(v.vol_base);
+            $('#ticker-vol-quote').html(v.vol_quote);
             $('#ticker-base-legend').html(window.currentBase);
             $('#ticker-quote-legend').html(window.currentQuote);
             
             $(document).trigger('renderingStage'); // 2
         }
+        else {
+            msgBoxRedirect(data.error);
+        }
     })
-    .fail(function (jqXHR, textStatus, errorThrown) {  
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);  
     });
 });
 

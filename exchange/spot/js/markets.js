@@ -56,7 +56,12 @@ $(document).ready(function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            $.each(data.markets, function(k, v) {  
+            $.each(data.markets, function(k, v) {
+                if(typeof(window.defaultPair) === 'undefined') {
+                    window.currentPair = k;
+                    $(document).trigger('prePairSelected');
+                }
+                  
                 var color = '';
                 if(v.change > 0) color = 'text-success';
                 if(v.change < 0) color = 'text-danger';
