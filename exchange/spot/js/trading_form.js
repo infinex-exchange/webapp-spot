@@ -75,9 +75,34 @@ function postOrder(data) {
     });
 }
 
+function switchOrderType(type) {
+    window.orderType = type;
+    $('.switch-order-type').removeClass('active');
+    $('.switch-order-type[data-type="' + type + '"]').addClass('active');
+    
+    switch(type) {
+        case 'LIMIT':
+            $('#form-buy-price, #form-sell-price').val('').prop('disabled', false);
+            break;
+        case 'MARKET':
+            $('#form-buy-price, #form-sell-price').val('Market').prop('disabled', true);
+            if(window.buyImportant == 'amount') $('#form-buy-total').val('');
+            else $('#form-buy-amount').val('');
+            if(window.sellImportant == 'amount') $('#form-sell-total').val('');
+            else $('#form-sell-amount').val('');
+            break;
+    }
+}
+
 $(document).on('pairSelected', function() {
     // Update balance
     updateBalance();
+    
+    // Select default order type
+    $('.switch-order-type').on('click', function() {
+        switchOrderType($(this).attr('data-type'));
+    });
+    switchOrderType('LIMIT');
     
     // Suffixes
     $('.form-base-suffix').html(window.currentBase);
@@ -133,47 +158,59 @@ $(document).on('pairSelected', function() {
     
     // One changes another - on prevalidated 
     $('#form-buy-price, #form-buy-amount').on('prevalidated', function() {
-        var buyPrice = new BigNumber($('#form-buy-price').val());
-        var buyAmount = new BigNumber($('#form-buy-amount').val());
+        var buyTotalStr = '';
         
-        var buyTotal = buyAmount.multipliedBy(buyPrice);
+        if(window.orderType == 'LIMIT') {
+            var buyPrice = new BigNumber($('#form-buy-price').val());
+            var buyAmount = new BigNumber($('#form-buy-amount').val());
         
-        $('#form-buy-total').val(
-            buyTotal.toFixed(window.currentQuotePrecision)
-        );
+            var buyTotal = buyAmount.multipliedBy(buyPrice);
+            buyTotalStr = buyTotal.toFixed(window.currentQuotePrecision);
+        }
+        
+        $('#form-buy-total').val(buyTotalStr);
     });
     
     $('#form-buy-total').on('prevalidated', function() {
-        var buyPrice = new BigNumber($('#form-buy-price').val());
-        var buyTotal = new BigNumber($('#form-buy-total').val());
+        var buyAmountStr = '';
         
-        var buyAmount = buyTotal.dividedBy(buyPrice);
+        if(window.orderType == 'LIMIT') {        
+            var buyPrice = new BigNumber($('#form-buy-price').val());
+            var buyTotal = new BigNumber($('#form-buy-total').val());
         
-        $('#form-buy-amount').val(
-            buyAmount.toFixed(window.currentBasePrecision)
-        );
+            var buyAmount = buyTotal.dividedBy(buyPrice);
+            buyAmountStr = buyAmount.toFixed(window.currentBasePrecision);
+        }
+        
+        $('#form-buy-amount').val(buyAmountStr);
     });
     
     $('#form-sell-price, #form-sell-amount').on('prevalidated', function() {
-        var sellPrice = new BigNumber($('#form-sell-price').val());
-        var sellAmount = new BigNumber($('#form-sell-amount').val());
+        var sellTotalStr = '';
         
-        var sellTotal = sellAmount.multipliedBy(sellPrice);
+        if(window.orderType == 'LIMIT') {
+            var sellPrice = new BigNumber($('#form-sell-price').val());
+            var sellAmount = new BigNumber($('#form-sell-amount').val());
         
-        $('#form-sell-total').val(
-            sellTotal.toFixed(window.currentQuotePrecision)
-        );
+            var sellTotal = sellAmount.multipliedBy(sellPrice);
+            sellTotalStr = sellTotal.toFixed(window.currentQuotePrecision);
+        }
+        
+        $('#form-sell-total').val(sellTotalStr);
     });
     
     $('#form-sell-total').on('prevalidated', function() {
-        var sellPrice = new BigNumber($('#form-sell-price').val());
-        var sellTotal = new BigNumber($('#form-sell-total').val());
+        var sellAmountStr = '';
         
-        var sellAmount = sellTotal.dividedBy(sellPrice);
+        if(window.orderType == 'LIMIT') {
+            var sellPrice = new BigNumber($('#form-sell-price').val());
+            var sellTotal = new BigNumber($('#form-sell-total').val());
         
-        $('#form-sell-amount').val(
-            sellAmount.toFixed(window.currentBasePrecision)
-        );
+            var sellAmount = sellTotal.dividedBy(sellPrice);
+            sellAmountStr = sellAmount.toFixed(window.currentBasePrecision);
+        }
+        
+        $('#form-sell-amount').val(sellAmountStr);
     });
             
     // Slider
@@ -197,24 +234,70 @@ $(document).on('pairSelected', function() {
         ).trigger('prevalidated');
     });
     
+    // What is important for user - amount or total
+    window.buyImportant = 'total';
+    window.sellImportant = 'amount';
+    
+    $('#form-buy-amount').on('prevalidated', function() {
+        window.buyImportant = 'amount';
+    });
+    
+    $('#form-buy-total').on('prevalidated', function() {
+        window.buyImportant = 'total';
+    });
+    
+    $('#form-sell-amount').on('prevalidated', function() {
+        window.sellImportant = 'amount';
+    });
+    
+    $('#form-sell-total').on('prevalidated', function() {
+        window.sellImportant = 'total';
+    });
+    
     // Submit order
     $('#form-buy-submit').on('click', function() {
-        var data = {
-            side: 'BUY',
-            type: 'LIMIT',
-            amount: $('#form-buy-amount').val(),
-            price: $('#form-buy-price').val()
-        };
+        var data = new Object();
+        
+        data['side'] = 'BUY';
+        data['type'] = window.orderType;
+        
+        switch(window.orderType) {
+            case 'LIMIT':
+                data['price'] = $('#form-buy-price').val();
+                data['amount'] = $('#form-buy-amount').val();
+                break;
+                
+            case 'MARKET':
+                if(window.buyImportant == 'amount')
+                    data['amount'] = $('#form-buy-amount').val();
+                else
+                    data['total'] = $('#form-buy-total').val();
+                break;
+        }
+        
         postOrder(data);
     });
     
     $('#form-sell-submit').on('click', function() {
-        var data = {
-            side: 'SELL',
-            type: 'LIMIT',
-            amount: $('#form-sell-amount').val(),
-            price: $('#form-sell-price').val()
-        };
+        var data = new Object();
+        
+        data['side'] = 'SELL';
+        data['type'] = window.orderType;
+        
+        switch(window.orderType) {
+            case 'LIMIT':
+                data['price'] = $('#form-sell-price').val();
+                data['amount'] = $('#form-sell-amount').val();
+                break;
+                
+            case 'MARKET':
+                if(window.sellImportant == 'amount')
+                    data['amount'] = $('#form-sell-amount').val();
+                else
+                    data['total'] = $('#form-sell-total').val();
+                break;
+        }
+        
         postOrder(data);
     });
 });

@@ -101,6 +101,12 @@ input[type=password], input[type=password]:focus, input[type=text][readonly] {
     font-size: var(--font-2);
 }
 
+.form-control-sm {
+    font-size: var(--font-1) !important;
+}
+
+/* Search input with icon */
+
 .input-search {
     background-image: url('/img/search.svg');
     background-position: 5px 2px;
@@ -108,9 +114,7 @@ input[type=password], input[type=password]:focus, input[type=text][readonly] {
     padding-left: 35px;
 }
 
-.form-control-sm {
-    font-size: var(--font-1) !important;
-}
+/* Input with prefix and suffix */
 
 .input-ps-group {
     display: flex;
@@ -128,6 +132,10 @@ input[type=password], input[type=password]:focus, input[type=text][readonly] {
     flex-grow: 1;
     color: var(--color-highlight);
     text-align: right;
+}
+
+.input-ps-group input:disabled {
+    background-color: var(--color-input);
 }
 
 .input-ps-group .suffix {

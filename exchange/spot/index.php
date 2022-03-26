@@ -170,8 +170,8 @@
             <!-- Trading form -->
             <div class="col-12 ui-card ui-card-ver ui-card-high">
                 <div class="nav font-2">
-                    <a class="nav-link active" href="#">Limit</a>
-                    <a class="nav-link" href="#">Market</a>
+                    <a class="nav-link switch-order-type active" href="#_" data-type="LIMIT">Limit</a>
+                    <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
                 </div>   
                 <div class="row">
                     <div class="col-6">
