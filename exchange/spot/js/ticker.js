@@ -5,8 +5,10 @@ $(document).on('prePairSelected', function() {
     var pathPairName = pathArray[pathArray.length - 1].replace('_', '/');
     if(pathPairName != 'spot')
         window.currentPair = pathPairName;
-    else
+    else {
+        window.currentPair = window.defaultPair;
         window.history.replaceState(null, document.title, '/spot/' + window.currentPair.replace('/', '_'));
+    }
 
     // Get extended ticker
     

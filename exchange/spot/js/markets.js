@@ -58,7 +58,7 @@ $(document).ready(function() {
         if(data.success) {
             $.each(data.markets, function(k, v) {
                 if(typeof(window.defaultPair) === 'undefined') {
-                    window.currentPair = k;
+                    window.defaultPair = k;
                     $(document).trigger('prePairSelected');
                 }
                   
