@@ -13,7 +13,7 @@ function orderBookAppend(side, row) {
     else div = $('#orderbook-sell');
     
     div.append(`
-        <div class="row">
+        <div class="row" data-side="${side}" data-price="${row.price}" onClick="orderBookClick(this)">
             <div class="col-4 ${color}">
                 ${row.price}
             </div>
@@ -25,6 +25,18 @@ function orderBookAppend(side, row) {
             </div>
         </div>
     `);
+}
+
+function orderBookClick(row) {
+    if(window.orderType == 'MARKET') return;
+    
+    if($(row).attr('data-side') == 'bid') {
+        $('#form-sell-price').val($(row).attr('data-price')).trigger('input');
+    }
+    
+    else {
+        $('#form-buy-price').val($(row).attr('data-price')).trigger('input');
+    }
 }
 
 $(document).on('pairSelected', function() {
