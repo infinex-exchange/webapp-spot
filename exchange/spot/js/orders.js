@@ -1,3 +1,29 @@
+function cancelOrder(obid) {
+    $.ajax({
+        url: config.apiUrl + '/spot/cancel_order',
+        type: 'POST',
+        data: JSON.stringify({
+            api_key: window.apiKey,
+            obid: obid
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            // notification
+            setTimeout(updateBalance, 500);
+        }
+        else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false);
+    });
+}
+
 $(document).on('authChecked pairSelected', function() {
     if(typeof(window.multiEvents['authChecked']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
     
@@ -24,36 +50,34 @@ $(document).on('authChecked pairSelected', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            $(data.orders).each(function() {
-                var time = new Date(this.time).toLocaleTimeString();
+            $.each(data.orders, function(k, v) {
+                var time = new Date(v.time * 1000).toLocaleString();
                 $('#orders-open-data').append(`
                     <div class="row">
-                        <div class="col">
+                        <div class="col-1">
                             ${time}
                         </div>
-                        <div class="col">
-                            ${this.pair}
+                        <div class="col-1">
+                            ${v.pair}
                         </div>
-                        <div class="col">
-                            ${this.type}
+                        <div class="col-1">
+                            ${v.type}
                         </div>
-                        <div class="col">
-                            ${this.side}
+                        <div class="col-1">
+                            ${v.side}
                         </div>
-                        <div class="col">
-                            ${this.price}
+                        <div class="col-2">
+                            ${v.price}
                         </div>
-                        <div class="col">
-                            ${this.amount}
+                        <div class="col-2">
+                            ${v.amount}
                         </div>
-                        <div class="col">
-                            ${this.filled}
+                        <div class="col-2">
+                            ${v.filled}
                         </div>
-                        <div class="col">
-                            ${this.total}
-                        </div>
-                        <div class="col">
-                            <i class="fa-solid fa-xmark" onClick="alert(1)"></i>
+                        <div class="col-2">
+                            ${v.total}
+                            <i class="float-end fa-solid fa-xmark" onClick="cancelOrder(${k})"></i>
                         </div>
                     </div>
                 `);
