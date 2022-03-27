@@ -415,3 +415,19 @@ input#select-coin, input#select-net {
 .dropdown-menu {
     background-color: var(--color-background-high);
 }
+
+/* Jumbotron */
+
+.jumbotron h1 {
+    color: var(--color-highlight);
+    font-size: 50px;
+}
+
+.jumbotron p {
+    font-size: 20px;
+}
+
+.jumbotron > * {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
