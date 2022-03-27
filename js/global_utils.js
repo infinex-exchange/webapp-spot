@@ -23,4 +23,13 @@ $( document ).ready(function() {
     document.addEventListener('dblclick', (event) => {
         event.preventDefault()
     }, { passive: false });
+    
+    // Mobile navbar
+    $('.nav-link[data-ui-card]').on('click', function() {
+        $('.ui-card[data-ui-card]').addClass('d-none');
+        $('.ui-card[data-ui-card="' + $(this).attr('data-ui-card') + '"]').removeClass('d-none');
+        $('.nav-link[data-ui-card]').removeClass('active');
+        $('.nav-link[data-ui-card="' + $(this).attr('data-ui-card') + '"]').addClass('active');
+    });
+    $('.nav-link.active[data-ui-card]').trigger('click');
 });

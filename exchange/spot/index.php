@@ -16,19 +16,55 @@
         <!-- Navbar -->
         <?php include('../../templates/navbar.html'); ?>
         
+        <!-- Mobile navbar -->
+        <nav class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0">
+            <ul class="navbar-nav mx-auto text-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-ui-card="markets">
+                        <i class="fa-solid fa-chart-simple"></i><br>
+                        Markets
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-ui-card="trades">
+                        <i class="fa-solid fa-right-left"></i></i><br>
+                        Trades
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-ui-card="chart">
+                        <i class="fa-solid fa-chart-line"></i><br>
+                        Chart
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-ui-card="orderbook">
+                        <i class="fa-solid fa-arrow-up-short-wide"></i><br>
+                        Orderbook
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-ui-card="orders">
+                        <i class="fa-solid fa-user-clock"></i><br>
+                        My orders
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
         <!-- Root container -->
         <div class="container-fluid container-1500 pt-2">
         <div class="row m-0">
         
         <!-- Left column -->
-        <div class="col-12 col-lg-3 p-0 ui-column">
+        <div class="col-12 col-lg-3 p-0 ui-column order-2 order-lg-1">
         <div class="row m-0">
         
             <!-- Markets
                   markets-search - input
                   markets-table - div
             -->
-            <div class="col-12 ui-card ui-card-ver">
+            <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="markets">
                 <form>
                     <div class="form-row">
                         <input id="markets-search" type="text" size="5" placeholder="Search" class="form-control form-control-sm input-search">
@@ -59,7 +95,7 @@
                   trades-market-data - div
                   trades-my-data - div
             -->
-            <div class="col-12 ui-card ui-card-ver">
+            <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="trades">
             
                 <nav>
                 <div class="nav nav-tab nav-deco font-2" role="tablist">
@@ -123,7 +159,7 @@
         <!-- Center column 
               - chart-candles - div
         -->
-        <div class="col-12 col-lg-6 p-0 ui-column">
+        <div class="col-12 col-lg-6 p-0 ui-column order-1 order-lg-2">
         <div class="row m-0">
         
             <!-- Header -->
@@ -162,13 +198,13 @@
             </div>
             
             <!-- TradingView -->
-            <div class="col-12 ui-card ui-card-ver" style="padding: 0px !important">                
+            <div class="col-12 ui-card ui-card-ver d-none d-lg-block" style="padding: 0px !important" data-ui-card="chart">                
                 <div id="chart-candles">
                 </div>
             </div>
             
             <!-- Trading form -->
-            <div class="col-12 ui-card ui-card-ver ui-card-high">
+            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="chart">
                 <div class="nav font-2">
                     <a class="nav-link switch-order-type active" href="#_" data-type="LIMIT">Limit</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
@@ -247,10 +283,10 @@
               - orderbook-sell - div
               - orderbook-buy - div
         -->
-        <div class="col-12 col-lg-3 p-0 ui-column">
+        <div class="col-12 col-lg-3 p-0 ui-column order-3">
         <div class="row m-0">
             
-            <div class="col-12 ui-card ui-card-ver">
+            <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="orderbook">
                 <div class="row">
                     <div class="col-4">
                         <h5>Price</h5>
@@ -278,7 +314,7 @@
                   - orders-open-data - div
                   - orders-history-data - div
             -->
-            <div class="col-12 ui-card ui-column">
+            <div class="col-12 ui-card ui-column d-none d-lg-block order-4" data-ui-card="orders">
             
                 <nav>
                 <div class="nav nav-tab nav-deco font-2" role="tablist">
