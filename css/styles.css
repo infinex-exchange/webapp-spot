@@ -22,6 +22,7 @@ html body {
     color: var(--color-text);
     background-color: var(--color-background);
     height: 100vh;
+    touch-action: pan-x pan-y; /* Fix for user-scallable=no on iOS */
 }
 
 /* Headings */

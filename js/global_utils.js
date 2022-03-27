@@ -18,4 +18,9 @@ $( document ).ready(function() {
             return;
         }
     });
+    
+    // user-scalable=no not works on iOS
+    document.addEventListener('dblclick', (event) => {
+        event.preventDefault()
+    }, { passive: false });
 });
