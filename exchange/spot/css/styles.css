@@ -12,6 +12,18 @@
     height: 360px;
 }
 
+#orderbook-sell .row {
+    background-image: linear-gradient(var(--color-red-light), var(--color-red-light));
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#orderbook-buy .row {
+    background-image: linear-gradient(var(--color-green-light), var(--color-green-light));
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
 #orderbook-sell .row:hover {
     border-top: 1px dashed var(--color-text);  
 }

@@ -4,6 +4,14 @@ function orderBookAppend(side, row) {
     var bnTotal = bnPrice.multipliedBy(bnAmount);
     var strTotal = bnTotal.toFixed(window.currentQuotePrecision);
     
+    if(typeof(window.orderBookTotalMax) === 'undefined')
+        window.orderBookTotalMax = [];
+    
+    if(! (side in window.orderBookTotalMax) || bnTotal > window.orderBookTotalMax[side]) {
+        window.orderBookTotalMax[side] = bnTotal;
+        document.body.style.setProperty('--' + side + '-max', strTotal);
+    }
+    
     var color = '';
     if(side == 'bid') color = 'text-success';
     else color = 'text-danger';
@@ -13,7 +21,8 @@ function orderBookAppend(side, row) {
     else div = $('#orderbook-sell');
     
     div.append(`
-        <div class="row" data-side="${side}" data-price="${row.price}" onClick="orderBookClick(this)">
+        <div class="row" data-side="${side}" data-price="${row.price}" onClick="orderBookClick(this)"
+             style="background-size: calc(${strTotal} / var(--${side}-max) * 100%)">
             <div class="col-4 ${color}">
                 ${row.price}
             </div>
