@@ -1,6 +1,6 @@
 function cancelOrder(obid) {
     $.ajax({
-        url: config.apiUrl + '/spot/cancel_order',
+        url: config.apiUrl + '/spot/open_orders/cancel',
         type: 'POST',
         data: JSON.stringify({
             api_key: window.apiKey,
@@ -77,7 +77,7 @@ $(document).on('authChecked pairSelected', function() {
                         </div>
                         <div class="col-2">
                             ${v.total}
-                            <i class="float-end fa-solid fa-xmark" onClick="cancelOrder(${k})"></i>
+                            <i class="float-end fa-solid fa-xmark" onClick="cancelOrder(${v.obid})"></i>
                         </div>
                     </div>
                 `);
