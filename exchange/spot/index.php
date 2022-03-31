@@ -17,7 +17,7 @@
         <?php include('../../templates/navbar.html'); ?>
         
         <!-- Mobile navbar -->
-        <nav class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0">
+        <nav class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 font-1">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-ui-card="markets">
@@ -35,6 +35,12 @@
                     <a class="nav-link active" href="#" data-ui-card="chart">
                         <i class="fa-solid fa-chart-line"></i><br>
                         Chart
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-ui-card="form">
+                        <i class="fa-solid fa-window-restore"></i><br>
+                        Buy/Sell
                     </a>
                 </li>
                 <li class="nav-item">
@@ -204,13 +210,13 @@
             </div>
             
             <!-- Trading form -->
-            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="chart">
+            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="form">
                 <div class="nav font-2">
                     <a class="nav-link switch-order-type active" href="#_" data-type="LIMIT">Limit</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
                 </div>   
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6 pb-5 pb-lg-0">
                         <form class="font-2 d-grid gap-2">
                             <div class="user-only font-1">
                                 <span>Available:</span>
@@ -241,7 +247,7 @@
                             </div> 
                         </form>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <form class="font-2 d-grid gap-2">
                             <div class="user-only font-1">
                                 <span>Available:</span>
