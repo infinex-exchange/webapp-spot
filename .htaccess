@@ -18,4 +18,4 @@ RewriteRule ^spot/css/([^/]+)$ /exchange/spot/css/$1 [L]
 RewriteRule ^spot/js/([^/]+)$ /exchange/spot/js/$1 [L]
 RewriteRule ^spot/([^/]+)/?$ /exchange/spot/index.php [L]
 
-RewriteRule ^ico/([^/]+)$ /cryptocurrency-icons/64/$1 [L]
+RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]

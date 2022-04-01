@@ -1,3 +1,3 @@
-[submodule "cryptocurrency-icons"]
-	path = cryptocurrency-icons
-	url = https://github.com/vayamos-exchange/cryptocurrency-icons.git
+[submodule "asset-icons"]
+	path = asset-icons
+	url = https://github.com/vayamos-exchange/asset-icons.git
