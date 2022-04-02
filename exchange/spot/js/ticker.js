@@ -43,8 +43,8 @@ $(document).on('prePairSelected', function() {
             $('#ticker-base-name').html(v.base_name);
             $('#ticker-price').html(v.price);
             $('#ticker-change').html(v.change + '%');
-            if(v.change < 0) $('#ticker-change').addClass('text-danger');
-            if(v.change > 0) $('#ticker-change').addClass('text-success');
+            if(v.change < 0) $('#ticker-change').addClass('text-red');
+            if(v.change > 0) $('#ticker-change').addClass('text-green');
             $('#ticker-high').html(v.high);
             $('#ticker-low').html(v.low);
             $('#ticker-vol-base').html(v.vol_base);

@@ -241,8 +241,8 @@
                                 <span class="range-value" for="form-buy-range" suffix="%"></span>
                                 <input id="form-buy-range" type="range" class="form-range" min="0" max="100" step="5" value="0">
                             </div>
-                            <button type="button" id="form-buy-submit" class="btn btn-success btn-block user-only">BUY</button>
-                            <div class="guest-only font-1 border border-success rounded p-2 text-center">
+                            <button type="button" id="form-buy-submit" class="btn bg-green btn-block user-only">BUY</button>
+                            <div class="guest-only font-1 border border-green rounded p-2 text-center">
                                 <a class="link-ultra" href="#" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div> 
                         </form>
@@ -272,8 +272,8 @@
                                 <span class="range-value" for="form-sell-range" suffix="%"></span>
                                 <input id="form-sell-range" type="range" class="form-range" min="0" max="100" step="5" value="0">
                             </div>
-                            <button type="button" id="form-sell-submit" class="btn btn-danger btn-block user-only">SELL</button>
-                            <div class="guest-only font-1 border border-danger rounded p-2 text-center">
+                            <button type="button" id="form-sell-submit" class="btn bg-red btn-block user-only">SELL</button>
+                            <div class="guest-only font-1 border border-red rounded p-2 text-center">
                                 <a class="link-ultra" href="#" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div> 
                         </form>

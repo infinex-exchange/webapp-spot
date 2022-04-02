@@ -16,8 +16,8 @@ $(document).ready(function() {
         if(data.success) {
             $.each(data.markets, function(k, v) {   
                 var color = '';
-                if(v.change > 0) color = 'text-success';
-                if(v.change < 0) color = 'text-danger';
+                if(v.change > 0) color = 'text-green';
+                if(v.change < 0) color = 'text-red';
                 
                 $('#market-trend-spot-data').append(`
                     <div class="row p-2 hoverable">

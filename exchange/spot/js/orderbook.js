@@ -13,8 +13,8 @@ function orderBookAppend(side, row) {
     }
     
     var color = '';
-    if(side == 'bid') color = 'text-success';
-    else color = 'text-danger';
+    if(side == 'bid') color = 'text-green';
+    else color = 'text-red';
     
     var div = null
     if(side == 'bid') div = $('#orderbook-buy');

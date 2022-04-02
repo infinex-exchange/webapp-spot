@@ -63,8 +63,8 @@ $(document).ready(function() {
                 }
                   
                 var color = '';
-                if(v.change > 0) color = 'text-success';
-                if(v.change < 0) color = 'text-danger';
+                if(v.change > 0) color = 'text-green';
+                if(v.change < 0) color = 'text-red';
                 
                 thisAS.append(`
                     <div class="row markets-item" onClick="gotoMarket('${k}')">

@@ -431,3 +431,33 @@ input#select-coin, input#select-net {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+/* Trading colors */
+
+.text-green {
+    color: var(--color-green);
+}
+
+.text-red {
+    color: var(--color-red);
+}
+
+.bg-green {
+    background-color: var(--color-green);
+}
+
+.bg-red {
+    background-color: var(--color-red);
+}
+
+.border-green {
+    border-color: var(--color-green);
+}
+
+.border-red {
+    border-color: var(--color-red);
+}
+
+.btn.bg-green, .btn.bg-red {
+    color: var(--color-highlight);
+}

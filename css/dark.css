@@ -8,8 +8,10 @@
     --color-border: rgb(40, 40, 40);
     --color-input: rgb(40, 45, 50);
     --color-ultra: rgb(55, 113, 200);
-    --color-red-light: rgb(65,11,17);
-    --color-green-light: rgb(10,52,33);
+    --color-green: rgb(38, 166, 154);
+    --color-green-light: rgb(23, 46, 49);
+    --color-red: rgb(239, 83, 80);
+    --color-red-light: rgb(53, 34, 38);
 }
 
 .body-background {
