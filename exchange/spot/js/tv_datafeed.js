@@ -1,5 +1,5 @@
 const tvConfigurationData = {
-    supported_resolutions: ['1', '3', '5', '15', '30', '60', '120', '240', '360', '480', '720', '1D', '3D', '1W', '1M']
+    supported_resolutions: ['1', '3', '5', '15', '30', '60', '120', '240', '360', '480', '720', 'D', '3D', '1W', '1M']
 };
 
 class TvDatafeed {
@@ -34,11 +34,11 @@ class TvDatafeed {
   
     static getBars(symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) {  
         $.ajax({
-            url: config.apiUrl + '/spot/klines',
+            url: config.apiUrl + '/spot/candlestick',
             type: 'POST',
             data: JSON.stringify({
-                pair: symbolInfo.base_name,
-                resolution: resolution,
+                pair: symbolInfo.base_name[0],
+                res: resolution,
                 from: from,
                 to: to
             }),
@@ -46,10 +46,17 @@ class TvDatafeed {
             dataType: "json",
         })
         .done(function (data) {
-            if(data.success) {    
-                onHistoryCallback(data.klines, { noData: false });
+            if(data.success) {
+                for(var i = 0; i < data.candlestick.length; i++) {
+                    data.candlestick[i].time *= 1000;
+                    data.candlestick[i].open = parseFloat(data.candlestick[i].open);
+                    data.candlestick[i].low = parseFloat(data.candlestick[i].low);
+                    data.candlestick[i].high = parseFloat(data.candlestick[i].high);
+                    data.candlestick[i].close = parseFloat(data.candlestick[i].close);
+                }    
+                onHistoryCallback(data.candlestick, { noData: (i == 0) });
             } else {
-                onErrorCalback(data.error);
+                onErrorCallback(data.error);
             }
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
