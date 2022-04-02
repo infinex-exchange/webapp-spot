@@ -52,7 +52,7 @@ $(document).on('authChecked pairSelected', function() {
         if(data.success) {
             $.each(data.orders, function(k, v) {
                 var time = new Date(v.time * 1000).toLocaleString();
-                $('#orders-open-data').append(`
+                thisAS.append(`
                     <div class="row">
                         <div class="col-1">
                             ${time}
@@ -121,7 +121,7 @@ $(document).on('authChecked pairSelected', function() {
             if(data.success) {    
                 $(data.orders).each(function() {
                     var time = new Date(this.time).toLocaleTimeString();
-                    $('#orders-history-data').append(`    
+                    thisAS.append(`    
                         <div class="row">
                             <div class="col">
                                 ${time}
