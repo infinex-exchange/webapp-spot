@@ -7,7 +7,7 @@ function orderBookAppend(side, row) {
     if(typeof(window.orderBookTotalMax) === 'undefined')
         window.orderBookTotalMax = [];
     
-    if(! (side in window.orderBookTotalMax) || bnTotal > window.orderBookTotalMax[side]) {
+    if(! (side in window.orderBookTotalMax) || bnTotal.gt(window.orderBookTotalMax[side])) {
         window.orderBookTotalMax[side] = bnTotal;
         document.body.style.setProperty('--' + side + '-max', strTotal);
     }
