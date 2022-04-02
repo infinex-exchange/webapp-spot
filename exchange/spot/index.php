@@ -175,7 +175,7 @@
             </div>
                 
             <div class="col-9 ui-card ui-card-hor">
-                <div class="row flex-nowrap font-1">
+                <div class="row flex-nowrap overflow-hidden font-1">
                     <div class="col-auto">
                         Price
                         <span id="ticker-price" class="text-hi d-block"></span>
