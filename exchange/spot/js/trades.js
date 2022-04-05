@@ -22,6 +22,7 @@ $(document).on('authChecked pairSelected', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
+            data.trades = data.trades.reverse();
             $(data.trades).each(function() {
                 var time = new Date(this.time * 1000).toLocaleTimeString();
                 thisAS.append(`
