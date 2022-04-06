@@ -54,14 +54,11 @@ $(document).on('authChecked pairSelected', function() {
                 var time = new Date(v.time * 1000).toLocaleString();
                 thisAS.append(`
                     <div class="row">
-                        <div class="col-1">
+                        <div class="col-2">
                             ${time}
                         </div>
                         <div class="col-1">
                             ${v.pair}
-                        </div>
-                        <div class="col-1">
-                            ${v.type}
                         </div>
                         <div class="col-1">
                             ${v.side}
