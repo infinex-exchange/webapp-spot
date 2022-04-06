@@ -400,6 +400,7 @@
         <?php include('../../templates/modals.html'); ?>
         
         <script type="text/javascript" src="/js/range_value.js"></script>
+        <script type="text/javascript" src="/spot/js/streams.js"></script>
         <script type="text/javascript" src="/spot/js/markets.js"></script>
         <script type="text/javascript" src="/spot/js/tradingview.js"></script>
         <script type="text/javascript" src="/spot/js/ticker.js"></script>

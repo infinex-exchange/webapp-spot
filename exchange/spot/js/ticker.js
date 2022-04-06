@@ -1,3 +1,19 @@
+function liveTicker(data) {
+    // Document title
+    document.title = data.price + ' | ' + window.currentPair + ' | Vayamos Spot';
+    
+    // Ticker HTML
+    $('#ticker-price').html(data.price);
+    $('#ticker-change').html(data.change + '%');
+    $('#ticker-change').removeClass('text-red text-green');
+    if(data.change < 0) $('#ticker-change').addClass('text-red');
+    if(data.change > 0) $('#ticker-change').addClass('text-green');
+    $('#ticker-high').html(data.high);
+    $('#ticker-low').html(data.low);
+    $('#ticker-vol-base').html(data.vol_base);
+    $('#ticker-vol-quote').html(data.vol_quote);
+}
+
 $(document).on('prePairSelected', function() {
     // Pair from URL
     
@@ -35,22 +51,25 @@ $(document).on('prePairSelected', function() {
             window.currentMarketPrice = new BigNumber(v.price);
             $(document).trigger('pairSelected');
             
-            // Document title
-            document.title = v.price + ' | ' + k + ' | Vayamos Spot';
-            
             // Ticker HTML
             $('#ticker-name').html(k);
             $('#ticker-base-name').html(v.base_name);
-            $('#ticker-price').html(v.price);
-            $('#ticker-change').html(v.change + '%');
-            if(v.change < 0) $('#ticker-change').addClass('text-red');
-            if(v.change > 0) $('#ticker-change').addClass('text-green');
-            $('#ticker-high').html(v.high);
-            $('#ticker-low').html(v.low);
-            $('#ticker-vol-base').html(v.vol_base);
-            $('#ticker-vol-quote').html(v.vol_quote);
             $('#ticker-base-legend').html(window.currentBase);
             $('#ticker-quote-legend').html(window.currentQuote);
+            
+            // Rest of data
+            liveTicker(v);
+            
+            // Subscribe to live events
+            window.wsClient.sub(
+                window.currentPair + '@tickerEx',
+                function(data) {
+                    liveTicker(data);
+                },
+                function(error) {
+                    msgBoxRedirect(error);
+                }
+            );
             
             $(document).trigger('renderingStage'); // 2
         }

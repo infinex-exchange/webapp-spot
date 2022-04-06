@@ -15,11 +15,7 @@ function filterMarketsByQuote(q) {
     $('.markets-filter-btn[data-quote="' + q + '"]').addClass('active');
 }
 
-$(document).ready(function() {
-    // Set rendering stages target
-    
-    window.renderingStagesTarget = 7; //9
-    
+$(document).on('wsConnected', function() {   
     // Set DOM event handlers
     
     $('#markets-search').on('input', function() {
