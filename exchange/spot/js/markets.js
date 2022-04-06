@@ -56,12 +56,7 @@ $(document).ready(function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            $.each(data.markets, function(k, v) {
-                if(typeof(window.defaultPair) === 'undefined') {
-                    window.defaultPair = k;
-                    $(document).trigger('prePairSelected');
-                }
-                  
+            $.each(data.markets, function(k, v) {  
                 var color = '';
                 if(v.change > 0) color = 'text-green';
                 if(v.change < 0) color = 'text-red';
@@ -111,10 +106,10 @@ $(document).ready(function() {
         false // Don't run it
     );
     
-    // Get quotes list, then select first of them and run markets AjaxScroll
+    // Get quotes orders and default pair
     
     $.ajax({
-        url: config.apiUrl + '/spot/quotes',
+        url: config.apiUrl + '/spot/config',
         type: 'POST',
         data: JSON.stringify({}),
         contentType: "application/json",
@@ -129,6 +124,9 @@ $(document).ready(function() {
                         onClick="filterMarketsByQuote('${this}')">${this}</a>
                 `);
             });
+            
+            window.defaultPair = data.default_pair;
+            $(document).trigger('prePairSelected');
             
             // Now it's time to run AjaxScroll
             filterMarketsByQuote(data.quotes[0]);
