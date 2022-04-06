@@ -65,8 +65,32 @@ class TvDatafeed {
     };
   
     static subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) {
+        window.tradingViewSubscription = window.currentPair + '@candleStick/' + resolution;
+        
+        window.wsClient.sub(
+            window.currentPair + '@candleStick/' + resolution,
+            function(data) {
+                onRealtimeCallback({
+                    time: data.time *= 1000,
+                    open: parseFloat(data.open),
+                    high: parseFloat(data.high),
+                    low: parseFloat(data.low),
+                    close: parseFloat(data.close),
+                    volume: 0
+                });
+            },
+            function(error) {
+                msgBoxRedirect(error);
+            }
+        );
     };
   
     static unsubscribeBars(subscriberUID) {
+        window.wsClient.unsub(
+            window.tradingViewSubscription,
+            function(error) {
+                msgBoxRedirect(error);
+            }
+        );
     };
 };
