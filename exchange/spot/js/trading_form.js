@@ -54,7 +54,7 @@ function postOrder(data) {
         pair: window.currentPair
     });
     $.ajax({
-        url: config.apiUrl + '/spot/order',
+        url: config.apiUrl + '/spot/open_orders/new',
         type: 'POST',
         data: JSON.stringify(data),
         contentType: "application/json",
