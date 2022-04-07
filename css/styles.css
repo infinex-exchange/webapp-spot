@@ -451,11 +451,11 @@ input#select-coin, input#select-net {
 }
 
 .border-green {
-    border-color: var(--color-green);
+    border-color: var(--color-green) !important;
 }
 
 .border-red {
-    border-color: var(--color-red);
+    border-color: var(--color-red) !important;
 }
 
 .btn.bg-green, .btn.bg-red {
