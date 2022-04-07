@@ -42,6 +42,10 @@ function liveMarketItem(pair, data) {
 }
 
 $(document).on('wsConnected', function() {   
+    // Set rendering stages target
+    
+    window.renderingStagesTarget = 7; //9
+    
     // Set DOM event handlers
     
     $('#markets-search').on('input', function() {

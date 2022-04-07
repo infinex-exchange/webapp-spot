@@ -64,8 +64,8 @@ class StreamsClient {
         var id = t.randomId();
                 
         for(var stream in t.subDb) {
-            if(t.subDb[stream]['status'] == 'sub' || t.subDb[stream]['status'] == 'wait_sub') {
-                t.subDb[stream]['status'] = 'wait_sub';
+            if(t.subDb[stream]['status'] == 'sub' || t.subDb[stream]['status'] == 'sub_wait') {
+                t.subDb[stream]['status'] = 'sub_wait';
                 t.subDb[stream]['id'] = id;
             }
             else {
