@@ -411,6 +411,10 @@
         </div>
         </div>
         
+        <!-- Don't hide content behind mobile menu and status bar -->
+        <div style="height: 26px" class="d-none d-lg-block"></div>
+        <div style="height: 52px" class="d-block d-lg-none"></div>
+        
         <?php include('../../templates/modals.html'); ?>
         
         <script type="text/javascript" src="/js/range_value.js"></script>
