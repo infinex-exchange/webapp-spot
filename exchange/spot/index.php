@@ -225,7 +225,7 @@
             </div>
             
             <!-- Trading form -->
-            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="form">
+            <div class="col-12 ui-card ui-card-ver ui-card-high d-lg-block" data-ui-card="form">
                 <div class="nav font-2">
                     <a class="nav-link switch-order-type active" href="#_" data-type="LIMIT">Limit</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
