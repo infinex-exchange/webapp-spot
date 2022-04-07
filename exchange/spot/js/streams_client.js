@@ -4,6 +4,7 @@ class StreamsClient {
         this.onOpen = onOpen;
         this.onClose = onClose;
         this.subDb = new Array();
+        this.good = false;
     }
     
     open() {
@@ -18,56 +19,61 @@ class StreamsClient {
             
             if(t.onOpen != null)
                 t.onOpen();
+            
+            t.good = true;
+            
+            var streams = new Array();
+            var i = 0;
+            for(var stream in t.subDb) {
+                streams.push(stream);
+                i++;
+            }
+            
+            if(i > 0) {
+                t.send({
+                    op: 'sub',
+                    streams: streams,
+                    id: t.subDb[streams[0]]['id']
+                });
+            }
         }
         
         t.ws.onclose = function(e) {
+            t.good = false;
+            
+            clearTimeout(t.pingTimeout);
             clearInterval(t.pingInterval);
             
             if(t.onClose != null)
                 t.onClose();
+            
+            setTimeout(function() {
+                t.reconnect();
+            }, 1000);
         }
         
         t.ws.onmessage = function(e) {
-            //console.log('RECV: ' + e.data);
             var msg = JSON.parse(e.data);
             t.process(msg);
         }
     }
     
-    close() {
-        clearTimeout(this.pingTimeout);
-        clearInterval(this.pingInterval);
-        this.ws.close();
-    }
-    
     reconnect() {
         var t = this;
         
-        t.close();
-        
         var id = t.randomId();
                 
-        if(t.subDb.count > 0) {
-            for(var stream in t.subDb) {
-                if(t.subDb[stream]['status'] == 'sub' || t.subDb[stream]['status'] == 'wait_sub') {
-                    t.subDb[index]['status'] = 'wait_sub';
-                    t.subDb[index]['id'] = id;
-                }
-                else {
-                    delete t.subDb[index];
-                }
+        for(var stream in t.subDb) {
+            if(t.subDb[stream]['status'] == 'sub' || t.subDb[stream]['status'] == 'wait_sub') {
+                t.subDb[stream]['status'] = 'wait_sub';
+                t.subDb[stream]['id'] = id;
+            }
+            else {
+                delete t.subDb[stream];
             }
         }
         
         t.open();
-        
-        if(t.subDb.count > 0) {
-            t.send({
-                op: 'sub',
-                streams: t.subDb.keys(),
-                id: id
-            });
-        }
     }
     
     ping() {
@@ -75,7 +81,7 @@ class StreamsClient {
         
         clearTimeout(t.pingTimeout);
         t.pingTimeout = setTimeout(function() {
-            t.reconnect();
+            t.ws.close();
         }, 1000);
         
         t.pingId = t.randomId();
@@ -88,7 +94,6 @@ class StreamsClient {
     
     send(obj) {
         this.ws.send(JSON.stringify(obj));
-        //console.log('SEND: ' + JSON.stringify(obj));
     }
     
     randomId() {
@@ -159,7 +164,7 @@ class StreamsClient {
             t.subDb[stream] = dbEntry;
         });
         
-        t.send({
+        if(t.good) t.send({
             op: 'sub',
             streams: streams,
             id: id
@@ -180,7 +185,7 @@ class StreamsClient {
             t.subDb[stream]['id'] = id;
         });
         
-        t.send({
+        if(t.good) t.send({
             op: 'unsub',
             streams: streams,
             id: id
