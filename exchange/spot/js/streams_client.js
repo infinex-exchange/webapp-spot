@@ -129,7 +129,7 @@ class StreamsClient {
                     
                     else if(t.subDb[stream]['status'] == 'unsub_wait') {
                         delete t.subDb[stream];
-                        if(!errorCalled) {
+                        if(!msg.success && !errorCalled) {
                             t.subDb[stream]['errorCallback'](msg.error);
                             errorCalled = true;
                         }
