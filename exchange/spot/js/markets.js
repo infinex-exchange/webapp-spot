@@ -9,10 +9,36 @@ function filterMarketsByQuote(q) {
     $('#markets-search').val('');
     
     window.marketsAS.data.quote = q;
-    window.marketsAS.reset();
+    resetMarkets();
     
     $('.markets-filter-btn').removeClass('active');
     $('.markets-filter-btn[data-quote="' + q + '"]').addClass('active');
+}
+
+function resetMarkets() {
+    var unsub = new Array();
+    $('.markets-item').each(function() {
+        unsub.push( $(this).attr('data-pair') + '@ticker' );
+    });
+    window.wsClient.unsub(
+        unsub,
+        function(error) {
+            msgBoxRedirect(error);
+        }
+    );
+    window.marketsAS.reset();
+}
+
+function liveMarketItem(pair, data) {
+    var div = $('.markets-item[data-pair="' + pair + '"]');
+    div.find('.price').html(data.price);
+    var changeDiv = div.find('.change');
+    var color = '';
+    if(data.change > 0) color = 'text-green';
+    if(data.change < 0) color = 'text-red';
+    changeDiv.removeClass('text-green text-red');
+    changeDiv.html(data.change + '%');
+    changeDiv.addClass(color);
 }
 
 $(document).on('wsConnected', function() {   
@@ -27,7 +53,7 @@ $(document).on('wsConnected', function() {
             $('.markets-filter-btn').removeClass('active');
             delete window.marketsAS.data.quote;
             window.marketsAS.data.search = query;
-            window.marketsAS.reset();
+            resetMarkets();
         }  
     });
     
@@ -53,28 +79,34 @@ $(document).on('wsConnected', function() {
     .done(function (data) {
         if(data.success) {
             $.each(data.markets, function(k, v) {  
-                var color = '';
-                if(v.change > 0) color = 'text-green';
-                if(v.change < 0) color = 'text-red';
-                
                 thisAS.append(`
-                    <div class="row markets-item" onClick="gotoMarket('${k}')">
+                    <div class="row markets-item" onClick="gotoMarket('${k}')" data-pair="${k}">
                         <div class="col-1">
                             <img width="16px" height="16px" src="${v.icon_url}">
                         </div>
                         <div class="col-3">
                             ${k}
                         </div>
-                        <div class="col-4 text-end">
-                            ${v.price}
+                        <div class="col-4 text-end price">
                         </div>
                         <div class="col-3 text-end">
-                            <span class="${color}">
-                                ${v.change}%
+                            <span class="change">
                             </span>
                         </div>
                     </div>
                 `);
+                
+                liveMarketItem(k, v);
+                
+                window.wsClient.sub(
+                    k + '@ticker',
+                    function(data) {
+                        liveMarketItem(k, data);
+                    },
+                    function(error) {
+                        msgBoxRedirect(error);
+                    }
+                );
             });
             
             thisAS.done();
