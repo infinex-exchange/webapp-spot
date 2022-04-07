@@ -44,4 +44,8 @@ class AjaxScroll {
     append(elem) {
         $(this.container).append(elem);
     }
+    
+    prepend(elem) {
+        $(this.container).prepend(elem);
+    }
 }
