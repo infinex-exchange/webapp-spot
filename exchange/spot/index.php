@@ -59,6 +59,20 @@
             </ul>
         </nav>
         
+        <!-- Status bar -->
+        <nav class="navbar fixed-bottom navbar-expand status-bar d-none d-lg-flex py-1 px-2 font-1">
+            <ul class="navbar-nav">
+                <li class="streaming-good text-success nav-item">
+                    <i class="fas fa-sync fa-spin"></i>
+                    Streaming data
+                </li>
+                <li class="streaming-bad text-danger nav-item">
+                    <i class="fa-solid fa-bolt fa-beat"></i>
+                    Connection lost
+                </li>
+            </ul>
+        </nav>
+        
         <!-- Root container -->
         <div class="container-fluid container-1500 pt-2">
         <div class="row m-0">

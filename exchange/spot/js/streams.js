@@ -12,17 +12,15 @@ $(document).ready(function() {
                 $(document).trigger('renderingStage'); // 10
                 $(document).trigger('wsConnected');
             }
-            else {
-                // hide no connection notification
-            }
+            $('.streaming-bad').hide();
+            $('.streaming-good').show();
         },
         function() {
             if(typeof(window.multiEvents['wsConnected']) == 'undefined') {
                 msgBoxNoConn(true);
             }
-            else {
-                // indicate no connection
-            }
+            $('.streaming-good').hide();
+            $('.streaming-bad').show();
         }
     );
     
