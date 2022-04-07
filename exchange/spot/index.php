@@ -21,37 +21,37 @@
         <nav class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 font-1">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-ui-card="markets">
+                    <a class="nav-link" href="#_" data-ui-card="markets">
                         <i class="fa-solid fa-chart-simple"></i><br>
                         Markets
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-ui-card="trades">
+                    <a class="nav-link" href="#_" data-ui-card="trades">
                         <i class="fa-solid fa-right-left"></i></i><br>
                         Trades
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#" data-ui-card="chart">
+                    <a class="nav-link active" href="#_" data-ui-card="chart">
                         <i class="fa-solid fa-chart-line"></i><br>
                         Chart
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-ui-card="form">
+                    <a class="nav-link" href="#_" data-ui-card="form">
                         <i class="fa-solid fa-window-restore"></i><br>
                         Buy/Sell
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-ui-card="orderbook">
+                    <a class="nav-link" href="#_" data-ui-card="orderbook">
                         <i class="fa-solid fa-arrow-up-short-wide"></i><br>
                         Orderbook
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-ui-card="orders">
+                    <a class="nav-link" href="#_" data-ui-card="orders">
                         <i class="fa-solid fa-user-clock"></i><br>
                         My orders
                     </a>
@@ -120,8 +120,8 @@
             
                 <nav>
                 <div class="nav nav-tab nav-deco font-2" role="tablist">
-                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#trades-market" href="#" role="tab" aria-controls="trades-market" aria-selected="true">Market trades</a>
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#trades-my" href="#" role="tab" aria-controls="trades-my" aria-selected="false">My trades</a>
+                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#trades-market" href="#_" role="tab" aria-controls="trades-market" aria-selected="true">Market trades</a>
+                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#trades-my" href="#_" role="tab" aria-controls="trades-my" aria-selected="false">My trades</a>
                 </div>
                 </nav>
                 
@@ -162,7 +162,7 @@
                         
                         <div id="trades-my-data" class="scrollable font-1">
                             <div class="guest-only m-auto">
-                                <a class="link-ultra" href="#" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
+                                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div>  
                         </div>
                     
@@ -258,7 +258,7 @@
                             </div>
                             <button type="button" id="form-buy-submit" class="btn bg-green btn-block user-only">BUY</button>
                             <div class="guest-only font-1 border border-green rounded p-2 text-center">
-                                <a class="link-ultra" href="#" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
+                                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div> 
                         </form>
                     </div>
@@ -289,7 +289,7 @@
                             </div>
                             <button type="button" id="form-sell-submit" class="btn bg-red btn-block user-only">SELL</button>
                             <div class="guest-only font-1 border border-red rounded p-2 text-center">
-                                <a class="link-ultra" href="#" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
+                                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div> 
                         </form>
                     </div>
@@ -339,8 +339,8 @@
             
                 <nav>
                 <div class="nav nav-tab nav-deco font-2" role="tablist">
-                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#orders-open" href="#" role="tab" aria-controls="orders-open" aria-selected="true">Open orders</a>
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#orders-history" href="#" role="tab" aria-controls="orders-history" aria-selected="false">Order history</a>
+                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#orders-open" href="#_" role="tab" aria-controls="orders-open" aria-selected="true">Open orders</a>
+                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#orders-history" href="#_" role="tab" aria-controls="orders-history" aria-selected="false">Order history</a>
                 </div>
                 </nav>
                 
@@ -374,7 +374,7 @@
                         
                         <div id="orders-open-data" class="scrollable font-1 d-flex">
                             <div class="guest-only m-auto">
-                                <a class="link-ultra" href="#" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
+                                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div>  
                         </div>
                         
@@ -396,7 +396,7 @@
                         
                         <div id="orders-history-data" class="scrollable font-1 d-flex">
                             <div class="guest-only m-auto">
-                                <a class="link-ultra" href="#" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
+                                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div>    
                         </div>
                     

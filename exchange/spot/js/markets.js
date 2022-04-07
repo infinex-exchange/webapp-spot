@@ -152,7 +152,7 @@ $(document).on('wsConnected', function() {
         if(data.success) {
             $.each(data.quotes, function() {
                 $('#markets-quotes').append(`
-                    <a class="markets-filter-btn nav-link" href="#" data-quote="${this}"
+                    <a class="markets-filter-btn nav-link" href="#_" data-quote="${this}"
                         onClick="filterMarketsByQuote('${this}')">${this}</a>
                 `);
             });
