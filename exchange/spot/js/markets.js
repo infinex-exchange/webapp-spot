@@ -17,10 +17,12 @@ function filterMarketsByQuote(q) {
 
 function resetMarkets() {
     var unsub = new Array();
+    var i = 0;
     $('.markets-item').each(function() {
         unsub.push( $(this).attr('data-pair') + '@ticker' );
+        i++;
     });
-    window.wsClient.unsub(
+    if(i > 0) window.wsClient.unsub(
         unsub,
         function(error) {
             msgBoxRedirect(error);
