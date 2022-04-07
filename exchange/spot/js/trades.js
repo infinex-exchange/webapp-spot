@@ -1,3 +1,20 @@
+function renderTradesItem(data) {
+    var time = new Date(data.time * 1000).toLocaleTimeString();
+    return `
+        <div class="row">
+            <div class="col-4">
+                ${data.price}
+            </div>
+            <div class="col-4 text-end">
+                ${data.amount}
+            </div>
+            <div class="col-4 text-end">
+                ${time}
+            </div>
+        </div>
+    `;
+}
+
 $(document).on('authChecked pairSelected', function() {
     if(typeof(window.multiEvents['authChecked']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
     
@@ -22,28 +39,25 @@ $(document).on('authChecked pairSelected', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            data.trades = data.trades.reverse();
             $(data.trades).each(function() {
-                var time = new Date(this.time * 1000).toLocaleTimeString();
-                thisAS.append(`
-                    <div class="row">
-                        <div class="col-4">
-                            ${this.price}
-                        </div>
-                        <div class="col-4 text-end">
-                            ${this.amount}
-                        </div>
-                        <div class="col-4 text-end">
-                            ${time}
-                        </div>
-                    </div>
-                `);
+                thisAS.append(renderTradesItem(this));
             });
             
             thisAS.done();
             
-            if(thisAS.offset == 0)
+            if(thisAS.offset == 0) {
+                window.wsClient.sub(
+                    window.currentPair + '@marketTrade',
+                    function(data) {
+                        thisAS.prepend(renderTradesItem(data));
+                    },
+                    function(error) {
+                        msgBoxRedirect(error);
+                    }
+                );
+                
                 $(document).trigger('renderingStage'); // 3
+            }
             
             if(data.trades.length != 25)
                 thisAS.noMoreData(); 

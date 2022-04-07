@@ -1,6 +1,6 @@
-/* Reverse orderbook and trades */
+/* Reverse orderbook */
 
-#orderbook-buy, #trades-market-data, #trades-my-data {
+#orderbook-buy {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
