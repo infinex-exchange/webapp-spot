@@ -21,7 +21,7 @@ class TvDatafeed {
             exchange: '',
             minmov: 1,
             pricescale: 100,
-            has_intraday: false,
+            has_intraday: true,
             has_no_volume: true,
             has_weekly_and_monthly: false,
             supported_resolutions: tvConfigurationData.supported_resolutions,
