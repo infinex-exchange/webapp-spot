@@ -54,7 +54,7 @@ class TvDatafeed {
                     data.candlestick[i].high = parseFloat(data.candlestick[i].high);
                     data.candlestick[i].low = parseFloat(data.candlestick[i].low);
                     data.candlestick[i].close = parseFloat(data.candlestick[i].close);
-                    data.canclestick[i].volume = parseFloat(data.candlestick[i].volume);
+                    data.candlestick[i].volume = parseFloat(data.candlestick[i].volume);
                 }    
                 onHistoryCallback(data.candlestick, { noData: (i == 0) });
             } else {
