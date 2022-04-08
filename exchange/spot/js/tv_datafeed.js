@@ -51,9 +51,10 @@ class TvDatafeed {
                 for(var i = 0; i < data.candlestick.length; i++) {
                     data.candlestick[i].time *= 1000;
                     data.candlestick[i].open = parseFloat(data.candlestick[i].open);
-                    data.candlestick[i].low = parseFloat(data.candlestick[i].low);
                     data.candlestick[i].high = parseFloat(data.candlestick[i].high);
+                    data.candlestick[i].low = parseFloat(data.candlestick[i].low);
                     data.candlestick[i].close = parseFloat(data.candlestick[i].close);
+                    data.canclestick[i].volume = parseFloat(data.candlestick[i].volume);
                 }    
                 onHistoryCallback(data.candlestick, { noData: (i == 0) });
             } else {
@@ -77,7 +78,7 @@ class TvDatafeed {
                     high: parseFloat(data.high),
                     low: parseFloat(data.low),
                     close: parseFloat(data.close),
-                    volume: 0
+                    volume: parseFloat(data.volume)
                 });
             },
             function(error) {
