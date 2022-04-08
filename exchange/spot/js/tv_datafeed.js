@@ -27,13 +27,16 @@ class TvDatafeed {
             has_weekly_and_monthly: false,
             supported_resolutions: tvConfigurationData.supported_resolutions,
             volume_precision: window.currentBasePrecision,
-            data_status: 'streaming',
+            data_status: 'streaming'
         };
 
         setTimeout(() => onSymbolResolvedCallback(symbolInfo));
     };
   
     static getBars(symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) {  
+        if(resolution == 'D')
+            resolution = '1D';
+        
         $.ajax({
             url: config.apiUrl + '/spot/candlestick',
             type: 'POST',
@@ -55,7 +58,8 @@ class TvDatafeed {
                     data.candlestick[i].low = parseFloat(data.candlestick[i].low);
                     data.candlestick[i].close = parseFloat(data.candlestick[i].close);
                     data.candlestick[i].volume = parseFloat(data.candlestick[i].volume);
-                }    
+                }
+                    
                 onHistoryCallback(data.candlestick, { noData: (i == 0) });
             } else {
                 onErrorCallback(data.error);
@@ -67,6 +71,8 @@ class TvDatafeed {
     };
   
     static subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) {
+        if(resolution == 'D')
+            resolution = '1D';
         window.tradingViewSubscription = window.currentPair + '@candleStick/' + resolution;
         
         window.wsClient.sub(
