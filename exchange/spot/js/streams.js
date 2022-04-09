@@ -1,11 +1,29 @@
-$(document).ready(function() {  
+$(document).on('authChecked', function() {  
     window.wsClient = new StreamsClient(
         config.pusherUrl,
         function() {
             $('.streaming-bad').hide();
             $('.streaming-good').show();
             
-            if(typeof(window.multiEvents['wsConnected']) == 'undefined') {
+            if(window.loggedIn)
+                window.wsClient.auth(
+                    window.apiKey,
+                    function(authorized) {
+                        if(!authorized) {
+                            msgBoxRedirect('Unauthorized to notifications stream');
+                            return;
+                        }
+                        
+                        if(typeof(window.multiEvents['wsConnected']) == 'undefined') {
+                            $(document).trigger('wsConnected');
+                        }
+                    },
+                    function(error) {
+                        msgBoxRedirect(error);
+                    }
+                );
+            
+            else if(typeof(window.multiEvents['wsConnected']) == 'undefined') {
                 $(document).trigger('wsConnected');
             }
         },

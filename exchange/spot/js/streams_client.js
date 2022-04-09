@@ -92,6 +92,18 @@ class StreamsClient {
         });
     }
     
+    auth(apiKey, respCallback, errorCallback) { 
+        this.authId = this.randomId();
+        this.authRespCb = respCallback;
+        this.authErrorCb = errorCallback;
+        
+        this.send({
+            op: 'auth',
+            id: this.authId,
+            api_key: apiKey
+        });
+    }
+    
     send(obj) {
         this.ws.send(JSON.stringify(obj));
     }
@@ -106,7 +118,19 @@ class StreamsClient {
         if(msg.event == 'resp') {
             if(msg.id == t.pingId) {
                 clearTimeout(t.pingTimeout);
+                delete t.pingId;
                 return;
+            }
+            
+            if(msg.id == t.authId) {
+                if(msg.success)
+                    t.authRespCb(msg.authorized);
+                else
+                    t.authErrorCb(msg.error);
+                    
+                delete t.authId;
+                delete t.authRespCb;
+                delete t.authErrorCb;
             }
                 
             var errorCalled = false;
