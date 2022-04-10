@@ -22,6 +22,9 @@ class StreamsClient {
             
             t.good = true;
             
+            if(typeof(t.apiKey) !== 'undefined')
+                t.auth(t.apiKey, t.authRespCb, t.authErrorCb);
+            
             var streams = new Array();
             var i = 0;
             for(var stream in t.subDb) {
@@ -96,11 +99,12 @@ class StreamsClient {
         this.authId = this.randomId();
         this.authRespCb = respCallback;
         this.authErrorCb = errorCallback;
+        this.apiKey = apiKey;
         
         this.send({
             op: 'auth',
             id: this.authId,
-            api_key: apiKey
+            api_key: this.apiKey
         });
     }
     
@@ -125,12 +129,14 @@ class StreamsClient {
             if(msg.id == t.authId) {
                 if(msg.success)
                     t.authRespCb(msg.authorized);
-                else
+                else {
+                    delete t.apiKey;
+                    delete t.authRespCb;
+                    delete t.authErrorCb;
                     t.authErrorCb(msg.error);
+                }
                     
                 delete t.authId;
-                delete t.authRespCb;
-                delete t.authErrorCb;
             }
                 
             var errorCalled = false;

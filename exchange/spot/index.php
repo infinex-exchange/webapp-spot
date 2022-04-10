@@ -4,6 +4,7 @@
         <?php include('../../templates/head.php'); ?>
         <?php include('../../templates/tradingview.html'); ?>
         <?php include('../../templates/bignumber.html'); ?>
+        <?php include('../../templates/toast.html'); ?>
         <link rel="stylesheet" href="/spot/css/styles.css">
         <script type="text/javascript" src="/spot/js/streams_client.js"></script>
         <script type="text/javascript" src="/spot/js/tv_datafeed.js"></script>
