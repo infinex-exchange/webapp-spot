@@ -46,5 +46,4 @@ $(document).onFirst('wsConnected', function() {
 
 $(document).onFirst('wsAuth', function() {
     window.multiEvents['wsAuth'] = true;
-    console.log('first time authorized, can subscriube p[rivate event');
 });
