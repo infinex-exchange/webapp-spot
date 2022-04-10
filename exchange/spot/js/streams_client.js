@@ -115,7 +115,7 @@ class StreamsClient {
     process(msg) {
         var t = this;
         
-        if(msg.event == 'resp') {
+        if(msg.class == 'resp') {
             if(msg.id == t.pingId) {
                 clearTimeout(t.pingTimeout);
                 delete t.pingId;
@@ -162,7 +162,7 @@ class StreamsClient {
             }
         }
             
-        else if(msg.event == 'data') {
+        else if(msg.class == 'data') {
             for(var stream in t.subDb) {
                 if(msg.stream == stream)
                     t.subDb[stream]['dataCallback'](msg);
