@@ -427,5 +427,6 @@
         <script type="text/javascript" src="/spot/js/orderbook.js"></script>
         <script type="text/javascript" src="/spot/js/orders.js"></script>
         <script type="text/javascript" src="/spot/js/trading_form.js"></script>
+        <script type="text/javascript" src="/spot/js/notifications.js"></script>
     </body>
 </html>
