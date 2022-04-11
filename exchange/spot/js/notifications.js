@@ -12,6 +12,7 @@ $(document).on('wsAuth', function() {
                         icon: 'info',
                         position: 'bottom-right'
                     });
+                    updateBalance();
                     break;
                 case 'orderFilled':
                     $.toast({
@@ -21,14 +22,14 @@ $(document).on('wsAuth', function() {
                         icon: 'success',
                         position: 'bottom-right'
                     });
+                    updateBalance();
                     break;
-                case 'orderNoLiq':
+                case 'orderInsufLiq':
                     $.toast({
-                        heading: 'Order killed',
-                        text: `Your market ${data.side} ${data.pairid} order has been killed because of
-                               no sufficient liquidity to fill`,
+                        heading: 'Order rejected',
+                        text: `Insufficient liquidity to fill MARKET ${data.side} ${data.pairid} order`,
                         showHideTransition: 'fade',
-                        icon: 'warning',
+                        icon: 'error',
                         position: 'bottom-right'
                     });
                     break;
@@ -49,6 +50,17 @@ $(document).on('wsAuth', function() {
                         icon: 'success',
                         position: 'bottom-right'
                     });
+                    updateBalance();
+                    break;
+                case 'orderInsufFunds':
+                    $.toast({
+                        heading: 'Order rejected',
+                        text: `Insufficient funds for ${data.side} ${data.pairid} order`,
+                        showHideTransition: 'fade',
+                        icon: 'error',
+                        position: 'bottom-right'
+                    });
+                    updateBalance();
                     break;
                 default:
                     break;

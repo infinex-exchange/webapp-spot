@@ -62,11 +62,7 @@ function postOrder(data) {
     })
     .retry(config.retry)
     .done(function (data) {
-        if(data.success) {
-            // notification
-            setTimeout(updateBalance, 500);
-        }
-        else {
+        if(!data.success) {
             msgBox(data.error);
         }
     })
