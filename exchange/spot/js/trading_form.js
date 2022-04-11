@@ -297,3 +297,7 @@ $(document).on('pairSelected', function() {
         postOrder(data);
     });
 });
+
+$(document).on('orderNew orderFilled orderCanceled', function() {
+    updateBalance();
+});
