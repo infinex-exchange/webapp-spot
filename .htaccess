@@ -19,3 +19,5 @@ RewriteRule ^spot/js/([^/]+)$ /exchange/spot/js/$1 [L]
 RewriteRule ^spot/([^/]+)/?$ /exchange/spot/index.php [L]
 
 RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
+
+RewriteRule ^info/fees/?$ /info/fees.php [L]
