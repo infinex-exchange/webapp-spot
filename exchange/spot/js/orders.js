@@ -43,7 +43,7 @@ function addOpenOrder(data) {
             <div class="col-2">
                 ${data.amount}
             </div>
-            <div class="col-2">
+            <div class="col-2 filled">
                 ${data.filled}
             </div>
             <div class="col-2">
@@ -175,4 +175,8 @@ $(document).on('orderCanceled orderFilled', function(e, data) {
 $(document).on('orderNew', function(e, data) {
     if(typeof(data.obid) !== 'undefined')
         addOpenOrder(data);
+});
+
+$(document).on('orderPartialFilled', function(e, data) {
+    $('.orders-open-item[data-obid="' + data.obid + '"]').find('.filled').html(data.filled);
 });
