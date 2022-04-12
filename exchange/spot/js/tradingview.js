@@ -13,7 +13,8 @@ $(document).on('themeInitialized pairSelected', function() {
         enabled_features: [],
         fullscreen: false,
         autosize: true,
-        theme: localStorage.getItem('colorMode')
+        theme: localStorage.getItem('colorMode'),
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     });
     
     window.tvWidget.onChartReady(function() {
