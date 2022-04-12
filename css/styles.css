@@ -414,6 +414,17 @@ input#select-coin, input#select-net {
 
 .dropdown-menu {
     background-color: var(--color-background-high);
+    border: 1px solid var(--color-border);
+}
+
+.dropdown-item {
+    color: var(--color-text);
+    font-size: var(--font-2);
+}
+
+.dropdown-divider {
+    border-top: 1px solid var(--color-border);
+    opacity: 1;
 }
 
 /* Jumbotron */
