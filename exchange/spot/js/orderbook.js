@@ -20,7 +20,7 @@ function orderBookUpdate(side, row) {
     var existing = div.find('.orderbook-item[data-price="' + row.price + '"]');
     
     // Delete
-    if(existing.length && row.amount == 0) {
+    if(existing.length && bnAmount.eq(0)) {
         existing.remove();
     }
     
@@ -82,6 +82,11 @@ function orderBookUpdate(side, row) {
     });
     window.orderBookTotalMax = newMax;
     document.body.style.setProperty('--orderbook-total-max', newMax.toFixed(window.currentQuotePrecision));
+    
+    // Scroll asks to bottom
+    if(side == 'ask') {
+        document.getElementById("orderbook-sell").scrollTop = document.getElementById("orderbook-sell").scrollHeight;
+    }
 }
 
 function orderBookClick(row) {

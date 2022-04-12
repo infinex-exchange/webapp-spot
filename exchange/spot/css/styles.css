@@ -10,6 +10,7 @@
 
 #orderbook-buy, #orderbook-sell {
     height: 360px;
+    overflow: hidden;
 }
 
 #orderbook-sell .row {
