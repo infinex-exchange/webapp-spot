@@ -162,6 +162,7 @@ $(document).on('authChecked pairSelected', function() {
     }
 });
 
-$(document).on('orderCanceled', function(e, data) {
-    $('.orders-open-item[data-obid="' + data.obid + '"]').remove();
+$(document).on('orderCanceled orderFilled', function(e, data) {
+    if(typeof(data.obid) !== 'undefined')
+        $('.orders-open-item[data-obid="' + data.obid + '"]').remove();
 });
