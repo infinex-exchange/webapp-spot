@@ -53,7 +53,7 @@ $(document).on('authChecked pairSelected', function() {
             $.each(data.orders, function(k, v) {
                 var time = new Date(v.time * 1000).toLocaleString();
                 thisAS.append(`
-                    <div class="row">
+                    <div class="row orders-open-item" data-obid="${v.obid}">
                         <div class="col-2">
                             ${time}
                         </div>
@@ -160,4 +160,8 @@ $(document).on('authChecked pairSelected', function() {
         $(document).trigger('renderingStage'); // 5
         $(document).trigger('renderingStage'); // 6
     }
+});
+
+$(document).on('orderCanceled', function(e, data) {
+    $('.orders-open-item[data-obid="' + data.obid + '"]').remove();
 });
