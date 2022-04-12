@@ -26,6 +26,9 @@ function cancelOrder(obid) {
 
 function addOpenOrder(data) {
     var time = new Date(data.time * 1000).toLocaleString();
+    var total = new BigNumber(data.amount);
+    total = total.multipliedBy(data.price);
+    total = total.toFixed(window.currentQuotePrecision);
     window.openOrdersAS.append(`
         <div class="row orders-open-item" data-obid="${data.obid}">
             <div class="col-2">
@@ -47,7 +50,7 @@ function addOpenOrder(data) {
                 ${data.filled}
             </div>
             <div class="col-2">
-                ${data.total}
+                ${total}
                 <i class="float-end fa-solid fa-xmark" onClick="cancelOrder(${data.obid})"></i>
             </div>
         </div>
