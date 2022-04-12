@@ -14,7 +14,7 @@ function updateBalance() {
     
     if(window.loggedIn) {
         $.ajax({
-            url: config.apiUrl + '/spot/safe_balances',
+            url: config.apiUrl + '/wallet/balances',
             type: 'POST',
             data: JSON.stringify({
                 api_key: window.apiKey,
@@ -29,8 +29,8 @@ function updateBalance() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                window.currentBaseBalance = new BigNumber(data.safe_balances[window.currentBase]);
-                window.currentQuoteBalance = new BigNumber(data.safe_balances[window.currentQuote]);
+                window.currentBaseBalance = new BigNumber(data.balances[window.currentBase].avbl);
+                window.currentQuoteBalance = new BigNumber(data.balances[window.currentQuote].avbl);
                 updateBalanceAfter();
             }
             else {
