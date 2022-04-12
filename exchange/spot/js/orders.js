@@ -24,6 +24,36 @@ function cancelOrder(obid) {
     });
 }
 
+function addOpenOrder(data) {
+    var time = new Date(data.time * 1000).toLocaleString();
+    window.openOrdersAS.append(`
+        <div class="row orders-open-item" data-obid="${data.obid}">
+            <div class="col-2">
+                ${time}
+            </div>
+            <div class="col-1">
+                ${data.pair}
+            </div>
+            <div class="col-1">
+                ${data.side}
+            </div>
+            <div class="col-2">
+                ${data.price}
+            </div>
+            <div class="col-2">
+                ${data.amount}
+            </div>
+            <div class="col-2">
+                ${data.filled}
+            </div>
+            <div class="col-2">
+                ${data.total}
+                <i class="float-end fa-solid fa-xmark" onClick="cancelOrder(${data.obid})"></i>
+            </div>
+        </div>
+    `);
+}
+
 $(document).on('authChecked pairSelected', function() {
     if(typeof(window.multiEvents['authChecked']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
     
@@ -50,34 +80,9 @@ $(document).on('authChecked pairSelected', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            $.each(data.orders, function(k, v) {
-                var time = new Date(v.time * 1000).toLocaleString();
-                thisAS.append(`
-                    <div class="row orders-open-item" data-obid="${v.obid}">
-                        <div class="col-2">
-                            ${time}
-                        </div>
-                        <div class="col-1">
-                            ${v.pair}
-                        </div>
-                        <div class="col-1">
-                            ${v.side}
-                        </div>
-                        <div class="col-2">
-                            ${v.price}
-                        </div>
-                        <div class="col-2">
-                            ${v.amount}
-                        </div>
-                        <div class="col-2">
-                            ${v.filled}
-                        </div>
-                        <div class="col-2">
-                            ${v.total}
-                            <i class="float-end fa-solid fa-xmark" onClick="cancelOrder(${v.obid})"></i>
-                        </div>
-                    </div>
-                `);
+            $.each(data.orders, function(obid, data) {
+                data.obid = obid;
+                addOpenOrder(data);
             });
             
             thisAS.done();
@@ -165,4 +170,9 @@ $(document).on('authChecked pairSelected', function() {
 $(document).on('orderCanceled orderFilled', function(e, data) {
     if(typeof(data.obid) !== 'undefined')
         $('.orders-open-item[data-obid="' + data.obid + '"]').remove();
+});
+
+$(document).on('orderNew', function(e, data) {
+    if(typeof(data.obid) !== 'undefined')
+        addOpenOrder(data);
 });
