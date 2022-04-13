@@ -6,6 +6,7 @@ class AjaxScroll {
         this.callback = callback;
         this.working = false;
         this.noMore = false;
+        this.resetTimeout = null;
         
         var thisAS = this;
         $(container).on('scroll', function() {
@@ -37,10 +38,17 @@ class AjaxScroll {
     }
     
     reset() {
-        this.noMore = false;
-        $(this.container).empty();
+        if(this.working) {
+            clearTimeout(this.resetTimeout);
+            var thisAS = this;
+            this.resetTimeout = setTimeout(function() { thisAS.reset() }, 100);
+        }
+        else {
+            this.noMore = false;
+            $(this.container).empty();
         
-        this.work();
+            this.work();
+        }
     }
     
     append(elem) {
