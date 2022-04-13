@@ -257,24 +257,24 @@
                             </div>
                             <div class="input-ps-group">
                                 <span>Price</span>
-                                <input id="form-buy-price" type="text" class="form-control">
+                                <input id="form-buy-price" type="text" class="form-control form-price" data-side="BUY">
                                 <span class="suffix form-quote-suffix"></span>
                             </div>
                             <div class="input-ps-group">
                                 <span>Amount</span>
-                                <input id="form-buy-amount" type="text" class="form-control">
+                                <input id="form-buy-amount" type="text" class="form-control form-amount" data-side="BUY">
                                 <span class="suffix form-base-suffix"></span>
                             </div>
                             <div class="input-ps-group">
                                 <span>Total</span>
-                                <input id="form-buy-total" type="text" class="form-control">
+                                <input id="form-buy-total" type="text" class="form-control form-total" data-side="BUY">
                                 <span class="suffix form-quote-suffix"></span>
                             </div>
                             <div>
                                 <span class="range-value" for="form-buy-range" suffix="%"></span>
-                                <input id="form-buy-range" type="range" class="form-range" min="0" max="100" step="5" value="0">
+                                <input id="form-buy-range" type="range" class="form-range" data-side="BUY" min="0" max="100" step="5" value="0">
                             </div>
-                            <button type="button" id="form-buy-submit" class="btn bg-green btn-block user-only">BUY</button>
+                            <button type="button" id="form-buy-submit" class="btn bg-green btn-block user-only form-submit" data-side="BUY">BUY</button>
                             <div class="guest-only font-1 border border-green rounded p-2 text-center">
                                 <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div> 
@@ -288,24 +288,24 @@
                             </div>
                             <div class="input-ps-group">
                                 <span>Price</span>
-                                <input id="form-sell-price" type="text" class="form-control">
+                                <input id="form-sell-price" type="text" class="form-control form-price" data-side="SELL">
                                 <span class="suffix form-quote-suffix"></span>
                             </div>
                             <div class="input-ps-group">
                                 <span>Amount</span>
-                                <input id="form-sell-amount" type="text" class="form-control">
+                                <input id="form-sell-amount" type="text" class="form-control form-amount" data-side="SELL">
                                 <span class="suffix form-base-suffix"></span>
                             </div>
                             <div class="input-ps-group">
                                 <span>Total</span>
-                                <input id="form-sell-total" type="text" class="form-control">
+                                <input id="form-sell-total" type="text" class="form-control form-total" data-side="SELL">
                                 <span class="suffix form-quote-suffix"></span>
                             </div>
                             <div>
                                 <span class="range-value" for="form-sell-range" suffix="%"></span>
-                                <input id="form-sell-range" type="range" class="form-range" min="0" max="100" step="5" value="0">
+                                <input id="form-sell-range" type="range" class="form-range" data-side="SELL" min="0" max="100" step="5" value="0">
                             </div>
-                            <button type="button" id="form-sell-submit" class="btn bg-red btn-block user-only">SELL</button>
+                            <button type="button" id="form-sell-submit" class="btn bg-red btn-block user-only form-submit" data-side="SELL">SELL</button>
                             <div class="guest-only font-1 border border-red rounded p-2 text-center">
                                 <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div> 

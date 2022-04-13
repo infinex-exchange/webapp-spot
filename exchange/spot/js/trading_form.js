@@ -8,7 +8,7 @@ function updateBalance() {
         $('#form-base-balance').html(window.currentBaseBalance.toFixed() + ' ' + window.currentBase);
         $('#form-quote-balance').html(window.currentQuoteBalance.toFixed() + ' ' + window.currentQuote);
         
-        $('#form-sell-range, #form-sell-submit').prop('disabled', window.currentBaseBalance.isEqualTo(0));
+        $('.form-sell-range, #form-sell-submit').prop('disabled', window.currentBaseBalance.isEqualTo(0));
         $('#form-buy-range, #form-buy-submit').prop('disabled', window.currentQuoteBalance.isEqualTo(0));
     }
     
@@ -79,19 +79,20 @@ function switchOrderType(type) {
     switch(type) {
         case 'LIMIT':
         case 'STOP_LIMIT':
-            $('#form-buy-price, #form-sell-price').val('').prop('disabled', false);
+            $('.form-price').data('val', '').val('').prop('disabled', false);
             
             $('.switch-time-in-force[data-tif="GTC"]').show();
             switchTimeInForce('GTC');
             
             break;
         case 'MARKET':
-            $('#form-buy-price, #form-sell-price').val('Market').prop('disabled', true);
+            $('.form-price').data('val', '').val('Market').prop('disabled', true);
             
-            if(window.buyImportant == 'amount') $('#form-buy-total').val('');
-            else $('#form-buy-amount').val('');
-            if(window.sellImportant == 'amount') $('#form-sell-total').val('');
-            else $('#form-sell-amount').val('');
+            if(window.keepOnTypeChange['BUY'] == 'amount') $('#form-buy-total').data('val', '').val('');
+            else $('#form-buy-amount').data('val', '').val('');
+            
+            if(window.keepOnTypeChange['SELL'] == 'amount') $('#form-sell-total').data('val', '').val('');
+            else $('#form-sell-amount').data('val', '').val('');
             
             switchTimeInForce('FOK');
             $('.switch-time-in-force[data-tif="GTC"]').hide();
@@ -126,109 +127,74 @@ $(document).on('pairSelected', function() {
     $('.form-base-suffix').html(window.currentBase);
     $('.form-quote-suffix').html(window.currentQuote);
     
-    // Precision in input boxes
-    $('#form-buy-amount, #form-sell-amount').on('input', function () {
-        var regex = new RegExp("^[0-9]+(\\.[0-9]{0," + window.currentBasePrecision + "})?$");
-        if (!regex.test(this.value)) {
-            $(this).val($(this).data('val'));
-        } else {
-            $(this).data('val', $(this).val());
-        }
-        $(this).trigger('prevalidated');
-    })
-    .on('focusout', function() {
-        if(this.value.slice(-1) == '.') {
-            this.value = this.value.substring(0, this.value.length - 1);
-        }
-    });
-    
-    $('#form-buy-price, #form-sell-price, #form-buy-total, #form-sell-total').on('input', function () {
-        var regex = new RegExp("^[0-9]+(\\.[0-9]{0," + window.currentQuotePrecision + "})?$");
-        if (!regex.test(this.value)) {
-            $(this).val($(this).data('val'));
-        } else {
-            $(this).data('val', $(this).val());
-        }
-        $(this).trigger('prevalidated');
-    })
-    .on('focusout', function() {
-        if(this.value.slice(-1) == '.') {
-            this.value = this.value.substring(0, this.value.length - 1);
-        }
-    });
-    
-    // Auto market price
-    $('#form-buy-amount, #form-buy-total, #form-buy-range').onFirst('input', function() {
-        if($('#form-buy-price').val() == '') {
-            $('#form-buy-price').val(
-                window.currentMarketPrice.toFixed(window.currentQuotePrecision)
-            );
-        }
-    });
-    
-    $('#form-sell-amount, #form-sell-total, #form-sell-range').onFirst('input', function() {
-        if($('#form-sell-price').val() == '') {
-            $('#form-sell-price').val(
-                window.currentMarketPrice.toFixed(window.currentQuotePrecision)
-            );
-        }
-    });
-    
-    // One changes another - on prevalidated 
-    $('#form-buy-price, #form-buy-amount').on('prevalidated', function() {
-        var buyTotalStr = '';
+    // Lock format and precision of inputs
+    $('.form-price, .form-amount, .form-total').on('input', function () {
+        // Precision is quote, except amount in base
+        var prec = window.currentQuotePrecision;
+        if($(this).hasClass('form-amount'))
+            prec = window.currentBasePrecision;
         
+        var regex = new RegExp("^[0-9]+(\\.[0-9]{0," + prec + "})?$");
+        
+        if (this.value != '' && !regex.test(this.value)) {
+            $(this).val($(this).data('val'));
+        } else {
+            $(this).data('val', $(this).val());
+        }
+    
+        $(this).trigger('prevalidated');
+    });
+    
+    // "10." ->  "10"
+    $('.form-price, .form-amount, .form-total').on('focusout', function() {
+        if(this.value.slice(-1) == '.') {
+            this.value = this.value.substring(0, this.value.length - 1);
+        }
+    });
+    
+    // Auto market price when price ''
+    $('.form-amount, .form-total, .form-range').onFirst('input', function() {
+        var priceField = $('.form-price[data-side="' + $(this).data('side') + '"]');
+        
+        if(priceField.val() == '') {
+            priceField.data('val', window.currentMarketPrice.toFixed(window.currentQuotePrecision))
+                      .val(window.currentMarketPrice.toFixed(window.currentQuotePrecision));
+        }
+    });
+    
+    // Price and amount changes total
+    $('.form-price, .form-amount').on('prevalidated', function() {
+        var side = $(this).data('side');
+        // If market order - empty opposite field
+        var totalStr = '';
+        
+        // If limit order calculate
         if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {
-            var buyPrice = new BigNumber($('#form-buy-price').val());
-            var buyAmount = new BigNumber($('#form-buy-amount').val());
+            var price = new BigNumber($('.form-price[data-side="' + side + '"]').val());
+            var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').val());
         
-            var buyTotal = buyAmount.multipliedBy(buyPrice);
-            buyTotalStr = buyTotal.toFixed(window.currentQuotePrecision);
+            var total = amount.multipliedBy(price);
+            totalStr = total.toFixed(window.currentQuotePrecision);
         }
         
-        $('#form-buy-total').val(buyTotalStr);
+        $('.form-total[data-side="' + side + '"]').data('val', totalStr).val(totalStr);
     });
     
-    $('#form-buy-total').on('prevalidated', function() {
-        var buyAmountStr = '';
+    // Total changes amount
+    $('.form-total').on('prevalidated', function() {
+        var side = $(this).data('side');
+        // If market order - empty opposite field
+        var amountStr = '';
         
         if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {        
-            var buyPrice = new BigNumber($('#form-buy-price').val());
-            var buyTotal = new BigNumber($('#form-buy-total').val());
+            var price = new BigNumber($('.form-price[data-side="' + side + '"]').val());
+            var total = new BigNumber($('.form-total[data-side="' + side + '"]').val());
         
-            var buyAmount = buyTotal.dividedBy(buyPrice);
-            buyAmountStr = buyAmount.toFixed(window.currentBasePrecision);
+            var amount = total.dividedBy(price);
+            amountStr = amount.toFixed(window.currentBasePrecision);
         }
         
-        $('#form-buy-amount').val(buyAmountStr);
-    });
-    
-    $('#form-sell-price, #form-sell-amount').on('prevalidated', function() {
-        var sellTotalStr = '';
-        
-        if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {
-            var sellPrice = new BigNumber($('#form-sell-price').val());
-            var sellAmount = new BigNumber($('#form-sell-amount').val());
-        
-            var sellTotal = sellAmount.multipliedBy(sellPrice);
-            sellTotalStr = sellTotal.toFixed(window.currentQuotePrecision);
-        }
-        
-        $('#form-sell-total').val(sellTotalStr);
-    });
-    
-    $('#form-sell-total').on('prevalidated', function() {
-        var sellAmountStr = '';
-        
-        if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {
-            var sellPrice = new BigNumber($('#form-sell-price').val());
-            var sellTotal = new BigNumber($('#form-sell-total').val());
-        
-            var sellAmount = sellTotal.dividedBy(sellPrice);
-            sellAmountStr = sellAmount.toFixed(window.currentBasePrecision);
-        }
-        
-        $('#form-sell-amount').val(sellAmountStr);
+        $('.form-amount[data-side="' + side + '"]').data('val', amountStr).val(amountStr);
     });
             
     // Slider
@@ -237,9 +203,9 @@ $(document).on('pairSelected', function() {
             multipliedBy( $(this).val() ).
             dividedBy(100);
         
-        $('#form-buy-total').val(
-            buyTotal.toFixed(window.currentQuotePrecision)
-        ).trigger('prevalidated');
+        $('#form-buy-total').data('val', buyTotal.toFixed(window.currentQuotePrecision))
+                            .val(buyTotal.toFixed(window.currentQuotePrecision))
+                            .trigger('prevalidated');
     });
     
     $('#form-sell-range').on('input', function() {
@@ -247,74 +213,44 @@ $(document).on('pairSelected', function() {
             multipliedBy( $(this).val() ).
             dividedBy(100);
         
-        $('#form-sell-amount').val(
-            sellAmount.toFixed(window.currentBasePrecision)
-        ).trigger('prevalidated');
+        $('#form-sell-amount').data('val', sellAmount.toFixed(window.currentBasePrecision))
+                              .val(sellAmount.toFixed(window.currentBasePrecision))
+                              .trigger('prevalidated');
     });
     
     // What is important for user - amount or total
-    window.buyImportant = 'total';
-    window.sellImportant = 'amount';
+    window.keepOnTypeChange = new Object();
+    window.keepOnTypeChange['BUY'] = 'total';
+    window.keepOnTypeChange['SELL'] = 'amount';
     
-    $('#form-buy-amount').on('prevalidated', function() {
-        window.buyImportant = 'amount';
+    $('.form-amount').on('prevalidated', function() {
+        window.keepOnTypeChange[$(this).data('side')] = 'amount';
     });
     
-    $('#form-buy-total').on('prevalidated', function() {
-        window.buyImportant = 'total';
-    });
-    
-    $('#form-sell-amount').on('prevalidated', function() {
-        window.sellImportant = 'amount';
-    });
-    
-    $('#form-sell-total').on('prevalidated', function() {
-        window.sellImportant = 'total';
+    $('.form-total').on('prevalidated', function() {
+        window.keepOnTypeChange[$(this).data('side')] = 'total';
     });
     
     // Submit order
-    $('#form-buy-submit').on('click', function() {
+    $('.submit').on('click', function() {
+        var side = $(this).data('side');
         var data = new Object();
         
-        data['side'] = 'BUY';
+        data['side'] = side;
         data['type'] = window.orderType;
         
         switch(window.orderType) {
             case 'LIMIT':
             case 'STOP_LIMIT':
-                data['price'] = $('#form-buy-price').val();
-                data['amount'] = $('#form-buy-amount').val();
+                data['price'] = $('.form-price[data-side="' + side + '"]').val();
+                data['amount'] = $('.form-amount[data-side="' + side + '"]').val();
                 break;
                 
             case 'MARKET':
-                if(window.buyImportant == 'amount')
-                    data['amount'] = $('#form-buy-amount').val();
+                if(window.keepOnTypeChange[side] == 'amount')
+                    data['amount'] = $('.form-amount[data-side="' + side + '"]').val();
                 else
-                    data['total'] = $('#form-buy-total').val();
-                break;
-        }
-        
-        postOrder(data);
-    });
-    
-    $('#form-sell-submit').on('click', function() {
-        var data = new Object();
-        
-        data['side'] = 'SELL';
-        data['type'] = window.orderType;
-        
-        switch(window.orderType) {
-            case 'LIMIT':
-            case 'STOP_LIMIT':
-                data['price'] = $('#form-sell-price').val();
-                data['amount'] = $('#form-sell-amount').val();
-                break;
-                
-            case 'MARKET':
-                if(window.sellImportant == 'amount')
-                    data['amount'] = $('#form-sell-amount').val();
-                else
-                    data['total'] = $('#form-sell-total').val();
+                    data['total'] = $('.form-total[data-side="' + side + '"]').val();
                 break;
         }
         
