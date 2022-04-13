@@ -228,8 +228,25 @@
             <!-- Trading form -->
             <div class="col-12 ui-card ui-card-ver ui-card-high d-lg-block" data-ui-card="form">
                 <div class="nav font-2">
-                    <a class="nav-link switch-order-type active" href="#_" data-type="LIMIT">Limit</a>
+                    <a class="nav-link switch-order-type" href="#_" data-type="LIMIT">Limit</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
+                    <a class="nav-link switch-order-type" href="#_" data-type="STOP_LIMIT">Stop-Limit</a>
+                    
+                    <div class="dropdown ms-auto">
+                        <a id="current-tif" class="nav-link dropdown-toggle" href="#_" data-bs-toggle="dropdown"></a>
+                    
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a class="dropdown-item switch-time-in-force" href="#_" data-tif="GTC">Good Till Canceled</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item switch-time-in-force" href="#_" data-tif="IOC">Immediate Or Cancel</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item switch-time-in-force" href="#_" data-tif="FOK">Fill Or Kill</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>   
                 <div class="row">
                     <div class="col-12 col-lg-6 pb-5 pb-lg-0">

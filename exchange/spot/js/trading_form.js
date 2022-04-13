@@ -78,16 +78,33 @@ function switchOrderType(type) {
     
     switch(type) {
         case 'LIMIT':
+        case 'STOP_LIMIT':
             $('#form-buy-price, #form-sell-price').val('').prop('disabled', false);
+            
+            $('.switch-time-in-force[data-tif="GTC"]').show();
+            switchTimeInForce('GTC');
+            
             break;
         case 'MARKET':
             $('#form-buy-price, #form-sell-price').val('Market').prop('disabled', true);
+            
             if(window.buyImportant == 'amount') $('#form-buy-total').val('');
             else $('#form-buy-amount').val('');
             if(window.sellImportant == 'amount') $('#form-sell-total').val('');
             else $('#form-sell-amount').val('');
+            
+            switchTimeInForce('FOK');
+            $('.switch-time-in-force[data-tif="GTC"]').hide();
+            
             break;
     }
+}
+
+function switchTimeInForce(tif) {
+    window.timeInForce = tif;
+    $('.switch-time-in-force').removeClass('active');
+    $('.switch-time-in-force[data-tif="' + tif + '"]').addClass('active');
+    $('#current-tif').html(tif);
 }
 
 $(document).on('pairSelected', function() {
@@ -99,6 +116,11 @@ $(document).on('pairSelected', function() {
         switchOrderType($(this).attr('data-type'));
     });
     switchOrderType('LIMIT');
+    
+    // Select default time in force
+    $('.switch-time-in-force').on('click', function() {
+        switchTimeInForce($(this).attr('data-tif'));
+    });
     
     // Suffixes
     $('.form-base-suffix').html(window.currentBase);
@@ -156,7 +178,7 @@ $(document).on('pairSelected', function() {
     $('#form-buy-price, #form-buy-amount').on('prevalidated', function() {
         var buyTotalStr = '';
         
-        if(window.orderType == 'LIMIT') {
+        if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {
             var buyPrice = new BigNumber($('#form-buy-price').val());
             var buyAmount = new BigNumber($('#form-buy-amount').val());
         
@@ -170,7 +192,7 @@ $(document).on('pairSelected', function() {
     $('#form-buy-total').on('prevalidated', function() {
         var buyAmountStr = '';
         
-        if(window.orderType == 'LIMIT') {        
+        if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {        
             var buyPrice = new BigNumber($('#form-buy-price').val());
             var buyTotal = new BigNumber($('#form-buy-total').val());
         
@@ -184,7 +206,7 @@ $(document).on('pairSelected', function() {
     $('#form-sell-price, #form-sell-amount').on('prevalidated', function() {
         var sellTotalStr = '';
         
-        if(window.orderType == 'LIMIT') {
+        if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {
             var sellPrice = new BigNumber($('#form-sell-price').val());
             var sellAmount = new BigNumber($('#form-sell-amount').val());
         
@@ -198,7 +220,7 @@ $(document).on('pairSelected', function() {
     $('#form-sell-total').on('prevalidated', function() {
         var sellAmountStr = '';
         
-        if(window.orderType == 'LIMIT') {
+        if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {
             var sellPrice = new BigNumber($('#form-sell-price').val());
             var sellTotal = new BigNumber($('#form-sell-total').val());
         
@@ -259,6 +281,7 @@ $(document).on('pairSelected', function() {
         
         switch(window.orderType) {
             case 'LIMIT':
+            case 'STOP_LIMIT':
                 data['price'] = $('#form-buy-price').val();
                 data['amount'] = $('#form-buy-amount').val();
                 break;
@@ -282,6 +305,7 @@ $(document).on('pairSelected', function() {
         
         switch(window.orderType) {
             case 'LIMIT':
+            case 'STOP_LIMIT':
                 data['price'] = $('#form-sell-price').val();
                 data['amount'] = $('#form-sell-amount').val();
                 break;
