@@ -97,6 +97,13 @@ function switchOrderType(type) {
             break;
     }
     
+    if(type == 'STOP_LIMIT') {
+        $('.form-stop').parent('div').show();
+    }
+    else {
+        $('.form-stop').parent('div').hide();
+    }
+    
     window.orderType = type;
     $('.switch-order-type').removeClass('active');
     $('.switch-order-type[data-type="' + type + '"]').addClass('active');
@@ -129,7 +136,7 @@ $(document).on('pairSelected', function() {
     $('.form-quote-suffix').html(window.currentQuote);
     
     // Lock format and precision of inputs
-    $('.form-price, .form-amount, .form-total').on('input', function () {
+    $('.form-stop, .form-price, .form-amount, .form-total').on('input', function () {
         // Precision is quote, except amount in base
         var prec = window.currentQuotePrecision;
         if($(this).hasClass('form-amount'))
@@ -147,7 +154,7 @@ $(document).on('pairSelected', function() {
     });
     
     // "10." ->  "10"
-    $('.form-price, .form-amount, .form-total').on('focusout', function() {
+    $('.form-stop, .form-price, .form-amount, .form-total').on('focusout', function() {
         if(this.value.slice(-1) == '.') {
             this.value = this.value.substring(0, this.value.length - 1);
         }
@@ -233,7 +240,7 @@ $(document).on('pairSelected', function() {
     });
     
     // Submit order
-    $('.submit').on('click', function() {
+    $('.form-submit').on('click', function() {
         var side = $(this).data('side');
         var data = new Object();
         
@@ -242,10 +249,23 @@ $(document).on('pairSelected', function() {
         data['time_in_force'] = window.timeInForce;
         
         switch(window.orderType) {
-            case 'LIMIT':
             case 'STOP_LIMIT':
+                data['stop'] = $('.form-stop[data-side="' + side + '"]').val();
+                if(data['stop'] == '') {
+                    msgBox('Missing stop price');
+                    return;
+                }
+            case 'LIMIT':
                 data['price'] = $('.form-price[data-side="' + side + '"]').val();
+                if(data['price'] == '') {
+                    msgBox('Missing limit price');
+                    return;
+                }
                 data['amount'] = $('.form-amount[data-side="' + side + '"]').val();
+                if(data['amount'] == '') {
+                    msgBox('Missing amount');
+                    return;
+                }
                 break;
                 
             case 'MARKET':
@@ -253,6 +273,14 @@ $(document).on('pairSelected', function() {
                     data['amount'] = $('.form-amount[data-side="' + side + '"]').val();
                 else
                     data['total'] = $('.form-total[data-side="' + side + '"]').val();
+                
+                if((typeof(data['amount']) === 'undefined' || data['amount'] == '') &&
+                   (typeof(data['total']) === 'undefined' || data['total'] == '')
+                ) {
+                    msgBox('Missing amount or total');
+                    return;
+                }
+                
                 break;
         }
         

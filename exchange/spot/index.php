@@ -256,6 +256,11 @@
                                 <span class="float-end" id="form-quote-balance"></span>
                             </div>
                             <div class="input-ps-group">
+                                <span>Stop</span>
+                                <input id="form-buy-stop" type="text" class="form-control form-stop" data-side="BUY">
+                                <span class="suffix form-quote-suffix"></span>
+                            </div>
+                            <div class="input-ps-group">
                                 <span>Price</span>
                                 <input id="form-buy-price" type="text" class="form-control form-price" data-side="BUY">
                                 <span class="suffix form-quote-suffix"></span>
@@ -285,6 +290,11 @@
                             <div class="user-only font-1">
                                 <span>Available:</span>
                                 <span class="float-end" id="form-base-balance"></span>
+                            </div>
+                            <div class="input-ps-group">
+                                <span>Stop</span>
+                                <input id="form-sell-stop" type="text" class="form-control form-stop" data-side="SELL">
+                                <span class="suffix form-quote-suffix"></span>
                             </div>
                             <div class="input-ps-group">
                                 <span>Price</span>
