@@ -239,6 +239,7 @@ $(document).on('pairSelected', function() {
         
         data['side'] = side;
         data['type'] = window.orderType;
+        data['time_in_force'] = window.timeInForce;
         
         switch(window.orderType) {
             case 'LIMIT':
