@@ -4,6 +4,8 @@ class AjaxScroll {
         this.preloader = preloader;
         this.data = data;
         this.callback = callback;
+        this.working = false;
+        this.noMore = false;
         
         var thisAS = this;
         $(container).on('scroll', function() {
