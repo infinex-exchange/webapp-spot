@@ -1,11 +1,14 @@
 $(document).on('themeInitialized pairSelected', function() {
     if(typeof(window.multiEvents['themeInitialized']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
     
+    var interval = window.localStorage.getItem('tradingview.chart.lastUsedTimeBasedResolution');
+    if(interval === null) interval = '1D';
+    
     window.tvWidget = new TradingView.widget({
         debug: false,
         symbol: window.currentPair,
         datafeed: TvDatafeed,
-        interval: '1',
+        interval: interval,
         container_id: 'chart-candles',
         library_path: '/charting_library/',
         locale: 'en',
