@@ -9,7 +9,16 @@ $(document).on('themeInitialized pairSelected', function() {
         container_id: 'chart-candles',
         library_path: '/charting_library/',
         locale: 'en',
-        disabled_features: [],
+        disabled_features: [
+            'header_symbol_search',
+            'symbol_search_hot_key',
+            'header_compare',
+            'header_screenshot',
+            'compare_symbol',
+            'header_saveload',
+            'symbol_info',
+            'volume_force_overlay'
+        ],
         enabled_features: [],
         fullscreen: false,
         autosize: true,
