@@ -72,14 +72,11 @@ function postOrder(data) {
 }
 
 function switchOrderType(type) {
-    window.orderType = type;
-    $('.switch-order-type').removeClass('active');
-    $('.switch-order-type[data-type="' + type + '"]').addClass('active');
-    
     switch(type) {
         case 'LIMIT':
         case 'STOP_LIMIT':
-            $('.form-price').data('val', '').val('').prop('disabled', false);
+            if(window.orderType == 'MARKET')
+                $('.form-price').data('val', '').val('').prop('disabled', false);
             
             $('.switch-time-in-force[data-tif="GTC"]').show();
             switchTimeInForce('GTC');
@@ -99,6 +96,10 @@ function switchOrderType(type) {
             
             break;
     }
+    
+    window.orderType = type;
+    $('.switch-order-type').removeClass('active');
+    $('.switch-order-type[data-type="' + type + '"]').addClass('active');
 }
 
 function switchTimeInForce(tif) {
@@ -169,7 +170,7 @@ $(document).on('pairSelected', function() {
         var totalStr = '';
         
         // If limit order calculate
-        if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {
+        if($(this).val() != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
             var price = new BigNumber($('.form-price[data-side="' + side + '"]').val());
             var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').val());
         
@@ -186,7 +187,7 @@ $(document).on('pairSelected', function() {
         // If market order - empty opposite field
         var amountStr = '';
         
-        if(window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT') {        
+        if($(this).val() != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {        
             var price = new BigNumber($('.form-price[data-side="' + side + '"]').val());
             var total = new BigNumber($('.form-total[data-side="' + side + '"]').val());
         
