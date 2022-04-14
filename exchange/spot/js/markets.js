@@ -128,7 +128,7 @@ $(document).on('wsConnected', function() {
                 window.wsClient.sub(
                     sub,
                     function(data) {
-                        liveMarketItem(k, data);
+                        liveMarketItem(data.pair, data);
                     },
                     function(error) {
                         msgBoxRedirect(error);
