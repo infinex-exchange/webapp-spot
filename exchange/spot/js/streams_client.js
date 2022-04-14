@@ -17,9 +17,6 @@ class StreamsClient {
                 t.ping();
             }, 5000);
             
-            if(t.onOpen != null)
-                t.onOpen();
-            
             t.good = true;
             
             if(typeof(t.apiKey) !== 'undefined')
@@ -39,6 +36,9 @@ class StreamsClient {
                     id: t.subDb[streams[0]]['id']
                 });
             }
+            
+            if(t.onOpen != null)
+                t.onOpen();
         }
         
         t.ws.onclose = function(e) {
