@@ -9,26 +9,10 @@ function filterMarketsByQuote(q) {
     $('#markets-search').val('');
     
     window.marketsAS.data.quote = q;
-    resetMarkets();
+    window.marketsAS.reset();
     
     $('.markets-filter-btn').removeClass('active');
     $('.markets-filter-btn[data-quote="' + q + '"]').addClass('active');
-}
-
-function resetMarkets() {
-    var unsub = new Array();
-    var i = 0;
-    $('.markets-item').each(function() {
-        unsub.push( $(this).attr('data-pair') + '@ticker' );
-        i++;
-    });
-    if(i > 0) window.wsClient.unsub(
-        unsub,
-        function(error) {
-            msgBoxRedirect(error);
-        }
-    );
-    window.marketsAS.reset();
 }
 
 function liveMarketItem(pair, data) {
@@ -47,6 +31,7 @@ $(document).on('wsConnected', function() {
     // Set rendering stages target
     
     window.renderingStagesTarget = 7; //9
+    window.tickersSubscribed = new Array();
     
     // Set DOM event handlers
     
@@ -59,7 +44,7 @@ $(document).on('wsConnected', function() {
             $('.markets-filter-btn').removeClass('active');
             delete window.marketsAS.data.quote;
             window.marketsAS.data.search = query;
-            resetMarkets();
+            window.marketsAS.reset();
         }  
     });
     
@@ -84,6 +69,8 @@ $(document).on('wsConnected', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
+            var sub = new Array();
+            
             $.each(data.markets, function(k, v) {  
                 thisAS.append(`
                     <div class="row markets-item" onClick="gotoMarket('${k}')" data-pair="${k}">
@@ -104,8 +91,42 @@ $(document).on('wsConnected', function() {
                 
                 liveMarketItem(k, v);
                 
+                sub.push(k + '@ticker');
+            });
+            
+            thisAS.done();
+            
+            if(thisAS.offset == 0) {
+                var unsub = new Array();
+            
+                for(var i = 0; i < window.tickersSubscribed.length; i++) {
+                    var j = sub.indexOf(window.tickersSubscribed[i]);
+                    
+                    // We dont want to subscribe but it is subscribed
+                    if(j === -1) {
+                        unsub.push(window.tickersSubscribed[i]);
+                        window.tickersSubscribed.splice(i, 1);
+                        i--;
+                    }
+                    
+                    // We want to subscribe but is already subscribed
+                    else {
+                        sub.splice(j, 1);
+                    }
+                }
+                
+                if(unsub.length) window.wsClient.unsub(
+                    unsub,
+                    function(error) {
+                        msgBoxRedirect(error);
+                    }
+                );
+            }                        
+            
+            if(sub.length) {
+                window.tickersSubscribed = window.tickersSubscribed.concat(sub);
                 window.wsClient.sub(
-                    k + '@ticker',
+                    sub,
                     function(data) {
                         liveMarketItem(k, data);
                     },
@@ -113,12 +134,12 @@ $(document).on('wsConnected', function() {
                         msgBoxRedirect(error);
                     }
                 );
-            });
+            }
             
-            thisAS.done();
-            
-            if(thisAS.offset == 0)
-                $(document).trigger('renderingStage'); // 1
+            if(typeof(thisAS.renderingStageTriggered) === 'undefined') {
+                thisAS.renderingStageTriggered = true;
+                $(document).trigger('renderingStage'); // 1                
+            }                
             
             if(data.markets.length != 25)
                 thisAS.noMoreData(); 
