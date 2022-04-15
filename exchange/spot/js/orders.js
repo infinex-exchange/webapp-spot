@@ -29,6 +29,7 @@ function renderOpenOrder(data) {
     var total = new BigNumber(data.amount);
     total = total.multipliedBy(data.price);
     total = total.toFixed(window.currentQuotePrecision);
+    var filledPerc = Math.round(data.filled / data.amount * 100);
     return `
         <div class="row orders-open-item" data-obid="${data.obid}">
             <div class="col-2">
@@ -38,20 +39,23 @@ function renderOpenOrder(data) {
                 ${data.pair}
             </div>
             <div class="col-1">
+                ${data.type}
+            </div>
+            <div class="col-1">
                 ${data.side}
             </div>
-            <div class="col-2">
+            <div class="col-1 text-end">
                 ${data.price}
             </div>
-            <div class="col-2">
+            <div class="col-2 text-end">
                 ${data.amount}
             </div>
-            <div class="col-2 filled">
-                ${data.filled}
+            <div class="col-2 text-end filled">
+                ${data.filled} (${filledPerc}%)
             </div>
-            <div class="col-2">
+            <div class="col-2 text-end">
                 ${total}
-                <i class="float-end fa-solid fa-xmark" onClick="cancelOrder(${data.obid})"></i>
+                <i class="fa-solid fa-xmark" onClick="cancelOrder(${data.obid})"></i>
             </div>
         </div>
     `;

@@ -376,7 +376,7 @@
                 
                     <div class="tab-pane fade show active" id="orders-open" role="tabpanel" aria-labelledby="orders-open-tab">
                     
-                        <div class="row user-only">
+                        <div class="row user-only scrollable">
                             <div class="col-2">
                                 <h5>Date</h5>
                             </div>
@@ -384,18 +384,21 @@
                                 <h5>Pair</h5>
                             </div>
                             <div class="col-1">
+                                <h5>Type</h5>
+                            </div>
+                            <div class="col-1">
                                 <h5>Side</h5>
                             </div>
-                            <div class="col-2">
+                            <div class="col-1 text-end">
                                 <h5>Price</h5>
                             </div>
-                            <div class="col-2">
+                            <div class="col-2 text-end">
                                 <h5>Amount</h5>
                             </div>
-                            <div class="col-2">
+                            <div class="col-2 text-end">
                                 <h5>Filled</h5>
                             </div>
-                            <div class="col-2">
+                            <div class="col-2 text-end">
                                 <h5>Total</h5>
                             </div>
                         </div>
