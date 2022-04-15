@@ -26,10 +26,22 @@ function cancelOrder(obid) {
 
 function renderOpenOrder(data) {
     var time = new Date(data.time * 1000).toLocaleString();
+    
     var total = new BigNumber(data.amount);
     total = total.multipliedBy(data.price);
     total = total.toFixed(window.currentQuotePrecision);
-    var filledPerc = Math.round(data.filled / data.amount * 100);
+    
+    var filledStr = '-';
+    if(typeof(data.filled) !== 'undefined') {
+        var filledPerc = Math.round(data.filled / data.amount * 100);
+        filledStr = `${data.filled} (${filledPerc}%)`;
+    }
+    
+    var stopStr = '';
+    if(typeof(data.stop) !== 'undefined') {
+        stopStr = data.stop + ' &rarr; ';
+    }
+    
     return `
         <div class="row orders-open-item" data-obid="${data.obid}">
             <div class="col-2">
@@ -45,13 +57,13 @@ function renderOpenOrder(data) {
                 ${data.side}
             </div>
             <div class="col-1 text-end">
-                ${data.price}
+                ${stopStr}${data.price}
             </div>
             <div class="col-2 text-end">
                 ${data.amount}
             </div>
             <div class="col-2 text-end filled">
-                ${data.filled} (${filledPerc}%)
+                ${filledStr}
             </div>
             <div class="col-2 text-end">
                 ${total}
