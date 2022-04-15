@@ -24,12 +24,12 @@ function cancelOrder(obid) {
     });
 }
 
-function addOpenOrder(data) {
+function renderOpenOrder(data) {
     var time = new Date(data.time * 1000).toLocaleString();
     var total = new BigNumber(data.amount);
     total = total.multipliedBy(data.price);
     total = total.toFixed(window.currentQuotePrecision);
-    window.openOrdersAS.append(`
+    return `
         <div class="row orders-open-item" data-obid="${data.obid}">
             <div class="col-2">
                 ${time}
@@ -54,7 +54,7 @@ function addOpenOrder(data) {
                 <i class="float-end fa-solid fa-xmark" onClick="cancelOrder(${data.obid})"></i>
             </div>
         </div>
-    `);
+    `;
 }
 
 $(document).on('authChecked pairSelected', function() {
@@ -83,9 +83,8 @@ $(document).on('authChecked pairSelected', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            $.each(data.orders, function(obid, data) {
-                data.obid = obid;
-                addOpenOrder(data);
+            $.each(data.orders, function(k, v) {
+                thisAS.append(renderOpenOrder(v));
             });
             
             thisAS.done();
@@ -177,7 +176,7 @@ $(document).on('orderCanceled orderFilled', function(e, data) {
 
 $(document).on('orderNew', function(e, data) {
     if(typeof(data.obid) !== 'undefined')
-        addOpenOrder(data);
+        window.openOrdersAS.prepend(renderOpenOrder(data));
 });
 
 $(document).on('orderPartialFilled', function(e, data) {
