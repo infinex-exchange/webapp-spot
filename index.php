@@ -68,6 +68,61 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="row m-0 px-4 py-5 index-section gy-2">
+                <div class="col-12">
+                    <h2>Exchange as you wanted</h2>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h3>
+                        <i class="fa-solid fa-check-circle"></i>
+                        No KYC. Never.
+                    </h3>
+                    Only e-mail address and password needed to access all functions of the exchange.
+                    No personal details, no verifications.
+                    And we promise it won't change.
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h3>
+                        <i class="fa-solid fa-check-circle"></i>
+                        Flexible security options
+                    </h3>
+                    Are you annoyed by SMS or 2FA codes every time you open exchange app?
+                    In Vayamos, you can use it or you can turn it off.
+                    We don't force anything.
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h3>
+                        <i class="fa-solid fa-check-circle"></i>
+                        Quick & easy listing
+                    </h3>
+                    We help new crypto projects.
+                    Listing on Vayamos is as simple as possible.
+                    And if there are no technical barriers, it can be done for free.
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h3>
+                        <i class="fa-solid fa-check-circle"></i>
+                        < 0,10%
+                    </h3>
+                    Competitive transaction fees with the possibility of obtaining discounts.
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h3>
+                        <i class="fa-solid fa-check-circle"></i>
+                        Instant deposits and withdrawals
+                    </h3>
+                    When you request a withdrawal it will be executed on the blockchain
+                    within no more than 1 minute.
+                </div>
+                <div class="col-12 col-lg-4">
+                    <h3>
+                        <i class="fa-solid fa-check-circle"></i>
+                        Community support
+                    </h3>
+                    Get help and discuss anytime on our Discord server
+                </div>
+            </div>
         
         <!-- / Root container -->
         </div>

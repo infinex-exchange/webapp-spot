@@ -479,3 +479,26 @@ input#select-coin, input#select-net {
 .btn.bg-green, .btn.bg-red {
     color: var(--color-highlight);
 }
+
+/* Index section */
+
+.index-section {
+    font-size: 16px;
+}
+
+.index-section h2 {
+    color: var(--color-highlight);
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.index-section h3 {
+    color: var(--color-highlight);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.index-section h2, .index-section h3 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
