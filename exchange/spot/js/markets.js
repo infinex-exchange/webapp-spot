@@ -77,7 +77,7 @@ $(document).on('wsConnected', function() {
                         <div class="col-1">
                             <img width="16px" height="16px" src="${v.icon_url}">
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             ${v.pair}
                         </div>
                         <div class="col-4 text-end price">

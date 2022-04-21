@@ -94,10 +94,10 @@
                 </form>
                 <div id="markets-quotes" class="nav font-1">
                 </div>
-                <div class="row">
+                <div class="row scrollable">
                     <div class="col-1">
                     </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <h5>Pair</h5>
                     </div>
                     <div class="col-4 text-end">
