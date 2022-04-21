@@ -242,6 +242,13 @@ input[type=range] {
     font-weight: 600;
 }
 
+@media (max-width: 991px) {
+    .navbar-master .navbar-collapse {
+        height: 100vh;
+        font-size: 16px;
+    }
+}
+
 /* Highlight */
 
 .text-hi {
