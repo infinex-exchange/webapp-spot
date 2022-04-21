@@ -62,7 +62,7 @@ $(document).ready(function() {
         sort_dir: 'desc'
     });
     
-    getMarketsForIndex($('#top-loosers-spot-data'), {
+    getMarketsForIndex($('#top-losers-spot-data'), {
         offset: 0,
         sort: 'change',
         sort_dir: 'asc'
