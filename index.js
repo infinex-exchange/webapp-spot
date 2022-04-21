@@ -1,16 +1,8 @@
-$(document).ready(function() {
-    window.renderingStagesTarget = 1;
-    $(document).trigger('renderingStage');
-    
+function getMarketsForIndex(div, req) {
     $.ajax({
         url: config.apiUrl + '/spot/markets_ex',
         type: 'POST',
-        data: JSON.stringify({
-            offset: 0,
-            quote: 'USDT',
-            sort: 'marketcap',
-            sort_dir: 'desc'
-        }),
+        data: JSON.stringify(req),
         contentType: "application/json",
         dataType: "json",
     })
@@ -23,7 +15,7 @@ $(document).ready(function() {
                 if(v.change > 0) color = 'text-green';
                 if(v.change < 0) color = 'text-red';
                 
-                $('#market-trend-spot-data').append(`
+                div.append(`
                     <div class="row py-1 hoverable">
                         <div class="col-3 m-auto text-nowrap">
                             <img width="32" height="32" src="${v.icon_url}">
@@ -51,4 +43,28 @@ $(document).ready(function() {
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(false); 
     });    
+}
+
+$(document).ready(function() {
+    window.renderingStagesTarget = 1;
+    $(document).trigger('renderingStage');
+    
+    getMarketsForIndex($('#market-trend-spot-data'), {
+        offset: 0,
+        quote: 'USDT',
+        sort: 'marketcap',
+        sort_dir: 'desc'
+    });
+    
+    getMarketsForIndex($('#top-gainers-spot-data'), {
+        offset: 0,
+        sort: 'change',
+        sort_dir: 'desc'
+    });
+    
+    getMarketsForIndex($('#top-loosers-spot-data'), {
+        offset: 0,
+        sort: 'change',
+        sort_dir: 'asc'
+    });
 });

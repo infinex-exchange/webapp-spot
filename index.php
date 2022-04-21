@@ -22,22 +22,50 @@
                 </div>
             </div>
         
-            <div class="row m-0 mx-lg-5">
-                <div class="col-12 p-4 ui-card-high rounded">
-                
-                    <div class="row py-2 text-center">
-                        <h1>Market trend</h1>
+            <div class="row gx-0 gx-lg-3 gy-3 m-0 mx-lg-5">
+                <div class="col-12">
+                    <div class="p-4 ui-card-high rounded">
+                        <div class="row py-2 text-center">
+                            <h1>Market trend</h1>
+                        </div>
+                        <div class="row text-hi py-2">
+                            <div class="col-3">Name</div>
+                            <div class="col-3 text-end">Last price</div>
+                            <div class="col-3 text-end">24h change</div>
+                            <div class="col-3 text-end">Market cap</div>
+                        </div>            
+                        <div id="market-trend-spot-data"></div>
                     </div>
-                    
-                    <div class="row text-hi py-2">
-                        <div class="col-3">Name</div>
-                        <div class="col-3 text-end">Last price</div>
-                        <div class="col-3 text-end">24h change</div>
-                        <div class="col-3 text-end">Market cap</div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="p-4 ui-card-high rounded">
+                        <div class="row py-2 text-center">
+                            <h1>Top gainers</h1>
+                        </div>
+                        <div class="row text-hi py-2">
+                            <div class="col-3">Name</div>
+                           <div class="col-3 text-end">Last price</div>
+                            <div class="col-3 text-end">24h change</div>
+                            <div class="col-3 text-end">Market cap</div>
+                        </div>
+                        <div id="top-gainers-spot-data"></div>
                     </div>
-                    
-                    <div id="market-trend-spot-data"></div>
+                </div>
                 
+                <div class="col-12 col-lg-6">
+                    <div class="p-4 ui-card-high rounded">
+                        <div class="row py-2 text-center">
+                            <h1>Top loosers</h1>
+                        </div>                    
+                        <div class="row text-hi py-2">
+                            <div class="col-3">Name</div>
+                            <div class="col-3 text-end">Last price</div>
+                            <div class="col-3 text-end">24h change</div>
+                            <div class="col-3 text-end">Market cap</div>
+                        </div>                    
+                        <div id="top-loosers-spot-data"></div>
+                    </div>
                 </div>
             </div>
         
