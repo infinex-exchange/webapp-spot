@@ -310,6 +310,10 @@ input[type=range] {
     min-height: calc(100% - 70px);
 }
 
+.h-rest {
+    height: calc(100vh - 80px);
+}
+
 /* Button */
 
 .btn-primary {

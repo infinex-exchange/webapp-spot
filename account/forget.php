@@ -14,7 +14,7 @@
         
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 pt-2 guest-only container-rest">
-        <div class="row m-0 h-100">
+        <div class="row m-0 h-rest">
         
         <!-- Main column -->
         <div class="col-12 col-lg-6 m-auto ui-card-high rounded">
