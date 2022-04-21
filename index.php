@@ -73,7 +73,7 @@
                 <div class="col-12">
                     <h2>Exchange as you wanted</h2>
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-solid fa-check-circle"></i>
                         No KYC. Never.
@@ -82,7 +82,7 @@
                     No personal details, no verifications.
                     And we promise it won't change.
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-solid fa-check-circle"></i>
                         Flexible security options
@@ -91,7 +91,7 @@
                     In Vayamos, you can use it or you can turn it off.
                     We don't force anything.
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-solid fa-check-circle"></i>
                         Quick & easy listing
@@ -100,14 +100,14 @@
                     Listing on Vayamos is as simple as possible.
                     And if there are no technical barriers, it can be done for free.
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-solid fa-check-circle"></i>
                         < 0,10%
                     </h3>
                     Competitive transaction fees with the possibility of obtaining discounts.
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-solid fa-check-circle"></i>
                         Instant deposits and withdrawals
@@ -115,7 +115,7 @@
                     When you request a withdrawal it will be executed on the blockchain
                     within no more than 1 minute.
                 </div>
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-solid fa-check-circle"></i>
                         Community support
