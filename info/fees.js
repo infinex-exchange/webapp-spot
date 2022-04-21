@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    window.renderingStagesTarget = 1;
+    window.renderingStagesTarget = 2;
     
     $.ajax({
         url: config.apiUrl + '/spot/fees',
@@ -42,5 +42,47 @@ $(document).ready(function() {
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(true); 
-    });    
+    });
+    
+    $.ajax({
+        url: config.apiUrl + '/wallet/fees',
+        type: 'POST',
+        data: JSON.stringify({
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            $.each(data.fees, function(k, asset) {
+                $.each(asset.networks, function(k, network) {   
+                    $('#withdrawal-fees-data').append(`
+                        <div class="row p-2 hoverable">
+                            <div class="col">
+                                ${asset.asset}
+                            </div>
+                            <div class="col">
+                                ${network.network}
+                            </div>
+                            <div class="col text-end">
+                                0
+                            </div>
+                            <div class="col text-end">
+                                ${network.fee}
+                            </div>
+                        </div>
+                    `);
+                });
+            });
+            
+            $(document).trigger('renderingStage'); 
+        }
+        else {
+            msgBoxRedirect(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true); 
+    });        
 });
