@@ -128,6 +128,9 @@
         </div>
         
         <script src="/index.js"></script>
+        
+        <!-- Footer -->
+        <?php include('templates/footer.html'); ?>
     
     </body>
 </html>

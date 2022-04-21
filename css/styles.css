@@ -307,7 +307,7 @@ input[type=range] {
 
 /* Container of height 100vh - navbar */
 .container-rest {
-    height: calc(100% - 70px);
+    min-height: calc(100% - 70px);
 }
 
 /* Button */
@@ -501,4 +501,34 @@ input#select-coin, input#select-net {
 .index-section h2, .index-section h3 {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--color-navbar);
+}
+
+/* Social icons */
+
+.social-icon {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+.social-icon i {
+    vertical-align: middle;
+}
+
+.social-icon.twitter:hover {
+    color: rgb(29, 155, 240);
+}
+
+.social-icon.discord:hover {
+    color: rgb(88, 101, 242);
 }
