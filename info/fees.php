@@ -14,43 +14,70 @@
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 container-rest background">
         
-            <div class="row p-3">
-                <h1>Fees</h1>
-            </div>
-        
-        <!-- Main column -->
-        <div class="col-12 p-0 ui-card-high">
-        
             <div class="row p-2">
-                <h1>Fees</h1>
+                <h2>Fees</h2>
             </div>
             
-            <div class="row p-2 text-hi">
-                <div class="col">
-                    Level
-                </div>
-                <div class="col text-end">
-                    30d trade volume
-                </div>
-                <div class="col text-end">
-                    Hold
-                </div>
-                <div class="col">
-                    Maker fee
-                </div>
-                <div class="col">
-                    Taker fee
-                </div>
+            <div class="row p-2">
+                <h3>Spot trading</h3>
             </div>
             
-            <div id="fees-data">
+            <div class="row p-2 ui-card-high">
+            <div class="col-12">
+            
+                <div class="row p-2">
+                    <div class="col">
+                        <h5>Level</h5>
+                    </div>
+                    <div class="col text-end">
+                        <h5>30d trade volume</h5>
+                    </div>
+                    <div class="col text-end">
+                        <h5>Hold</h5>
+                    </div>
+                    <div class="col">
+                        <h5>Maker fee</h5>
+                    </div>
+                    <div class="col">
+                        <h5>Taker fee</h5>
+                    </div>
+                </div>
+                
+                <div id="spot-fees-data">
+                </div>
+            
             </div>
-        
-        <!-- / Main column -->
-        </div>
+            </div>
+            
+            <div class="row p-2">
+                <h3>Deposits and withdrawals</h3>
+            </div>
+            
+            <div class="row p-2 ui-card-high">
+            <div class="col-12">
+            
+                <div class="row p-2">
+                    <div class="col">
+                        <h5>Asset</h5>
+                    </div>
+                    <div class="col">
+                        <h5>Network</h5>
+                    </div>              
+                    <div class="col text-end">
+                        <h5>Deposit fee</h5>
+                    </div>
+                    <div class="col text-end">
+                        <h5>Withdrawal fee</h5>
+                    </div>
+                </div>
+                
+                <div id="withdrawal-fees-data">
+                </div>
+            
+            </div>
+            </div>
         
         <!-- / Root container -->
-        </div>
         </div>
         
         <script src="/info/fees.js"></script>

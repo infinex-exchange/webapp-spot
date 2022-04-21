@@ -13,7 +13,7 @@ $(document).ready(function() {
     .done(function (data) {
         if(data.success) {
             $.each(data.fees, function(level, data) {   
-                $('#fees-data').append(`
+                $('#spot-fees-data').append(`
                     <div class="row p-2 hoverable">
                         <div class="col">
                             ${level}
