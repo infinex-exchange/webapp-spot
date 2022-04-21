@@ -525,3 +525,9 @@ footer {
 .background {
     background-color: var(--color-background);
 }
+
+/* Text colors */
+
+.text-hi {
+    color: var(--color-highlight);
+}

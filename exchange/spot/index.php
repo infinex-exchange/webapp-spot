@@ -19,7 +19,7 @@
         <?php include('../../templates/navbar.html'); ?>
         
         <!-- Mobile navbar -->
-        <nav class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 font-1">
+        <nav class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 small">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link" href="#_" data-ui-card="markets">
@@ -89,25 +89,25 @@
             <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="markets">
                 <form>
                     <div class="form-row">
-                        <input id="markets-search" type="text" size="5" placeholder="Search" class="form-control form-control-sm input-search">
+                        <input id="markets-search" type="text" placeholder="Search" class="form-control form-control-sm input-search">
                     </div>
                 </form>
-                <div id="markets-quotes" class="nav font-1">
+                <div id="markets-quotes" class="nav small">
                 </div>
-                <div class="row scrollable text-hi">
+                <div class="row scrollable">
                     <div class="col-1">
                     </div>
                     <div class="col-4">
-                        <h5>Pair</h5>
+                        <h6>Pair</h6>
                     </div>
                     <div class="col-4 text-end">
-                        <h5>Price</h5>
+                        <h6>Price</h6>
                     </div>
                     <div class="col-3 text-end">
-                        <h5>Change</h5>
+                        <h6>Change</h6>
                     </div>
                 </div>
-                <div id="markets-table" class="scrollable font-1">         
+                <div id="markets-table" class="scrollable small">         
                 </div>
             
             <!-- / Markets -->
@@ -120,7 +120,7 @@
             <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="trades">
             
                 <nav>
-                <div class="nav nav-tab nav-deco font-2" role="tablist">
+                <div class="nav nav-tab nav-deco" role="tablist">
                     <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#trades-market" href="#_" role="tab" aria-controls="trades-market" aria-selected="true">Market trades</a>
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#trades-my" href="#_" role="tab" aria-controls="trades-my" aria-selected="false">My trades</a>
                 </div>
@@ -130,38 +130,38 @@
                 
                     <div class="tab-pane fade show active" id="trades-market" role="tabpanel" aria-labelledby="trades-market-tab">
                     
-                        <div class="row scrollable text-hi">
+                        <div class="row scrollable">
                             <div class="col-4">
-                                <h5>Price</h5>
+                                <h6>Price</h6>
                             </div>
                             <div class="col-4 text-end">
-                                <h5>Amount</h5>
+                                <h6>Amount</h6>
                             </div>
                             <div class="col-4 text-end">
-                                <h5>Time</h5>
+                                <h6>Time</h6>
                             </div>
                         </div>
                         
-                        <div id="trades-market-data" class="scrollable font-1">
+                        <div id="trades-market-data" class="scrollable small">
                         </div>
                         
                     </div>
                     
                     <div class="tab-pane fade" id="trades-my" role="tabpanel" aria-labelledby="trades-my-tab">
                     
-                        <div class="row user-only scrollable text-hi">
+                        <div class="row user-only scrollable">
                             <div class="col-4">
-                                <h5>Price</h5>
+                                <h6>Price</h6>
                             </div>
                             <div class="col-4 text-end">
-                                <h5>Amount</h5>
+                                <h6>Amount</h6>
                             </div>
                             <div class="col-4 text-end">
-                                <h5>Time</h5>
+                                <h6>Time</h6>
                             </div>
                         </div>
                         
-                        <div id="trades-my-data" class="scrollable font-1">
+                        <div id="trades-my-data" class="scrollable small">
                             <div class="guest-only m-auto">
                                 <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div>  
@@ -185,13 +185,13 @@
         <div class="row m-0">
         
             <!-- Header -->
-            <div class="col-3 ui-card ui-card-ver ui-card-hor my-auto font-1">
-                <h1 id="ticker-name"></h1>
+            <div class="col-3 ui-card ui-card-ver ui-card-hor my-auto small">
+                <h4 id="ticker-name"></h4>
                 <span id="ticker-base-name"></span>
             </div>
                 
             <div class="col-9 ui-card ui-card-hor">
-                <div class="row flex-nowrap overflow-hidden font-1">
+                <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price
                         <span id="ticker-price" class="text-hi d-block"></span>
@@ -227,7 +227,7 @@
             
             <!-- Trading form -->
             <div class="col-12 ui-card ui-card-ver ui-card-high d-lg-block" data-ui-card="form">
-                <div class="nav font-2">
+                <div class="nav">
                     <a class="nav-link switch-order-type" href="#_" data-type="LIMIT">Limit</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="STOP_LIMIT">Stop-Limit</a>
@@ -250,8 +250,8 @@
                 </div>   
                 <div class="row">
                     <div class="col-12 col-lg-6 pb-5 pb-lg-0">
-                        <form class="font-2 d-grid gap-2">
-                            <div class="user-only font-1">
+                        <form class="d-grid gap-2">
+                            <div class="user-only small">
                                 <span>Available:</span>
                                 <span class="float-end" id="form-quote-balance"></span>
                             </div>
@@ -287,7 +287,7 @@
                     </div>
                     <div class="col-12 col-lg-6">
                         <form class="font-2 d-grid gap-2">
-                            <div class="user-only font-1">
+                            <div class="user-only small">
                                 <span>Available:</span>
                                 <span class="float-end" id="form-base-balance"></span>
                             </div>
@@ -336,22 +336,22 @@
         <div class="row m-0">
             
             <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="orderbook">
-                <div class="row text-hi">
+                <div class="row">
                     <div class="col-4">
-                        <h5>Price</h5>
+                        <h6>Price</h6>
                     </div>
                     <div class="col-4 text-end">
-                        <h5>Amount</h5>
+                        <h6>Amount</h6>
                     </div>
                     <div class="col-4 text-end">
-                        <h5>Total</h5>
+                        <h6>Total</h6>
                     </div>
                 </div>
                 
-                <div id="orderbook-sell" class="font-1"> 
+                <div id="orderbook-sell" class="small"> 
                 </div>
             
-                <div id="orderbook-buy" class="font-1">
+                <div id="orderbook-buy" class="small">
                 </div>
             </div>
         
@@ -366,7 +366,7 @@
             <div class="col-12 ui-card ui-column d-none d-lg-block order-4" data-ui-card="orders">
             
                 <nav>
-                <div class="nav nav-tab nav-deco font-2" role="tablist">
+                <div class="nav nav-tab nav-deco" role="tablist">
                     <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#orders-open" href="#_" role="tab" aria-controls="orders-open" aria-selected="true">Open orders</a>
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#orders-history" href="#_" role="tab" aria-controls="orders-history" aria-selected="false">Order history</a>
                 </div>
@@ -376,34 +376,34 @@
                 
                     <div class="tab-pane fade show active" id="orders-open" role="tabpanel" aria-labelledby="orders-open-tab">
                     
-                        <div class="row user-only scrollable text-hi">
+                        <div class="row user-only scrollable">
                             <div class="col-2">
-                                <h5>Date</h5>
+                                <h6>Date</h6>
                             </div>
                             <div class="col-1">
-                                <h5>Pair</h5>
+                                <h6>Pair</h6>
                             </div>
                             <div class="col-1">
-                                <h5>Type</h5>
+                                <h6>Type</h6>
                             </div>
                             <div class="col-1">
-                                <h5>Side</h5>
+                                <h6>Side</h6>
                             </div>
                             <div class="col-1 text-end">
-                                <h5>Price</h5>
+                                <h6>Price</h6>
                             </div>
                             <div class="col-2 text-end">
-                                <h5>Amount</h5>
+                                <h6>Amount</h6>
                             </div>
                             <div class="col-2 text-end">
-                                <h5>Filled</h5>
+                                <h6>Filled</h6>
                             </div>
                             <div class="col-2 text-end">
-                                <h5>Total</h5>
+                                <h6>Total</h6>
                             </div>
                         </div>
                         
-                        <div id="orders-open-data" class="scrollable font-1 d-flex">
+                        <div id="orders-open-data" class="scrollable small d-flex">
                             <div class="guest-only m-auto">
                                 <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div>  
@@ -413,19 +413,19 @@
                     
                     <div class="tab-pane fade" id="orders-history" role="tabpanel" aria-labelledby="orders-history-tab">
                     
-                        <div class="row user-only text-hi">
+                        <div class="row user-only">
                             <div class="col-4">
-                                <h5>Price</h5>
+                                <h6>Price</h6>
                             </div>
                             <div class="col-4">
-                                <h5>Amount</h5>
+                                <h6>Amount</h6>
                             </div>
                             <div class="col-4">
-                                <h5>Time</h5>
+                                <h6>Time</h6>
                             </div>
                         </div>
                         
-                        <div id="orders-history-data" class="scrollable font-1 d-flex">
+                        <div id="orders-history-data" class="scrollable small d-flex">
                             <div class="guest-only m-auto">
                                 <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div>    
