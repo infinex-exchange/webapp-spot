@@ -94,7 +94,7 @@
                 </form>
                 <div id="markets-quotes" class="nav font-1">
                 </div>
-                <div class="row scrollable">
+                <div class="row scrollable text-hi">
                     <div class="col-1">
                     </div>
                     <div class="col-4">
@@ -130,7 +130,7 @@
                 
                     <div class="tab-pane fade show active" id="trades-market" role="tabpanel" aria-labelledby="trades-market-tab">
                     
-                        <div class="row scrollable">
+                        <div class="row scrollable text-hi">
                             <div class="col-4">
                                 <h5>Price</h5>
                             </div>
@@ -149,7 +149,7 @@
                     
                     <div class="tab-pane fade" id="trades-my" role="tabpanel" aria-labelledby="trades-my-tab">
                     
-                        <div class="row user-only scrollable">
+                        <div class="row user-only scrollable text-hi">
                             <div class="col-4">
                                 <h5>Price</h5>
                             </div>
@@ -336,7 +336,7 @@
         <div class="row m-0">
             
             <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="orderbook">
-                <div class="row">
+                <div class="row text-hi">
                     <div class="col-4">
                         <h5>Price</h5>
                     </div>
@@ -376,7 +376,7 @@
                 
                     <div class="tab-pane fade show active" id="orders-open" role="tabpanel" aria-labelledby="orders-open-tab">
                     
-                        <div class="row user-only scrollable">
+                        <div class="row user-only scrollable text-hi">
                             <div class="col-2">
                                 <h5>Date</h5>
                             </div>
@@ -413,7 +413,7 @@
                     
                     <div class="tab-pane fade" id="orders-history" role="tabpanel" aria-labelledby="orders-history-tab">
                     
-                        <div class="row user-only">
+                        <div class="row user-only text-hi">
                             <div class="col-4">
                                 <h5>Price</h5>
                             </div>
