@@ -265,6 +265,11 @@ input[type=range] {
         height: 100vh;
         font-size: var(--font-big);
     }
+    
+    .navbar-master .dropdown-menu {
+        background-color: var(--color-navbar);
+        border: none;
+    }
 }
 
 /* Fix for dropdown out of screen */
