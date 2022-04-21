@@ -64,7 +64,7 @@ $(document).ready(function() {
         var password2 = $('#reg-password2').val();
         
         if(!validateEmail(email) || !validatePassword(password) || password != password2) {
-            msgBox('fill in the form correctly first');
+            msgBox('Fill the form correctly');
             return;
         }
         
@@ -84,7 +84,7 @@ $(document).ready(function() {
         var captchaChallenge = window.captchaChallenge;
         
         if(!validateCaptchaResp(captchaResponse)) {
-            msgBox('fill in the form correctly first');
+            msgBox('Fill the form correctly');
             return;
         }
         

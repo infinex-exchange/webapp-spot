@@ -12,7 +12,7 @@ $(document).ready(function() {
         var code = $(this).find('#verify-code').val();
         
         if(!validateVeriCode(code)) {
-            msgBox('fill in the form correctly first');
+            msgBox('Fill the form correctly');
             return;
         }
         

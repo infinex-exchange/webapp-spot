@@ -48,12 +48,13 @@
                         <div class="form-group">
                             <label for="forget-password">New password:</label>
                             <input type="password" class="form-control" id="forget-password">
-                            <small id="help-password" class="form-text" style="display: none">Password a-a A-A 0-0 x8</small>
+                            <small id="help-password" class="form-text" style="display: none">The password must be at least 8 characters long and contain
+                            one lowercase letter, one uppercase letter, and one digit</small>
                         </div>
                         <div class="form-group">
                             <label for="forget-password2">Confirm password:</label>
                             <input type="password" class="form-control" id="forget-password2">
-                            <small id="help-password2" class="form-text" style="display: none">Passwords not match</small>
+                            <small id="help-password2" class="form-text" style="display: none">Passwords does not match</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Change password</button>
                     </form>

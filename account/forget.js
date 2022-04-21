@@ -33,7 +33,7 @@ $(document).ready(function() {
         var email = $(this).find('#forget-email').val();
         
         if(!validateEmail(email)) {
-            msgBox('fill in the form correctly first');
+            msgBox('Fill the form correctly');
             return;
         }
         
@@ -67,7 +67,7 @@ $(document).ready(function() {
         var password2 = $('#forget-password2').val();
         
         if(!validateVeriCode(code) || !validatePassword(password) || password != password2) {
-            msgBox('fill in the form correctly first');
+            msgBox('Fill the form correctly');
             return;
         }
         

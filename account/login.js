@@ -7,7 +7,7 @@ $(document).ready(function() {
         var remember = $(this).find('#login-remember').prop('checked');
         
         if(!email.length || !password.length) {
-            msgBox('fill in the form correctly first');
+            msgBox('Fill the form correctly');
             return;
         }
     

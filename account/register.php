@@ -36,12 +36,13 @@
                 <div class="form-group">
                     <label for="reg-password">Password:</label>
                     <input type="password" class="form-control" id="reg-password">
-                    <small id="help-password" class="form-text" style="display: none">Password a-a A-A 0-0 x8</small>
+                    <small id="help-password" class="form-text" style="display: none">The password must be at least 8 characters long and contain
+                    one lowercase letter, one uppercase letter, and one digit</small>
                 </div>
                 <div class="form-group">
                     <label for="reg-password2">Confirm password:</label>
                     <input type="password" class="form-control" id="reg-password2">
-                    <small id="help-password2" class="form-text" style="display: none">Passwords not match</small>
+                    <small id="help-password2" class="form-text" style="display: none">Passwords does not match</small>
                 </div>
                 <button type="submit" class="btn btn-primary">Next</button>
             </form>
@@ -58,7 +59,7 @@
                 <div class="form-group">
                     <label for="reg-captcha">Captcha:</label>
                     <input type="text" class="form-control" id="reg-captcha">
-                    <small id="help-captcha" class="form-text" style="display: none">Captcha must be 4 characters length, case-ignored, no 0 digit and O letters</small>
+                    <small id="help-captcha" class="form-text" style="display: none">Captcha must be 4 characters long, case is ignored, no zeros and "O" letters</small>
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
