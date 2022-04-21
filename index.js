@@ -20,9 +20,9 @@ $(document).ready(function() {
                 if(v.change < 0) color = 'text-red';
                 
                 $('#market-trend-spot-data').append(`
-                    <div class="row p-2 hoverable">
-                        <div class="col-3 m-auto">
-                            <img width="32px" height="32px" src="${v.icon_url}">
+                    <div class="row py-1 hoverable">
+                        <div class="col-3 m-auto text-nowrap">
+                            <img width="32" height="32" src="${v.icon_url}">
                             ${k}
                         </div>
                         <div class="col-3 m-auto text-end">

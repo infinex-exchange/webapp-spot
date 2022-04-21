@@ -12,9 +12,9 @@
         <?php include('templates/navbar.html'); ?>
         
         <!-- Root container -->
-        <div id="root" class="container-fluid container-1500 pt-2 container-rest">
+        <div id="root" class="container-fluid container-1500 pt-2 container-rest p-0">
         
-            <div class="row m-0 px-2 py-5">
+            <div class="row m-0 px-4 py-5">
                 <div class="jumbotron col-12">
                     <h1>Vayamos Exchange</h1>
                     <p>Official digital assets exchange of BPX ecosystem.</p>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         
-            <div class="row">
+            <div class="row m-0 mx-lg-5">
                 <div class="col-12 p-4 ui-card-high rounded">
                 
                     <div class="row py-2 text-center">
