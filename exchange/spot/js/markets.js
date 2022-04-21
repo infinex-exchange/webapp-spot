@@ -15,8 +15,8 @@ function filterMarketsByQuote(q) {
     $('.markets-filter-btn[data-quote="' + q + '"]').addClass('active');
 }
 
-function liveMarketItem(pair, data) {
-    var div = $('.markets-item[data-pair="' + pair + '"]');
+function liveMarketItem(data) {
+    var div = $('.markets-item[data-pair="' + data.pair + '"]');
     div.find('.price').html(data.price);
     var changeDiv = div.find('.change');
     var color = '';
@@ -73,12 +73,12 @@ $(document).on('wsConnected', function() {
             
             $.each(data.markets, function(k, v) {  
                 thisAS.append(`
-                    <div class="row markets-item" onClick="gotoMarket('${k}')" data-pair="${k}">
+                    <div class="row markets-item" onClick="gotoMarket('${v.pair}')" data-pair="${v.pair}">
                         <div class="col-1">
                             <img width="16px" height="16px" src="${v.icon_url}">
                         </div>
                         <div class="col-3">
-                            ${k}
+                            ${v.pair}
                         </div>
                         <div class="col-4 text-end price">
                         </div>
@@ -89,9 +89,9 @@ $(document).on('wsConnected', function() {
                     </div>
                 `);
                 
-                liveMarketItem(k, v);
+                liveMarketItem(v);
                 
-                sub.push(k + '@ticker');
+                sub.push(v.pair + '@ticker');
             });
             
             thisAS.done();
@@ -128,7 +128,7 @@ $(document).on('wsConnected', function() {
                 window.wsClient.sub(
                     sub,
                     function(data) {
-                        liveMarketItem(data.pair, data);
+                        liveMarketItem(data);
                     },
                     function(error) {
                         msgBoxRedirect(error);

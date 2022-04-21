@@ -6,7 +6,10 @@ $(document).ready(function() {
         url: config.apiUrl + '/spot/markets_ex',
         type: 'POST',
         data: JSON.stringify({
-            offset: 0
+            offset: 0,
+            quote: 'USDT',
+            sort: 'marketcap',
+            sort_dir: 'desc'
         }),
         contentType: "application/json",
         dataType: "json",
@@ -14,6 +17,7 @@ $(document).ready(function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
+            data.markets = data.markets.slice(0, 5);
             $.each(data.markets, function(k, v) {   
                 var color = '';
                 if(v.change > 0) color = 'text-green';
@@ -23,7 +27,7 @@ $(document).ready(function() {
                     <div class="row py-1 hoverable">
                         <div class="col-3 m-auto text-nowrap">
                             <img width="32" height="32" src="${v.icon_url}">
-                            ${k}
+                            ${v.pair}
                         </div>
                         <div class="col-3 m-auto text-end">
                             ${v.price} ${v.quote}

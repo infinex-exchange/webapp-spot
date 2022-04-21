@@ -40,8 +40,7 @@ $(document).on('prePairSelected', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            var k = Object.keys(data.markets)[0];
-            var v = data.markets[k];
+            var v = data.markets[0];
             
             // Global variables and event pairSelected
             window.currentBase = v.base;
@@ -52,7 +51,7 @@ $(document).on('prePairSelected', function() {
             $(document).trigger('pairSelected');
             
             // Ticker HTML
-            $('#ticker-name').html(k);
+            $('#ticker-name').html(v.pair);
             $('#ticker-base-name').html(v.base_name);
             $('#ticker-base-legend').html(window.currentBase);
             $('#ticker-quote-legend').html(window.currentQuote);
