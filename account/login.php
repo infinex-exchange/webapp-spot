@@ -23,7 +23,7 @@
             
             <div class="col-12 col-lg-7 p-4">
             
-            <h1 class="pb-4">Vayamos Exchange Login</h1>
+            <h2 class="pb-4">Login</h2>
             <p>Welcome back! Log in with your e-mail and password.</p>
         
             <form id="login-form" class="d-grid gap-3">

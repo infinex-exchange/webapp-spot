@@ -21,7 +21,7 @@
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
         
             <div class="row p-2">
-                <h1>Deposit</h1>
+                <h2>Deposit</h2>
             </div>
             
             <div class="row p-2">
@@ -53,7 +53,7 @@
         <div class="col-12 col-lg-3 p-0 ui-card ui-column">
         
             <div class="row p-2">
-                <h1>Last deposits</h1>
+                <h3>Last deposits</h3>
             </div>
             
             <div id="recent-tx-data">

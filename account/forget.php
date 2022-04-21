@@ -23,7 +23,7 @@
             <!-- Left -->
             <div class="col-12 col-lg-7 p-4">
             
-                <h1 class="pb-4">Vayamos Exchange Password Reset</h1>
+                <h2 class="pb-4">Password reset</h2>
         
                 <div id="forget-form-step1-wrapper">
                     <p>Enter your account details.</p>

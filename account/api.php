@@ -23,7 +23,7 @@
         <div class="col-12 col-lg-8 p-0 ui-card ui-column">
             
             <div class="row p-2">
-                <h1>API keys</h1>
+                <h3>API keys</h3>
             </div>
             
             <div class="row p-2">
@@ -32,15 +32,15 @@
                 </div>
             </div>
             
-            <div class="row p-2 text-hi">
+            <div class="row p-2">
                 <div class="col-4">
-                Description
+                <h5>Description</h5>
                 </div>
                 <div class="col-5">
-                API key
+                <h5>API key</h5>
                 </div>
                 <div class="col-3">
-                Options
+                <h5>Options</h5>
                 </div>
             </div>
             

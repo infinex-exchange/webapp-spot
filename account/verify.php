@@ -23,7 +23,7 @@
             <!-- Left -->
             <div class="col-12 col-lg-7 p-4">
             
-                <h1 class="pb-4">Vayamos Exchange Registration</h1>
+                <h2 class="pb-4">Register</h2>
                 <p>Your account has been created. Verification code sent to e-mail address: <strong id="verify-email-addr"></strong>.</p>
                 
                 <form id="verify-form" class="d-grid gap-3">

@@ -23,7 +23,7 @@
             <!-- Left -->
             <div class="col-12 col-lg-7 p-4">
             
-            <h1 class="pb-4">Vayamos Exchange Registration</h1>
+            <h2 class="pb-4">Register</h2>
             <p>Enter your account details.</p>
         
             <div id="reg-form-step1-wrapper">

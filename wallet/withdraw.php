@@ -20,7 +20,7 @@
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
         
             <div class="row p-2">
-                <h1>Withdraw</h1>
+                <h2>Withdraw</h2>
             </div>
             
             <div class="row p-2">
@@ -64,7 +64,7 @@
         <div class="col-12 col-lg-3 p-0 ui-card ui-column">
         
             <div class="row p-2">
-                <h1>Last withdrawals</h1>
+                <h3>Last withdrawals</h3>
             </div>
             
             <div id="recent-tx-data">

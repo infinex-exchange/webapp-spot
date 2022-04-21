@@ -41,23 +41,23 @@
             </div>
             </form>
             
-            <div class="row p-2 text-hi">
+            <div class="row p-2">
                 <div class="col-1">
                 </div>
                 <div class="col-2">
-                Token
+                <h5>Token</h5>
                 </div>
                 <div class="col-2 text-end">
-                Total
+                <h5>Total</h5>
                 </div>
                 <div class="col-2 text-end">
-                Available
+                <h5>Available</h5>
                 </div>
                 <div class="col-2 text-end">
-                Locked
+                <h5>Locked</h5>
                 </div>
                 <div class="col-3">
-                Action
+                <h5>Action</h5>
                 </div>
             </div>
             
@@ -71,7 +71,7 @@
         <div class="col-12 col-lg-3 p-0 ui-card ui-column">
         
             <div class="row p-2">
-                <h1>Recent transactions</h1>
+                <h3>Recent transactions</h3>
             </div>
             
             <div id="recent-tx-data">
