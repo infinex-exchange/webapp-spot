@@ -26,13 +26,13 @@
                 <div class="col-12">
                     <div class="p-4 ui-card-high rounded">
                         <div class="row py-2 text-center">
-                            <h1>Market trend</h1>
+                            <h3>Market trend</h3>
                         </div>
-                        <div class="row text-hi py-2">
-                            <div class="col-3">Name</div>
-                            <div class="col-3 text-end">Last price</div>
-                            <div class="col-3 text-end">24h change</div>
-                            <div class="col-3 text-end">Market cap</div>
+                        <div class="row py-2">
+                            <div class="col-3"><h5>Name</h5></div>
+                            <div class="col-3 text-end"><h5>Last price</h5></div>
+                            <div class="col-3 text-end"><h5>24h change</h5></div>
+                            <div class="col-3 text-end"><h5>Market cap</h5></div>
                         </div>            
                         <div id="market-trend-spot-data"></div>
                     </div>
@@ -41,13 +41,13 @@
                 <div class="col-12 col-lg-6">
                     <div class="p-4 ui-card-high rounded">
                         <div class="row py-2 text-center">
-                            <h1>Top gainers</h1>
+                            <h3>Top gainers</h3>
                         </div>
-                        <div class="row text-hi py-2">
+                        <div class="row py-2">
                             <div class="col-3">Name</div>
-                           <div class="col-3 text-end">Last price</div>
-                            <div class="col-3 text-end">24h change</div>
-                            <div class="col-3 text-end">Market cap</div>
+                           <div class="col-3 text-end"><h5>Last price</h5></div>
+                            <div class="col-3 text-end"><h5>24h change</h5></div>
+                            <div class="col-3 text-end"><h5>Market cap</h5></div>
                         </div>
                         <div id="top-gainers-spot-data"></div>
                     </div>
@@ -56,20 +56,20 @@
                 <div class="col-12 col-lg-6">
                     <div class="p-4 ui-card-high rounded">
                         <div class="row py-2 text-center">
-                            <h1>Top losers</h1>
+                            <h3>Top losers</h3>
                         </div>                    
                         <div class="row text-hi py-2">
-                            <div class="col-3">Name</div>
-                            <div class="col-3 text-end">Last price</div>
-                            <div class="col-3 text-end">24h change</div>
-                            <div class="col-3 text-end">Market cap</div>
+                            <div class="col-3"><h5>Name</h5></div>
+                            <div class="col-3 text-end"><h5>Last price</h5></div>
+                            <div class="col-3 text-end"><h5>24h change</h5></div>
+                            <div class="col-3 text-end"><h5>Market cap</h5></div>
                         </div>                    
                         <div id="top-losers-spot-data"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="row m-0 px-4 py-5 index-section gy-2">
+            <div class="row m-0 px-4 py-5 index-section gy-4">
                 <div class="col-12">
                     <h2>Exchange as you wanted</h2>
                 </div>

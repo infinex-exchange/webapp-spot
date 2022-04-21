@@ -1,9 +1,12 @@
 /* Font sizes definition */
 
 :root {
-    --font-1: 12px;
-    --font-2: 14px;
-    --font-3: 20px;
+    --font-small: 12px;
+    --font-normal: 14px;
+    --font-big: 16px;
+    --font-h3: 20px;
+    --font-h2: 40px;
+    --font-h1: 60px;
 }
 
 /* Bigger container on very large screen */
@@ -17,7 +20,7 @@
 /* Body */
 
 html body {
-    font-size: var(--font-2);
+    font-size: var(--font-normal);
     font-family: Arial, sans-serif !important;
     color: var(--color-text);
     background-color: var(--color-background);
@@ -27,17 +30,37 @@ html body {
 
 /* Headings */
 
-h1 {
-    font-size: var(--font-3);
-    font-weight: 600;
+h1, h2, h3, h4, h5, h6 {
     color: var(--color-highlight);
+    font-weight: 600;
+}
+
+h4, h5, h6 {
     margin: 0px;
 }
 
+h1 {
+    font-size: var(--font-h1);
+}
+
+h2 {
+    font-size: var(--font-h2);
+}
+
+h3 {
+    font-size: var(--font-h3);
+}
+
+h4 {
+    font-size: var(--font-big);
+}
+
 h5 {
-    font-size: var(--font-1);
-    font-weight: 700;
-    margin: 0px;
+    font-size: var(--font-normal);
+}
+
+h6 {
+    font-size: var(--font-small);
 }
 
 /* UI card */
@@ -99,11 +122,11 @@ input[type=password], input[type=password]:focus, input[type=text][readonly] {
     outline: none !important;
     box-shadow: none !important;
     color: var(--color-text);
-    font-size: var(--font-2);
+    font-size: var(--font-normal);
 }
 
 .form-control-sm {
-    font-size: var(--font-1) !important;
+    font-size: var(--font-small) !important;
 }
 
 /* Search input with icon */
@@ -209,7 +232,7 @@ input[type=range] {
 
 .nav-link.active {
     color: var(--color-ultra);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .nav-deco .nav-link.active {
@@ -218,23 +241,18 @@ input[type=range] {
 
 /* Font sizes */
 
-.font-1 {
-    font-size: var(--font-1);
+.small {
+    font-size: var(--font-small);
 }
 
-.font-2 {
-    font-size: var(--font-2);
-}
-
-.font-3 {
-    font-size: var(--font-3);
+.big {
+    font-size: var(--font-big);
 }
 
 /* Master navbar */
 
 .navbar-master {
     background-color: var(--color-navbar) !important;
-    font-size: var(--font-2);
 }
 
 .navbar-master .nav-link {
@@ -245,14 +263,8 @@ input[type=range] {
 @media (max-width: 991px) {
     .navbar-master .navbar-collapse {
         height: 100vh;
-        font-size: 16px;
+        font-size: var(--font-big);
     }
-}
-
-/* Highlight */
-
-.text-hi {
-    color: var(--color-highlight);
 }
 
 /* Fix for dropdown out of screen */
@@ -318,11 +330,11 @@ input[type=range] {
 
 .btn-primary {
     background-color: var(--color-ultra);
-    font-size: var(--font-2);
+    font-size: var(--font-normal);
 }
 
 .btn-sm {
-    font-size: var(--font-1);
+    font-size: var(--font-small);
     margin: 4px;
 }
 
@@ -430,7 +442,6 @@ input#select-coin, input#select-net {
 
 .dropdown-item {
     color: var(--color-text);
-    font-size: var(--font-2);
 }
 
 .dropdown-divider {
@@ -440,13 +451,8 @@ input#select-coin, input#select-net {
 
 /* Jumbotron */
 
-.jumbotron h1 {
-    color: var(--color-highlight);
-    font-size: 50px;
-}
-
 .jumbotron p {
-    font-size: 20px;
+    font-size: var(--font-h3);
 }
 
 .jumbotron > * {
@@ -484,29 +490,6 @@ input#select-coin, input#select-net {
     color: var(--color-highlight);
 }
 
-/* Index section */
-
-.index-section {
-    font-size: 16px;
-}
-
-.index-section h2 {
-    color: var(--color-highlight);
-    font-size: 40px;
-    font-weight: 600;
-}
-
-.index-section h3 {
-    color: var(--color-highlight);
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.index-section h2, .index-section h3 {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
 /* Footer */
 
 footer {
@@ -535,4 +518,10 @@ footer {
 
 .social-icon.discord:hover {
     color: rgb(88, 101, 242);
+}
+
+/* Add background to any element */
+
+.background {
+    background-color: var(--color-background);
 }

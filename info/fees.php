@@ -12,8 +12,11 @@
         <?php include('../templates/navbar.html'); ?>
         
         <!-- Root container -->
-        <div id="root" class="container-fluid container-1500 pt-2 container-rest">
-        <div class="row m-0 h-100">
+        <div id="root" class="container-fluid container-1500 container-rest background">
+        
+            <div class="row p-3">
+                <h1>Fees</h1>
+            </div>
         
         <!-- Main column -->
         <div class="col-12 p-0 ui-card-high">
@@ -51,6 +54,8 @@
         </div>
         
         <script src="/info/fees.js"></script>
+        
+        <?php include('../templates/footer.html'); ?>
     
     </body>
 </html>
