@@ -33,7 +33,7 @@ function orderBookUpdate(side, row) {
         existing.find('.amount').html(row.amount);
         existing.find('.total').html(strTotal);
         existing.attr('data-total', strTotal);
-        existing.css({"background-size": `calc(${strTotal} / var(--orderbook-total-max) * 100%)`});
+        existing.css({"background-size": `calc(${strTotal} / var(--orderbook-total-max) * 100%) 100%`});
     }
     
     // Add
@@ -41,7 +41,7 @@ function orderBookUpdate(side, row) {
         var html = `
             <div class="row orderbook-item" data-side="${side}" data-price="${row.price}" data-total="${strTotal}"
                     onClick="orderBookClick(this)"
-                    style="background-size: calc(${strTotal} / var(--orderbook-total-max) * 100%)">
+                    style="background-size: calc(${strTotal} / var(--orderbook-total-max) * 100%) 100%">
                 <div class="col-4 price ${color}">
                     ${row.price}
                 </div>
