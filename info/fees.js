@@ -2,7 +2,7 @@ $(document).ready(function() {
     window.renderingStagesTarget = 2;
     
     $.ajax({
-        url: config.apiUrl + '/spot/fees',
+        url: config.apiUrl + '/info/spot_fees',
         type: 'POST',
         data: JSON.stringify({
         }),
@@ -45,7 +45,7 @@ $(document).ready(function() {
     });
     
     $.ajax({
-        url: config.apiUrl + '/wallet/fees',
+        url: config.apiUrl + '/info/withdrawal_fees',
         type: 'POST',
         data: JSON.stringify({
         }),
