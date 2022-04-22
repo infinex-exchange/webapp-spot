@@ -21,3 +21,4 @@ RewriteRule ^spot/([^/]+)/?$ /exchange/spot/index.php [L]
 RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
 
 RewriteRule ^info/fees/?$ /info/fees.php [L]
+RewriteRule ^info/announcements/?$ /info/announcements.php [L]
