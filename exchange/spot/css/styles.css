@@ -41,7 +41,7 @@
 
 /* Trades */
 
-#trades-market-data, #trades-my-data {
+#trades-data {
     height: 310px;
 }
 
@@ -61,7 +61,7 @@
 
 /* Hoverable rows */
 #markets-table .row:hover, #orders-open-data .row:hover, #orders-history-data .row:hover,
-#trades-market-data .row:hover, #trades-my-data .row:hover, #orderbook-buy .row:hover, #orderbook-buy .row:hover ~ .row,
+#trades-data .row:hover, #orderbook-buy .row:hover, #orderbook-buy .row:hover ~ .row,
 #orderbook-sell .row:hover, #orderbook-sell .row:hover ~ .row {
     background-color: var(--color-input);
     cursor: pointer;

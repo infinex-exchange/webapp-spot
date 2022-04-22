@@ -155,65 +155,23 @@
             <!-- / Markets -->
             </div>
             
-            <!-- Market trades + my trades
-                  trades-market-data - div
-                  trades-my-data - div
-            -->
+            <!-- Market trades -->
             <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="trades">
-            
-                <nav>
-                <div class="nav nav-tab nav-deco" role="tablist">
-                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#trades-market" href="#_" role="tab" aria-controls="trades-market" aria-selected="true">Market trades</a>
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#trades-my" href="#_" role="tab" aria-controls="trades-my" aria-selected="false">My trades</a>
-                </div>
-                </nav>
-                
-                <div class="tab-content">
-                
-                    <div class="tab-pane fade show active" id="trades-market" role="tabpanel" aria-labelledby="trades-market-tab">
-                    
-                        <div class="row scrollable">
-                            <div class="col-4">
-                                <h6>Price</h6>
-                            </div>
-                            <div class="col-4 text-end">
-                                <h6>Amount</h6>
-                            </div>
-                            <div class="col-4 text-end">
-                                <h6>Time</h6>
-                            </div>
-                        </div>
-                        
-                        <div id="trades-market-data" class="scrollable small">
-                        </div>
-                        
+                <div class="row scrollable">
+                    <div class="col-4">
+                        <h6>Price</h6>
                     </div>
-                    
-                    <div class="tab-pane fade" id="trades-my" role="tabpanel" aria-labelledby="trades-my-tab">
-                    
-                        <div class="row user-only scrollable">
-                            <div class="col-4">
-                                <h6>Price</h6>
-                            </div>
-                            <div class="col-4 text-end">
-                                <h6>Amount</h6>
-                            </div>
-                            <div class="col-4 text-end">
-                                <h6>Time</h6>
-                            </div>
-                        </div>
-                        
-                        <div id="trades-my-data" class="scrollable small">
-                            <div class="guest-only m-auto">
-                                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
-                            </div>  
-                        </div>
-                    
+                    <div class="col-4 text-end">
+                        <h6>Amount</h6>
                     </div>
-                    
+                    <div class="col-4 text-end">
+                        <h6>Time</h6>
+                    </div>
                 </div>
-          
-            <!-- / Market trades + my trades -->
+                        
+                <div id="trades-data" class="scrollable small">
+                </div>   
+            <!-- / Market trades -->
             </div>
         
         <!-- / Left column -->
