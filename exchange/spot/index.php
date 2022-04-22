@@ -357,7 +357,7 @@
             
             <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="orderbook">
                 <div class="row m-0">
-                    <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0">
+                    <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-2 order-lg-1">
                         <div class="row">
                             <div class="col-4">
                                 <h6>Price</h6>
@@ -374,7 +374,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0">
+                    <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-2">
                         <div class="row d-lg-none">
                             <div class="col-4">
                                 <h6>Price</h6>
