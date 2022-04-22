@@ -28,6 +28,7 @@
         
         <script src="/info/announcements.js"></script>
         
+        <?php include('../templates/modals.html'); ?>
         <?php include('../templates/footer.html'); ?>
     
     </body>
