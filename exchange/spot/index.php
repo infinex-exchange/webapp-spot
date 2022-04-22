@@ -61,7 +61,7 @@
         </nav>
         
         <!-- Status bar -->
-        <nav class="navbar fixed-bottom navbar-expand status-bar d-none d-lg-flex py-1 px-2 font-1">
+        <nav class="navbar fixed-bottom navbar-expand status-bar d-none d-lg-flex py-1 px-2 small">
             <ul class="navbar-nav">
                 <li class="streaming-good text-success nav-item">
                     <i class="fas fa-sync fa-spin"></i>
@@ -280,13 +280,13 @@
                                 <input id="form-buy-range" type="range" class="form-range" data-side="BUY" min="0" max="100" step="5" value="0">
                             </div>
                             <button type="button" id="form-buy-submit" class="btn bg-green btn-block user-only form-submit" data-side="BUY">BUY</button>
-                            <div class="guest-only font-1 border border-green rounded p-2 text-center">
+                            <div class="guest-only small border border-green rounded p-2 text-center">
                                 <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div> 
                         </form>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <form class="font-2 d-grid gap-2">
+                        <form class="d-grid gap-2">
                             <div class="user-only small">
                                 <span>Available:</span>
                                 <span class="float-end" id="form-base-balance"></span>
@@ -316,7 +316,7 @@
                                 <input id="form-sell-range" type="range" class="form-range" data-side="SELL" min="0" max="100" step="5" value="0">
                             </div>
                             <button type="button" id="form-sell-submit" class="btn bg-red btn-block user-only form-submit" data-side="SELL">SELL</button>
-                            <div class="guest-only font-1 border border-red rounded p-2 text-center">
+                            <div class="guest-only small border border-red rounded p-2 text-center">
                                 <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div> 
                         </form>
