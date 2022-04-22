@@ -75,7 +75,7 @@
         </nav>
         
         <!-- Root container -->
-        <div class="container-fluid container-1500 pt-2">
+        <div class="container-fluid container-1500 p-0">
         <div class="row m-0">
         
         <!-- Left column -->

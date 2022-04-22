@@ -65,8 +65,15 @@ h6 {
 
 /* UI card */
 
-.ui-card {
-    padding: 16px !important;
+@media (max-width: 991px) {
+    .ui-card {
+        padding: 10px !important;
+    }
+}
+@media (min-width: 992px) {
+    .ui-card {
+        padding: 16px !important;
+    }
 }
 
 .ui-card-high {
