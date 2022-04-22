@@ -268,7 +268,7 @@
             </div>
             
             <!-- Trading form -->
-            <div class="col-12 ui-card ui-card-ver ui-card-high" data-ui-card="trades chart orderbook">
+            <div class="col-12 d-lg-block ui-card ui-card-ver ui-card-high" data-ui-card="trades chart orderbook">
                 <div class="nav">
                     <a class="nav-link switch-order-type" href="#_" data-type="LIMIT">Limit</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
