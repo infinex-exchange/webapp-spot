@@ -25,11 +25,11 @@ $( document ).ready(function() {
     }, { passive: false });
     
     // Mobile navbar
-    $('.nav-link[data-ui-card]').on('click', function() {
-        $('.ui-card[data-ui-card]').addClass('d-none');
-        $('.ui-card[data-ui-card~="' + $(this).attr('data-ui-card') + '"]').removeClass('d-none');
-        $('.nav-link[data-ui-card]').removeClass('active');
-        $('.nav-link[data-ui-card~="' + $(this).attr('data-ui-card') + '"]').addClass('active');
+    $('.nav-link[data-ui-card-target]').on('click', function() {
+        $('div[data-ui-card]').addClass('d-none');
+        $('div[data-ui-card~="' + $(this).attr('data-ui-card-target') + '"]').removeClass('d-none');
+        $('.nav-link[data-ui-card-target]').removeClass('active');
+        $('.nav-link[data-ui-card-target~="' + $(this).attr('data-ui-card-target') + '"]').addClass('active');
     });
-    $('.nav-link.active[data-ui-card]').trigger('click');
+    $('.nav-link.active[data-ui-card-target]').trigger('click');
 });

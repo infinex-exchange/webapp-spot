@@ -16,37 +16,39 @@
         <?php include('../../templates/preloader.html'); ?>
         
         <!-- Navbar -->
-        <?php include('../../templates/navbar.html'); ?>
+        <div class="d-lg-block" data-ui-card="markets orders">
+            <?php include('../../templates/navbar.html'); ?>
+        </div>
         
         <!-- Mobile navbar -->
         <nav class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 small">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#_" data-ui-card="markets">
+                    <a class="nav-link" href="#_" data-ui-card-target="markets">
                         <i class="fa-solid fa-chart-simple"></i><br>
                         Markets
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#_" data-ui-card="trades">
+                    <a class="nav-link" href="#_" data-ui-card-target="trades">
                         <i class="fa-solid fa-right-left"></i></i><br>
                         Trades
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#_" data-ui-card="chart">
+                    <a class="nav-link active" href="#_" data-ui-card-target="chart">
                         <i class="fa-solid fa-chart-line"></i><br>
                         Chart
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#_" data-ui-card="orderbook">
+                    <a class="nav-link" href="#_" data-ui-card-target="orderbook">
                         <i class="fa-solid fa-arrow-up-short-wide"></i><br>
                         Orderbook
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#_" data-ui-card="orders">
+                    <a class="nav-link" href="#_" data-ui-card-target="orders">
                         <i class="fa-solid fa-user-clock"></i><br>
                         My orders
                     </a>
@@ -72,15 +74,61 @@
         <div class="container-fluid container-1500 p-0">
         <div class="row m-0">
         
+        <!-- Mobile header -->
+        <div class="col-12 d-lg-none p-0 ui-column order-1 order-lg-1">
+        <div class="row m-0 flex-nowrap">
+            <div class="col-auto ui-card ui-card-ver ui-card-hor my-auto text-center" data-ui-card="trades chart orderbook">
+                <a href="/">
+                    <img src="/img/logo_notext.svg" alt="Vayamos Exchange" width="24">
+                </a>
+            </div>
+            
+            <div class="col-auto ui-card ui-card-ver ui-card-hor my-auto small" data-ui-card="trades chart orderbook">
+                <h4 class="ticker-name"></h4>
+                <span class="ticker-base-name"></span>
+            </div>
+                
+            <div class="col-auto ui-card ui-card-hor" data-ui-card="trades chart orderbook">
+                <div class="row flex-nowrap overflow-hidden small">
+                    <div class="col-auto">
+                        Price
+                        <span class="ticker-price text-hi d-block"></span>
+                    </div>
+                    <div class="col-auto">
+                         24h change
+                         <span class="ticker-change text-hi d-block"></span>
+                    </div>
+                    <div class="col-auto">
+                        24h high
+                        <span class="ticker-high text-hi d-block"></span>
+                    </div>
+                    <div class="col-auto">
+                        24h low
+                        <span class="ticker-low text-hi d-block"></span>
+                    </div>
+                    <div class="col-auto">
+                        24h vol (<span class="ticker-base-legend"></span>)
+                        <span class="ticker-vol-base text-hi d-block"></span>
+                    </div>
+                    <div class="col-auto">
+                        24h vol (<span class="ticker-quote-legend"></span>)
+                        <span class="ticker-vol-quote text-hi d-block"></span>
+                    </div>
+                </div>
+            </div>
+        <!-- / Mobile header -->
+        </div>
+        </div>
+        
         <!-- Left column -->
-        <div class="col-12 col-lg-3 p-0 ui-column order-2 order-lg-1">
+        <div class="col-12 col-lg-3 p-0 ui-column order-2 order-lg-2">
         <div class="row m-0">
         
             <!-- Markets
                   markets-search - input
                   markets-table - div
             -->
-            <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="markets">
+            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="markets">
                 <form>
                     <div class="form-row">
                         <input id="markets-search" type="text" placeholder="Search" class="form-control form-control-sm input-search">
@@ -111,7 +159,7 @@
                   trades-market-data - div
                   trades-my-data - div
             -->
-            <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="trades">
+            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="trades">
             
                 <nav>
                 <div class="nav nav-tab nav-deco" role="tablist">
@@ -175,46 +223,46 @@
         <!-- Center column 
               - chart-candles - div
         -->
-        <div class="col-12 col-lg-6 p-0 ui-column order-1 order-lg-2">
+        <div class="col-12 col-lg-6 p-0 ui-column order-4 order-lg-3">
         <div class="row m-0">
         
             <!-- Header -->
-            <div class="col-3 ui-card ui-card-ver ui-card-hor my-auto small" data-ui-card="trades chart orderbook">
-                <h4 id="ticker-name"></h4>
-                <span id="ticker-base-name"></span>
+            <div class="col-3 ui-card ui-card-ver ui-card-hor my-auto small d-none d-lg-block">
+                <h4 class="ticker-name"></h4>
+                <span class="ticker-base-name"></span>
             </div>
                 
-            <div class="col-9 ui-card ui-card-hor" data-ui-card="trades chart orderbook">
+            <div class="col-9 ui-card ui-card-hor d-none d-lg-block">
                 <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price
-                        <span id="ticker-price" class="text-hi d-block"></span>
+                        <span class="ticker-price text-hi d-block"></span>
                     </div>
                     <div class="col-auto">
                          24h change
-                         <span id="ticker-change" class="text-hi d-block"></span>
+                         <span class="ticker-change text-hi d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h high
-                        <span id="ticker-high" class="text-hi d-block"></span>
+                        <span class="ticker-high text-hi d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h low
-                        <span id="ticker-low" class="text-hi d-block"></span>
+                        <span class="ticker-low text-hi d-block"></span>
                     </div>
                     <div class="col-auto">
-                        24h vol (<span id="ticker-base-legend"></span>)
-                        <span id="ticker-vol-base" class="text-hi d-block"></span>
+                        24h vol (<span class="ticker-base-legend"></span>)
+                        <span class="ticker-vol-base text-hi d-block"></span>
                     </div>
                     <div class="col-auto">
-                        24h vol (<span id="ticker-quote-legend"></span>)
-                        <span id="ticker-vol-quote" class="text-hi d-block"></span>
+                        24h vol (<span class="ticker-quote-legend"></span>)
+                        <span class="ticker-vol-quote text-hi d-block"></span>
                     </div>
                 </div>
             </div>
             
             <!-- TradingView -->
-            <div class="col-12 ui-card ui-card-ver d-none d-lg-block" style="padding: 0px !important" data-ui-card="chart">                
+            <div class="col-12 ui-card ui-card-ver d-lg-block" style="padding: 0px !important" data-ui-card="chart">                
                 <div id="chart-candles">
                 </div>
             </div>
@@ -346,10 +394,10 @@
               - orderbook-sell - div
               - orderbook-buy - div
         -->
-        <div class="col-12 col-lg-3 p-0 ui-column order-3">
+        <div class="col-12 col-lg-3 p-0 ui-column order-3 order-lg-4">
         <div class="row m-0">
             
-            <div class="col-12 ui-card ui-card-ver d-none d-lg-block" data-ui-card="orderbook">
+            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="orderbook">
                 <div class="row m-0">
                     <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0">
                         <div class="row">
@@ -395,7 +443,7 @@
                   - orders-open-data - div
                   - orders-history-data - div
             -->
-            <div class="col-12 ui-card ui-column d-none d-lg-block order-4" data-ui-card="orders">
+            <div class="col-12 ui-card ui-column d-lg-block order-5 order-lg-5" data-ui-card="orders">
             
                 <nav>
                 <div class="nav nav-tab nav-deco" role="tablist">

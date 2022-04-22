@@ -3,15 +3,15 @@ function liveTicker(data) {
     document.title = data.price + ' | ' + window.currentPair + ' | Vayamos Spot';
     
     // Ticker HTML
-    $('#ticker-price').html(data.price);
-    $('#ticker-change').html(data.change + '%');
-    $('#ticker-change').removeClass('text-red text-green');
-    if(data.change < 0) $('#ticker-change').addClass('text-red');
-    if(data.change > 0) $('#ticker-change').addClass('text-green');
-    $('#ticker-high').html(data.high);
-    $('#ticker-low').html(data.low);
-    $('#ticker-vol-base').html(data.vol_base);
-    $('#ticker-vol-quote').html(data.vol_quote);
+    $('.ticker-price').html(data.price);
+    $('.ticker-change').html(data.change + '%');
+    $('.ticker-change').removeClass('text-red text-green');
+    if(data.change < 0) $('.ticker-change').addClass('text-red');
+    if(data.change > 0) $('.ticker-change').addClass('text-green');
+    $('.ticker-high').html(data.high);
+    $('.ticker-low').html(data.low);
+    $('.ticker-vol-base').html(data.vol_base);
+    $('.ticker-vol-quote').html(data.vol_quote);
 }
 
 $(document).on('prePairSelected', function() {
@@ -51,10 +51,10 @@ $(document).on('prePairSelected', function() {
             $(document).trigger('pairSelected');
             
             // Ticker HTML
-            $('#ticker-name').html(v.pair);
-            $('#ticker-base-name').html(v.base_name);
-            $('#ticker-base-legend').html(window.currentBase);
-            $('#ticker-quote-legend').html(window.currentQuote);
+            $('.ticker-name').html(v.pair);
+            $('.ticker-base-name').html(v.base_name);
+            $('.ticker-base-legend').html(window.currentBase);
+            $('.ticker-quote-legend').html(window.currentQuote);
             
             // Rest of data
             liveTicker(v);
