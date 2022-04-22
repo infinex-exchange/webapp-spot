@@ -1,8 +1,13 @@
 function renderTradesItem(data) {
     var time = new Date(data.time * 1000).toLocaleTimeString();
+    
+    var color = '';
+    if(data.side == 'BUY') color = 'text-green';
+    else color = 'text-red';
+    
     return `
         <div class="row">
-            <div class="col-4">
+            <div class="col-4 ${color}">
                 ${data.price}
             </div>
             <div class="col-4 text-end">
