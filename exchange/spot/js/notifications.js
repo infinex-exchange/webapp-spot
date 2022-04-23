@@ -31,12 +31,12 @@ function notification(event, data) {
                 position: 'bottom-right'
             });
             break;
-        case 'orderInsufLiq':
+        case 'orderKilled':
             $.toast({
-                heading: 'Order rejected',
-                text: `Insufficient liquidity to fill MARKET ${data.side} ${data.pairid} order`,
+                heading: 'Order killed',
+                text: `Insufficient liquidity to fill ${data.side} ${data.pairid} order`,
                 showHideTransition: 'fade',
-                icon: 'error',
+                icon: 'warning',
                 position: 'bottom-right'
             });
             break;
@@ -64,6 +64,15 @@ function notification(event, data) {
                 text: `Insufficient funds for ${data.side} ${data.pairid} order`,
                 showHideTransition: 'fade',
                 icon: 'error',
+                position: 'bottom-right'
+            });
+            break;
+        case 'orderStopTriggered':
+            $.toast({
+                heading: 'Stop order triggered',
+                text: `Your ${data.side} ${data.pairid} order was triggered`,
+                showHideTransition: 'fade',
+                icon: 'warning',
                 position: 'bottom-right'
             });
             break;

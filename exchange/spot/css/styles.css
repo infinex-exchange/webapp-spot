@@ -6,6 +6,16 @@
     justify-content: flex-end;
 }
 
+/* Reverse sell on mobile */
+
+@media (min-width: 992px) {
+    #orderbook-sell {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+}
+
 /* Orderbook */
 
 #orderbook-buy, #orderbook-sell {
