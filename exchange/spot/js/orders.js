@@ -127,57 +127,55 @@ $(document).on('authChecked pairSelected', function() {
             true
         );
         
-        $.ajax({
-            url: config.apiUrl + '/spot/orders_history',
-            type: 'POST',
-            data: JSON.stringify({
+        window.ordersHistoryAS = new AjaxScroll(
+            $('#orders-history-data'),
+            $('#orders-history-preloader'),
+            {
                 api_key: window.apiKey
-            }),
-            contentType: "application/json",
-            dataType: "json",
-        })
-        .done(function (data) {
-            if(data.success) {    
-                $(data.orders).each(function() {
-                    var time = new Date(this.time).toLocaleTimeString();
-                    thisAS.append(`    
-                        <div class="row">
-                            <div class="col">
-                                ${time}
-                            </div>
-                            <div class="col">
-                                ${this.pair}
-                            </div>
-                            <div class="col">
-                                ${this.type}
-                            </div>
-                            <div class="col">
-                                ${this.side}
-                            </div>
-                            <div class="col">
-                                ${this.price}
-                            </div>
-                            <div class="col">
-                                ${this.amount}
-                            </div>
-                            <div class="col">
-                                ${this.filled}
-                            </div>
-                            <div class="col">
-                                ${this.total}
-                            </div>
-                            <div class="col">
-                                <i class="fa-solid fa-xmark" onClick="alert(1)"></i>
-                            </div>
-                        </div>
-                    `);
-                });
-                
+            },
+            function() {
+                this.data.offset = this.offset;
+                var thisAS = this;
+            
+            //---
+    $.ajax({
+        url: config.apiUrl + '/spot/orders_history',
+        type: 'POST',
+        data: JSON.stringify(thisAS.data),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            $.each(data.orders, function(k, v) {
+                thisAS.append(renderHistoryOrder(v));
+            });
+            
+            thisAS.done();
+            
+            if(thisAS.offset == 0)
                 $(document).trigger('renderingStage'); // 6
-            }
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {  
-        }); 
+            
+            if(data.orders.length != 25)
+                thisAS.noMoreData(); 
+        }
+        else {
+            msgBoxRedirect(data.error);
+            thisAS.done();
+            thisAS.noMoreData();
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);
+        thisAS.done();
+        thisAS.noMoreData();  
+    });
+            //---
+        
+            },
+            true
+        );
     } else {
         $(document).trigger('renderingStage'); // 5
         $(document).trigger('renderingStage'); // 6
