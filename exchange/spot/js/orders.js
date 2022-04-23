@@ -12,7 +12,6 @@ function cancelOrder(obid) {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            // notification
             setTimeout(updateBalance, 500);
         }
         else {
@@ -185,7 +184,7 @@ $(document).on('authChecked pairSelected', function() {
     }
 });
 
-$(document).on('orderCanceled orderFilled', function(e, data) {
+$(document).on('orderCanceled orderFilled orderKilled', function(e, data) {
     if(typeof(data.obid) !== 'undefined')
         $('.orders-open-item[data-obid="' + data.obid + '"]').remove();
 });
