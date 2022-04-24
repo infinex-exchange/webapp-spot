@@ -106,6 +106,7 @@ h6 {
 
 .hoverable:hover {
     background-color: var(--color-input);
+    cursor: pointer;
 }
 
 *::-webkit-scrollbar,

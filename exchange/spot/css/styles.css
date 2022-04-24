@@ -84,3 +84,17 @@
     border-top: 1px solid var(--color-border);
     z-index: 900;
 }
+
+/* Expand orders history item */
+
+.orders-history-item.expand-trades {
+    background-color: var(--color-background-high);
+}
+
+.orders-history-item .inner {
+    display: none;
+}
+
+.orders-history-item.expand-trades .inner {
+    display: block;
+}

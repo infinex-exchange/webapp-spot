@@ -72,6 +72,11 @@ function renderOpenOrder(data) {
     `;
 }
 
+function toggleHistoryOrderExpand(row) {
+    if($(row).find('.trade-in-order-item').length > 0)
+        $(row).toggleClass('expand-trades');
+}
+
 function renderHistoryOrder(data) {
     var time = new Date(data.time * 1000).toLocaleString();
     
@@ -91,8 +96,13 @@ function renderHistoryOrder(data) {
     }
     
     var expandBtn = '';
+    var trades = '';
     if(data.trades.length > 0) {
         expandBtn = '<i class="fa-solid fa-square-plus"></i> ';
+        
+        $.each(data.trades, function(k, v) {
+            trades += renderTradeInHistoryOrder(v);
+        });
     }
     
     var amountStr = '';
@@ -104,7 +114,7 @@ function renderHistoryOrder(data) {
     }
     
     return `
-        <div class="row hoverable orders-history-item" data-obid="${data.obid}">
+        <div class="row hoverable orders-history-item" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
             <div class="col-2">
                 ${expandBtn}${time}
             </div>
@@ -132,6 +142,34 @@ function renderHistoryOrder(data) {
             <div class="col-1 text-end">
                 ${data.status}
             </div>
+            
+            <div class="col-8 m-3 inner">
+                <div class="row">
+                    <div class="col-2">
+                        <h6>Date</h6>
+                    </div>
+                    <div class="col-2 text-end">
+                        <h6>Amount</h6>
+                    </div>
+                    <div class="col-2 text-end">
+                        <h6>Price</h6>
+                    </div>
+                    <div class="col-2 text-end">
+                        <h6>Total</h6>
+                    </div>
+                    <div class="col-2 text-end">
+                        <h6>Fee</h6>
+                    </div>
+                    <div class="col-2 text-end">
+                        <h6>Role</h6>
+                    </div>
+                </div>
+                
+                <div class="trades-in-order-data">
+                    ${trades}
+                </div>
+            </div>
+            
         </div>
     `;
 }
@@ -163,6 +201,33 @@ function renderHistoryTrade(data) {
                 ${data.fee}
             </div>
             <div class="col-1 text-end">
+                ${data.role}
+            </div>
+        </div>
+    `;
+}
+
+function renderTradeInHistoryOrder(data) {
+    var time = new Date(data.time * 1000).toLocaleString();
+    
+    return `
+        <div class="row trade-in-order-item hoverable">
+            <div class="col-2">
+                ${time}
+            </div>
+            <div class="col-2 text-end">
+                ${data.amount}
+            </div>
+            <div class="col-2 text-end">
+                ${data.price}
+            </div>
+            <div class="col-2 text-end">
+                ${data.total}
+            </div>
+            <div class="col-2 text-end">
+                ${data.fee}
+            </div>
+            <div class="col-2 text-end">
                 ${data.role}
             </div>
         </div>
