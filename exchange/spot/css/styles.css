@@ -5,6 +5,7 @@
     --height-mobile-nav: 0px;
     --height-trading-form: 0px;
     --height-mobile-header: 0px;
+    --height-main-nav: 0px;
 }
 
 /* Reverse orderbook */
@@ -127,6 +128,7 @@
                      - var(--height-mobile-nav)
                      - var(--height-trading-form)
                      - var(--height-mobile-header)
+                     - var(--height-main-nav)
                      - env(safe-area-inset-bottom)
                      - 15px
                     ) !important;

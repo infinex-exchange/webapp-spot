@@ -16,7 +16,7 @@
         <?php include('../../templates/preloader.html'); ?>
         
         <!-- Navbar -->
-        <div class="d-lg-block" data-ui-card="markets orders">
+        <div class="d-lg-block" id="#main-navbar" data-ui-card="markets orders">
             <?php include('../../templates/navbar.html'); ?>
         </div>
         
