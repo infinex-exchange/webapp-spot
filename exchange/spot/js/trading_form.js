@@ -107,6 +107,8 @@ function switchOrderType(type) {
     window.orderType = type;
     $('.switch-order-type').removeClass('active');
     $('.switch-order-type[data-type="' + type + '"]').addClass('active');
+    
+    doJsSizing();
 }
 
 function switchTimeInForce(tif) {

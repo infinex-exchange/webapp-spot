@@ -21,7 +21,7 @@
         </div>
         
         <!-- Mobile navbar -->
-        <nav class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 small">
+        <nav id="mobile-navbar" class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 small">
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link" href="#_" data-ui-card-target="markets">
@@ -57,7 +57,7 @@
         </nav>
         
         <!-- Status bar -->
-        <nav class="navbar fixed-bottom navbar-expand status-bar d-none d-lg-flex py-1 px-2 small">
+        <nav id="status-bar" class="navbar fixed-bottom navbar-expand status-bar d-none d-lg-flex py-1 px-2 small">
             <ul class="navbar-nav">
                 <li class="streaming-good text-success nav-item">
                     <i class="fas fa-sync fa-spin"></i>
@@ -75,7 +75,7 @@
         <div class="row m-0">
         
         <!-- Mobile header -->
-        <div class="col-12 d-lg-none p-0 ui-column order-1 order-lg-1">
+        <div id="mobile-header" class="col-12 d-lg-none p-0 ui-column order-1 order-lg-1">
         <div class="row m-0 flex-nowrap">
             <div class="col-auto ui-card ui-card-ver ui-card-hor my-auto text-center" data-ui-card="trades chart orderbook">
                 <a href="/">
@@ -156,7 +156,7 @@
             </div>
             
             <!-- Market trades -->
-            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="trades">
+            <div class="col-12 ui-card ui-card-ver d-lg-block m-rest-of-height" data-ui-card="trades">
                 <div class="row scrollable">
                     <div class="col-4">
                         <h6>Price</h6>
@@ -221,12 +221,12 @@
             
             <!-- TradingView -->
             <div class="col-12 ui-card ui-card-ver d-lg-block" style="padding: 0px !important" data-ui-card="chart">                
-                <div id="chart-candles">
+                <div class="m-rest-of-height" id="chart-candles">
                 </div>
             </div>
             
             <!-- Trading form -->
-            <div class="col-12 d-lg-block ui-card ui-card-ver ui-card-high" data-ui-card="trades chart orderbook">
+            <div class="col-12 d-lg-block ui-card ui-card-ver ui-card-high" id="trading-form" data-ui-card="trades chart orderbook">
                 <div class="nav">
                     <a class="nav-link switch-order-type" href="#_" data-type="LIMIT">Limit</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
@@ -355,7 +355,7 @@
         <div class="col-12 col-lg-3 p-0 ui-column order-3 order-lg-4">
         <div class="row m-0">
             
-            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="orderbook">
+            <div class="col-12 ui-card ui-card-ver d-lg-block m-rest-of-height" data-ui-card="orderbook">
                 <div class="row m-0">
                     <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-2 order-lg-1">
                         <div class="row">
@@ -537,12 +537,14 @@
         </div>
         
         <!-- Don't hide content behind mobile menu and status bar -->
-        <div style="height: 26px" class="d-none d-lg-block"></div>
-        <div style="height: 52px" class="d-block d-lg-none"></div>
+        <div style="height: var(--height-status-bar)" class="d-none d-lg-block"></div>
+        <div style="height: var(--height-mobile-nav)" class="d-block d-lg-none"></div>
+        <div style="height: var(--height-trading-form)" class="d-block d-lg-none"></div>
         
         <?php include('../../templates/modals.html'); ?>
         
         <script type="text/javascript" src="/js/range_value.js"></script>
+        <script type="text/javascript" src="/spot/js/js_sizing.js"></script>
         <script type="text/javascript" src="/spot/js/streams.js"></script>
         <script type="text/javascript" src="/spot/js/markets.js"></script>
         <script type="text/javascript" src="/spot/js/tradingview.js"></script>
