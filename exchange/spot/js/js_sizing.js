@@ -24,3 +24,7 @@ function doJsSizing() {
 $(document).ready(function() {
     doJsSizing();
 });
+
+$(window).resize(function() {
+	doJsSizing();
+});
