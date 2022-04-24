@@ -465,15 +465,18 @@
                                 <h6>Side</h6>
                             </div>
                             <div class="col-1 text-end">
-                                <h6>Price</h6>
+                                <h6>Average</h6>
                             </div>
                             <div class="col-2 text-end">
-                                <h6>Amount</h6>
+                                <h6>Price</h6>
                             </div>
                             <div class="col-2 text-end">
                                 <h6>Filled</h6>
                             </div>
-                            <div class="col-2 text-end">
+                            <div class="col-1 text-end">
+                                <h6>Amount</h6>
+                            </div>
+                            <div class="col-1 text-end">
                                 <h6>Status</h6>
                             </div>
                         </div>

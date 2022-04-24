@@ -72,6 +72,70 @@ function renderOpenOrder(data) {
     `;
 }
 
+function renderHistoryOrder(data) {
+    var time = new Date(data.time * 1000).toLocaleString();
+    
+    var filledStr = '-';
+    if(typeof(data.filled) !== 'undefined') {
+        var filledPerc = Math.round(data.filled / data.amount * 100);
+        filledStr = `${data.filled} (${filledPerc}%)`;
+    }
+    
+    var priceStr = 'MARKET';
+    if(data.type != 'MARKET')
+        priceStr = data.price;
+    
+    var stopStr = '';
+    if(typeof(data.stop) !== 'undefined') {
+        stopStr = data.stop + ' &rarr; ';
+    }
+    
+    var expandBtn = '';
+    if(data.trades.length > 0) {
+        expandBtn = '<i class="fa-solid fa-square-plus"></i> ';
+    }
+    
+    var amountStr = '';
+    if(typeof(data.amount) !== 'undefined') {
+        amountStr = data.amount;
+    }
+    else {
+        amountStr = 'Total: ' + data.total;
+    }
+    
+    return `
+        <div class="row orders-history-item" data-obid="${data.obid}">
+            <div class="col-2">
+                ${expandBtn}${time}
+            </div>
+            <div class="col-1">
+                ${data.pair}
+            </div>
+            <div class="col-1">
+                ${data.type}
+            </div>
+            <div class="col-1">
+                ${data.side}
+            </div>
+            <div class="col-1 text-end">
+                AVG_HERE!
+            </div>
+            <div class="col-2 text-end">
+                ${stopStr}${priceStr}
+            </div>
+            <div class="col-2 text-end filled">
+                ${filledStr}
+            </div>
+            <div class="col-1 text-end">
+                ${amountStr}
+            </div>
+            <div class="col-1 text-end">
+                ${data.status}
+            </div>
+        </div>
+    `;
+}
+
 $(document).on('authChecked pairSelected', function() {
     if(typeof(window.multiEvents['authChecked']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
     
