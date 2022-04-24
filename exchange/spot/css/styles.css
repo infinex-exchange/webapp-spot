@@ -123,6 +123,12 @@
 
 @media (max-width: 991px) {
     .m-rest-of-height {
-        height: calc(100vh - var(--height-mobile-nav) - var(--height-trading-form) - var(--height-mobile-header) - 15px) !important;
+        height: calc(100vh
+                     - var(--height-mobile-nav)
+                     - var(--height-trading-form)
+                     - var(--height-mobile-header)
+                     - env(safe-area-inset-bottom)
+                     - 15px
+                    ) !important;
     }
 }
