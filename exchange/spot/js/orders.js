@@ -42,7 +42,7 @@ function renderOpenOrder(data) {
     }
     
     return `
-        <div class="row orders-open-item" data-obid="${data.obid}">
+        <div class="row hoverable orders-open-item" data-obid="${data.obid}">
             <div class="col-2">
                 ${time}
             </div>
@@ -104,7 +104,7 @@ function renderHistoryOrder(data) {
     }
     
     return `
-        <div class="row orders-history-item" data-obid="${data.obid}">
+        <div class="row hoverable orders-history-item" data-obid="${data.obid}">
             <div class="col-2">
                 ${expandBtn}${time}
             </div>
@@ -136,10 +136,45 @@ function renderHistoryOrder(data) {
     `;
 }
 
+function renderHistoryTrade(data) {
+    var time = new Date(data.time * 1000).toLocaleString();
+    
+    return `
+        <div class="row hoverable">
+            <div class="col-1">
+                ${time}
+            </div>
+            <div class="col-1">
+                ${data.pair}
+            </div>
+            <div class="col-1">
+                ${data.side}
+            </div>
+            <div class="col-2 text-end">
+                ${data.amount}
+            </div>
+            <div class="col-2 text-end">
+                ${data.price}
+            </div>
+            <div class="col-2 text-end">
+                ${data.total}
+            </div>
+            <div class="col-2 text-end">
+                ${data.fee}
+            </div>
+            <div class="col-1 text-end">
+                ${data.role}
+            </div>
+        </div>
+    `;
+}
+
 $(document).on('authChecked pairSelected', function() {
     if(typeof(window.multiEvents['authChecked']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
     
     if(window.loggedIn) {
+        // -------------------- OPEN ORDERS AS --------------------
+        
         window.openOrdersAS = new AjaxScroll(
             $('#orders-open-data'),
             $('#orders-open-preloader'),
@@ -191,6 +226,8 @@ $(document).on('authChecked pairSelected', function() {
             true
         );
         
+        // -------------------- ORDERS HISTORY AS --------------------
+        
         window.ordersHistoryAS = new AjaxScroll(
             $('#orders-history-data'),
             $('#orders-history-preloader'),
@@ -240,9 +277,64 @@ $(document).on('authChecked pairSelected', function() {
             },
             true
         );
+        
+        // -------------------- TRADES HISTORY AS --------------------
+        
+        window.tradesHistoryAS = new AjaxScroll(
+            $('#trades-history-data'),
+            $('#trades-history-preloader'),
+            {
+                api_key: window.apiKey
+            },
+            function() {
+                this.data.offset = this.offset;
+                var thisAS = this;
+            
+            //---
+    $.ajax({
+        url: config.apiUrl + '/spot/trades_history',
+        type: 'POST',
+        data: JSON.stringify(thisAS.data),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            $.each(data.trades, function(k, v) {
+                thisAS.append(renderHistoryTrade(v));
+            });
+            
+            thisAS.done();
+            
+            if(thisAS.offset == 0)
+                $(document).trigger('renderingStage');
+            
+            if(data.trades.length != 25)
+                thisAS.noMoreData(); 
+        }
+        else {
+            msgBoxRedirect(data.error);
+            thisAS.done();
+            thisAS.noMoreData();
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);
+        thisAS.done();
+        thisAS.noMoreData();  
+    });
+            //---
+        
+            },
+            true
+        );
+        
+        // -------------------- END OF AS --------------------
     } else {
         $(document).trigger('renderingStage'); // 5
         $(document).trigger('renderingStage'); // 6
+        $(document).trigger('renderingStage');
     }
 });
 

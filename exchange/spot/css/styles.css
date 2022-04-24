@@ -57,7 +57,7 @@
 
 /* Orders */
 
-#orders-open-data, #orders-history-data {
+#orders-open-data, #orders-history-data, #trades-history-data {
     display: flex;
     flex-direction: column;
     height: 250px;
@@ -69,9 +69,9 @@
     height: 500px;
 }
 
-/* Hoverable rows */
-#markets-table .row:hover, #orders-open-data .row:hover, #orders-history-data .row:hover,
-#trades-data .row:hover, #orderbook-buy .row:hover, #orderbook-buy .row:hover ~ .row,
+/* Hoverable orderbook */
+
+#orderbook-buy .row:hover, #orderbook-buy .row:hover ~ .row,
 #orderbook-sell .row:hover, #orderbook-sell .row:hover ~ .row {
     background-color: var(--color-input);
     cursor: pointer;

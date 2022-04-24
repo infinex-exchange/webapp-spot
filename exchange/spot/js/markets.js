@@ -73,7 +73,7 @@ $(document).on('wsConnected', function() {
             
             $.each(data.markets, function(k, v) {  
                 thisAS.append(`
-                    <div class="row markets-item flex-nowrap" onClick="gotoMarket('${v.pair}')" data-pair="${v.pair}">
+                    <div class="row hoverable markets-item flex-nowrap" onClick="gotoMarket('${v.pair}')" data-pair="${v.pair}">
                         <div class="col-1">
                             <img width="16px" height="16px" src="${v.icon_url}">
                         </div>

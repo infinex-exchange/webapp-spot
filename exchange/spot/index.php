@@ -407,6 +407,7 @@
                 <div class="nav nav-tab nav-deco" role="tablist">
                     <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#orders-open" href="#_" role="tab" aria-controls="orders-open" aria-selected="true">Open orders</a>
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#orders-history" href="#_" role="tab" aria-controls="orders-history" aria-selected="false">Orders history</a>
+                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#trades-history" href="#_" role="tab" aria-controls="trades-history" aria-selected="false">Trades history</a>
                 </div>
                 </nav>
                 
@@ -482,6 +483,43 @@
                         </div>
                         
                         <div id="orders-history-data" class="scrollable small d-flex">
+                            <div class="guest-only m-auto">
+                                <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
+                            </div>    
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="tab-pane fade" id="trades-history" role="tabpanel" aria-labelledby="trades-history-tab">
+                    
+                        <div class="row user-only scrollable">
+                            <div class="col-1">
+                                <h6>Date</h6>
+                            </div>
+                            <div class="col-1">
+                                <h6>Pair</h6>
+                            </div>
+                            <div class="col-1">
+                                <h6>Side</h6>
+                            </div>
+                            <div class="col-2 text-end">
+                                <h6>Amount</h6>
+                            </div>
+                            <div class="col-2 text-end">
+                                <h6>Price</h6>
+                            </div>
+                            <div class="col-2 text-end">
+                                <h6>Total</h6>
+                            </div>
+                            <div class="col-2 text-end">
+                                <h6>Fee</h6>
+                            </div>
+                            <div class="col-1 text-end">
+                                <h6>Role</h6>
+                            </div>
+                        </div>
+                        
+                        <div id="trades-history-data" class="scrollable small d-flex">
                             <div class="guest-only m-auto">
                                 <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
                             </div>    
