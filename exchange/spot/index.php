@@ -128,7 +128,7 @@
                   markets-search - input
                   markets-table - div
             -->
-            <div class="col-12 ui-card ui-card-ver d-lg-block" data-ui-card="markets">
+            <div class="col-12 ui-card ui-card-ver d-lg-block m-rest-of-height" data-ui-card="markets">
                 <form>
                     <div class="form-row">
                         <input id="markets-search" type="text" placeholder="Search" class="form-control form-control-sm input-search">
@@ -401,7 +401,7 @@
                   - orders-open-data - div
                   - orders-history-data - div
             -->
-            <div class="col-12 ui-card ui-column d-lg-block order-5 order-lg-5" data-ui-card="orders">
+            <div class="col-12 ui-card ui-column d-lg-block order-5 order-lg-5 m-rest-of-height" data-ui-card="orders">
             
                 <nav>
                 <div class="nav nav-tab nav-deco" role="tablist">
