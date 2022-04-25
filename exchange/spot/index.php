@@ -27,7 +27,7 @@
             </ul>
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="#_" data-ui-card-target="markets">
+                    <a class="nav-link" href="#_" data-ui-card-target="trades chart orderbook orders">
                         <i class="fa-solid fa-chart-simple"></i><br>
                         Markets
                     </a>
