@@ -5,7 +5,7 @@
 <?php include(__DIR__.'/../imports/bootstrap.html'); ?>
 
 <!-- jQuery -->
-<?php include(__DIR__.'/..imports/jquery.html'); ?>
+<?php include(__DIR__.'/../imports/jquery.html'); ?>
 
 <!-- jQuery Bind First -->
 <script src="/js/jquery.bind-first-0.2.3.min.js"></script>
@@ -17,7 +17,7 @@
 <?php include(__DIR__.'/../imports/font_awesome.html'); ?>
 
 <!-- Pretty checkbox -->
-<?php include(__DIR__.'/../imports/pretty_checbkox.html'); ?>
+<?php include(__DIR__.'/../imports/pretty_checkbox.html'); ?>
 
 <!-- App styles -->
 <link href="/css/styles.css?<?php echo filemtime(__DIR__.'/../css/styles.css'); ?>" rel="stylesheet">
