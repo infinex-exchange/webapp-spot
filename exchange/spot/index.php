@@ -536,10 +536,8 @@
         </div>
         </div>
         
-        <!-- Don't hide content behind mobile menu and status bar -->
+        <!-- Don't hide content behind status bar -->
         <div style="height: var(--height-status-bar)" class="d-none d-lg-block"></div>
-        <div style="height: var(--height-mobile-nav)" class="d-block d-lg-none"></div>
-        <div style="height: var(--height-trading-form)" class="d-block d-lg-none"></div>
         
         <?php include('../../templates/modals.html'); ?>
         
