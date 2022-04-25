@@ -30,6 +30,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#_" data-ui-card-target="orders">
+                        <i class="fa-solid fa-user-clock"></i><br>
+                        My orders
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#_" data-ui-card-target="trades">
                         <i class="fa-solid fa-right-left"></i></i><br>
                         Trades
@@ -45,12 +51,6 @@
                     <a class="nav-link" href="#_" data-ui-card-target="orderbook">
                         <i class="fa-solid fa-arrow-up-short-wide"></i><br>
                         Orderbook
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#_" data-ui-card-target="orders">
-                        <i class="fa-solid fa-user-clock"></i><br>
-                        My orders
                     </a>
                 </li>
             </ul>
@@ -227,6 +227,15 @@
             
             <!-- Trading form -->
             <div class="col-12 d-lg-block ui-card ui-card-ver ui-card-high" id="trading-form" data-ui-card="trades chart orderbook">
+            <div class="row d-lg-none" id="form-compact-buttons">
+                <div class="col-6 ps-2 pe-1">
+                    <button type="button" class="btn bg-green w-100 form-expand-button" data-side="BUY">BUY</button>
+                </div> 
+                <div class="col-6 ps-1 pe-2">
+                    <button type="button" class="btn bg-red w-100 form-expand-button" data-side="SELL">SELL</button>
+                </div>
+            </div>
+            <div class="d-none d-lg-block" id="form-inner">
                 <div class="nav">
                     <a class="nav-link switch-order-type" href="#_" data-type="LIMIT">Limit</a>
                     <a class="nav-link switch-order-type" href="#_" data-type="MARKET">Market</a>
@@ -247,47 +256,51 @@
                             </li>
                         </ul>
                     </div>
+                    
+                    <a class="nav-link ms-auto d-lg-none form-close-button" href="#_">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
                 </div>   
                 <div class="row">
-                    <div class="col-12 col-lg-6">
+                    <div class="col-12 col-lg-6 d-lg-block form-inner-side" data-side="BUY">
                         <form class="row m-0">
-                            <div class="col-12 p-0 user-only small">
+                            <div class="col-12 p-0 pb-2 user-only small">
                                 <span>Available:</span>
                                 <span class="float-end" id="form-quote-balance"></span>
                             </div>
-                            <div class="col-12 px-0 py-1">
+                            <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Stop</span>
                                     <input id="form-buy-stop" type="text" class="form-control form-stop" data-side="BUY">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-12 p-0">
+                            <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Price</span>
                                     <input id="form-buy-price" type="text" class="form-control form-price" data-side="BUY">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-12 px-0 py-1">
+                            <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Amount</span>
                                     <input id="form-buy-amount" type="text" class="form-control form-amount" data-side="BUY">
                                     <span class="suffix form-base-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-12 p-0">
+                            <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Total</span>
                                     <input id="form-buy-total" type="text" class="form-control form-total" data-side="BUY">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-12 px-0 py-1">
+                            <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0">
                                 <span class="range-value" for="form-buy-range" suffix="%"></span>
                                 <input id="form-buy-range" type="range" class="form-range" data-side="BUY" min="0" max="100" step="5" value="0">
                             </div>
-                            <div class="col-6 col-lg-12 px-0 py-1">
+                            <div class="col-6 col-lg-12 p-0 p-0 ps-1 ps-lg-0">
                                 <button type="button" id="form-buy-submit" class="btn bg-green w-100 user-only form-submit" data-side="BUY">BUY</button>
                                 <div class="guest-only small border border-green rounded p-2 text-center">
                                     <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
@@ -295,45 +308,45 @@
                             </div> 
                         </form>
                     </div>
-                    <div class="col-12 col-lg-6 d-none d-lg-block">
+                    <div class="col-12 col-lg-6 d-lg-block form-inner-side" data-side="SELL">
                         <form class="row m-0">
-                            <div class="col-12 p-0 user-only small">
+                            <div class="col-12 p-0 pb-2 user-only small">
                                 <span>Available:</span>
                                 <span class="float-end" id="form-base-balance"></span>
                             </div>
-                            <div class="col-12 px-0 py-1">
+                            <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Stop</span>
                                     <input id="form-sell-stop" type="text" class="form-control form-stop" data-side="SELL">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-12 p-0">
+                            <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Price</span>
                                     <input id="form-sell-price" type="text" class="form-control form-price" data-side="SELL">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-12 px-0 py-1">
+                            <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Amount</span>
                                     <input id="form-sell-amount" type="text" class="form-control form-amount" data-side="SELL">
                                     <span class="suffix form-base-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-12 p-0">
+                            <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Total</span>
                                     <input id="form-sell-total" type="text" class="form-control form-total" data-side="SELL">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-12 px-0 py-1">
+                            <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0">
                                 <span class="range-value" for="form-sell-range" suffix="%"></span>
                                 <input id="form-sell-range" type="range" class="form-range" data-side="SELL" min="0" max="100" step="5" value="0">
                             </div>
-                            <div class="col-6 col-lg-12 px-0 py-1">
+                            <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0">
                                 <button type="button" id="form-sell-submit" class="btn bg-red w-100 user-only form-submit" data-side="SELL">SELL</button>
                                 <div class="guest-only small border border-red rounded p-2 text-center">
                                     <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
@@ -342,6 +355,7 @@
                         </form>
                     </div>
                 </div>      
+            </div>
             </div>
         
         <!-- / Center column -->

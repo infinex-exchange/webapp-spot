@@ -288,6 +288,19 @@ $(document).on('pairSelected', function() {
         
         postOrder(data);
     });
+    
+    // Expand and close form for one side on mobile
+    $('.form-expand-button').on('click', function() {
+        $('.form-inner-side').addClass('d-none');
+        $('.form-inner-side[data-side="' + $(this).data('side') + '"]').removeClass('d-none');
+        $('#form-compact-buttons').addClass('d-none');
+        $('#form-inner').removeClass('d-none');
+    });
+    
+    $('.form-close-button').on('click', function() {
+        $('#form-inner').addClass('d-none');
+        $('#form-compact-buttons').removeClass('d-none');
+    });
 });
 
 $(document).on('orderNew orderFilled orderCanceled', function() {
