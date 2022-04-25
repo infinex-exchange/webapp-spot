@@ -42,13 +42,13 @@ function orderBookUpdate(side, row) {
             <div class="row orderbook-item" data-side="${side}" data-price="${row.price}" data-total="${strTotal}"
                     onClick="orderBookClick(this)"
                     style="background-size: calc(${strTotal} / var(--orderbook-total-max) * 100%) 100%">
-                <div class="col-4 price ${color}">
+                <div class="col-6 col-lg-4 price ${color}">
                     ${row.price}
                 </div>
-                <div class="col-4 amount text-end">
+                <div class="col-6 col-lg-4 amount text-end">
                     ${row.amount}
                 </div>
-                <div class="col-4 total text-end">
+                <div class="col-4 d-none d-lg-block total text-end">
                     ${strTotal}
                 </div>
             </div>
