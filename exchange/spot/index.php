@@ -3,8 +3,8 @@
     <head>
         <?php include('../../templates/head.php'); ?>
         <?php include('../../templates/tradingview.html'); ?>
-        <?php include('../../templates/bignumber.html'); ?>
-        <?php include('../../templates/toast.html'); ?>
+        <?php include('../../imports/bignumber.html'); ?>
+        <?php include('../../imports/toast.html'); ?>
         <link rel="stylesheet" href="/spot/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
         <script type="text/javascript" src="/spot/js/streams_client.js?<?php echo filemtime(__DIR__.'/js/streams_client.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/tv_datafeed.js?<?php echo filemtime(__DIR__.'/js/tv_datafeed.js'); ?>"></script>
