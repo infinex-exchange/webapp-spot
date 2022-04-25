@@ -16,7 +16,7 @@
         <?php include('../../templates/preloader.html'); ?>
         
         <!-- Navbar -->
-        <div class="d-lg-block" id="main-navbar" data-ui-card="markets orders">
+        <div class="d-lg-block" id="main-navbar" data-ui-card="markets">
             <?php include('../../templates/navbar.html'); ?>
         </div>
         
@@ -29,28 +29,28 @@
                         Markets
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#_" data-ui-card-target="orders">
-                        <i class="fa-solid fa-user-clock"></i><br>
-                        My orders
-                    </a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item ms-4" data-ui-card="trades chart orderbook orders">
                     <a class="nav-link" href="#_" data-ui-card-target="trades">
                         <i class="fa-solid fa-right-left"></i></i><br>
                         Trades
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-ui-card="trades chart orderbook orders">
                     <a class="nav-link active" href="#_" data-ui-card-target="chart">
                         <i class="fa-solid fa-chart-line"></i><br>
                         Chart
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-ui-card="trades chart orderbook orders">
                     <a class="nav-link" href="#_" data-ui-card-target="orderbook">
                         <i class="fa-solid fa-arrow-up-short-wide"></i><br>
                         Orderbook
+                    </a>
+                </li>
+                <li class="nav-item" data-ui-card="trades chart orderbook orders">
+                    <a class="nav-link" href="#_" data-ui-card-target="orders">
+                        <i class="fa-solid fa-user-clock"></i><br>
+                        My orders
                     </a>
                 </li>
             </ul>
@@ -77,18 +77,18 @@
         <!-- Mobile header -->
         <div id="mobile-header" class="col-12 d-lg-none p-0 ui-column order-1 order-lg-1">
         <div class="row m-0 flex-nowrap">
-            <div class="col-1 ui-card ui-card-ver ui-card-hor my-auto text-center" data-ui-card="trades chart orderbook">
-                <a href="/">
-                    <img src="/img/logo_notext.svg" alt="Vayamos Exchange" width="24">
+            <div class="col-1 ui-card ui-card-ver my-auto" data-ui-card="trades chart orderbook orders">
+                <a class="nav-link p-0" href="#_" data-ui-card-target="markets">
+                    <i class="fa-solid fa-arrow-left fa-lg"></i>
                 </a>
             </div>
             
-            <div class="col-3 ui-card ui-card-ver ui-card-hor my-auto small" data-ui-card="trades chart orderbook">
+            <div class="col-3 ui-card ui-card-ver my-auto small" data-ui-card="trades chart orderbook orders">
                 <h4 class="ticker-name"></h4>
                 <span class="ticker-base-name"></span>
             </div>
                 
-            <div class="col-8 ui-card ui-card-hor" data-ui-card="trades chart orderbook">
+            <div class="col-8 ui-card ui-card-hor" data-ui-card="trades chart orderbook orders">
                 <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price
@@ -226,7 +226,7 @@
             </div>
             
             <!-- Trading form -->
-            <div class="col-12 d-lg-block ui-card ui-card-ver ui-card-high" id="trading-form" data-ui-card="trades chart orderbook">
+            <div class="col-12 d-lg-block ui-card ui-card-ver ui-card-high" id="trading-form" data-ui-card="trades chart orderbook orders">
             <div class="row d-lg-none" id="form-compact-buttons">
                 <div class="col-6 ps-2 pe-1">
                     <button type="button" class="btn bg-green w-100 form-expand-button" data-side="BUY">BUY</button>

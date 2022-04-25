@@ -26,8 +26,8 @@ $( document ).ready(function() {
     
     // Mobile navbar
     $('.nav-link[data-ui-card-target]').onFirst('click', function() {
-        $('div[data-ui-card]').addClass('d-none');
-        $('div[data-ui-card~="' + $(this).attr('data-ui-card-target') + '"]').removeClass('d-none');
+        $('[data-ui-card]').addClass('d-none');
+        $('[data-ui-card~="' + $(this).attr('data-ui-card-target') + '"]').removeClass('d-none');
         $('.nav-link[data-ui-card-target]').removeClass('active');
         $('.nav-link[data-ui-card-target~="' + $(this).attr('data-ui-card-target') + '"]').addClass('active');
     });
