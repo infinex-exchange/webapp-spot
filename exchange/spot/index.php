@@ -77,18 +77,18 @@
         <!-- Mobile header -->
         <div id="mobile-header" class="col-12 d-lg-none p-0 ui-column order-1 order-lg-1">
         <div class="row m-0 flex-nowrap">
-            <div class="col-auto ui-card ui-card-ver ui-card-hor my-auto text-center" data-ui-card="trades chart orderbook">
+            <div class="col-1 ui-card ui-card-ver ui-card-hor my-auto text-center" data-ui-card="trades chart orderbook">
                 <a href="/">
                     <img src="/img/logo_notext.svg" alt="Vayamos Exchange" width="24">
                 </a>
             </div>
             
-            <div class="col-auto ui-card ui-card-ver ui-card-hor my-auto small" data-ui-card="trades chart orderbook">
+            <div class="col-3 ui-card ui-card-ver ui-card-hor my-auto small" data-ui-card="trades chart orderbook">
                 <h4 class="ticker-name"></h4>
                 <span class="ticker-base-name"></span>
             </div>
                 
-            <div class="col-auto ui-card ui-card-hor" data-ui-card="trades chart orderbook">
+            <div class="col-8 ui-card ui-card-hor" data-ui-card="trades chart orderbook">
                 <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price

@@ -130,7 +130,6 @@
                      - var(--height-mobile-header)
                      - var(--height-main-nav)
                      - env(safe-area-inset-bottom)
-                     - 15px
                     ) !important;
     }
 }
