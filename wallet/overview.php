@@ -3,6 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
+        <title>Wallet | Vayamos Exchange</title>
     </head>
     <body>
     

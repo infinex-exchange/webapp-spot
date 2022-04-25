@@ -3,6 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
+        <title>Password reset | Vayamos Exchange</title>
     </head>
     <body class="vh-100 body-background">
     

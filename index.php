@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('templates/head.php'); ?>
+        <title>Vayamos Exchange - cryptocurrency trading platform</title>
     </head>
     <body class="body-background">
     

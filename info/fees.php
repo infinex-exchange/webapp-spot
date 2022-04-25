@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
+        <title>Fees | Vayamos Exchange</title>
     </head>
     <body class="body-background">
     

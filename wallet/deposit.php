@@ -4,6 +4,7 @@
         <?php include('../templates/head.php'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
         <?php include('../templates/qrcode.html'); ?>
+        <title>Deposit | Vayamos Exchange</title>
     </head>
     <body>
     
