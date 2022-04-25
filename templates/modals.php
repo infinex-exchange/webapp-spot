@@ -14,4 +14,4 @@
         </div>
     </div>
 </div>
-<script src="/js/modals.js"></script>
+<script src="/js/modals.js?<?php echo filemtime(__DIR__.'/../js/modals.js'); ?>"></script>

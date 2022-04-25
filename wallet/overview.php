@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
-        <script src="/js/ajax_scroll.js"></script>
+        <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
     </head>
     <body>
     
@@ -85,10 +85,10 @@
         </div>
         </div>
         
-        <script src="/js/recent_tx.js"></script>
-        <script src="/wallet/overview.js"></script>
+        <script src="/js/recent_tx.js?<?php echo filemtime(__DIR__.'/../js/recent_tx.js'); ?>"></script>
+        <script src="/wallet/overview.js?<?php echo filemtime(__DIR__.'/overview.js'); ?>"></script>
         
-        <?php include('../templates/modals.html'); ?>
+        <?php include('../templates/modals.php'); ?>
     
     </body>
 </html>

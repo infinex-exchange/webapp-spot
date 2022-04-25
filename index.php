@@ -128,7 +128,7 @@
         <!-- / Root container -->
         </div>
         
-        <script src="/index.js"></script>
+        <script src="/index.js?<?php echo filemtime(__DIR__.'/index.js'); ?>"></script>
         
         <!-- Footer -->
         <?php include('templates/footer.html'); ?>

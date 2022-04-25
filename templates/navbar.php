@@ -64,4 +64,4 @@
         
     </div>
 </nav>
-<script src="/js/navbar.js"></script>
+<script src="/js/navbar.js?<?php echo filemtime(__DIR__.'/../js/navbar.js'); ?>"></script>

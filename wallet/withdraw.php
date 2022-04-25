@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
-        <script src="/js/ajax_scroll.js"></script>
+        <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
     </head>
     <body>
     
@@ -26,13 +26,13 @@
             
             <div class="row p-2">
                 <h3>&#9312 Select coin to withdraw:</h3>
-                <?php include('../templates/select_coin.html'); ?>
+                <?php include('../templates/select_coin.php'); ?>
             </div>
             
             <div id="withdraw-step2" style="display: none">
                 <div class="row p-2">
                     <h3>&#9313 Select withdrawal network:</h3>
-                    <?php include('../templates/select_net.html'); ?>
+                    <?php include('../templates/select_net.php'); ?>
                 </div>
             </div>
             
@@ -78,10 +78,10 @@
         </div>
         </div>
         
-        <script src="/js/recent_tx.js"></script>
-        <script src="/wallet/withdraw.js"></script>
+        <script src="/js/recent_tx.js?<?php echo filemtime(__DIR__.'/../js/recent_tx.js'); ?>"></script>
+        <script src="/wallet/withdraw.js?<?php echo filemtime(__DIR__.'/withdraw.js'); ?>"></script>
         
-        <?php include('../templates/modals.html'); ?>
+        <?php include('../templates/modals.php'); ?>
     
     </body>
 </html>

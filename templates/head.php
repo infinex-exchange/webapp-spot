@@ -21,24 +21,24 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pretty-checkbox/3.0.3/pretty-checkbox.min.css" integrity="sha512-kz4Ae66pquz4nVE5ytJyKfPDkQyHSggaDtT1v8oLfOd8bB+ZgZXNLaxex99MNu4fdCsWmi58mhLtfGk5RgfcOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- App styles -->
-<link href="/css/styles.css" rel="stylesheet">
-<link href="/css/dark.css" rel="stylesheet" id="css-dark">
-<link href="/css/light.css" rel="stylesheet alternate" id="css-light">
+<link href="/css/styles.css?<?php echo filemtime(__DIR__.'/../css/styles.css'); ?>" rel="stylesheet">
+<link href="/css/dark.css?<?php echo filemtime(__DIR__.'/../css/dark.css'); ?>" rel="stylesheet" id="css-dark">
+<link href="/css/light.css?<?php echo filemtime(__DIR__.'/../css/light.css'); ?>" rel="stylesheet alternate" id="css-light">
 
 <!-- App config -->
-<script src="/config.js"></script>
+<script src="/config.js?<?php echo filemtime(__DIR__.'/../config.js'); ?>"></script>
 
 <!-- Rendering / preloader -->
-<script src="/js/rendering.js"></script>
+<script src="/js/rendering.js?<?php echo filemtime(__DIR__.'/../js/rendering.js'); ?>"></script>
 
 <!-- Session -->
-<script src="/js/session.js"></script>
+<script src="/js/session.js?<?php echo filemtime(__DIR__.'/../js/session.js'); ?>"></script>
 
 <!-- Global used scripts -->
-<script src="/js/global_utils.js"></script>
+<script src="/js/global_utils.js?<?php echo filemtime(__DIR__.'/../js/global_utils.js'); ?>"></script>
 
 <!-- Dark mode -->
-<script src="/js/darkmode.js"></script>
+<script src="/js/darkmode.js?<?php echo filemtime(__DIR__.'/../js/darkmode.js'); ?>"></script>
 
 <!-- Favicons -->
 <?php include(__DIR__.'/../favicon/html_code.html'); ?>

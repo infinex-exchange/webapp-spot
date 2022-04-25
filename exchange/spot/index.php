@@ -5,10 +5,10 @@
         <?php include('../../templates/tradingview.html'); ?>
         <?php include('../../templates/bignumber.html'); ?>
         <?php include('../../templates/toast.html'); ?>
-        <link rel="stylesheet" href="/spot/css/styles.css">
-        <script type="text/javascript" src="/spot/js/streams_client.js"></script>
-        <script type="text/javascript" src="/spot/js/tv_datafeed.js"></script>
-        <script src="/js/ajax_scroll.js"></script>
+        <link rel="stylesheet" href="/spot/css/styles.css?<?php echo filemtime(__DIR__.'/css/styles.css'); ?>">
+        <script type="text/javascript" src="/spot/js/streams_client.js?<?php echo filemtime(__DIR__.'/js/streams_client.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/tv_datafeed.js?<?php echo filemtime(__DIR__.'/js/tv_datafeed.js'); ?>"></script>
+        <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../../js/ajax_scroll.js'); ?>"></script>
     </head>
     <body>
     
@@ -555,18 +555,18 @@
         <!-- Don't hide content behind status bar -->
         <div style="height: var(--height-status-bar)" class="d-none d-lg-block"></div>
         
-        <?php include('../../templates/modals.html'); ?>
+        <?php include('../../templates/modals.php'); ?>
         
-        <script type="text/javascript" src="/js/range_value.js"></script>
-        <script type="text/javascript" src="/spot/js/js_sizing.js"></script>
-        <script type="text/javascript" src="/spot/js/streams.js"></script>
-        <script type="text/javascript" src="/spot/js/markets.js"></script>
-        <script type="text/javascript" src="/spot/js/tradingview.js"></script>
-        <script type="text/javascript" src="/spot/js/ticker.js"></script>
-        <script type="text/javascript" src="/spot/js/trades.js"></script>
-        <script type="text/javascript" src="/spot/js/orderbook.js"></script>
-        <script type="text/javascript" src="/spot/js/orders.js"></script>
-        <script type="text/javascript" src="/spot/js/trading_form.js"></script>
-        <script type="text/javascript" src="/spot/js/notifications.js"></script>
+        <script type="text/javascript" src="/js/range_value.js?<?php echo filemtime(__DIR__.'/js/range_value.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/js_sizing.js?<?php echo filemtime(__DIR__.'/js/js_sizing.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/streams.js?<?php echo filemtime(__DIR__.'/js/streams.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/markets.js?<?php echo filemtime(__DIR__.'/js/markets.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/tradingview.js?<?php echo filemtime(__DIR__.'/js/tradingview.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/ticker.js?<?php echo filemtime(__DIR__.'/js/ticker.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/trades.js?<?php echo filemtime(__DIR__.'/js/trades.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/orderbook.js?<?php echo filemtime(__DIR__.'/js/orderbook.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/orders.js?<?php echo filemtime(__DIR__.'/js/orders.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/trading_form.js?<?php echo filemtime(__DIR__.'/js/trading_form.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/notifications.js?<?php echo filemtime(__DIR__.'/js/notifications.js'); ?>"></script>
     </body>
 </html>

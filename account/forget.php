@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
-        <script src="/js/validate.js"></script>
+        <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
     </head>
     <body class="vh-100 body-background">
     
@@ -95,8 +95,8 @@
         </div>
         </div>
         
-        <script src="/account/forget.js"></script>
-        <?php include('../templates/modals.html'); ?>
+        <script src="/account/forget.js?<?php echo filemtime(__DIR__.'/forget.js'); ?>"></script>
+        <?php include('../templates/modals.php'); ?>
     
     </body>
 </html>

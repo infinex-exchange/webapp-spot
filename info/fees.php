@@ -81,9 +81,9 @@
         <!-- / Root container -->
         </div>
         
-        <script src="/info/fees.js"></script>
+        <script src="/info/fees.js?<?php echo filemtime(__DIR__.'/fees.js'); ?>"></script>
         
-        <?php include('../templates/modals.html'); ?>
+        <?php include('../templates/modals.php'); ?>
         <?php include('../templates/footer.html'); ?>
     
     </body>

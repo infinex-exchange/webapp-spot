@@ -9,4 +9,4 @@
         <div id="select-net-data" class="scrollable"></div>
     </div>
 </div>
-<script src="/js/select_net.js"></script>
+<script src="/js/select_net.js?<?php echo filemtime(__DIR__.'/../js/select_net.js'); ?>"></script>

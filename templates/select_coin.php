@@ -13,4 +13,4 @@
         </div>
     </div>
 </div>
-<script src="/js/select_coin.js"></script>
+<script src="/js/select_coin.js?<?php echo filemtime(__DIR__.'/../js/select_coin.js'); ?>"></script>

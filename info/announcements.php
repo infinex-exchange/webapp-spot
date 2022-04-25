@@ -3,7 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <?php include('../templates/marked.html'); ?>
-        <script src="/js/ajax_scroll.js"></script>
+        <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
     </head>
     <body class="body-background">
     
@@ -27,9 +27,9 @@
         <!-- / Root container -->
         </div>
         
-        <script src="/info/announcements.js"></script>
+        <script src="/info/announcements.js?<?php echo filemtime(__DIR__.'/announcements.js'); ?>"></script>
         
-        <?php include('../templates/modals.html'); ?>
+        <?php include('../templates/modals.php'); ?>
         <?php include('../templates/footer.html'); ?>
     
     </body>
