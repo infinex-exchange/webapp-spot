@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
+        <title>Error | Vayamos Exchange</title>
     </head>
     <body class="vh-100 body-background">   
         <!-- Navbar -->
