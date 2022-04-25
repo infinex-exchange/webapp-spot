@@ -30,7 +30,7 @@ function liveMarketItem(data) {
 $(document).on('wsConnected', function() {   
     // Set rendering stages target
     
-    window.renderingStagesTarget = 7; //9
+    window.renderingStagesTarget = 9; //9
     window.tickersSubscribed = new Array();
     
     // Set DOM event handlers
