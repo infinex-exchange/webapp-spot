@@ -17,3 +17,7 @@ $(window).resize(function() {
 $('.nav-link[data-ui-card-target]').on('click', function() {
     doJsSizing();
 });
+
+$('.form-expand-button .form-close-button').on('click', function() {
+    doJsSizing();
+});

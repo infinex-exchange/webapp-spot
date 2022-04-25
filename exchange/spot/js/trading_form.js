@@ -290,14 +290,14 @@ $(document).on('pairSelected', function() {
     });
     
     // Expand and close form for one side on mobile
-    $('.form-expand-button').on('click', function() {
+    $('.form-expand-button').onFirst('click', function() {
         $('.form-inner-side').addClass('d-none');
         $('.form-inner-side[data-side="' + $(this).data('side') + '"]').removeClass('d-none');
         $('#form-compact-buttons').addClass('d-none');
         $('#form-inner').removeClass('d-none');
     });
     
-    $('.form-close-button').on('click', function() {
+    $('.form-close-button').onFirst('click', function() {
         $('#form-inner').addClass('d-none');
         $('#form-compact-buttons').removeClass('d-none');
     });
