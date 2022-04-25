@@ -1,3 +1,5 @@
+Options -MultiViews -Indexes
+
 RewriteEngine on
 
 RewriteRule ^account/register/?$ /account/register.php [L]
@@ -22,3 +24,11 @@ RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
 
 RewriteRule ^info/fees/?$ /info/fees.php [L]
 RewriteRule ^info/announcements/?$ /info/announcements.php [L]
+
+RewriteRule ^error/403/?$ /error/403.php [L]
+RewriteRule ^error/404/?$ /error/404.php [L]
+RewriteRule ^error/500/?$ /error/500.php [L]
+
+ErrorDocument 403 http://%{HTTP_HOST}/error/403
+ErrorDocument 404 http://%{HTTP_HOST}/error/404
+ErrorDocument 500 http://%{HTTP_HOST}/error/404
