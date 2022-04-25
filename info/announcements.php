@@ -11,7 +11,7 @@
         <?php include('../templates/preloader.html'); ?>
         
         <!-- Navbar -->
-        <?php include('../templates/navbar.html'); ?>
+        <?php include('../templates/navbar.php'); ?>
         
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 container-rest background">

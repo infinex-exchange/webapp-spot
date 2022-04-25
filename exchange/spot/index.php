@@ -17,11 +17,14 @@
         
         <!-- Navbar -->
         <div class="d-lg-block" id="main-navbar" data-ui-card="markets">
-            <?php include('../../templates/navbar.html'); ?>
+            <?php include('../../templates/navbar.php'); ?>
         </div>
         
         <!-- Mobile navbar -->
         <nav id="mobile-navbar" class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 small">
+            <ul class="navbar-nav mx-auto text-center" data-ui-card="markets">
+                <?php include('../../templates/mobile_menu_inner.php'); ?>
+            </ul>
             <ul class="navbar-nav mx-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link" href="#_" data-ui-card-target="markets">
@@ -29,25 +32,27 @@
                         Markets
                     </a>
                 </li>
-                <li class="nav-item ms-4" data-ui-card="trades chart orderbook orders">
+            </ul>
+            <ul class="navbar-nav mx-auto text-center" data-ui-card="trades chart orderbook orders">
+                <li class="nav-item">
                     <a class="nav-link" href="#_" data-ui-card-target="trades">
                         <i class="fa-solid fa-right-left"></i></i><br>
                         Trades
                     </a>
                 </li>
-                <li class="nav-item" data-ui-card="trades chart orderbook orders">
+                <li class="nav-item"">
                     <a class="nav-link active" href="#_" data-ui-card-target="chart">
                         <i class="fa-solid fa-chart-line"></i><br>
                         Chart
                     </a>
                 </li>
-                <li class="nav-item" data-ui-card="trades chart orderbook orders">
+                <li class="nav-item">
                     <a class="nav-link" href="#_" data-ui-card-target="orderbook">
                         <i class="fa-solid fa-arrow-up-short-wide"></i><br>
                         Orderbook
                     </a>
                 </li>
-                <li class="nav-item" data-ui-card="trades chart orderbook orders">
+                <li class="nav-item">
                     <a class="nav-link" href="#_" data-ui-card-target="orders">
                         <i class="fa-solid fa-user-clock"></i><br>
                         My orders
