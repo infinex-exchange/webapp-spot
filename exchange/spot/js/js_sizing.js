@@ -6,7 +6,7 @@ function doJsSizing() {
 	document.body.style.setProperty('--height-main-nav', $('#main-navbar').outerHeight() + 'px');
 }
 
-$(document).ready(function() {
+$(document).on('renderingComplete', function() {
     doJsSizing();
 });
 
