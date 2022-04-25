@@ -1,3 +1,3 @@
 [submodule "asset-icons"]
 	path = asset-icons
-	url = git@github.com:vayamos-exchange/asset-icons.git
+	url = https://github.com/vayamos-exchange/asset-icons.git
