@@ -25,9 +25,9 @@
             <ul class="navbar-nav mx-auto text-center" data-ui-card="markets">
                 <?php include('../../templates/mobile_menu_inner.php'); ?>
             </ul>
-            <ul class="navbar-nav mx-auto text-center">
+            <ul class="navbar-nav mx-auto text-center" data-ui-card="markets">
                 <li class="nav-item">
-                    <a class="nav-link" href="#_" data-ui-card-target="trades chart orderbook orders">
+                    <a class="nav-link" href="#_" data-ui-card-target="markets">
                         <i class="fa-solid fa-chart-simple"></i><br>
                         Markets
                     </a>
