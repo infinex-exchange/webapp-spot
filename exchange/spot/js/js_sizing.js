@@ -13,3 +13,7 @@ $(document).ready(function() {
 $(window).resize(function() {
 	doJsSizing();
 });
+
+$('.nav-link[data-ui-card-target]').on('click', function() {
+    doJsSizing();
+});

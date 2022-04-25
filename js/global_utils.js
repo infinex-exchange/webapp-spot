@@ -25,7 +25,7 @@ $( document ).ready(function() {
     }, { passive: false });
     
     // Mobile navbar
-    $('.nav-link[data-ui-card-target]').on('click', function() {
+    $('.nav-link[data-ui-card-target]').onFirst('click', function() {
         $('div[data-ui-card]').addClass('d-none');
         $('div[data-ui-card~="' + $(this).attr('data-ui-card-target') + '"]').removeClass('d-none');
         $('.nav-link[data-ui-card-target]').removeClass('active');
