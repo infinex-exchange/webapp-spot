@@ -1,5 +1,8 @@
 function gotoMarket(pair) {
-    window.location.replace('/spot/' + pair.replace('/', '_'));
+    if(typeof(window.currentPair) !== 'undefined' && pair == window.currentPair)
+        gotoUiCard('chart');
+    else
+        window.location.replace('/spot/' + pair.replace('/', '_'));
 }
 
 function filterMarketsByQuote(q) {

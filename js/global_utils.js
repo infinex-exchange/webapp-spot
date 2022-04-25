@@ -2,6 +2,13 @@ function showTxid(txid) {
     return txid.substr(0, 5) + '...' + txid.substr(-5);
 }
 
+function gotoUiCard(card) {
+    $('[data-ui-card]').addClass('d-none');
+    $('[data-ui-card~="' + card + '"]').removeClass('d-none');
+    $('.nav-link[data-ui-card-target]').removeClass('active');
+    $('.nav-link[data-ui-card-target~="' + card + '"]').addClass('active');
+}
+
 $( document ).ready(function() {
     // Dropdown on hover
     $('.dropdown-on-hover').hover(function() {
@@ -26,10 +33,7 @@ $( document ).ready(function() {
     
     // Mobile navbar
     $('.nav-link[data-ui-card-target]').onFirst('click', function() {
-        $('[data-ui-card]').addClass('d-none');
-        $('[data-ui-card~="' + $(this).attr('data-ui-card-target') + '"]').removeClass('d-none');
-        $('.nav-link[data-ui-card-target]').removeClass('active');
-        $('.nav-link[data-ui-card-target~="' + $(this).attr('data-ui-card-target') + '"]').addClass('active');
+        gotoUiCard($(this).attr('data-ui-card-target'));        
     });
-    $('.nav-link.active[data-ui-card-target]').trigger('click');
+    gotoUiCard( $('.nav-link.active[data-ui-card-target]').data('ui-card-target') );
 });
