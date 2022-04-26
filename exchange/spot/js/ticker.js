@@ -1,4 +1,7 @@
 function liveTicker(data) {
+    // Current market price
+    window.currentMarketPrice = new BigNumber(v.price);
+    
     // Document title
     document.title = data.price + ' | ' + window.currentPair + ' | Vayamos Spot';
     
@@ -54,7 +57,9 @@ $(document).on('prePairSelected', function() {
             window.currentQuote = v.quote;
             window.currentBasePrecision = v.base_precision;
             window.currentQuotePrecision = v.quote_precision;
-            window.currentMarketPrice = new BigNumber(v.price);
+            
+            // Rest of data
+            liveTicker(v);
             $(document).trigger('pairSelected');
             
             // Ticker HTML
@@ -62,9 +67,6 @@ $(document).on('prePairSelected', function() {
             $('.ticker-base-name').html(v.base_name);
             $('.ticker-base-legend').html(window.currentBase);
             $('.ticker-quote-legend').html(window.currentQuote);
-            
-            // Rest of data
-            liveTicker(v);
             
             // Subscribe to live events
             window.wsClient.sub(
