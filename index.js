@@ -12,8 +12,13 @@ function getMarketsForIndex(div, req) {
             data.markets = data.markets.slice(0, 5);
             $.each(data.markets, function(k, v) {   
                 var color = '';
-                if(v.change > 0) color = 'text-green';
-                if(v.change < 0) color = 'text-red';
+                var changeStr = v.change;
+                if(v.change > 0) {
+                    color = 'text-green';
+                    changeStr = '+' + changeStr;
+                }
+                if(v.change < 0)
+                    color = 'text-red';
                 
                 div.append(`
                     <div class="row py-1 hoverable">
@@ -26,7 +31,7 @@ function getMarketsForIndex(div, req) {
                         </div>
                         <div class="col-3 m-auto text-end">
                             <span class="${color}">
-                                ${v.change}%
+                                ${changeStr}%
                             </span>
                         </div>
                         <div class="col-3 m-auto text-end">

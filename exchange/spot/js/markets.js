@@ -23,10 +23,15 @@ function liveMarketItem(data) {
     div.find('.price').html(data.price);
     var changeDiv = div.find('.change');
     var color = '';
-    if(data.change > 0) color = 'text-green';
-    if(data.change < 0) color = 'text-red';
+    var changeStr = data.change;
+    if(data.change > 0) {
+        color = 'text-green';
+        changeStr = '+' + changeStr;
+    }
+    if(data.change < 0)
+        color = 'text-red';
     changeDiv.removeClass('text-green text-red');
-    changeDiv.html(data.change + '%');
+    changeDiv.html(changeStr + '%');
     changeDiv.addClass(color);
 }
 
