@@ -1,12 +1,12 @@
 <li class="nav-item">
-    <a class="nav-link" href="/">
+    <a class="nav-link auto-active" href="/">
         <i class="fas fa-home"></i><br>
         Home
     </a>
 </li>
 
 <li class="nav-item ms-4 dropup">
-    <a href="#_" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <a href="#_" class="nav-link dropdown-toggle auto-active-group" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="fa-solid fa-border-all"></i><br>
         Exchange
     </a>
@@ -18,7 +18,7 @@
 </li>
 
 <li class="nav-item dropup">
-    <a href="#_" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <a href="#_" class="nav-link dropdown-toggle auto-active-group" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="fa-solid fa-circle-user"></i><br>
         Account
     </a>
@@ -30,7 +30,7 @@
 </li>
 
 <li class="nav-item dropup user-only">
-    <a href="#_" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <a href="#_" class="nav-link dropdown-toggle auto-active-group" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="fa-solid fa-wallet"></i><br>
         Wallet
     </a>
@@ -42,7 +42,7 @@
 </li>
 
 <li class="nav-item dropup">
-    <a href="#_" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <a href="#_" class="nav-link dropdown-toggle auto-active-group" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="fa-solid fa-circle-info"></i><br>
         Info
     </a>

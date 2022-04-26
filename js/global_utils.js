@@ -19,11 +19,23 @@ $( document ).ready(function() {
     }); 
     
     // Auto active menu item
+    var loc = window.location.pathname;
+    
     $('.auto-active').each(function() {
-        if(window.location.pathname.startsWith($(this).attr('href'))) {
+        var href = $(this).attr('href');
+        
+        if(loc.startsWith(href)) {
+            // Exceptions
+            if(href == '/' && loc != '/') return;
+            if((href == '/wallet' || href == '/wallet/') && (loc != '/wallet' && loc != '/wallet/')) return;
+            
             $(this).addClass('active');
-            return;
         }
+    });
+    
+    $('.auto-active-group').each(function() {
+        if($(this).parent().find('.auto-active.active').length !== 0)
+            $(this).addClass('active');
     });
     
     // user-scalable=no not works on iOS

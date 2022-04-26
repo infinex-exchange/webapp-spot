@@ -4,6 +4,8 @@
         <h2>My account</h2>
     </div>
             
-    <?php include('menu_account.html'); ?>
+    <ul class="nav flex-column">
+        <?php include('menu_account.html'); ?>
+    </ul>
     
 </div>

@@ -277,6 +277,14 @@ input[type=range] {
         background-color: var(--color-navbar);
         border: none;
     }
+    
+    .navbar-master .dropdown-divider {
+        border-top: 1px solid var(--color-text-navbar);
+    }
+
+    .navbar-master .dropdown-menu .dropdown-divider {
+        border-top: 1px solid var(--color-text);
+    }
 }
 
 /* Fix for dropdown out of screen */
@@ -542,4 +550,12 @@ footer {
 
 .text-hi {
     color: var(--color-highlight);
+}
+
+/* Hide items in expanded on mobile master navbar */
+
+@media (max-width: 991px) {
+    .navbar-master .not-in-expanded-master-navbar {
+        display: none !important;
+    }
 }

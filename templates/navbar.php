@@ -10,7 +10,7 @@
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <?php include('menu_exchange.html'); ?>
+                <?php echo str_replace('dropdown-item', 'nav-link', file_get_contents(__DIR__.'/menu_exchange.html')); ?>
                 <li class="d-lg-none">
                     <hr class="dropdown-divider">
                 </li>
@@ -23,7 +23,7 @@
                         <span class="d-lg-none">Wallet</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <?php include('menu_wallet.html'); ?>
+                        <?php include(__DIR__.'/menu_wallet.html'); ?>
                     </ul>
                 </li>
             </ul>
@@ -35,7 +35,7 @@
                         <span class="d-lg-none">Account</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <?php include('menu_account.html'); ?>
+                        <?php include(__DIR__.'/menu_account.html'); ?>
                     </ul>
                 </li>
             </ul>
@@ -47,7 +47,7 @@
                         <span class="d-lg-none">Informations</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <?php include('menu_info.html'); ?>
+                        <?php include(__DIR__.'/menu_info.html'); ?>
                     </ul>
                 </li>
             </ul>
