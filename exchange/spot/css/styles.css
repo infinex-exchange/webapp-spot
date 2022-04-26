@@ -8,7 +8,7 @@
     --height-main-nav: 0px;
 }
 
-/* Reverse orderbook */
+/* Reverse buy orderbook */
 
 #orderbook-buy {
     display: flex;
@@ -16,13 +16,18 @@
     justify-content: flex-end;
 }
 
-/* Reverse sell on mobile */
+/* Reverse sell orderbook on mobile */
 
-@media (min-width: 992px) {
+@media (max-width: 991px) {
     #orderbook-sell {
         display: flex;
         flex-direction: column-reverse;
         justify-content: flex-end;
+    }
+    
+    #orderbook-sell .row:hover {
+        border-top: none !important;
+        border-bottom: 1px dashed var(--color-text);  
     }
 }
 
