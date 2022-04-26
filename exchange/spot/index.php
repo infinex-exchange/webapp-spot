@@ -82,13 +82,13 @@
         <!-- Mobile header -->
         <div id="mobile-header" class="col-12 d-lg-none p-0 ui-column order-1 order-lg-1">
         <div class="row m-0 flex-nowrap">
-            <div class="col-1 ui-card ui-card-ver my-auto" data-ui-card="trades chart orderbook orders">
+            <div class="col-1 ui-card my-auto" data-ui-card="trades chart orderbook orders">
                 <a class="nav-link p-0" href="#_" data-ui-card-target="markets">
                     <i class="fa-solid fa-arrow-left fa-lg"></i>
                 </a>
             </div>
             
-            <div class="col-3 ui-card ui-card-ver my-auto small" data-ui-card="trades chart orderbook orders">
+            <div class="col-3 ui-card ui-card-hor my-auto small" data-ui-card="trades chart orderbook orders">
                 <h4 class="ticker-name"></h4>
                 <span class="ticker-base-name"></span>
             </div>
