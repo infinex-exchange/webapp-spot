@@ -19,25 +19,28 @@ function orderBookUpdate(side, row) {
     
     var existing = div.find('.orderbook-item[data-price="' + row.price + '"]');
     
-    // Delete
-    if(existing.length && bnAmount.eq(0)) {
-        existing.remove();
-    }
-    
-    // Update
-    else if(existing.length) {
-        var price = existing.find('.price');
-        price.removeClass('text-green text-red');
-        price.addClass(color);
-        price.html(row.price);
-        existing.find('.amount').html(row.amount);
-        existing.find('.total').html(strTotal);
-        existing.attr('data-total', strTotal);
-        existing.css({"background-size": `calc(${strTotal} / var(--orderbook-total-max) * 100%) 100%`});
+    if(existing.length) {
+        
+        // Delete
+        if(bnAmount.eq(0)) {
+            existing.remove();
+        }
+        
+        // Update
+        else {
+            var price = existing.find('.price');
+            price.removeClass('text-green text-red');
+            price.addClass(color);
+            price.html(row.price);
+            existing.find('.amount').html(row.amount);
+            existing.find('.total').html(strTotal);
+            existing.attr('data-total', strTotal);
+            existing.css({"background-size": `calc(${strTotal} / var(--orderbook-total-max) * 100%) 100%`});
+        }
     }
     
     // Add
-    else {
+    else if(! bnAmount.eq(0)) {
         var html = `
             <div class="row orderbook-item" data-side="${side}" data-price="${row.price}" data-total="${strTotal}"
                     onClick="orderBookClick(this)"
