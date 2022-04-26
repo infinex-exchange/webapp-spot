@@ -4,10 +4,17 @@ function liveTicker(data) {
     
     // Ticker HTML
     $('.ticker-price').html(data.price);
-    $('.ticker-change').html(data.change + '%');
-    $('.ticker-change').removeClass('text-red text-green');
-    if(data.change < 0) $('.ticker-change').addClass('text-red');
-    if(data.change > 0) $('.ticker-change').addClass('text-green');
+    var color = 'text-hi';
+    var changeStr = data.change;
+    if(data.change > 0) {
+        color = 'text-green';
+        changeStr = '+' + changeStr;
+    }
+    if(data.change < 0)
+        color = 'text-red';
+    $('.ticker-change').html(changeStr + '%');
+    $('.ticker-change').removeClass('text-hi text-red text-green');
+    $('.ticker-change').addClass(color);
     $('.ticker-high').html(data.high);
     $('.ticker-low').html(data.low);
     $('.ticker-vol-base').html(data.vol_base);
