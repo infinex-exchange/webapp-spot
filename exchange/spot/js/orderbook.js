@@ -117,8 +117,8 @@ $(document).on('pairSelected', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            data.bids = data.bids.slice(0, 20).reverse();
-            data.asks = data.asks.slice(-20).reverse();
+            data.bids = data.bids.slice(0, 20);
+            data.asks = data.asks.slice(-20);
               
             $(data.bids).each(function() {
                 orderBookUpdate('bid', this);
