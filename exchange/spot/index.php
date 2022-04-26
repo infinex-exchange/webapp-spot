@@ -564,7 +564,7 @@
         
         <?php include('../../templates/modals.php'); ?>
         
-        <script type="text/javascript" src="/js/range_value.js?<?php echo filemtime(__DIR__.'/js/range_value.js'); ?>"></script>
+        <script type="text/javascript" src="/js/range_value.js?<?php echo filemtime(__DIR__.'/../../js/range_value.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/js_sizing.js?<?php echo filemtime(__DIR__.'/js/js_sizing.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/streams.js?<?php echo filemtime(__DIR__.'/js/streams.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/markets.js?<?php echo filemtime(__DIR__.'/js/markets.js'); ?>"></script>
