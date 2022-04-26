@@ -139,6 +139,8 @@ $(document).on('authChecked', function() {
                             csButton = 'Logout';
                         }
                         
+                        var time = new Date(v.lastact * 1000).toLocaleString();
+                        
                         $('#sessions-data').append(`
                             <div class="sessions-item row p-2 hoverable" data-sid="${sid}">
                                 <div class="col-2">
@@ -160,7 +162,7 @@ $(document).on('authChecked', function() {
                                     </span>
                                 </div>
                                 <div class="col-4">
-                                    ${v.lastact}
+                                    ${time}
                                 </div>
                                 <div class="col-3">
                                     <button type="button" class="btn btn-primary btn-sm font-1" onClick="${csOnClick}">${csButton}</a>
