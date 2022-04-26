@@ -42,13 +42,7 @@ class StreamsClient {
         }
         
         t.ws.onclose = function(e) {
-            t.good = false;
-            
-            clearTimeout(t.pingTimeout);
-            clearInterval(t.pingInterval);
-            
-            if(t.onClose != null)
-                t.onClose();
+            t.closed();
             
             setTimeout(function() {
                 t.reconnect();
@@ -59,6 +53,16 @@ class StreamsClient {
             var msg = JSON.parse(e.data);
             t.process(msg);
         }
+    }
+    
+    closed() {
+        this.good = false;
+            
+        clearTimeout(this.pingTimeout);
+        clearInterval(this.pingInterval);
+            
+        if(this.onClose != null)
+            this.onClose();
     }
     
     reconnect() {
@@ -84,7 +88,7 @@ class StreamsClient {
         
         clearTimeout(t.pingTimeout);
         t.pingTimeout = setTimeout(function() {
-            t.ws.close();
+            t.closed();
         }, 1000);
         
         t.pingId = t.randomId();
@@ -109,7 +113,10 @@ class StreamsClient {
     }
     
     send(obj) {
-        this.ws.send(JSON.stringify(obj));
+        if(this.ws.readyState === this.ws.OPEN)
+            this.ws.send(JSON.stringify(obj));
+        else
+            this.closed();
     }
     
     randomId() {
