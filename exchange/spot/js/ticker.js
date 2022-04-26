@@ -1,13 +1,24 @@
 function liveTicker(data) {
     // Current market price
-    window.currentMarketPrice = new BigNumber(v.price);
+    window.currentMarketPrice = new BigNumber(data.price);
     
     // Document title
     document.title = data.price + ' | ' + window.currentPair + ' | Vayamos Spot';
     
     // Ticker HTML
-    $('.ticker-price').html(data.price);
+    var priceDiv = $('.ticker-price');
     var color = 'text-hi';
+    var bnCurrent = new BigNumber(data.price);
+    var bnPrevious = new BigNumber(data.previous);
+    var comp = bnCurrent.comparedTo(bnPrevious);
+    if(comp == 1) color = 'text-green';
+    else if(comp == -1) color = 'text-red';
+    priceDiv.removeClass('text-hi text-green text-red');
+    priceDiv.html(data.price);
+    priceDiv.addClass(color);
+    
+    var changeDiv = $('.ticker-change');
+    color = 'text-hi';
     var changeStr = data.change;
     if(data.change > 0) {
         color = 'text-green';
@@ -15,9 +26,10 @@ function liveTicker(data) {
     }
     if(data.change < 0)
         color = 'text-red';
-    $('.ticker-change').html(changeStr + '%');
-    $('.ticker-change').removeClass('text-hi text-red text-green');
-    $('.ticker-change').addClass(color);
+    changeDiv.removeClass('text-hi text-green text-red');
+    changeDiv.html(changeStr + '%');
+    changeDiv.addClass(color);
+    
     $('.ticker-high').html(data.high);
     $('.ticker-low').html(data.low);
     $('.ticker-vol-base').html(data.vol_base);
