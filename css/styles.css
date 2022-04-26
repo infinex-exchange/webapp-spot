@@ -483,11 +483,11 @@ input#select-coin, input#select-net {
 /* Trading colors */
 
 .text-green {
-    color: var(--color-green);
+    color: var(--color-green) !important;
 }
 
 .text-red {
-    color: var(--color-red);
+    color: var(--color-red) !important;
 }
 
 .bg-green {

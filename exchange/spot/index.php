@@ -376,7 +376,7 @@
             
             <div class="col-12 ui-card ui-card-ver d-lg-block m-rest-of-height" data-ui-card="orderbook">
                 <div class="row m-0">
-                    <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-2 order-lg-1">
+                    <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-3 order-lg-1">
                         <div class="row">
                             <div class="col-6 col-lg-4">
                                 <h6>Price</h6>
@@ -393,7 +393,14 @@
                         </div>
                     </div>
                     
-                    <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-2">
+                    <div class="col-12 d-none d-lg-block order-2 order-lg-2 p-0 my-3">
+                        <h3 class="d-inline orderbook-middle-price"></h3>
+                        <h3 class="d-inline">
+                            <i class="orderbook-middle-arrow fa-solid"></i>
+                        </h3>
+                    </div>
+                    
+                    <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-3">
                         <div class="row d-lg-none">
                             <div class="col-6">
                                 <h6>Price</h6>

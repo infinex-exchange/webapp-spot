@@ -6,19 +6,31 @@ function liveTicker(data) {
     document.title = data.price + ' | ' + window.currentPair + ' | Vayamos Spot';
     
     // Ticker HTML
-    var priceDiv = $('.ticker-price');
-    var color = 'text-hi';
+    var color = '';
     var bnCurrent = new BigNumber(data.price);
     var bnPrevious = new BigNumber(data.previous);
     var comp = bnCurrent.comparedTo(bnPrevious);
     if(comp == 1) color = 'text-green';
     else if(comp == -1) color = 'text-red';
-    priceDiv.removeClass('text-hi text-green text-red');
+    
+    var priceDiv = $('.ticker-price');
+    priceDiv.removeClass('text-green text-red');
     priceDiv.html(data.price);
     priceDiv.addClass(color);
     
+    var obm = $('.orderbook-middle-price, .orderbook-middle-arrow');
+    obm.removeClass('text-green text-red');
+    obm.addClass(color);
+    
+    $('.orderbook-middle-price').html(bnCurrent.toFixed(window.currentQuotePrecision));
+    
+    var obmArrow = $('.orderbook-middle-arrow');
+    obmArrow.removeClass('fa-arrow-down fa-arrow-up');
+    if(comp == 1) obmArrow.addClass('fa-arrow-up');
+    else if(comp == -1) obmArrow.addClass('fa-arrow-down');
+    
     var changeDiv = $('.ticker-change');
-    color = 'text-hi';
+    color = '';
     var changeStr = data.change;
     if(data.change > 0) {
         color = 'text-green';
@@ -26,7 +38,7 @@ function liveTicker(data) {
     }
     if(data.change < 0)
         color = 'text-red';
-    changeDiv.removeClass('text-hi text-green text-red');
+    changeDiv.removeClass('text-green text-red');
     changeDiv.html(changeStr + '%');
     changeDiv.addClass(color);
     
