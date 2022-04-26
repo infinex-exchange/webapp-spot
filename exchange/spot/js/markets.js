@@ -20,9 +20,20 @@ function filterMarketsByQuote(q) {
 
 function liveMarketItem(data) {
     var div = $('.markets-item[data-pair="' + data.pair + '"]');
-    div.find('.price').html(data.price);
-    var changeDiv = div.find('.change');
+    
+    var priceDiv = div.find('.price');
     var color = '';
+    var bnCurrent = new BigNumber(data.price);
+    var bnPrevious = new BigNumber(data.previous);
+    var comp = bnCurrent.comparedTo(bnPrevious);
+    if(comp == 1) color = 'text-green';
+    else if(comp == -1) color = 'text-red';
+    priceDiv.removeClass('text-green text-red');
+    priceDiv.html(data.price);
+    priceDiv.addClass(color);
+    
+    var changeDiv = div.find('.change');
+    color = '';
     var changeStr = data.change;
     if(data.change > 0) {
         color = 'text-green';
