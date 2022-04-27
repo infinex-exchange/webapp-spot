@@ -171,3 +171,34 @@
                     ) !important;
     }
 }
+
+/* Markets mobile view */
+
+@media (max-width: 991px) {
+    
+    .markets-item img {
+	    transform: scale(1.5);
+    }
+    
+    .markets-item .base {
+	    color: var(--color-highlight);
+	    font-size: var(--font-normal);
+    }
+    
+    .markets-item .change {
+	    background-color: var(--color-input);
+	    border-radius: 50%;
+	    padding: 5px;
+	    margin-top: 5px;
+	    margin-bottom: 5px;
+    }
+    
+    .markets-item .change.text-green {
+	    background-color: var(--color-green);
+    }
+    
+    .markets-item .change.text-red {
+	    background-color: var(--color-red);
+    }
+    
+}

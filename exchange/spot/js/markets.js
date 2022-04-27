@@ -90,14 +90,16 @@ $(document).on('wsConnected', function() {
         if(data.success) {
             var sub = new Array();
             
-            $.each(data.markets, function(k, v) {  
+            $.each(data.markets, function(k, v) {
+	            var explPair = v.pair.split('/');
+	              
                 thisAS.append(`
                     <div class="row hoverable markets-item flex-nowrap" onClick="gotoMarket('${v.pair}')" data-pair="${v.pair}">
                         <div class="col-1">
                             <img width="16px" height="16px" src="${v.icon_url}">
                         </div>
                         <div class="col-4">
-                            ${v.pair}
+                            <span class="base">${explPair[0]}</span>/${explPair[1]}
                         </div>
                         <div class="col-4 text-end price">
                         </div>
