@@ -103,7 +103,7 @@ $(document).on('wsConnected', function() {
                         </div>
                         <div class="col-4 text-end price">
                         </div>
-                        <div class="col-3 text-end">
+                        <div class="col-3 text-end change-wrapper">
                             <span class="change">
                             </span>
                         </div>

@@ -177,7 +177,8 @@
 @media (max-width: 991px) {
     
     .markets-item img {
-	    transform: scale(1.5);
+	    width: 28px;
+	    height: 28px;
     }
     
     .markets-item .base {
@@ -187,10 +188,14 @@
     
     .markets-item .change {
 	    background-color: var(--color-input);
-	    border-radius: 50%;
+	    color: var(--color-text) !important;
+	    border-radius: 25%;
 	    padding: 5px;
-	    margin-top: 5px;
-	    margin-bottom: 5px;
+    }
+    
+    .markets-item .change-wrapper {
+	    padding-top: 5px;
+	    padding-bottom: 5px;
     }
     
     .markets-item .change.text-green {
