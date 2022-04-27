@@ -23,7 +23,7 @@ function getMarketsForIndex(div, req) {
                 div.append(`
                     <div class="row py-1 hoverable">
                         <div class="col-3 m-auto text-nowrap">
-                            <img width="28" height="32" src="${v.icon_url}">
+                            <img width="28" height="28" src="${v.icon_url}">
                             ${v.pair}
                         </div>
                         <div class="col-3 m-auto text-end">
