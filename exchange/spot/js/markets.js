@@ -94,14 +94,14 @@ $(document).on('wsConnected', function() {
 	            var explPair = v.pair.split('/');
 	              
                 thisAS.append(`
-                    <div class="row hoverable markets-item flex-nowrap py-2 py-lg-0" onClick="gotoMarket('${v.pair}')" data-pair="${v.pair}">
+                    <div class="row hoverable markets-item flex-nowrap py-1 py-lg-0" onClick="gotoMarket('${v.pair}')" data-pair="${v.pair}">
                         <div class="col-1 my-auto">
                             <img width="16px" height="16px" src="${v.icon_url}">
                         </div>
                         <div class="col-4 my-auto">
                             <span class="base">${explPair[0]}</span> /${explPair[1]}
                         </div>
-                        <div class="col-4 text-end price">
+                        <div class="col-4 text-end price my-auto">
                         </div>
                         <div class="col-3 text-end my-auto">
                             <span class="change">
