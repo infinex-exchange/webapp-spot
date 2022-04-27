@@ -6,7 +6,7 @@ function renderTradesItem(data) {
     else color = 'text-red';
     
     return `
-        <div class="row hoverable">
+        <div class="trades-item row hoverable">
             <div class="col-4 ${color}">
                 ${data.price}
             </div>

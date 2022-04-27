@@ -133,7 +133,8 @@
                   markets-search - input
                   markets-table - div
             -->
-            <div class="col-12 ui-card ui-card-ver d-lg-block half-column-height sm-rest-of-height" data-ui-card="markets">
+            <div id="markets" class="col-12 ui-card ui-card-ver d-lg-block half-column-height sm-rest-of-height" data-ui-card="markets">
+                <div id="markets-header">
                 <form>
                     <div class="form-row">
                         <input id="markets-search" type="text" placeholder="Search" class="form-control form-control-sm input-search">
@@ -154,6 +155,7 @@
                         <h6>Change</h6>
                     </div>
                 </div>
+                </div>
                 <div id="markets-table" class="scrollable small">         
                 </div>
             
@@ -161,8 +163,8 @@
             </div>
             
             <!-- Market trades -->
-            <div class="col-12 ui-card ui-card-ver d-lg-block half-column-height sm-rest-of-height" data-ui-card="trades">
-                <div class="row scrollable">
+            <div id="trades" class="col-12 ui-card ui-card-ver d-lg-block half-column-height sm-rest-of-height" data-ui-card="trades">
+                <div id="trades-header" class="row scrollable">
                     <div class="col-4">
                         <h6>Price</h6>
                     </div>

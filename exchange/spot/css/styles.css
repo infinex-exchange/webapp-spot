@@ -9,6 +9,8 @@
     --height-mobile-nav: 0px;
     --target-height-orderbook-side: 0px;
     --target-height-orderbook-side-sm: 0px;
+    --target-height-markets-data: 0px;
+    --target-height-trades-data: 0px;
 }
 
 /* Reverse buy orderbook */
@@ -70,13 +72,13 @@
 /* Markets */
 
 #markets-table {
-    height: 308px;
+    height: var(--target-height-markets-data);
 }
 
 /* Trades */
 
 #trades-data {
-    height: 310px;
+    height: var(--target-height-trades-data);
 }
 
 /* Orders */

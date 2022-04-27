@@ -13,6 +13,13 @@ function doJsSizing() {
     var obTargetSideHSm = Math.round(obRemainH / obItemH) * obItemH;
     document.body.style.setProperty('--target-height-orderbook-side', obTargetSideH + 'px');
     document.body.style.setProperty('--target-height-orderbook-side-sm', obTargetSideHSm + 'px');
+    
+    ['markets', 'trades'].forEach(function(i) {
+        var remainH = $('#' + i).height() - $('#' + i + '-header').outerHeight();
+        var itemH = $('.' + i + '-item').first().outerHeight();
+        var targetH = Math.round(remainH / itemH) * itemH;
+        document.body.style.setProperty('--target-height-' + i + '-data', targetH + 'px');
+    });
 }
 
 $(document).on('renderingComplete', function() {
