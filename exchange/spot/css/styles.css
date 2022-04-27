@@ -1,11 +1,14 @@
 /* Init variables */
 
 :root {
+    --height-main-nav: 0px;
+    --height-mobile-header: 0px;
+    --height-desktop-header: 0px;
+    --height-trading-form: 0px;
     --height-status-bar: 0px;
     --height-mobile-nav: 0px;
-    --height-trading-form: 0px;
-    --height-mobile-header: 0px;
-    --height-main-nav: 0px;
+    --target-height-orderbook-side: 0px;
+    --target-height-orderbook-side-sm: 0px;
 }
 
 /* Reverse buy orderbook */
@@ -34,8 +37,14 @@
 /* Orderbook */
 
 #orderbook-buy, #orderbook-sell {
-    height: 360px;
+    height: var(--target-height-orderbook-side);
     overflow: hidden;
+}
+
+@media (max-width: 991px) {
+    #orderbook-buy, #orderbook-sell {
+        height: var(--target-height-orderbook-side-sm) !important;
+    }
 }
 
 #orderbook-sell .row {
@@ -76,12 +85,6 @@
     display: flex;
     flex-direction: column;
     height: 250px;
-}
-
-/* TradingView */
-
-#chart-candles {
-    height: 500px;
 }
 
 /* Hoverable orderbook */
@@ -125,15 +128,43 @@
     }
 }
 
-/* Fill rest of space on mobile */
+/* Js sizing */
+
+.column-height {
+    height: calc(
+                  100vh
+                  - var(--height-main-nav)
+                  - var(--height-status-bar)
+                );
+}
+    
+.half-column-height {
+    height: calc(
+                  (
+                    100vh
+                    - var(--height-main-nav)
+                    - var(--height-status-bar)
+                  )
+                  / 2
+                );
+}
+
+.rest-of-height {
+    height: calc(100vh
+                 - var(--height-main-nav)
+                 - var(--height-desktop-header)
+                 - var(--height-trading-form)
+                 - var(--height-status-bar)
+                );
+}
 
 @media (max-width: 991px) {
-    .m-rest-of-height {
+    .sm-rest-of-height {
         height: calc(100vh
-                     - var(--height-mobile-nav)
-                     - var(--height-trading-form)
-                     - var(--height-mobile-header)
                      - var(--height-main-nav)
+                     - var(--height-mobile-header)
+                     - var(--height-trading-form)
+                     - var(--height-mobile-nav)
                      - env(safe-area-inset-bottom)
                     ) !important;
     }

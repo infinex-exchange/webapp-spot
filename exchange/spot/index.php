@@ -133,7 +133,7 @@
                   markets-search - input
                   markets-table - div
             -->
-            <div class="col-12 ui-card ui-card-ver d-lg-block m-rest-of-height" data-ui-card="markets">
+            <div class="col-12 ui-card ui-card-ver d-lg-block half-column-height sm-rest-of-height" data-ui-card="markets">
                 <form>
                     <div class="form-row">
                         <input id="markets-search" type="text" placeholder="Search" class="form-control form-control-sm input-search">
@@ -161,7 +161,7 @@
             </div>
             
             <!-- Market trades -->
-            <div class="col-12 ui-card ui-card-ver d-lg-block m-rest-of-height" data-ui-card="trades">
+            <div class="col-12 ui-card ui-card-ver d-lg-block half-column-height sm-rest-of-height" data-ui-card="trades">
                 <div class="row scrollable">
                     <div class="col-4">
                         <h6>Price</h6>
@@ -190,7 +190,7 @@
         <div class="row m-0">
         
             <!-- Header -->
-            <div class="col-3 ui-card ui-card-ver ui-card-hor my-auto small d-none d-lg-block">
+            <div id="desktop-header" class="col-3 ui-card ui-card-ver ui-card-hor my-auto small d-none d-lg-block">
                 <h4 class="ticker-name"></h4>
                 <span class="ticker-base-name"></span>
             </div>
@@ -226,7 +226,7 @@
             
             <!-- TradingView -->
             <div class="col-12 ui-card ui-card-ver d-lg-block" style="padding: 0px !important" data-ui-card="chart">                
-                <div class="m-rest-of-height" id="chart-candles">
+                <div class="rest-of-height sm-rest-of-height" id="chart-candles">
                 </div>
             </div>
             
@@ -374,10 +374,10 @@
         <div class="col-12 col-lg-3 p-0 ui-column order-3 order-lg-4">
         <div class="row m-0">
             
-            <div class="col-12 ui-card ui-card-ver d-lg-block m-rest-of-height" data-ui-card="orderbook">
+            <div id="orderbook" class="col-12 ui-card ui-card-ver d-lg-block column-height sm-rest-of-height" data-ui-card="orderbook">
                 <div class="row m-0">
                     <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-3 order-lg-1">
-                        <div class="row">
+                        <div id="orderbook-header" class="row">
                             <div class="col-6 col-lg-4">
                                 <h6>Price</h6>
                             </div>
@@ -393,7 +393,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-12 d-none d-lg-block order-2 order-lg-2 p-0 my-3">
+                    <div id="orderbook-middle" class="col-12 d-none d-lg-block order-2 order-lg-2 px-0 py-3">
                         <h3 class="d-inline orderbook-middle-price"></h3>
                         <h3 class="d-inline">
                             <i class="orderbook-middle-arrow fa-solid"></i>
@@ -424,7 +424,7 @@
                   - orders-open-data - div
                   - orders-history-data - div
             -->
-            <div class="col-12 ui-card ui-column d-lg-block order-5 order-lg-5 m-rest-of-height" data-ui-card="orders">
+            <div class="col-12 ui-card ui-column d-lg-block order-5 order-lg-5 sm-rest-of-height" data-ui-card="orders">
             
                 <nav>
                 <div class="nav nav-tab nav-deco" role="tablist">

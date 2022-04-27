@@ -4,6 +4,15 @@ function doJsSizing() {
 	document.body.style.setProperty('--height-trading-form', $('#trading-form').outerHeight() + 'px');
 	document.body.style.setProperty('--height-mobile-header', $('#mobile-header').outerHeight() + 'px');
 	document.body.style.setProperty('--height-main-nav', $('#main-navbar').outerHeight() + 'px');
+    document.body.style.setProperty('--height-desktop-header', $('#desktop-header').outerHeight() + 'px');
+    
+    var obRemainH = $('#orderbook').height() - $('#orderbook-header').outerHeight() - $('#orderbook-middle').outerHeight();
+    var obSideRemainH = obRemainH / 2;
+    var obItemH = $('.orderbook-item').first().outerHeight();
+    var obTargetSideH = Math.round(obSideRemainH / obItemH) * obItemH;
+    var obTargetSideHSm = Math.round(obRemainH / obItemH) * obItemH;
+    document.body.style.setProperty('--target-height-orderbook-side', obTargetSideH + 'px');
+    document.body.style.setProperty('--target-height-orderbook-side-sm', obTargetSideHSm + 'px');
 }
 
 $(document).on('renderingComplete', function() {
