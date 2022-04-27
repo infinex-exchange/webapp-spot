@@ -20,7 +20,7 @@ class TvDatafeed {
             timezone: 'Etc/UTC',
             exchange: '',
             minmov: 1,
-            pricescale: 100,
+            pricescale: Math.pow(10, window.currentQuotePrecision),
             has_intraday: true,
             intraday_multipliers: ['1', '60'],
             has_daily: true,
