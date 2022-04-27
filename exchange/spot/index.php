@@ -441,29 +441,36 @@
                     <div class="tab-pane fade show active" id="orders-open" role="tabpanel" aria-labelledby="orders-open-tab">
                     
                         <div class="row user-only scrollable">
-                            <div class="col-2">
+                            <div style="width: 12%">
                                 <h6>Date</h6>
                             </div>
-                            <div class="col-1">
+                            <div style="width: 10%">
                                 <h6>Pair</h6>
                             </div>
-                            <div class="col-1">
+                            <div style="width: 10%">
                                 <h6>Type</h6>
                             </div>
-                            <div class="col-1">
+                            <div style="width: 4%">
                                 <h6>Side</h6>
                             </div>
-                            <div class="col-1 text-end">
+                            <div class="text-end" style="width: 11%">
                                 <h6>Price</h6>
                             </div>
-                            <div class="col-2 text-end">
+                            <div class="text-end" style="width: 11%">
                                 <h6>Amount</h6>
                             </div>
-                            <div class="col-2 text-end">
+                            <div class="text-end pe-0" style="width: 11%">
                                 <h6>Filled</h6>
                             </div>
-                            <div class="col-2 text-end">
+                            <div style="width: 5%">
+                            </div>
+                            <div class="text-end" style="width: 11%">
                                 <h6>Total</h6>
+                            </div>
+                            <div class="text-end" style="width: 12%">
+                                <h6>Triggers</h6>
+                            </div>
+                            <div style="width: 3%">
                             </div>
                         </div>
                         

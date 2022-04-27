@@ -31,41 +31,51 @@ function renderOpenOrder(data) {
     total = total.toFixed(window.currentQuotePrecision);
     
     var filledStr = '-';
+    var filledPerc = '-';
     if(typeof(data.filled) !== 'undefined') {
-        var filledPerc = Math.round(data.filled / data.amount * 100);
-        filledStr = `${data.filled} (${filledPerc}%)`;
+        filledStr = data.filled;
+        filledPerc = '(' + Math.round(data.filled / data.amount * 100) + '%)';
     }
     
     var stopStr = '';
     if(typeof(data.stop) !== 'undefined') {
-        stopStr = data.stop + ' &rarr; ';
+        if(data.side == 'BUY') stopStr = '&ge; ' + data.stop;
+        else stopStr = '&le; ' + data.stop;
     }
     
     return `
         <div class="row hoverable orders-open-item" data-obid="${data.obid}">
-            <div class="col-2">
+            <div style="width: 12%">
                 ${time}
             </div>
-            <div class="col-1">
+            <div style="width: 10%">
                 ${data.pair}
             </div>
-            <div class="col-1">
+            <div style="width: 10%">
                 ${data.type}
             </div>
-            <div class="col-1">
+            <div style="width: 4%">
                 ${data.side}
             </div>
-            <div class="col-1 text-end">
-                ${stopStr}${data.price}
+            <div class="text-end" style="width: 11%">
+                ${data.price}
             </div>
-            <div class="col-2 text-end">
+            <div class="text-end" style="width: 11%">
                 ${data.amount}
             </div>
-            <div class="col-2 text-end filled">
+            <div class="text-end filled pe-0" style="width: 11%">
                 ${filledStr}
             </div>
-            <div class="col-2 text-end">
+            <div class="text-center filled-perc ps-0" style="width: 5%">
+                ${filledPerc}
+            </div>
+            <div class="text-end" style="width: 11%">
                 ${total}
+            </div>
+            <div class="text-end" style="width: 12%">
+                ${stopStr}
+            </div>
+            <div class="text-end ps-0" style="width: 3%">
                 <i class="fa-solid fa-xmark" onClick="cancelOrder(${data.obid})"></i>
             </div>
         </div>
