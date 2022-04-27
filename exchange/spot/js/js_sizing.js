@@ -9,6 +9,7 @@ function doJsSizing() {
     var obRemainH = $('#orderbook').height() - $('#orderbook-header').outerHeight() - $('#orderbook-middle').outerHeight();
     var obSideRemainH = obRemainH / 2;
     var obItemH = $('.orderbook-item').first().outerHeight();
+    if(typeof(obItemH) === 'undefined') obItemH = 18;
     var obTargetSideH = Math.round(obSideRemainH / obItemH) * obItemH;
     var obTargetSideHSm = Math.round(obRemainH / obItemH) * obItemH;
     document.body.style.setProperty('--target-height-orderbook-side', obTargetSideH + 'px');
@@ -17,6 +18,7 @@ function doJsSizing() {
     ['markets', 'trades'].forEach(function(i) {
         var remainH = $('#' + i).height() - $('#' + i + '-header').outerHeight();
         var itemH = $('.' + i + '-item').first().outerHeight();
+        if(typeof(itemH) === 'undefined') itemH = 18;
         var targetH = Math.round(remainH / itemH) * itemH;
         document.body.style.setProperty('--target-height-' + i + '-data', targetH + 'px');
     });
