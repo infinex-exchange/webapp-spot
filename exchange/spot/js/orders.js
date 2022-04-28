@@ -30,7 +30,9 @@ function renderOpenOrder(data) {
     total = total.multipliedBy(data.price);
     total = total.toFixed(window.currentQuotePrecision);
     
-    var filledPerc = Math.round(data.filled / data.amount * 100);
+    var filled = 0;
+    if(typeof(data.filled) !== 'undefined') filled = data.filled;
+    var filledPerc = Math.round(filled / data.amount * 100);
     
     var stopStr = '';
     if(typeof(data.stop) !== 'undefined') {
@@ -59,7 +61,7 @@ function renderOpenOrder(data) {
                 ${data.amount}
             </div>
             <div class="text-end filled pe-0" style="width: 11%">
-                ${data.filled}
+                ${filled}
             </div>
             <div class="text-center ps-0" style="width: 5%">
                 (<span class="filled-perc">${filledPerc}</span>%)
