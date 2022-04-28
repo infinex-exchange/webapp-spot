@@ -82,8 +82,11 @@ function renderOpenOrder(data) {
 }
 
 function toggleHistoryOrderExpand(row) {
-    if($(row).find('.trade-in-order-item').length > 0)
+    if($(row).find('.trade-in-order-item').length > 0) {
         $(row).toggleClass('expand-trades');
+        $(row).find('.fa-solid').toggleClass('fa-square-plus');
+        $(row).find('.fa-solid').toggleClass('fa-square-minus');
+    }
 }
 
 function renderHistoryOrder(data) {
