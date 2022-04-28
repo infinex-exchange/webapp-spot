@@ -543,10 +543,10 @@
                                 <h6>Side</h6>
                             </div>
                             <div class="text-end" style="width: 14%">
-                                <h6>Amount</h6>
+                                <h6>Price</h6>
                             </div>
                             <div class="text-end" style="width: 14%">
-                                <h6>Price</h6>
+                                <h6>Amount</h6>
                             </div>
                             <div class="text-end" style="width: 14%">
                                 <h6>Total</h6>

@@ -32,9 +32,7 @@ function renderOpenOrder(data) {
     total = total.multipliedBy(data.price);
     total = total.toFixed(window.currentQuotePrecision);
     
-    var filled = 0;
-    if(typeof(data.filled) !== 'undefined') filled = data.filled;
-    var filledPerc = Math.round(filled / data.amount * 100);
+    var filledPerc = Math.round(data.filled / data.amount * 100);
     
     var stopStr = '';
     if(typeof(data.stop) !== 'undefined') {
@@ -63,7 +61,7 @@ function renderOpenOrder(data) {
                 ${data.amount}
             </div>
             <div class="text-end filled pe-0" style="width: 11%">
-                ${filled}
+                ${data.filled}
             </div>
             <div class="text-center ps-0" style="width: 5%">
                 (<span class="filled-perc">${filledPerc}</span>%)
@@ -92,20 +90,18 @@ function toggleHistoryOrderExpand(row) {
 function renderHistoryOrder(data) {
     var time = new Date(data.time * 1000).toLocaleString();
     
-    var filledStr = '-';
-    if(typeof(data.filled) !== 'undefined') {
-        var filledPerc = Math.round(data.filled / data.amount * 100);
-        filledStr = `${data.filled} (${filledPerc}%)`;
+    var amountStr = '-';
+    if(typeof(data.amount) !== 'undefined') amountStr = data.amount;
+    
+    var stopStr = '';
+    if(typeof(data.stop) !== 'undefined') {
+        if(data.side == 'BUY') stopStr = '&ge; ' + data.stop;
+        else stopStr = '&le; ' + data.stop;
     }
     
     var priceStr = 'MARKET';
     if(data.type != 'MARKET')
         priceStr = data.price;
-    
-    var stopStr = '';
-    if(typeof(data.stop) !== 'undefined') {
-        stopStr = data.stop + ' &rarr; ';
-    }
     
     var expandBtn = '';
     var trades = '';
@@ -115,14 +111,6 @@ function renderHistoryOrder(data) {
         $.each(data.trades, function(k, v) {
             trades += renderHistoryTrade(v, true);
         });
-    }
-    
-    var amountStr = '';
-    if(typeof(data.amount) !== 'undefined') {
-        amountStr = data.amount;
-    }
-    else {
-        amountStr = 'Total: ' + data.total;
     }
     
     return `
@@ -152,13 +140,13 @@ function renderHistoryOrder(data) {
                 ${amountStr}
             </div>
             <div class="text-end filled" style="width: 10%">
-                ${filledStr}
+                ${data.filled}
             </div>
             <div class="text-end" style="width: 10%">
-                total
+                ${data.total}
             </div>
             <div class="text-end" style="width: 11%">
-                triggers
+                ${stopStr}
             </div>
             <div class="text-end" style="width: 8%">
                 ${data.status}
