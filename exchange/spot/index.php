@@ -142,7 +142,7 @@
                 </form>
                 <div id="markets-quotes" class="nav small">
                 </div>
-                <div class="row flex-nowrap scrollable">
+                <div class="row flex-nowrap scrollable p-1 py-lg-0">
                     <div class="col-1">
                     </div>
                     <div class="col-4">

@@ -181,7 +181,7 @@
 	    height: 28px;
     }
     
-    .markets-item .base {
+    .markets-item .base, .markets-item .price {
 	    color: var(--color-highlight);
 	    font-size: var(--font-normal);
     }
@@ -190,8 +190,8 @@
 	    background-color: var(--color-background-high);
 	    color: var(--color-highlight) !important;
 	    border-radius: 10%;
-	    padding: 10px;
-	    width: 60px;
+	    padding: 5px;
+	    width: 50px;
 	    text-align: center;
 	    display: inline-block;
     }
