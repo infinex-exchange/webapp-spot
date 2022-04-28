@@ -11,10 +11,7 @@ function cancelOrder(obid) {
     })
     .retry(config.retry)
     .done(function (data) {
-        if(data.success) {
-            setTimeout(updateBalance, 500);
-        }
-        else {
+        if(!data.success) {
             msgBox(data.error);
         }
     })
