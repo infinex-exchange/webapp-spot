@@ -24,8 +24,6 @@ function cancelOrder(obid) {
 }
 
 function renderOpenOrder(data) {
-    if(data.type == 'MARKET') return;
-    
     var time = new Date(data.time * 1000).toLocaleString();
     
     var total = new BigNumber(data.amount);
@@ -418,7 +416,7 @@ $(document).on('orderCanceled orderFilled orderKilled', function(e, data) {
 });
 
 $(document).on('orderNew', function(e, data) {
-    if(typeof(data.obid) !== 'undefined')
+    if(data.time_in_force == 'GTC')
         window.openOrdersAS.prepend(renderOpenOrder(data));
 });
 
