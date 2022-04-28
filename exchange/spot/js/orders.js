@@ -105,12 +105,26 @@ function renderHistoryOrder(data) {
     
     var expandBtn = '';
     var trades = '';
+    var averageWeight = '0';
+    var averageSum = '0';
+    var average = '-';
+    
     if(data.trades.length > 0) {
         expandBtn = '<i class="fa-solid fa-square-plus"></i> ';
         
+        averageWeight = new BigNumber(0);
+        averageSum = new BigNumber(0);
+        
         $.each(data.trades, function(k, v) {
+            var weight = new BigNumber(v.amount);
+            averageWeight = averageWeight.plus(weight);
+            averageSum = averageSum.plus(weight.times(v.price)); 
             trades += renderHistoryTrade(v, true);
         });
+        
+        average = averageSum.div(averageWeight).dp(window.currentQuotePrecision).toString();
+        averageWeight = averageWeight.toString();
+        averageSum = averageSum.toString();
     }
     
     return `
@@ -133,8 +147,8 @@ function renderHistoryOrder(data) {
             <div class="text-end" style="width: 9%">
                 ${priceStr}
             </div>
-            <div class="text-end" style="width: 9%">
-                AVG_HERE!
+            <div class="text-end average" data-sum="${averageSum}" data-weight="${averageWeight}" style="width: 9%">
+                ${average}
             </div>
             <div class="text-end" style="width: 10%">
                 ${amountStr}
