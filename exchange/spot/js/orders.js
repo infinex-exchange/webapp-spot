@@ -110,7 +110,7 @@ function renderHistoryOrder(data) {
         expandBtn = '<i class="fa-solid fa-square-plus"></i> ';
         
         $.each(data.trades, function(k, v) {
-            trades += renderTradeInHistoryOrder(v);
+            trades += renderHistoryTrade(v, true);
         });
     }
     
@@ -163,22 +163,22 @@ function renderHistoryOrder(data) {
             
             <div class="col-8 m-3 inner">
                 <div class="row">
-                    <div class="col-2">
+                    <div style="width: 18%">
                         <h6>Date</h6>
                     </div>
-                    <div class="col-2 text-end">
-                        <h6>Amount</h6>
-                    </div>
-                    <div class="col-2 text-end">
+                    <div class="text-end" style="width: 14%">
                         <h6>Price</h6>
                     </div>
-                    <div class="col-2 text-end">
+                    <div class="text-end" style="width: 14%">
+                        <h6>Amount</h6>
+                    </div>
+                    <div class="text-end" style="width: 14%">
                         <h6>Total</h6>
                     </div>
-                    <div class="col-2 text-end">
+                    <div class="text-end" style="width: 14%">
                         <h6>Fee</h6>
                     </div>
-                    <div class="col-2 text-end">
+                    <div class="text-end" style="width: 12%">
                         <h6>Role</h6>
                     </div>
                 </div>
@@ -192,20 +192,31 @@ function renderHistoryOrder(data) {
     `;
 }
 
-function renderHistoryTrade(data) {
+function renderHistoryTrade(data, inOrder) {
     var time = new Date(data.time * 1000).toLocaleString();
     
-    return `
-        <div class="row hoverable">
-            <div style="width: 14%">
-                ${time}
-            </div>
+    var inOrdClass = '';
+    if(inOrder) inOrdClass = 'trade-in-order-item'
+    
+    var timeWPerc = 14;
+    if(inOrder) timeWPerc = 18;
+    
+    var innerHtml = '';
+    if(!inOrder) innerHtml = `
             <div style="width: 12%">
                 ${data.pair}
             </div>
             <div style="width: 6%">
                 ${data.side}
             </div>
+        `;
+    
+    var html = `
+        <div class="row hoverable ${inOrdClass}">
+            <div style="width: ${timeWPerc}%">
+                ${time}
+            </div>
+            ${innerHtml}
             <div class="text-end" style="width: 14%">
                 ${data.price}
             </div>
@@ -223,33 +234,8 @@ function renderHistoryTrade(data) {
             </div>
         </div>
     `;
-}
-
-function renderTradeInHistoryOrder(data) {
-    var time = new Date(data.time * 1000).toLocaleString();
     
-    return `
-        <div class="row trade-in-order-item hoverable">
-            <div class="col-2">
-                ${time}
-            </div>
-            <div class="col-2 text-end">
-                ${data.amount}
-            </div>
-            <div class="col-2 text-end">
-                ${data.price}
-            </div>
-            <div class="col-2 text-end">
-                ${data.total}
-            </div>
-            <div class="col-2 text-end">
-                ${data.fee}
-            </div>
-            <div class="col-2 text-end">
-                ${data.role}
-            </div>
-        </div>
-    `;
+    return html;
 }
 
 $(document).on('authChecked pairSelected', function() {
@@ -385,7 +371,7 @@ $(document).on('authChecked pairSelected', function() {
     .done(function (data) {
         if(data.success) {
             $.each(data.trades, function(k, v) {
-                thisAS.append(renderHistoryTrade(v));
+                thisAS.append(renderHistoryTrade(v, false));
             });
             
             thisAS.done();
