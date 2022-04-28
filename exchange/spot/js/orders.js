@@ -24,6 +24,8 @@ function cancelOrder(obid) {
 }
 
 function renderOpenOrder(data) {
+    if(data.type == 'MARKET') return;
+    
     var time = new Date(data.time * 1000).toLocaleString();
     
     var total = new BigNumber(data.amount);
