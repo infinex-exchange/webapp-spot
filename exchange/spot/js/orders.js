@@ -188,28 +188,28 @@ function renderHistoryTrade(data) {
     
     return `
         <div class="row hoverable">
-            <div class="col-1">
+            <div style="width: 14%">
                 ${time}
             </div>
-            <div class="col-1">
+            <div style="width: 12%">
                 ${data.pair}
             </div>
-            <div class="col-1">
+            <div style="width: 6%">
                 ${data.side}
             </div>
-            <div class="col-2 text-end">
-                ${data.amount}
-            </div>
-            <div class="col-2 text-end">
+            <div class="text-end" style="width: 14%">
                 ${data.price}
             </div>
-            <div class="col-2 text-end">
+            <div class="text-end" style="width: 14%">
+                ${data.amount}
+            </div>
+            <div class="text-end" style="width: 14%">
                 ${data.total}
             </div>
-            <div class="col-2 text-end">
+            <div class="text-end" style="width: 14%">
                 ${data.fee}
             </div>
-            <div class="col-1 text-end">
+            <div class="text-end" style="width: 12%">
                 ${data.role}
             </div>
         </div>

@@ -525,28 +525,28 @@
                     <div class="tab-pane fade" id="trades-history" role="tabpanel" aria-labelledby="trades-history-tab">
                     
                         <div class="row user-only scrollable">
-                            <div class="col-1">
+                            <div style="width: 14%">
                                 <h6>Date</h6>
                             </div>
-                            <div class="col-1">
+                            <div style="width: 12%">
                                 <h6>Pair</h6>
                             </div>
-                            <div class="col-1">
+                            <div style="width: 6%">
                                 <h6>Side</h6>
                             </div>
-                            <div class="col-2 text-end">
+                            <div class="text-end" style="width: 14%">
                                 <h6>Amount</h6>
                             </div>
-                            <div class="col-2 text-end">
+                            <div class="text-end" style="width: 14%">
                                 <h6>Price</h6>
                             </div>
-                            <div class="col-2 text-end">
+                            <div class="text-end" style="width: 14%">
                                 <h6>Total</h6>
                             </div>
-                            <div class="col-2 text-end">
+                            <div class="text-end" style="width: 14%">
                                 <h6>Fee</h6>
                             </div>
-                            <div class="col-1 text-end">
+                            <div class="text-end" style="width: 12%">
                                 <h6>Role</h6>
                             </div>
                         </div>
