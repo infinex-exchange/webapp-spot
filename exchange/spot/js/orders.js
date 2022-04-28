@@ -43,7 +43,7 @@ function renderOpenOrder(data) {
     }
     
     return `
-        <div class="row hoverable orders-open-item" data-obid="${data.obid}">
+        <div class="row hoverable orders-open-item" data-obid="${data.obid}" data-amount="${data.amount}">
             <div style="width: 12%">
                 ${time}
             </div>
@@ -423,5 +423,8 @@ $(document).on('orderNew', function(e, data) {
 });
 
 $(document).on('orderPartialFilled', function(e, data) {
-    $('.orders-open-item[data-obid="' + data.obid + '"]').find('.filled').html(data.filled);
+    var ooItem = $('.orders-open-item[data-obid="' + data.obid + '"]');
+    var filledPerc = Math.round(data.filled / ooItem.data('amount') * 100);
+    ooItem.find('.filled').html(data.filled);
+    ooItem.find('.filled-perc').html(filledPerc);
 });
