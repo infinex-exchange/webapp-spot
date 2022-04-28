@@ -99,7 +99,7 @@ $(document).on('wsConnected', function() {
                             <img width="16px" height="16px" src="${v.icon_url}">
                         </div>
                         <div class="col-4 my-auto">
-                            <span class="base">${explPair[0]}</span> /${explPair[1]}
+                            <span class="base">${explPair[0]}</span><span class="d-lg-none"> </span>/${explPair[1]}
                         </div>
                         <div class="col-4 text-end price my-auto">
                         </div>
