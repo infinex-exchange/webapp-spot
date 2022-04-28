@@ -485,31 +485,39 @@
                     <div class="tab-pane fade" id="orders-history" role="tabpanel" aria-labelledby="orders-history-tab">
                     
                         <div class="row user-only scrollable">
-                            <div class="col-2">
+                            <div style="width: 2%">
+                            </div>
+                            <div style="width: 11%">
                                 <h6>Date</h6>
                             </div>
-                            <div class="col-1">
+                            <div style="width: 8%">
                                 <h6>Pair</h6>
                             </div>
-                            <div class="col-1">
+                            <div style="width: 8%">
                                 <h6>Type</h6>
                             </div>
-                            <div class="col-1">
+                            <div style="width: 4%">
                                 <h6>Side</h6>
                             </div>
-                            <div class="col-1 text-end">
-                                <h6>Average</h6>
-                            </div>
-                            <div class="col-2 text-end">
+                            <div class="text-end" style="width: 9%">
                                 <h6>Price</h6>
                             </div>
-                            <div class="col-2 text-end">
-                                <h6>Filled</h6>
+                            <div class="text-end" style="width: 9%">
+                                <h6>Average</h6>
                             </div>
-                            <div class="col-1 text-end">
+                            <div class="text-end" style="width: 10%">
                                 <h6>Amount</h6>
                             </div>
-                            <div class="col-1 text-end">
+                            <div class="text-end" style="width: 10%">
+                                <h6>Filled</h6>
+                            </div>
+                            <div class="text-end" style="width: 10%">
+                                <h6>Total</h6>
+                            </div>
+                            <div class="text-end" style="width: 11%">
+                                <h6>Triggers</h6>
+                            </div>
+                            <div class="text-end" style="width: 8%">
                                 <h6>Status</h6>
                             </div>
                         </div>

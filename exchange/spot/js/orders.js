@@ -124,31 +124,40 @@ function renderHistoryOrder(data) {
     
     return `
         <div class="row hoverable orders-history-item" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
-            <div class="col-2">
-                ${expandBtn}${time}
+            <div class="pe-0 text-center" style="width: 2%">
+                ${expandBtn}
             </div>
-            <div class="col-1">
+            <div style="width: 11%">
+                ${time}
+            </div>
+            <div style="width: 8%">
                 ${data.pair}
             </div>
-            <div class="col-1">
+            <div style="width: 8%">
                 ${data.type}
             </div>
-            <div class="col-1">
+            <div style="width: 4%">
                 ${data.side}
             </div>
-            <div class="col-1 text-end">
+            <div class="text-end" style="width: 9%">
+                ${priceStr}
+            </div>
+            <div class="text-end" style="width: 9%">
                 AVG_HERE!
             </div>
-            <div class="col-2 text-end">
-                ${stopStr}${priceStr}
-            </div>
-            <div class="col-2 text-end filled">
-                ${filledStr}
-            </div>
-            <div class="col-1 text-end">
+            <div class="text-end" style="width: 10%">
                 ${amountStr}
             </div>
-            <div class="col-1 text-end">
+            <div class="text-end filled" style="width: 10%">
+                ${filledStr}
+            </div>
+            <div class="text-end" style="width: 10%">
+                total
+            </div>
+            <div class="text-end" style="width: 11%">
+                triggers
+            </div>
+            <div class="text-end" style="width: 8%">
                 ${data.status}
             </div>
             
