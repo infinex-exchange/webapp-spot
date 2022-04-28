@@ -19,7 +19,7 @@ function notification(event, data) {
                 text: `Your ${data.side} ${data.pairid} order has been accepted`,
                 showHideTransition: 'fade',
                 icon: 'info',
-                position: 'bottom-right'
+                position: 'top-right'
             });
             break;
         case 'orderFilled':
@@ -28,7 +28,7 @@ function notification(event, data) {
                 text: `Your ${data.side} ${data.pairid} order has been filled in total`,
                 showHideTransition: 'fade',
                 icon: 'success',
-                position: 'bottom-right'
+                position: 'top-right'
             });
             break;
         case 'orderKilled':
@@ -37,7 +37,7 @@ function notification(event, data) {
                 text: `Insufficient liquidity to fill ${data.side} ${data.pairid} order`,
                 showHideTransition: 'fade',
                 icon: 'warning',
-                position: 'bottom-right'
+                position: 'top-right'
             });
             break;
         case 'orderCancelFailed':
@@ -46,7 +46,7 @@ function notification(event, data) {
                 text: `Your order cannot be canceled`,
                 showHideTransition: 'fade',
                 icon: 'error',
-                position: 'bottom-right'
+                position: 'top-right'
             });
             break;
         case 'orderCanceled':
@@ -55,7 +55,7 @@ function notification(event, data) {
                 text: `Your ${data.side} ${data.pairid} order has been canceled`,
                 showHideTransition: 'fade',
                 icon: 'success',
-                position: 'bottom-right'
+                position: 'top-right'
             });
             break;
         case 'orderInsufFunds':
@@ -64,7 +64,7 @@ function notification(event, data) {
                 text: `Insufficient funds for ${data.side} ${data.pairid} order`,
                 showHideTransition: 'fade',
                 icon: 'error',
-                position: 'bottom-right'
+                position: 'top-right'
             });
             break;
         case 'orderStopTriggered':
@@ -73,7 +73,7 @@ function notification(event, data) {
                 text: `Your ${data.side} ${data.pairid} order was triggered`,
                 showHideTransition: 'fade',
                 icon: 'warning',
-                position: 'bottom-right'
+                position: 'top-right'
             });
             break;
         default:
