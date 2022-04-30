@@ -97,27 +97,27 @@
                 <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price
-                        <span class="ticker-price text-hi d-block"></span>
+                        <span class="ticker-price d-block"></span>
                     </div>
                     <div class="col-auto">
                          24h change
-                         <span class="ticker-change text-hi d-block"></span>
+                         <span class="ticker-change d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h high
-                        <span class="ticker-high text-hi d-block"></span>
+                        <span class="ticker-high d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h low
-                        <span class="ticker-low text-hi d-block"></span>
+                        <span class="ticker-low d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h vol (<span class="ticker-base-legend"></span>)
-                        <span class="ticker-vol-base text-hi d-block"></span>
+                        <span class="ticker-vol-base d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h vol (<span class="ticker-quote-legend"></span>)
-                        <span class="ticker-vol-quote text-hi d-block"></span>
+                        <span class="ticker-vol-quote d-block"></span>
                     </div>
                 </div>
             </div>
@@ -201,27 +201,27 @@
                 <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price
-                        <span class="ticker-price text-hi d-block"></span>
+                        <span class="ticker-price d-block"></span>
                     </div>
                     <div class="col-auto">
                          24h change
-                         <span class="ticker-change text-hi d-block"></span>
+                         <span class="ticker-change d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h high
-                        <span class="ticker-high text-hi d-block"></span>
+                        <span class="ticker-high d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h low
-                        <span class="ticker-low text-hi d-block"></span>
+                        <span class="ticker-low d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h vol (<span class="ticker-base-legend"></span>)
-                        <span class="ticker-vol-base text-hi d-block"></span>
+                        <span class="ticker-vol-base d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h vol (<span class="ticker-quote-legend"></span>)
-                        <span class="ticker-vol-quote text-hi d-block"></span>
+                        <span class="ticker-vol-quote d-block"></span>
                     </div>
                 </div>
             </div>

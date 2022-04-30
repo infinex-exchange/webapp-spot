@@ -165,7 +165,7 @@ $(document).on('authChecked', function() {
                                     ${time}
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-primary btn-sm font-1" onClick="${csOnClick}">${csButton}</a>
+                                    <button type="button" class="btn btn-primary btn-sm" onClick="${csOnClick}">${csButton}</a>
                                 </div>
                             </div>
                         `);

@@ -51,9 +51,9 @@ function addChangeApiKey(sid, api_key, description) {
                 ${api_key}
             </div>
             <div class="col-3">
-                <button type="button" class="btn btn-primary btn-sm font-1" onClick="copyAK(${sid})">Copy</a>
-                <button type="button" class="btn btn-primary btn-sm font-1" onClick="showEditAKPrompt(${sid})">Rename</a>
-                <button type="button" class="btn btn-primary btn-sm font-1" onClick="removeAK(${sid})">Remove</a>
+                <button type="button" class="btn btn-primary btn-sm" onClick="copyAK(${sid})">Copy</a>
+                <button type="button" class="btn btn-primary btn-sm" onClick="showEditAKPrompt(${sid})">Rename</a>
+                <button type="button" class="btn btn-primary btn-sm" onClick="removeAK(${sid})">Remove</a>
             </div>
         </div>
     `);      

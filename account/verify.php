@@ -46,7 +46,7 @@
                     <div class="col-auto my-auto text-center" style="width: 60px">
                         <i style="color: var(--color-ultra)" class="fa-solid fa-lock fa-2x"></i>
                     </div>
-                    <div class="col font-1 my-auto">
+                    <div class="col small my-auto">
                         Make sure you are visiting:<br>
                         <strong class="primary">https://vayamos.cc</strong>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="col-auto my-auto text-center" style="width: 60px">
                         <i style="color: var(--color-ultra)" class="fa-solid fa-user fa-2x"></i>
                     </div>
-                    <div class="col font-1 my-auto">
+                    <div class="col small my-auto">
                         <a class="link-ultra" href="/account/login">Back to login</a>
                     </div>
                 </div>

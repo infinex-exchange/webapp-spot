@@ -39,7 +39,7 @@ function initRecentTx(data) {
                         var innerhtml = '';
                         var amount = '';
                         var innerhtml2 = `
-                            <span class="text-hi">Time:</span> ${this.creation_date}
+                            <span>Time:</span> ${this.creation_date}
                         `;
                     
                         if(this.type == 'TRADE_SPOT') {
@@ -55,7 +55,7 @@ function initRecentTx(data) {
                                 + this.opposite_amount + ' ' + this.opposite_asset;
                             innerhtml2 += `
                                 <br>
-                                <span class="text-hi">Avg price:</span> ${this.avg_price}
+                                <span>Avg price:</span> ${this.avg_price}
                             `;
                         }
                         else {
@@ -71,14 +71,14 @@ function initRecentTx(data) {
                             if(this.type == 'DEPOSIT') {
                                 innerhtml2 += `
                                     <br>
-                                    <span class="text-hi">Confirmations:</span> ${this.confirms}/${this.confirms_target}
+                                    <span>Confirmations:</span> ${this.confirms}/${this.confirms_target}
                                 `;
                             }
                             if(typeof(this.txid) !== 'undefined') {
                                 var txiduser = showTxid(this.txid);
                                 innerhtml2 += `
                                     <br>
-                                    <span class="text-hi">TxID:</span> ${txiduser}
+                                    <span>TxID:</span> ${txiduser}
                                 `;
                             }
                         }
@@ -89,14 +89,14 @@ function initRecentTx(data) {
                                     ${innerhtml}
                                 </div>
                                 <div class="col-8 my-auto">
-                                    <span class="text-hi">${txTypeDict[this.type]}</span><br>
-                                    <span class="font-1">${amount}</span>
+                                    <span>${txTypeDict[this.type]}</span><br>
+                                    <span>${amount}</span>
                                 </div>
                                 <div class="col-2 my-auto">
                                     <i class="${txStatusIconDict[this.status]}"></i>
                                 </div>
                                 <div class="col-2 expand"></div>
-                                <div class="col-8 expand font-1">
+                                <div class="col-8 expand small">
                                     ${innerhtml2}
                                 </div>
                                 <div class="col-2 expand"></div>

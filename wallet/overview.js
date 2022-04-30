@@ -55,7 +55,7 @@ $(document).on('authChecked', function() {
                                     </div>
                                     <div class="col-2 my-auto">
                                         ${k}<br>
-                                        <span class="font-1">${v.name}</span>
+                                        <span class="small">${v.name}</span>
                                     </div>
                                     <div class="col-2 text-end my-auto">
                                         ${v.total} ${k}
@@ -67,8 +67,8 @@ $(document).on('authChecked', function() {
                                         ${v.locked} ${k}
                                     </div>
                                     <div class="col-3 my-auto">
-                                        <a href="/wallet/deposit/${k}" class="btn btn-primary btn-sm font-1">Deposit</a>
-                                        <a href="/wallet/withdraw/${k}" class="btn btn-primary btn-sm font-1">Withdraw</a>
+                                        <a href="/wallet/deposit/${k}" class="btn btn-primary btn-sm">Deposit</a>
+                                        <a href="/wallet/withdraw/${k}" class="btn btn-primary btn-sm">Withdraw</a>
                                     </div>
                                 </div>
                             `);
