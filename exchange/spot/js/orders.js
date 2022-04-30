@@ -248,7 +248,7 @@ function renderHistoryTrade(data, inOrder) {
     }
     
     var html = `
-        <div class="row hoverable p-1 ${inOrdClass}">
+        <div class="row hoverable px-1 py-2 py-lg-1 ${inOrdClass}">
             <div class="sm-w-50 time order-2 order-lg-1" style="width: ${timeWPerc}%">
                 ${time}
             </div>
