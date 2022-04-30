@@ -28,7 +28,7 @@
                 <h2 class="pb-4">Password reset</h2>
         
                 <div id="forget-form-step1-wrapper">
-                    <p>Enter your account details.</p>
+                    <p class="secondary">Enter your account details.</p>
                     <form id="forget-form-step1" class="d-grid gap-3">
                         <div class="form-group">
                             <label for="forget-email">Email:</label>
@@ -40,7 +40,7 @@
                 </div>
             
                 <div id="forget-form-step2-wrapper">
-                    <p>Verification code has been sent to your email address.</p>
+                    <p class="secondary">Verification code has been sent to your email address.</p>
                     <form id="forget-form-step2" class="d-grid gap-3">
                         <div class="form-group">
                             <label for="forget-code">Verification code:</label>
@@ -66,14 +66,14 @@
             </div>
             
             <!-- Right -->
-            <div class="col-12 col-lg-5 p-4 my-auto">
+            <div class="col-12 col-lg-5 p-4 my-auto secondary">
                 <div class="row py-3">
                     <div class="col-auto my-auto text-center" style="width: 60px">
                         <i style="color: var(--color-ultra)" class="fa-solid fa-lock fa-2x"></i>
                     </div>
                     <div class="col font-1 my-auto">
                         Make sure you are visiting:<br>
-                        <strong class="text-hi">https://vayamos.cc</strong>
+                        <strong class="primary">https://vayamos.cc</strong>
                     </div>
                 </div>
                 <div class="row py-3">

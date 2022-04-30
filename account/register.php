@@ -26,7 +26,7 @@
             <div class="col-12 col-lg-7 p-4">
             
             <h2 class="pb-4">Register</h2>
-            <p>Enter your account details.</p>
+            <p class="secondary">Enter your account details.</p>
         
             <div id="reg-form-step1-wrapper">
             <form id="reg-form-step1" class="d-grid gap-3">
@@ -71,14 +71,14 @@
             </div>
             
             <!-- Right -->
-            <div class="col-12 col-lg-5 p-4 my-auto">
+            <div class="col-12 col-lg-5 p-4 my-auto secondary">
                 <div class="row py-3">
                     <div class="col-auto my-auto text-center" style="width: 60px">
                         <i style="color: var(--color-ultra)" class="fa-solid fa-lock fa-2x"></i>
                     </div>
                     <div class="col font-1 my-auto">
                         Make sure you are visiting:<br>
-                        <strong class="text-hi">https://vayamos.cc</strong>
+                        <strong class="primary">https://vayamos.cc</strong>
                     </div>
                 </div>
                 <div class="row py-3">
