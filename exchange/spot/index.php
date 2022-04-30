@@ -80,7 +80,7 @@
         <div class="row m-0">
         
         <!-- Mobile header -->
-        <div id="mobile-header" class="col-12 d-lg-none p-0 ui-column order-1 order-lg-1">
+        <div id="mobile-header" class="col-12 d-lg-none p-0 ui-column order-1 order-lg-1 secondary">
         <div class="row m-0 flex-nowrap">
             <div class="col-1 ui-card my-auto" data-ui-card="trades chart orderbook orders">
                 <a class="nav-link p-0" href="#_" data-ui-card-target="markets">
@@ -89,7 +89,7 @@
             </div>
             
             <div class="col-3 ui-card ui-card-hor my-auto small" data-ui-card="trades chart orderbook orders">
-                <h4 class="ticker-name"></h4>
+                <h4 class="primary ticker-name"></h4>
                 <span class="ticker-base-name"></span>
             </div>
                 
@@ -97,27 +97,27 @@
                 <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price
-                        <span class="ticker-price d-block"></span>
+                        <span class="primary ticker-price d-block"></span>
                     </div>
                     <div class="col-auto">
                          24h change
-                         <span class="ticker-change d-block"></span>
+                         <span class="primary ticker-change d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h high
-                        <span class="ticker-high d-block"></span>
+                        <span class="primary ticker-high d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h low
-                        <span class="ticker-low d-block"></span>
+                        <span class="primary ticker-low d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h vol (<span class="ticker-base-legend"></span>)
-                        <span class="ticker-vol-base d-block"></span>
+                        <span class="primary ticker-vol-base d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h vol (<span class="ticker-quote-legend"></span>)
-                        <span class="ticker-vol-quote d-block"></span>
+                        <span class="primary ticker-vol-quote d-block"></span>
                     </div>
                 </div>
             </div>
@@ -192,8 +192,8 @@
         <div class="row m-0">
         
             <!-- Header -->
-            <div id="desktop-header" class="col-3 ui-card ui-card-ver ui-card-hor my-auto small d-none d-lg-block">
-                <h4 class="ticker-name"></h4>
+            <div id="desktop-header" class="col-3 ui-card ui-card-ver ui-card-hor my-auto small d-none d-lg-block secondary">
+                <h4 class="primary ticker-name"></h4>
                 <span class="ticker-base-name"></span>
             </div>
                 
@@ -201,27 +201,27 @@
                 <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price
-                        <span class="ticker-price d-block"></span>
+                        <span class="primary ticker-price d-block"></span>
                     </div>
                     <div class="col-auto">
                          24h change
-                         <span class="ticker-change d-block"></span>
+                         <span class="primary ticker-change d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h high
-                        <span class="ticker-high d-block"></span>
+                        <span class="primary ticker-high d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h low
-                        <span class="ticker-low d-block"></span>
+                        <span class="primary ticker-low d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h vol (<span class="ticker-base-legend"></span>)
-                        <span class="ticker-vol-base d-block"></span>
+                        <span class="primary ticker-vol-base d-block"></span>
                     </div>
                     <div class="col-auto">
                         24h vol (<span class="ticker-quote-legend"></span>)
-                        <span class="ticker-vol-quote d-block"></span>
+                        <span class="primary ticker-vol-quote d-block"></span>
                     </div>
                 </div>
             </div>
