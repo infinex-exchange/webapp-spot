@@ -215,16 +215,18 @@
 /* Open orders, orders history, trades history mobile view */
 
 @media (max-width: 991px) {
-    .orders-open-item .pair {
+    .orders-open-item .pair, .trades-history-item .pair, .trades-in-order-item .pair {
         font-size: var(--font-normal);
     }
     
-    .orders-open-item .time {
+    .orders-open-item .time, .trades-history-item .time, .trades-in-order-item .pair {
         text-align: right;
         color: var(--color-secondary);
     }
     
-    .orders-open-item ~ .orders-open-item {
+    .orders-open-item ~ .orders-open-item,
+    .trades-history-item ~ .trades-history-item,
+    .trades-in-order-item ~ .trades-in-order-item {
         border-top: 1px solid var(--color-border);
     }
 }

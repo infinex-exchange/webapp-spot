@@ -238,10 +238,10 @@ function renderHistoryTrade(data, inOrder) {
         if(data.side == 'SELL') color = 'text-red';
         
         innerHtml = `
-            <div style="width: 12%">
+            <div class="sm-w-50 pair order-1 order-lg-2" style="width: 12%">
                 ${data.pair}
             </div>
-            <div class="${color}" style="width: 6%">
+            <div class="sm-w-100 order-3 order-lg-3 ${color}" style="width: 6%">
                 ${data.side}
             </div>
         `;
@@ -249,23 +249,38 @@ function renderHistoryTrade(data, inOrder) {
     
     var html = `
         <div class="row hoverable p-1 ${inOrdClass}">
-            <div style="width: ${timeWPerc}%">
+            <div class="sm-w-50 time order-2 order-lg-1" style="width: ${timeWPerc}%">
                 ${time}
             </div>
             ${innerHtml}
-            <div class="text-end" style="width: 14%">
+            <div class="sm-w-50 d-lg-none order-4 secondary">
+                Price:
+            </div>
+            <div class="sm-w-50 order-5 order-lg-4 text-end" style="width: 14%">
                 ${data.price}
             </div>
-            <div class="text-end" style="width: 14%">
+            <div class="sm-w-50 d-lg-none order-6 secondary">
+                Amount:
+            </div>
+            <div class="sm-w-50 order-7 order-lg-5 text-end" style="width: 14%">
                 ${data.amount}
             </div>
-            <div class="text-end" style="width: 14%">
+            <div class="sm-w-50 d-lg-none order-8 secondary">
+                Total:
+            </div>
+            <div class="sm-w-50 order-9 order-lg-6 text-end" style="width: 14%">
                 ${data.total}
             </div>
-            <div class="text-end" style="width: 14%">
+            <div class="sm-w-50 d-lg-none order-10 secondary">
+                Fee:
+            </div>
+            <div class="sm-w-50 order-11 order-lg-7 text-end" style="width: 14%">
                 ${data.fee}
             </div>
-            <div class="text-end" style="width: 12%">
+            <div class="sm-w-50 d-lg-none order-12 secondary">
+                Role:
+            </div>
+            <div class="sm-w-50 order-13 order-lg-8 text-end" style="width: 12%">
                 ${data.role}
             </div>
         </div>
