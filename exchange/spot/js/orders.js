@@ -70,7 +70,7 @@ function renderOpenOrder(data) {
             <div class="text-end" style="width: 12%">
                 ${stopStr}
             </div>
-            <div class="text-end ps-0" style="width: 3%">
+            <div class="text-end ps-0 secondary" style="width: 3%">
                 <i class="fa-solid fa-xmark" onClick="cancelOrder(${data.obid})"></i>
             </div>
         </div>
@@ -131,7 +131,7 @@ function renderHistoryOrder(data) {
     
     return `
         <div class="row hoverable orders-history-item" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
-            <div class="pe-0 text-center" style="width: 2%">
+            <div class="pe-0 text-center secondary" style="width: 2%">
                 ${expandBtn}
             </div>
             <div style="width: 11%">
