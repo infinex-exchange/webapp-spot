@@ -497,6 +497,7 @@ input#select-coin, input#select-net {
 
 .jumbotron p {
     font-size: var(--font-big);
+    color: var(--font-secondary);
 }
 
 .jumbotron > * {
