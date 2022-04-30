@@ -253,7 +253,7 @@ function renderHistoryTrade(data, inOrder) {
                 ${time}
             </div>
             ${innerHtml}
-            <div class="sm-w-50 d-lg-none order-4 secondary">
+            <div class="sm-w-50 d-lg-none order-4 pt-2 secondary">
                 Price:
             </div>
             <div class="sm-w-50 order-5 order-lg-4 text-end" style="width: 14%">
