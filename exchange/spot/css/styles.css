@@ -219,9 +219,13 @@
         font-size: var(--font-normal);
     }
     
-    .orders-open-item .time, .trades-history-item .time, .trades-in-order-item .pair {
+    .orders-open-item .time, .trades-history-item .time {
         text-align: right;
         color: var(--color-secondary);
+    }
+    
+    .trades-in-order .time {
+        text-align: right;
     }
     
     .orders-open-item ~ .orders-open-item,

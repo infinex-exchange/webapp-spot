@@ -233,7 +233,14 @@ function renderHistoryTrade(data, inOrder) {
     if(inOrder) timeWPerc = 18;
     
     var innerHtml = '';
-    if(!inOrder) {
+    if(inOrder) {
+	    innerHtml = `
+		    <div class="sm-w-50 d-lg-none order-1 secondary">
+		        Time:
+		    </div>
+	    `;
+    }
+    else {
         var color = 'text-green';
         if(data.side == 'SELL') color = 'text-red';
         
@@ -241,7 +248,7 @@ function renderHistoryTrade(data, inOrder) {
             <div class="sm-w-50 pair order-1 order-lg-2" style="width: 12%">
                 ${data.pair}
             </div>
-            <div class="sm-w-100 order-3 order-lg-3 ${color}" style="width: 6%">
+            <div class="sm-w-100 order-3 order-lg-3 pb-2 pb-lg-0 ${color}" style="width: 6%">
                 ${data.side}
             </div>
         `;
@@ -253,10 +260,10 @@ function renderHistoryTrade(data, inOrder) {
                 ${time}
             </div>
             ${innerHtml}
-            <div class="sm-w-50 d-lg-none order-4 pt-2 secondary">
+            <div class="sm-w-50 d-lg-none order-4 secondary">
                 Price:
             </div>
-            <div class="sm-w-50 order-5 order-lg-4 pt-2 pt-lg-0 text-end" style="width: 14%">
+            <div class="sm-w-50 order-5 order-lg-4 text-end" style="width: 14%">
                 ${data.price}
             </div>
             <div class="sm-w-50 d-lg-none order-6 secondary">
