@@ -154,7 +154,7 @@ function renderHistoryOrder(data) {
     }
     
     return `
-        <div class="row hoverable orders-history-item p-1" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
+        <div class="row hoverable orders-history-item px-1 py-2 py-lg-1" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
             <div class="pe-0 text-center secondary" style="width: 2%">
                 ${expandBtn}
             </div>
@@ -192,7 +192,7 @@ function renderHistoryOrder(data) {
                 ${data.status}
             </div>
             
-            <div class="col-12 m-2 m-lg-3 inner">
+            <div class="col-12 pt-2 px-2 px-lg-3 inner">
                 <div class="row secondary d-none d-lg-flex">
                     <div style="width: 18%">
                         <h6>Date</h6>
