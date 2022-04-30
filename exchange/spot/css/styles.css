@@ -181,3 +181,13 @@
                     ) !important;
     }
 }
+
+/* Open orders, orders history, trades history mobile view */
+
+@media (max-width: 991px) {
+    .sm-w-50 {
+        width: 50% !important;
+    }
+    
+    ...
+}
