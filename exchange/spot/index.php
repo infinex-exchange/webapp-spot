@@ -197,7 +197,7 @@
                 <span class="ticker-base-name"></span>
             </div>
                 
-            <div class="col-9 ui-card ui-card-hor d-none d-lg-block">
+            <div class="col-9 ui-card ui-card-hor d-none d-lg-block secondary">
                 <div class="row flex-nowrap overflow-hidden small">
                     <div class="col-auto">
                         Price
