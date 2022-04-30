@@ -43,7 +43,7 @@
             </div>
             </form>
             
-            <div class="row p-2">
+            <div class="row p-2 secondary">
                 <div class="col-1">
                 </div>
                 <div class="col-2">
