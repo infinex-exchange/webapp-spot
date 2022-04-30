@@ -1,17 +1,12 @@
 :root {
-    --color-text: rgb(180, 190, 200);
-    --color-background: rgb(20, 25, 30);
-    --color-background-high: rgb(30, 35, 40);
-    --color-navbar: rgb(10, 15, 20);
-    --color-text-navbar: white;
-    --color-highlight: white;
+    --color-primary: white;
+    --color-secondary: rgb(180, 190, 200);
+    
+    --color-bg: rgb(20, 25, 30);
+    --color-bg-light: rgb(30, 35, 40);
+    
     --color-border: rgb(40, 40, 40);
     --color-input: rgb(40, 45, 50);
-    --color-ultra: rgb(55, 113, 200);
-    --color-green: rgb(38, 166, 154);
-    --color-green-light: rgb(23, 46, 49);
-    --color-red: rgb(239, 83, 80);
-    --color-red-light: rgb(53, 34, 38);
 }
 
 .body-background {

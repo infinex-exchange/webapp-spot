@@ -25,7 +25,7 @@ $(document).ready(function() {
                             var markdown = marked.parse(v.body);
                             var time = new Date(v.time * 1000).toLocaleString();
                             thisAS.append(`
-                                <div class="row mx-2 mt-0 mb-4 p-2 ui-card-high">
+                                <div class="row mx-2 mt-0 mb-4 p-2 ui-card-light">
                                     <h3 class="pt-3">${v.title}</h3>
                                     <h6 class="pb-2">${time}</h6>
                                     ` + markdown + `

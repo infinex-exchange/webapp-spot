@@ -19,7 +19,7 @@
         <div class="row m-0 h-100">
         
         <!-- Main column -->
-        <div class="col-12 col-lg-6 m-auto ui-card-high rounded">
+        <div class="col-12 col-lg-6 m-auto ui-card-light rounded">
         <div class="row m-0">
             
             <!-- Left -->

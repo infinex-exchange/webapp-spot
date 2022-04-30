@@ -233,7 +233,7 @@
             </div>
             
             <!-- Trading form -->
-            <div class="col-12 d-lg-block ui-card ui-card-ver ui-card-high" id="trading-form" data-ui-card="trades chart orderbook orders">
+            <div class="col-12 d-lg-block ui-card ui-card-ver ui-card-light" id="trading-form" data-ui-card="trades chart orderbook orders">
             <div class="row d-lg-none" id="form-compact-buttons">
                 <div class="col-6 ps-2 pe-1">
                     <button type="button" class="btn bg-green w-100 form-expand-button" data-side="BUY">BUY</button>
@@ -412,7 +412,7 @@
                             </div>
                         </div>
             
-                        <div id="orderbook-buy" class="small">
+                        <div id="orderbook-buy" class="reverse-rows small">
                         </div>
                     </div>
                 </div>

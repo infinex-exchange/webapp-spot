@@ -14,7 +14,7 @@
         <div class="row m-0 h-rest">
         
         <!-- Main column -->
-        <div class="col-12 col-lg-8 m-auto p-3 ui-card-high rounded">
+        <div class="col-12 col-lg-8 m-auto p-3 ui-card-light rounded">
             
             <h1>Error 500</h1>
             <h3>Internal server error.</h3>

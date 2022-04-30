@@ -26,7 +26,7 @@
         
             <div class="row gx-0 gx-lg-3 gy-3 m-0 mx-lg-5">
                 <div class="col-12">
-                    <div class="p-2 p-lg-4 ui-card-high rounded">
+                    <div class="p-2 p-lg-4 ui-card-light rounded">
                         <div class="row py-2 text-center">
                             <h3>Market trend</h3>
                         </div>
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="col-12 col-lg-6">
-                    <div class="p-2 p-lg-4 ui-card-high rounded">
+                    <div class="p-2 p-lg-4 ui-card-light rounded">
                         <div class="row py-2 text-center">
                             <h3>Top gainers</h3>
                         </div>
@@ -56,7 +56,7 @@
                 </div>
                 
                 <div class="col-12 col-lg-6">
-                    <div class="p-2 p-lg-4 ui-card-high rounded">
+                    <div class="p-2 p-lg-4 ui-card-light rounded">
                         <div class="row py-2 text-center">
                             <h3>Top losers</h3>
                         </div>                    

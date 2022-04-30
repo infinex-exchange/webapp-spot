@@ -24,7 +24,7 @@
                 <h3>Spot trading</h3>
             </div>
             
-            <div class="row p-2 ui-card-high">
+            <div class="row p-2 ui-card-light">
             <div class="col-12">
             
                 <div class="row p-2">
@@ -55,7 +55,7 @@
                 <h3>Deposits and withdrawals</h3>
             </div>
             
-            <div class="row p-2 ui-card-high">
+            <div class="row p-2 ui-card-light">
             <div class="col-12">
             
                 <div class="row p-2">

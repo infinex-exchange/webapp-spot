@@ -13,14 +13,6 @@
     --target-height-trades-data: 0px;
 }
 
-/* Reverse buy orderbook */
-
-#orderbook-buy {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-}
-
 /* Reverse sell orderbook on mobile */
 
 @media (max-width: 991px) {
@@ -62,11 +54,11 @@
 }
 
 #orderbook-sell .row:hover {
-    border-top: 1px dashed var(--color-text);  
+    border-top: 1px dashed var(--color-primary);  
 }
 
 #orderbook-buy .row:hover {
-    border-bottom: 1px dashed var(--color-text);
+    border-bottom: 1px dashed var(--color-primary);
 }
 
 /* Markets */
@@ -100,7 +92,7 @@
 /* Status bar */
 
 .status-bar {
-    background-color: var(--color-background);
+    background-color: var(--color-bg);
     border-top: 1px solid var(--color-border);
     z-index: 900;
 }
@@ -108,7 +100,7 @@
 /* Expand orders history item */
 
 .orders-history-item.expand-trades {
-    background-color: var(--color-background-high);
+    background-color: var(--color-bg-light);
 }
 
 .orders-history-item .inner {
@@ -182,13 +174,13 @@
     }
     
     .markets-item .base, .markets-item .price {
-	    color: var(--color-highlight);
+	    color: var(--color-primary);
 	    font-size: var(--font-normal);
     }
     
     .markets-item .change {
-	    background-color: var(--color-background-high);
-	    color: var(--color-highlight) !important;
+	    background-color: var(--color-bg-light);
+	    color: var(--color-primary) !important;
 	    border-radius: 10%;
 	    padding: 5px;
 	    width: 50px;
