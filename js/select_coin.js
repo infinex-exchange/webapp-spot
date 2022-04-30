@@ -46,8 +46,8 @@ $(document).ready(function() {
                                     <img width="24px" height="24px" src="${v.icon_url}">
                                 </div>
                                 <div class="col my-auto">
-                                    <strong class="text-hi">${k}</strong>
-                                    ${v.name}
+                                    <strong>${k}</strong>
+                                    <span class="secondary">${v.name}</span>
                                 </div>
                             </div>
                         `);
