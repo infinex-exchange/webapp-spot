@@ -35,6 +35,9 @@ function renderOpenOrder(data) {
         else stopStr = '&le; ' + data.stop;
     }
     
+    var color = 'text-green';
+    if(data.side == 'SELL') color = 'text-red';
+    
     return `
         <div class="row hoverable orders-open-item" data-obid="${data.obid}" data-amount="${data.amount}">
             <div style="width: 12%">
@@ -46,7 +49,7 @@ function renderOpenOrder(data) {
             <div style="width: 10%">
                 ${data.type}
             </div>
-            <div style="width: 4%">
+            <div class="${color}" style="width: 4%">
                 ${data.side}
             </div>
             <div class="text-end" style="width: 11%">
@@ -98,11 +101,15 @@ function renderHistoryOrder(data) {
     if(data.type != 'MARKET')
         priceStr = data.price;
     
+    var color = 'text-green';
+    if(data.side == 'SELL') color = 'text-red';
+    
     var expandBtn = '';
     var trades = '';
     var averageWeight = '0';
     var averageSum = '0';
     var average = '-';
+    
     
     if(data.trades.length > 0) {
         expandBtn = '<i class="fa-solid fa-square-plus"></i> ';
@@ -136,7 +143,7 @@ function renderHistoryOrder(data) {
             <div style="width: 8%">
                 ${data.type}
             </div>
-            <div style="width: 4%">
+            <div class="${color}" style="width: 4%">
                 ${data.side}
             </div>
             <div class="text-end" style="width: 9%">
@@ -202,14 +209,19 @@ function renderHistoryTrade(data, inOrder) {
     if(inOrder) timeWPerc = 18;
     
     var innerHtml = '';
-    if(!inOrder) innerHtml = `
+    if(!inOrder) {
+        var color = 'text-green';
+        if(data.side == 'SELL') color = 'text-red';
+        
+        innerHtml = `
             <div style="width: 12%">
                 ${data.pair}
             </div>
-            <div style="width: 6%">
+            <div class="${color}" style="width: 6%">
                 ${data.side}
             </div>
         `;
+    }
     
     var html = `
         <div class="row hoverable ${inOrdClass}">
