@@ -319,7 +319,7 @@
                         <form class="row m-0">
                             <div class="col-12 p-0 pb-2 user-only small">
                                 <span>Available:</span>
-                                <span class="float-end" id="form-base-balance"></span>
+                                <span class="float-end primary" id="form-base-balance"></span>
                             </div>
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
