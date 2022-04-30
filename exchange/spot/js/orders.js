@@ -39,7 +39,7 @@ function renderOpenOrder(data) {
     if(data.side == 'SELL') color = 'text-red';
     
     return `
-        <div class="row hoverable orders-open-item" data-obid="${data.obid}" data-amount="${data.amount}">
+        <div class="row hoverable orders-open-item p-1" data-obid="${data.obid}" data-amount="${data.amount}">
             <div style="width: 12%">
                 ${time}
             </div>
@@ -130,7 +130,7 @@ function renderHistoryOrder(data) {
     }
     
     return `
-        <div class="row hoverable orders-history-item" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
+        <div class="row hoverable orders-history-item p-1" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
             <div class="pe-0 text-center secondary" style="width: 2%">
                 ${expandBtn}
             </div>
@@ -224,7 +224,7 @@ function renderHistoryTrade(data, inOrder) {
     }
     
     var html = `
-        <div class="row hoverable ${inOrdClass}">
+        <div class="row hoverable p-1 ${inOrdClass}">
             <div style="width: ${timeWPerc}%">
                 ${time}
             </div>
