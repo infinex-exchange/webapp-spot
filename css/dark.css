@@ -7,6 +7,9 @@
     
     --color-border: rgb(40, 40, 40);
     --color-input: rgb(40, 45, 50);
+    
+    --color-green-light: rgb(23, 46, 49);
+    --color-red-light: rgb(53, 34, 38);
 }
 
 .body-background {
