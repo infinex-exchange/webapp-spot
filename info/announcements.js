@@ -28,7 +28,7 @@ $(document).ready(function() {
                                 <div class="row mx-2 mt-0 mb-4 p-2 ui-card-light">
                                     <h3 class="pt-3">${v.title}</h3>
                                     <h6 class="pb-2">${time}</h6>
-                                    ` + markdown + `
+                                    <div class="secondary">` + markdown + `</div>
                                 </div>
                             `);
                         });

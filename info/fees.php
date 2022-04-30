@@ -27,7 +27,7 @@
             <div class="row p-2 ui-card-light">
             <div class="col-12">
             
-                <div class="row p-2">
+                <div class="row p-2 secondary">
                     <div class="col">
                         <h5>Level</h5>
                     </div>
@@ -58,7 +58,7 @@
             <div class="row p-2 ui-card-light">
             <div class="col-12">
             
-                <div class="row p-2">
+                <div class="row p-2 secondary">
                     <div class="col">
                         <h5>Asset</h5>
                     </div>
