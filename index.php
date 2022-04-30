@@ -46,7 +46,7 @@
                             <h3>Top gainers</h3>
                         </div>
                         <div class="row py-2 secondary">
-                            <div class="col-3">Name</div>
+                            <div class="col-3"><h5>Name</h5></div>
                             <div class="col-3 text-end"><h5>Last price</h5></div>
                             <div class="col-3 text-end"><h5>24h change</h5></div>
                             <div class="col-3 text-end"><h5>Market cap</h5></div>
