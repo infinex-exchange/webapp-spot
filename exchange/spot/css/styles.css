@@ -67,6 +67,24 @@
     height: var(--target-height-markets-data);
 }
 
+@media (max-width: 991px) {
+    .markets-item img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.markets-item .change {
+	background-color: var(--color-bg-light);
+	color: var(--color-primary) !important;
+    font-size: var(--font-small);
+	border-radius: 10%;
+	padding: 3px;
+	width: 50px;
+	text-align: center;
+	display: inline-block;
+}
+
 /* Trades */
 
 #trades-data {
@@ -162,38 +180,4 @@
                      - env(safe-area-inset-bottom)
                     ) !important;
     }
-}
-
-/* Markets mobile view */
-
-@media (max-width: 991px) {
-    
-    .markets-item img {
-	    width: 28px;
-	    height: 28px;
-    }
-    
-    .markets-item .base, .markets-item .price {
-	    color: var(--color-primary);
-	    font-size: var(--font-normal);
-    }
-    
-    .markets-item .change {
-	    background-color: var(--color-bg-light);
-	    color: var(--color-primary) !important;
-	    border-radius: 10%;
-	    padding: 5px;
-	    width: 50px;
-	    text-align: center;
-	    display: inline-block;
-    }
-    
-    .markets-item .change.text-green {
-	    background-color: var(--color-green);
-    }
-    
-    .markets-item .change.text-red {
-	    background-color: var(--color-red);
-    }
-    
 }

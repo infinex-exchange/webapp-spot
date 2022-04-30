@@ -36,12 +36,12 @@ function liveMarketItem(data) {
     color = '';
     var changeStr = data.change;
     if(data.change > 0) {
-        color = 'text-green';
+        color = 'bg-green';
         changeStr = '+' + changeStr;
     }
     if(data.change < 0)
-        color = 'text-red';
-    changeDiv.removeClass('text-green text-red');
+        color = 'bg-red';
+    changeDiv.removeClass('bg-green bg-red');
     changeDiv.html(changeStr + '%');
     changeDiv.addClass(color);
 }
@@ -90,16 +90,14 @@ $(document).on('wsConnected', function() {
         if(data.success) {
             var sub = new Array();
             
-            $.each(data.markets, function(k, v) {
-	            var explPair = v.pair.split('/');
-	              
+            $.each(data.markets, function(k, v) {           
                 thisAS.append(`
-                    <div class="row hoverable markets-item flex-nowrap p-1 py-lg-0" onClick="gotoMarket('${v.pair}')" data-pair="${v.pair}">
+                    <div class="row hoverable markets-item flex-nowrap p-1" onClick="gotoMarket('${v.pair}')" data-pair="${v.pair}">
                         <div class="col-1 my-auto">
-                            <img width="16px" height="16px" src="${v.icon_url}">
+                            <img width="22" height="22" src="${v.icon_url}">
                         </div>
                         <div class="col-4 my-auto">
-                            <span class="base">${explPair[0]}</span><span class="d-lg-none"> </span>/${explPair[1]}
+                            ${v.base}<span class="small secondary">/${v.quote}</span>
                         </div>
                         <div class="col-4 text-end price my-auto">
                         </div>

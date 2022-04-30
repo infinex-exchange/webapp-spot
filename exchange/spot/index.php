@@ -156,7 +156,7 @@
                     </div>
                 </div>
                 </div>
-                <div id="markets-table" class="scrollable small">         
+                <div id="markets-table" class="scrollable">         
                 </div>
             
             <!-- / Markets -->
