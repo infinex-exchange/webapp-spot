@@ -28,7 +28,7 @@
                 <h3>Sessions list</h3>
             </div>
             
-            <div class="row p-2">
+            <div class="row p-2 secondary">
                 <div class="col-2">
                 <h5>Session ID</h5>
                 </div>

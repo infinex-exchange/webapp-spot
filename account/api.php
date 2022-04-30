@@ -34,7 +34,7 @@
                 </div>
             </div>
             
-            <div class="row p-2">
+            <div class="row p-2 secondary">
                 <div class="col-4">
                 <h5>Description</h5>
                 </div>
