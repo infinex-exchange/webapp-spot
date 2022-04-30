@@ -169,7 +169,7 @@ function renderHistoryOrder(data) {
             </div>
             
             <div class="col-8 m-3 inner">
-                <div class="row secondary">
+                <div class="row secondary d-none d-lg-flex">
                     <div style="width: 18%">
                         <h6>Date</h6>
                     </div>
