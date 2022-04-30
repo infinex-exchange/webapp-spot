@@ -224,7 +224,7 @@
         color: var(--color-secondary);
     }
     
-    .trades-in-order .time {
+    .trades-in-order-item .time {
         text-align: right;
     }
     
