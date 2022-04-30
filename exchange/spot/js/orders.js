@@ -29,7 +29,7 @@ function renderOpenOrder(data) {
     
     var filledPerc = Math.round(data.filled / data.amount * 100);
     
-    var stopStr = '';
+    var stopStr = '-';
     if(typeof(data.stop) !== 'undefined') {
         if(data.side == 'BUY') stopStr = '&ge; ' + data.stop;
         else stopStr = '&le; ' + data.stop;
@@ -39,39 +39,63 @@ function renderOpenOrder(data) {
     if(data.side == 'SELL') color = 'text-red';
     
     return `
-        <div class="row hoverable orders-open-item p-1" data-obid="${data.obid}" data-amount="${data.amount}">
-            <div class="sm-w-50 order-2 order-lg-1" style="width: 12%">
+        <div class="row hoverable orders-open-item px-1 py-2 py-lg-1" data-obid="${data.obid}" data-amount="${data.amount}">
+            <div class="sm-w-50 order-2 order-lg-1 time" style="width: 12%">
                 ${time}
             </div>
-            <div class="sm-w-50 order-1 order-lg-2" style="width: 10%">
+            <div class="sm-w-50 order-1 order-lg-2 pair" style="width: 10%">
                 ${data.pair}
             </div>
-            <div class="sm-w-50 order-4 order-lg-3" style="width: 10%">
+            <div class="sm-w-50 d-none d-lg-block order-lg-3" style="width: 10%">
                 ${data.type}
             </div>
-            <div class="sm-w-50 order-3 order-lg-4 ${color}" style="width: 4%">
+            <div class="sm-w-50 d-none d-lg-block order-lg-4 ${color}" style="width: 4%">
                 ${data.side}
             </div>
-            <div class="sm-w-50 order-6 order-lg-5 text-end" style="width: 11%">
+            <div class="sm-w-100 order-3 d-lg-none pb-2">
+                <span class="${color}">${data.side}</span>&nbsp;/&nbsp;${data.type}
+            </div>
+            <div class="sm-w-50 d-lg-none order-4 secondary">
+                Price:
+            </div>
+            <div class="sm-w-50 order-5 order-lg-5 text-end" style="width: 11%">
                 ${data.price}
             </div>
-            <div class="sm-w-50 order-8 order-lg-6 text-end" style="width: 11%">
+            <div class="sm-w-50 d-lg-none order-6 secondary">
+                Amount:
+            </div>
+            <div class="sm-w-50 order-7 order-lg-6 text-end" style="width: 11%">
                 ${data.amount}
             </div>
-            <div class="sm-w-50 order-10 order-lg-7 text-end filled pe-0" style="width: 11%">
-                ${data.filled}
+            <div class="sm-w-50 d-lg-none order-8 secondary">
+                Filled:
             </div>
-            <div class="sm-w-50 order-12 order-lg-8 text-center ps-0" style="width: 5%">
+            <div class="sm-w-50 order-9 order-lg-7 text-end filled pe-lg-0" style="width: 11%">
+                ${data.filled}<div class="d-inline d-lg-none"> (<span class="filled-perc">${filledPerc}</span>%)</div>
+            </div>
+            <div class="d-none d-lg-block order-lg-8 text-center ps-0" style="width: 5%">
                 (<span class="filled-perc">${filledPerc}</span>%)
             </div>
-            <div class="sm-w-50 order-14 order-lg-9 text-end" style="width: 11%">
+            <div class="sm-w-50 d-lg-none order-10 secondary">
+                Total:
+            </div>
+            <div class="sm-w-50 order-11 order-lg-9 text-end" style="width: 11%">
                 ${total}
             </div>
-            <div class="sm-w-50 order-16 order-lg-10 text-end" style="width: 12%">
+            <div class="sm-w-50 d-lg-none order-12 secondary">
+                Triggers:
+            </div>
+            <div class="sm-w-50 order-13 order-lg-10 text-end" style="width: 12%">
                 ${stopStr}
             </div>
-            <div class="sm-w-50 order-17 order-lg-11 text-end ps-0 secondary" style="width: 3%">
+            <div class="d-none d-lg-block order-lg-11 text-end ps-0 secondary" style="width: 3%">
                 <i class="fa-solid fa-xmark" onClick="cancelOrder(${data.obid})"></i>
+            </div>
+            <div class="sm-w-100 d-lg-none order-14 text-end pt-2">
+                <button type="button" class="btn btn-sm bg-red" onClick="cancelOrder(${data.obid})">
+                    <i class="fa-solid fa-xmark"></i>
+                    Cancel
+                </button>
             </div>
         </div>
     `;
