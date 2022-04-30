@@ -142,7 +142,7 @@
                 </form>
                 <div id="markets-quotes" class="nav small">
                 </div>
-                <div class="row flex-nowrap scrollable p-1 py-lg-0">
+                <div class="row flex-nowrap scrollable p-1 py-lg-0 secondary">
                     <div class="col-1">
                     </div>
                     <div class="col-4">
@@ -164,7 +164,7 @@
             
             <!-- Market trades -->
             <div id="trades" class="col-12 ui-card ui-card-ver d-lg-block half-column-height sm-rest-of-height" data-ui-card="trades">
-                <div id="trades-header" class="row scrollable">
+                <div id="trades-header" class="row scrollable secondary">
                     <div class="col-4">
                         <h6>Price</h6>
                     </div>
@@ -379,7 +379,7 @@
             <div id="orderbook" class="col-12 ui-card ui-card-ver d-lg-block column-height sm-rest-of-height" data-ui-card="orderbook">
                 <div class="row m-0">
                     <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-3 order-lg-1">
-                        <div id="orderbook-header" class="row">
+                        <div id="orderbook-header" class="row secondary">
                             <div class="col-6 col-lg-4">
                                 <h6>Price</h6>
                             </div>
@@ -403,7 +403,7 @@
                     </div>
                     
                     <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-3">
-                        <div class="row d-lg-none">
+                        <div class="row d-lg-none secondary">
                             <div class="col-6">
                                 <h6>Price</h6>
                             </div>
@@ -440,7 +440,7 @@
                 
                     <div class="tab-pane fade show active" id="orders-open" role="tabpanel" aria-labelledby="orders-open-tab">
                     
-                        <div class="row user-only scrollable">
+                        <div class="row user-only scrollable secondary">
                             <div style="width: 12%">
                                 <h6>Date</h6>
                             </div>
@@ -484,7 +484,7 @@
                     
                     <div class="tab-pane fade" id="orders-history" role="tabpanel" aria-labelledby="orders-history-tab">
                     
-                        <div class="row user-only scrollable">
+                        <div class="row user-only scrollable secondary">
                             <div style="width: 2%">
                             </div>
                             <div style="width: 11%">
@@ -532,7 +532,7 @@
                     
                     <div class="tab-pane fade" id="trades-history" role="tabpanel" aria-labelledby="trades-history-tab">
                     
-                        <div class="row user-only scrollable">
+                        <div class="row user-only scrollable secondary">
                             <div style="width: 14%">
                                 <h6>Date</h6>
                             </div>
