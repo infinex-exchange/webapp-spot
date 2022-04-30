@@ -426,9 +426,9 @@
                   - orders-open-data - div
                   - orders-history-data - div
             -->
-            <div class="col-12 ui-card ui-column d-lg-block order-5 order-lg-5 sm-rest-of-height" data-ui-card="orders">
+            <div id="orders" class="col-12 ui-card ui-column d-lg-block order-5 order-lg-5 sm-rest-of-height" data-ui-card="orders">
             
-                <nav>
+                <nav id="orders-header">
                 <div class="nav nav-tab nav-deco" role="tablist">
                     <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#orders-open" href="#_" role="tab" aria-controls="orders-open" aria-selected="true">Open orders</a>
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#orders-history" href="#_" role="tab" aria-controls="orders-history" aria-selected="false">Orders history</a>

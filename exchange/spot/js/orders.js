@@ -226,8 +226,8 @@ function renderHistoryOrder(data) {
 function renderHistoryTrade(data, inOrder) {
     var time = new Date(data.time * 1000).toLocaleString();
     
-    var inOrdClass = '';
-    if(inOrder) inOrdClass = 'trade-in-order-item'
+    var inOrdClass = 'trades-history-item';
+    if(inOrder) inOrdClass = 'trades-in-order-item'
     
     var timeWPerc = 14;
     if(inOrder) timeWPerc = 18;

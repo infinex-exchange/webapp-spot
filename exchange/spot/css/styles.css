@@ -11,6 +11,9 @@
     --target-height-orderbook-side-sm: 0px;
     --target-height-markets-data: 0px;
     --target-height-trades-data: 0px;
+    --target-height-orders-open-data: 0px;
+    --target-height-orders-history-data: 0px;
+    --target-height-trades-history-data: 0px;
 }
 
 /* Reverse sell orderbook on mobile */
@@ -93,10 +96,25 @@
 
 /* Orders */
 
+#orders {
+    height: 350px;
+}
+
 #orders-open-data, #orders-history-data, #trades-history-data {
     display: flex;
     flex-direction: column;
-    height: 250px;
+}
+
+#orders-open-data {
+    height: var(--target-height-orders-open-data);
+}
+
+#orders-history-data {
+    height: var(--target-height-orders-history-data);
+}
+
+#trades-history-data {
+    height: var(--target-height-trades-history-data);
 }
 
 /* Hoverable orderbook */
