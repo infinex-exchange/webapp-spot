@@ -23,13 +23,8 @@ function doJsSizing() {
         document.body.style.setProperty('--target-height-' + i + '-data', targetH + 'px');
     });
     
-    ['orders-open', 'orders-history', 'trades-history'].forEach(function(i) {
-        var remainH = $('#orders').height() - $('#orders-header').outerHeight();
-        var itemH = $('.' + i + '-item').first().outerHeight();
-        if(typeof(itemH) === 'undefined') itemH = 18;
-        var targetH = Math.round(remainH / itemH) * itemH;
-        document.body.style.setProperty('--target-height-' + i + '-data', targetH + 'px');
-    });
+    var remainH = $('#orders').height() - $('#orders-header').outerHeight();
+    document.body.style.setProperty('--target-height-orders-data', remainH + 'px');
 }
 
 $(document).on('renderingComplete', function() {
