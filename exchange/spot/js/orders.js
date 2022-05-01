@@ -29,7 +29,7 @@ function renderOpenOrder(data) {
     
     var filled = 0;
     if(typeof(data.filled) !== 'undefined') filled = data.filled;
-    var filledPerc = Math.round(data.filled / data.amount * 100);
+    var filledPerc = Math.round(filled / data.amount * 100);
     
     var stopStr = '-';
     if(typeof(data.stop) !== 'undefined') {
