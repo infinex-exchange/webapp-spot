@@ -79,7 +79,7 @@ $(document).on('authChecked', function() {
                         if(thisAS.offset == 0)
                             $(document).trigger('renderingStage');
                             
-                        if(data.balances.length != 25)
+                        if(data.balances.length != 50)
                             thisAS.noMoreData();
                     } else {
                         msgBoxRedirect(data.error);

@@ -62,7 +62,7 @@ $(document).on('pairSelected', function() {
                 $(document).trigger('renderingStage'); // 3
             }
             
-            if(data.trades.length != 25)
+            if(data.trades.length != 50)
                 thisAS.noMoreData(); 
         }
         else {

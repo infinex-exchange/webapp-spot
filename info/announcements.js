@@ -38,7 +38,7 @@ $(document).ready(function() {
                         if(thisAS.offset == 0)
                             $(document).trigger('renderingStage');
                             
-                        if(data.announcements.length != 25)
+                        if(data.announcements.length != 50)
                             thisAS.noMoreData();
                     } else {
                         msgBoxRedirect(data.error);

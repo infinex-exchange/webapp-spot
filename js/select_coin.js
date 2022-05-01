@@ -60,7 +60,7 @@ $(document).ready(function() {
                         
                     thisAS.done();
                             
-                    if(data.assets.length != 25)
+                    if(data.assets.length != 50)
                         thisAS.noMoreData();
                 } else {
                     msgBoxRedirect(data.error);

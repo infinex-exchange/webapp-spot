@@ -160,7 +160,7 @@ $(document).on('wsConnected', function() {
                 $(document).trigger('renderingStage'); // 1                
             }                
             
-            if(data.markets.length != 25)
+            if(data.markets.length != 50)
                 thisAS.noMoreData(); 
         }
         else {

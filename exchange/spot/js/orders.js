@@ -364,7 +364,7 @@ $(document).on('authChecked pairSelected', function() {
             if(thisAS.offset == 0)
                 $(document).trigger('renderingStage'); // 5
             
-            if(data.orders.length != 25)
+            if(data.orders.length != 50)
                 thisAS.noMoreData(); 
         }
         else {
@@ -416,7 +416,7 @@ $(document).on('authChecked pairSelected', function() {
             if(thisAS.offset == 0)
                 $(document).trigger('renderingStage'); // 6
             
-            if(data.orders.length != 25)
+            if(data.orders.length != 50)
                 thisAS.noMoreData(); 
         }
         else {
@@ -468,7 +468,7 @@ $(document).on('authChecked pairSelected', function() {
             if(thisAS.offset == 0)
                 $(document).trigger('renderingStage');
             
-            if(data.trades.length != 25)
+            if(data.trades.length != 50)
                 thisAS.noMoreData(); 
         }
         else {

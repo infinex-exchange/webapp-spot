@@ -109,7 +109,7 @@ function initRecentTx(data) {
                     if(thisAS.offset == 0)
                         $(document).trigger('renderingStage');
                         
-                    if(data.transactions.length != 25)
+                    if(data.transactions.length != 50)
                         thisAS.noMoreData();
                 }
                 else {
