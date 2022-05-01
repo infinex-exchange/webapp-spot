@@ -542,7 +542,9 @@ $(document).on('orderFilled', function(e, data) {
 
 $(document).on('orderKilled', function(e, data) {
     // Change status in orders history
-    $('.orders-history-item[data-obid="' + data.obid + '"]').find('.status').html('KILLED');
+    var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
+    ohItem.find('.status').html('KILLED');
+    ohItem.find('.filled').html('-');
 });
 
 $(document).on('orderNew', function(e, data) {
