@@ -46,10 +46,10 @@ function renderOpenOrder(data) {
             <div class="sm-w-50 order-1 order-lg-2 pair" style="width: 10%">
                 ${data.pair}
             </div>
-            <div class="sm-w-50 d-none d-lg-block order-lg-3" style="width: 10%">
+            <div class="d-none d-lg-block order-lg-3" style="width: 10%">
                 ${data.type}
             </div>
-            <div class="sm-w-50 d-none d-lg-block order-lg-4 ${color}" style="width: 4%">
+            <div class="d-none d-lg-block order-lg-4 ${color}" style="width: 4%">
                 ${data.side}
             </div>
             <div class="sm-w-100 order-3 d-lg-none pb-2">
@@ -155,44 +155,65 @@ function renderHistoryOrder(data) {
     
     return `
         <div class="row hoverable orders-history-item px-1 py-2 py-lg-1" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
-            <div class="pe-0 text-center secondary" style="width: 2%">
+            <div class="d-none d-lg-block order-lg-1 pe-0 text-center secondary" style="width: 2%">
                 ${expandBtn}
             </div>
-            <div style="width: 11%">
+            <div class="sm-w-50 order-2 order-lg-2 time" style="width: 11%">
                 ${time}
             </div>
-            <div style="width: 8%">
+            <div class="sm-w-50 order-1 order-lg-3 pair" style="width: 8%">
                 ${data.pair}
             </div>
-            <div style="width: 8%">
+            <div class="d-none d-lg-block order-lg-4" style="width: 8%">
                 ${data.type}
             </div>
-            <div class="${color}" style="width: 4%">
+            <div class="d-none d-lg-block order-lg-5 ${color}" style="width: 4%">
                 ${data.side}
             </div>
-            <div class="text-end" style="width: 9%">
+            <div class="sm-w-50 order-3 d-lg-none pb-2">
+                <span class="${color}">${data.side}</span>&nbsp;/&nbsp;${data.type}
+            </div>
+            <div class="sm-w-50 d-lg-none order-5 secondary">
+                Price:
+            </div>
+            <div class="sm-w-50 order-6 order-lg-6 text-end" style="width: 9%">
                 ${priceStr}
             </div>
-            <div class="text-end average" data-sum="${averageSum}" data-weight="${averageWeight}" style="width: 9%">
+            <div class="sm-w-50 d-lg-none order-7 secondary">
+                Average:
+            </div>
+            <div class="sm-w-50 order-8 order-lg-7 text-end average" data-sum="${averageSum}" data-weight="${averageWeight}" style="width: 9%">
                 ${average}
             </div>
-            <div class="text-end" style="width: 10%">
+            <div class="sm-w-50 d-lg-none order-9 secondary">
+                Amount:
+            </div>
+            <div class="sm-w-50 order-10 order-lg-8 text-end" style="width: 10%">
                 ${amountStr}
             </div>
-            <div class="text-end filled" style="width: 10%">
+            <div class="sm-w-50 d-lg-none order-11 secondary">
+                Filled:
+            </div>
+            <div class="sm-w-50 order-12 order-lg-9 text-end filled" style="width: 10%">
                 ${data.filled}
             </div>
-            <div class="text-end" style="width: 10%">
+            <div class="sm-w-50 d-lg-none order-13 secondary">
+                Total:
+            </div>
+            <div class="sm-w-50 order-14 order-lg-10 text-end" style="width: 10%">
                 ${data.total}
             </div>
-            <div class="text-end" style="width: 11%">
+            <div class="sm-w-50 d-lg-none order-15 secondary">
+                Triggers:
+            </div>
+            <div class="sm-w-50 order-16 order-lg-11 text-end" style="width: 11%">
                 ${stopStr}
             </div>
-            <div class="text-end" style="width: 8%">
-                ${data.status}
+            <div class="sm-w-50 order-4 order-lg-12 text-end pb-2 pb-lg-0" style="width: 8%">
+                <span class="status">${data.status}</span>
             </div>
             
-            <div class="col-12 pt-2 px-2 px-lg-3 inner">
+            <div class="col-12 order-17 order-lg-13 pt-2 px-4 px-lg-5 inner">
                 <div class="row secondary d-none d-lg-flex">
                     <div style="width: 18%">
                         <h6>Date</h6>
