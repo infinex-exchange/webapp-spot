@@ -547,7 +547,7 @@ $(document).on('orderKilled', function(e, data) {
     ohItem.find('.filled').html('-');
 });
 
-$(document).on('orderTriggered', function(e, data) {
+$(document).on('orderStopTriggered', function(e, data) {
     // Change filled - to 0 in open orders
     var ooItem = $('.orders-open-item[data-obid="' + data.obid + '"]');
     ooItem.find('.filled').html('0');
