@@ -104,8 +104,6 @@ function renderOpenOrder(data) {
 function toggleHistoryOrderExpand(row) {
     if($(row).find('.trades-in-order-item').length > 0) {
         $(row).toggleClass('expand-trades');
-        $(row).find('.fa-solid').toggleClass('fa-square-plus');
-        $(row).find('.fa-solid').toggleClass('fa-square-minus');
     }
 }
 
@@ -115,7 +113,7 @@ function renderHistoryOrder(data) {
     var amountStr = '-';
     if(typeof(data.amount) !== 'undefined') amountStr = data.amount;
     
-    var stopStr = '';
+    var stopStr = '-';
     if(typeof(data.stop) !== 'undefined') {
         if(data.side == 'BUY') stopStr = '&ge; ' + data.stop;
         else stopStr = '&le; ' + data.stop;
@@ -128,16 +126,15 @@ function renderHistoryOrder(data) {
     var color = 'text-green';
     if(data.side == 'SELL') color = 'text-red';
     
-    var expandBtn = '';
+    var displayButtons = 'd-none';
     var trades = '';
     var averageWeight = '0';
     var averageSum = '0';
     var average = '-';
     
     
-    if(data.trades.length > 0) {
-        expandBtn = '<i class="fa-solid fa-square-plus"></i> ';
-        
+    if(data.trades.length > 0) {        
+        displayButtons = '';
         averageWeight = new BigNumber(0);
         averageSum = new BigNumber(0);
         
@@ -156,10 +153,17 @@ function renderHistoryOrder(data) {
     return `
         <div class="row hoverable orders-history-item px-1 py-2 py-lg-1" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
             <div class="d-none d-lg-block order-lg-1 pe-0 text-center secondary" style="width: 2%">
-                ${expandBtn}
+                <span class="buttons ${displayButtons}">
+                    <i class="expand-button fa-solid fa-square-plus"></i>
+                    <i class="collapse-button fa-solid fa-square-minus"></i>
+                </span>
             </div>
             <div class="sm-w-50 order-2 order-lg-2 time" style="width: 11%">
                 ${time}
+                <span class="buttons d-lg-none ps-2 ${displayButtons}">
+                    <i class="expand-button fa-solid fa-angle-down"></i>
+                    <i class="collapse-button fa-solid fa-angle-up"></i>
+                </span>
             </div>
             <div class="sm-w-50 order-1 order-lg-3 pair" style="width: 8%">
                 ${data.pair}
@@ -232,6 +236,12 @@ function renderHistoryOrder(data) {
                     </div>
                     <div class="text-end" style="width: 12%">
                         <h6>Role</h6>
+                    </div>
+                </div>
+                
+                <div class="row primary d-lg-none">
+                    <div class="col-12 d-lg-none text-center py-2">
+                        <h5>Trades:</h5>
                     </div>
                 </div>
                 

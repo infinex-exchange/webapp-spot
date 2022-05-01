@@ -243,3 +243,21 @@
 	   display: inline-block;
     }
 }
+
+/* Expand / collapse trades in order */
+
+.orders-history-item .expand-button {
+    display: inline;
+}
+
+.orders-history-item .collapse-button {
+    display: none;
+}
+
+.orders-history-item.expand-trades .expand-button {
+    display: none;
+}
+
+.orders-history-item.expand-trades .collapse-button {
+    display: inline;
+}
