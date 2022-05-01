@@ -133,23 +133,32 @@ function renderHistoryOrder(data) {
     var averageWeight = '0';
     var averageSum = '0';
     var average = '-';
+    var total = '-';
     
     
     if(data.trades.length > 0) {        
         displayButtons = '';
+        
         averageWeight = new BigNumber(0);
         averageSum = new BigNumber(0);
+        
+        total = new BigNumber(0);
         
         $.each(data.trades, function(k, v) {
             var weight = new BigNumber(v.amount);
             averageWeight = averageWeight.plus(weight);
-            averageSum = averageSum.plus(weight.times(v.price)); 
+            averageSum = averageSum.plus(weight.times(v.price));
+            
+            total = total.plus(v.total);
+             
             trades += renderHistoryTrade(v, true);
         });
         
         average = averageSum.div(averageWeight).dp(data.quote_prec).toString();
         averageWeight = averageWeight.toString();
         averageSum = averageSum.toString();
+        
+        total = total.dp(data.quote_prec).toString();
     }
     
     return `
@@ -207,7 +216,7 @@ function renderHistoryOrder(data) {
                 Total:
             </div>
             <div class="sm-w-50 order-14 order-lg-10 text-end" style="width: 10%">
-                ${data.total}
+                ${total}
             </div>
             <div class="sm-w-50 d-lg-none order-15 secondary">
                 Triggers:
