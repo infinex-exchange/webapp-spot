@@ -547,6 +547,16 @@ $(document).on('orderKilled', function(e, data) {
     ohItem.find('.filled').html('-');
 });
 
+$(document).on('orderTriggered', function(e, data) {
+    // Change filled - to 0 in open orders
+    var ooItem = $('.orders-open-item[data-obid="' + data.obid + '"]');
+    ooItem.find('.filled').html('0');
+    ooItem.find('.filled-perc').html('(0%)');
+    
+    // Change filled - to 0 in orders history
+    $('.orders-history-item[data-obid="' + data.obid + '"]').find('.filled').html('CANCELED');
+});
+
 $(document).on('orderNew', function(e, data) {
     // Add to open orders
     if(data.time_in_force == 'GTC')
