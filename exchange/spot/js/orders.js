@@ -110,8 +110,9 @@ function toggleHistoryOrderExpand(row) {
 function renderHistoryOrder(data) {
     var time = new Date(data.time * 1000).toLocaleString();
     
-    var amountStr = '-';
-    if(typeof(data.amount) !== 'undefined') amountStr = data.amount;
+    var amountStr = '';
+    if(typeof(data.amount) !== 'undefined') amountStr = data.amount + ' ' + data.base;
+    else amountStr = data.total + ' ' + data.quote;
     
     var stopStr = '-';
     if(typeof(data.stop) !== 'undefined') {
@@ -128,6 +129,7 @@ function renderHistoryOrder(data) {
     
     var displayButtons = 'd-none';
     var trades = '';
+    
     var averageWeight = '0';
     var averageSum = '0';
     var average = '-';
@@ -145,7 +147,7 @@ function renderHistoryOrder(data) {
             trades += renderHistoryTrade(v, true);
         });
         
-        average = averageSum.div(averageWeight).dp(window.currentQuotePrecision).toString();
+        average = averageSum.div(averageWeight).dp(data.quote_prec).toString();
         averageWeight = averageWeight.toString();
         averageSum = averageSum.toString();
     }
