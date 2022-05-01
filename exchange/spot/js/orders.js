@@ -29,10 +29,12 @@ function renderOpenOrder(data) {
     
     var filled = '-';
     var filledPerc = '';
-    if(typeof(data.filled) !== 'undefined') {
+    if(typeof(data.filled) !== 'undefined')
         filled = data.filled;
+    else if(data.type == 'LIMIT')
+        filled = 0;
+    if(filled !== '-')
         filledPerc = '(' + Math.round(data.filled / data.amount * 100) + '%)';
-    }
     
     var stopStr = '-';
     if(typeof(data.stop) !== 'undefined') {
@@ -128,6 +130,8 @@ function renderHistoryOrder(data) {
     var filled = '-';
     if(typeof(data.filled) !== 'undefined')
         filled = data.filled;
+    else if(data.type == 'LIMIT')
+        filled = 0;
     
     var priceStr = 'MARKET';
     if(data.type != 'MARKET')
