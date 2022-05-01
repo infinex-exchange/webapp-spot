@@ -25,7 +25,7 @@ function renderOpenOrder(data) {
     
     var total = new BigNumber(data.amount);
     total = total.multipliedBy(data.price);
-    total = total.toFixed(window.currentQuotePrecision);
+    total = total.dp(data.quote_prec).toString();
     
     var filledPerc = Math.round(data.filled / data.amount * 100);
     
