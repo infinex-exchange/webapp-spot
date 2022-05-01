@@ -27,6 +27,8 @@ function renderOpenOrder(data) {
     total = total.multipliedBy(data.price);
     total = total.dp(data.quote_prec).toString();
     
+    var filled = 0;
+    if(typeof(data.filled) !== 'undefined') filled = data.filled;
     var filledPerc = Math.round(data.filled / data.amount * 100);
     
     var stopStr = '-';
@@ -71,7 +73,7 @@ function renderOpenOrder(data) {
                 Filled:
             </div>
             <div class="sm-w-50 order-9 order-lg-7 text-end filled pe-lg-0" style="width: 11%">
-                ${data.filled}<div class="d-inline d-lg-none"> (<span class="filled-perc">${filledPerc}</span>%)</div>
+                ${filled}<div class="d-inline d-lg-none"> (<span class="filled-perc">${filledPerc}</span>%)</div>
             </div>
             <div class="d-none d-lg-block order-lg-8 text-center ps-0" style="width: 5%">
                 (<span class="filled-perc">${filledPerc}</span>%)
