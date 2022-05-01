@@ -136,7 +136,7 @@ function renderHistoryOrder(data) {
     var total = '-';
     
     
-    if(data.trades.length > 0) {        
+    if(typeof(data.trades) !== 'undefined' && data.trades.length > 0) {        
         displayButtons = '';
         
         averageWeight = new BigNumber(0);
