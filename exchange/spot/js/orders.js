@@ -117,6 +117,10 @@ function toggleHistoryOrderExpand(row) {
 function renderHistoryOrder(data) {
     var time = new Date(data.time * 1000).toLocaleString();
     
+    var status = 'OPEN';
+    if(typeof(data.status) !== 'undefined')
+        status = data.status;
+    
     var amountStr = '';
     if(typeof(data.amount) !== 'undefined') amountStr = data.amount + ' ' + data.base;
     else amountStr = data.total + ' ' + data.quote;
@@ -130,7 +134,7 @@ function renderHistoryOrder(data) {
     var filled = '-';
     if(typeof(data.filled) !== 'undefined')
         filled = data.filled;
-    else if(data.type == 'LIMIT')
+    else if(data.type == 'LIMIT' && status != 'KILLED')
         filled = 0;
     
     var priceStr = 'MARKET';
@@ -238,7 +242,7 @@ function renderHistoryOrder(data) {
                 ${stopStr}
             </div>
             <div class="sm-w-50 order-4 order-lg-12 text-end pb-2 pb-lg-0" style="width: 8%">
-                <span class="status">${data.status}</span>
+                <span class="status">${status}</span>
             </div>
             
             <div class="col-12 order-17 order-lg-13 pt-2 px-4 px-lg-5 inner">
