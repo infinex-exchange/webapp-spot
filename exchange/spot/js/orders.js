@@ -508,18 +508,53 @@ $(document).on('authChecked pairSelected', function() {
 });
 
 $(document).on('orderCanceled orderFilled orderKilled', function(e, data) {
+    // Remove from open orders
     if(typeof(data.obid) !== 'undefined')
         $('.orders-open-item[data-obid="' + data.obid + '"]').remove();
 });
 
+$(document).on('orderCanceled', function(e, data) {
+    // Change status in orders history
+    $('.orders-history-item[data-obid="' + data.obid + '"]').find('.status').html('CANCELED');
+});
+
+$(document).on('orderFilled', function(e, data) {
+    // Change status in orders history
+    $('.orders-history-item[data-obid="' + data.obid + '"]').find('.status').html('FILLED');
+});
+
+$(document).on('orderKilled', function(e, data) {
+    // Change status in orders history
+    $('.orders-history-item[data-obid="' + data.obid + '"]').find('.status').html('KILLED');
+});
+
 $(document).on('orderNew', function(e, data) {
+    // Add to open orders
     if(data.time_in_force == 'GTC')
         window.openOrdersAS.prepend(renderOpenOrder(data));
+    
+    // Add to orders history
+    window.ordersHistoryAS.prepend(renderHistoryOrder(data));
 });
 
 $(document).on('orderPartialFilled', function(e, data) {
+    // Update filled and filled% in open orders
     var ooItem = $('.orders-open-item[data-obid="' + data.obid + '"]');
     var filledPerc = Math.round(data.filled / ooItem.data('amount') * 100);
     ooItem.find('.filled').html(data.filled);
     ooItem.find('.filled-perc').html(filledPerc);
+});
+
+$(document).on('orderPartialFilled orderFilled', function(e, data) {
+    // Update filled in orders history
+    var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
+    ohItem.find('.filled').html(data.filled);
+    
+    // Add trade to trades history
+    
+    // Add trade to trades-in-order
+    
+    // Recalculate average in orders history
+    
+    // Recalculate total in orders-history
 });
