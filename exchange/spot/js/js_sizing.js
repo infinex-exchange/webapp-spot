@@ -1,4 +1,5 @@
 function doJsSizing() {
+    document.body.style.setProperty('--emulated-100vh', window.innerHeight + 'px');
     document.body.style.setProperty('--height-status-bar', $('#status-bar').outerHeight() + 'px');
     document.body.style.setProperty('--height-mobile-nav', $('#mobile-navbar').outerHeight() + 'px');
 	document.body.style.setProperty('--height-trading-form', $('#trading-form').outerHeight() + 'px');

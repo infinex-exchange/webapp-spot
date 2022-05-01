@@ -1,6 +1,7 @@
 /* Init variables */
 
 :root {
+    --emulated-100vh: 100vh;
     --height-main-nav: 0px;
     --height-mobile-header: 0px;
     --height-desktop-header: 0px;
@@ -152,7 +153,7 @@
 
 .column-height {
     height: calc(
-                  100vh
+                  var(--emulated-100vh)
                   - var(--height-main-nav)
                   - var(--height-status-bar)
                 );
@@ -161,7 +162,7 @@
 .half-column-height {
     height: calc(
                   (
-                    100vh
+                    var(--emulated-100vh)
                     - var(--height-main-nav)
                     - var(--height-status-bar)
                   )
@@ -170,7 +171,7 @@
 }
 
 .rest-of-height {
-    height: calc(100vh
+    height: calc(var(--emulated-100vh)
                  - var(--height-main-nav)
                  - var(--height-desktop-header)
                  - var(--height-trading-form)
@@ -180,12 +181,11 @@
 
 @media (max-width: 991px) {
     .sm-rest-of-height {
-        height: calc(100vh
+        height: calc(var(--emulated-100vh)
                      - var(--height-main-nav)
                      - var(--height-mobile-header)
                      - var(--height-trading-form)
                      - var(--height-mobile-nav)
-                     - env(safe-area-inset-bottom)
                     ) !important;
     }
 }
