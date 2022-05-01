@@ -125,6 +125,10 @@ function renderHistoryOrder(data) {
         else stopStr = '&le; ' + data.stop;
     }
     
+    var filled = '-';
+    if(typeof(data.filled) !== 'undefined')
+        filled = data.filled;
+    
     var priceStr = 'MARKET';
     if(data.type != 'MARKET')
         priceStr = data.price;
@@ -215,7 +219,7 @@ function renderHistoryOrder(data) {
                 Filled:
             </div>
             <div class="sm-w-50 order-12 order-lg-9 text-end filled" style="width: 10%">
-                ${data.filled}
+                ${filled}
             </div>
             <div class="sm-w-50 d-lg-none order-13 secondary">
                 Total:
