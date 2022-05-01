@@ -27,9 +27,12 @@ function renderOpenOrder(data) {
     total = total.multipliedBy(data.price);
     total = total.dp(data.quote_prec).toString();
     
-    var filled = 0;
-    if(typeof(data.filled) !== 'undefined') filled = data.filled;
-    var filledPerc = Math.round(filled / data.amount * 100);
+    var filled = '-';
+    var filledPerc = '';
+    if(typeof(data.filled) !== 'undefined') {
+        filled = data.filled;
+        filledPerc = '(' + Math.round(data.filled / data.amount * 100) + '%)';
+    }
     
     var stopStr = '-';
     if(typeof(data.stop) !== 'undefined') {
@@ -73,10 +76,10 @@ function renderOpenOrder(data) {
                 Filled:
             </div>
             <div class="sm-w-50 order-9 order-lg-7 text-end filled pe-lg-0" style="width: 11%">
-                ${filled}<div class="d-inline d-lg-none"> (<span class="filled-perc">${filledPerc}</span>%)</div>
+                ${filled}<div class="d-inline d-lg-none"> <span class="filled-perc">${filledPerc}</span></div>
             </div>
             <div class="d-none d-lg-block order-lg-8 text-center ps-0" style="width: 5%">
-                (<span class="filled-perc">${filledPerc}</span>%)
+                <span class="filled-perc">${filledPerc}</span>
             </div>
             <div class="sm-w-50 d-lg-none order-10 secondary">
                 Total:
@@ -542,7 +545,7 @@ $(document).on('orderNew', function(e, data) {
 $(document).on('orderPartialFilled', function(e, data) {
     // Update filled and filled% in open orders
     var ooItem = $('.orders-open-item[data-obid="' + data.obid + '"]');
-    var filledPerc = Math.round(data.filled / ooItem.data('amount') * 100);
+    var filledPerc = '(' + Math.round(data.filled / ooItem.data('amount') * 100) + '%)';
     ooItem.find('.filled').html(data.filled);
     ooItem.find('.filled-perc').html(filledPerc);
 });
