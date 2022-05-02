@@ -440,7 +440,7 @@
                 
                     <div class="tab-pane fade show active" id="orders-open" role="tabpanel" aria-labelledby="orders-open-tab">
                     
-                        <div class="row user-only scrollable secondary d-none d-lg-flex">
+                        <div class="row user-only scrollable secondary d-none d-lg-flex px-1">
                             <div style="width: 12%">
                                 <h6>Date</h6>
                             </div>
@@ -484,7 +484,7 @@
                     
                     <div class="tab-pane fade" id="orders-history" role="tabpanel" aria-labelledby="orders-history-tab">
                     
-                        <div class="row user-only scrollable secondary d-none d-lg-flex">
+                        <div class="row user-only scrollable secondary d-none d-lg-flex px-1">
                             <div style="width: 2%">
                             </div>
                             <div style="width: 11%">
@@ -532,7 +532,7 @@
                     
                     <div class="tab-pane fade" id="trades-history" role="tabpanel" aria-labelledby="trades-history-tab">
                     
-                        <div class="row user-only scrollable secondary d-none d-lg-flex">
+                        <div class="row user-only scrollable secondary d-none d-lg-flex px-1">
                             <div style="width: 14%">
                                 <h6>Date</h6>
                             </div>
