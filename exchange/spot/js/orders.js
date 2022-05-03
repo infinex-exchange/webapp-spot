@@ -524,6 +524,18 @@ $(document).on('authChecked pairSelected', function() {
     }
 });
 
+$(document).on('wsAuth', function() {   
+    window.wsClient.sub(
+        ['myOrders', 'myTrades'],
+        function(data) {
+            $(document).trigger(data.event, [data]);
+        },
+        function(error) {
+            msgBoxRedirect(error);
+        }
+    );
+});
+
 $(document).on('orderCanceled orderFilled orderKilled', function(e, data) {
     // Remove from open orders
     if(typeof(data.obid) !== 'undefined')

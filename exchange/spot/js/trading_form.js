@@ -303,6 +303,6 @@ $(document).on('pairSelected', function() {
     });
 });
 
-$(document).on('orderNew orderFilled orderPartialFilled orderCanceled', function() {
+$(document).on('orderAccepted orderUpdate', function() {
     updateBalance();
 });
