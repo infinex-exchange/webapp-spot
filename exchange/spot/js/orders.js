@@ -536,40 +536,7 @@ $(document).on('wsAuth', function() {
     );
 });
 
-$(document).on('orderCanceled orderFilled orderKilled', function(e, data) {
-    // Remove from open orders
-    if(typeof(data.obid) !== 'undefined')
-        $('.orders-open-item[data-obid="' + data.obid + '"]').remove();
-});
-
-$(document).on('orderCanceled', function(e, data) {
-    // Change status in orders history
-    $('.orders-history-item[data-obid="' + data.obid + '"]').find('.status').html('CANCELED');
-});
-
-$(document).on('orderFilled', function(e, data) {
-    // Change status in orders history
-    $('.orders-history-item[data-obid="' + data.obid + '"]').find('.status').html('FILLED');
-});
-
-$(document).on('orderKilled', function(e, data) {
-    // Change status in orders history
-    var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
-    ohItem.find('.status').html('KILLED');
-    ohItem.find('.filled').html('-');
-});
-
-$(document).on('orderStopTriggered', function(e, data) {
-    // Change filled - to 0 in open orders
-    var ooItem = $('.orders-open-item[data-obid="' + data.obid + '"]');
-    ooItem.find('.filled').html('0');
-    ooItem.find('.filled-perc').html('(0%)');
-    
-    // Change filled - to 0 in orders history
-    $('.orders-history-item[data-obid="' + data.obid + '"]').find('.filled').html('CANCELED');
-});
-
-$(document).on('orderNew', function(e, data) {
+$(document).on('orderAccepted', function(e, data) {
     // Add to open orders
     if(data.time_in_force == 'GTC')
         window.openOrdersAS.prepend(renderOpenOrder(data));
@@ -578,24 +545,30 @@ $(document).on('orderNew', function(e, data) {
     window.ordersHistoryAS.prepend(renderHistoryOrder(data));
 });
 
-$(document).on('orderPartialFilled', function(e, data) {
-    // Update filled and filled% in open orders
-    var ooItem = $('.orders-open-item[data-obid="' + data.obid + '"]');
-    var filledPerc = '(' + Math.round(data.filled / ooItem.data('amount') * 100) + '%)';
-    ooItem.find('.filled').html(data.filled);
-    ooItem.find('.filled-perc').html(filledPerc);
-});
-
-$(document).on('orderPartialFilled orderFilled', function(e, data) {
-    // Update filled in orders history
-    var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
-    ohItem.find('.filled').html(data.filled);
+$(document).on('orderUpdate', function(e, data) {
     
-    // Add trade to trades history
+    // Status changed
+    if(typeof(data.status) !== 'undefined') {
+        // Remove from open orders
+        $('.orders-open-item[data-obid="' + data.obid + '"]').remove();
+        
+        // Change status in orders history
+        $('.orders-history-item[data-obid="' + data.obid + '"]').find('.status').html(data.status);
+    }
     
-    // Add trade to trades-in-order
+    // Filled changed
+    if(typeof(data.filled) !== 'undefined') {
+         // Update filled and filled% in open orders
+        var ooItem = $('.orders-open-item[data-obid="' + data.obid + '"]');
+        if(ooItem.length) {
+            var filledPerc = '(' + Math.round(data.filled / ooItem.data('amount') * 100) + '%)';
+            ooItem.find('.filled').html(data.filled);
+            ooItem.find('.filled-perc').html(filledPerc);
+        }
+        
+        // Update filled in orders history
+        var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
+        ohItem.find('.filled').html(data.filled);
+    }
     
-    // Recalculate average in orders history
-    
-    // Recalculate total in orders-history
 });
