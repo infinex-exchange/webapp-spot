@@ -22,7 +22,7 @@
 
 html body {
     font-size: var(--font-normal);
-    font-family: Arial, sans-serif !important;
+    font-family: 'Poppins', sans-serif !important;
     color: var(--color-primary);
     background-color: var(--color-bg);
     touch-action: pan-x pan-y; /* Fix for user-scallable=no on iOS */
