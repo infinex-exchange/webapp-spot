@@ -22,7 +22,7 @@ $(document).on('orderRejected', function(e, data) {
         default:
             break;
     }
-}
+});
 
 $(document).on('orderUpdate', function(e, data) {
     if(typeof(data.status) !== 'undefined') switch(data.status) {
@@ -68,7 +68,7 @@ $(document).on('orderUpdate', function(e, data) {
             icon: 'warning',
             position: 'top-right'
         });
-}
+});
 
 $(document).on('orderCancelFailed', function(e, data) {
     $.toast({
