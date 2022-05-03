@@ -546,7 +546,7 @@ $(document).on('wsAuth', function() {
 
 $(document).on('orderAccepted', function(e, data) {
     // Add to open orders
-    if(data.time_in_force == 'GTC')
+    if(data.time_in_force == 'GTC' || data.type == 'STOP_LIMIT')
         window.openOrdersAS.prepend(renderOpenOrder(data));
     
     // Add to orders history
