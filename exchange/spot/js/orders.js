@@ -134,8 +134,6 @@ function renderHistoryOrder(data) {
     var filled = '-';
     if(typeof(data.filled) !== 'undefined')
         filled = data.filled;
-    else if(data.type == 'LIMIT' && status != 'KILLED')
-        filled = 0;
     
     var priceStr = 'MARKET';
     if(data.type != 'MARKET')
@@ -151,6 +149,9 @@ function renderHistoryOrder(data) {
     var averageSum = '0';
     var average = '-';
     var total = '-';
+    
+    if(typeof(data.filled) !== 'undefined')
+        total = '0';
     
     
     if(typeof(data.trades) !== 'undefined' && data.trades.length > 0) {        
