@@ -130,7 +130,7 @@ function recalcHistoryOrder(obid) {
         var amount = new BigNumber( $(this).data('amount') );
         var price = new BigNumber( $(this).data('price') );
         var total = new BigNumber( $(this).data('total') );
-        averageWeight = averageWeight.plus(weight);
+        averageWeight = averageWeight.plus(amount);
         averageSum = averageSum.plus(amount.times(price));
         totalSum = totalSum.plus(total);
     });
