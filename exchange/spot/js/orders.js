@@ -528,7 +528,7 @@ $(document).on('wsAuth', function() {
     window.wsClient.sub(
         ['myOrders', 'myTrades'],
         function(data) {
-            $(document).trigger(data.event, [data]);
+            $(document).trigger(typeof(data.event) === 'undefined' ? 'trade' : data.event, [data]);
         },
         function(error) {
             msgBoxRedirect(error);
