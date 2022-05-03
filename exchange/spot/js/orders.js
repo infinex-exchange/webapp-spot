@@ -115,7 +115,7 @@ function toggleHistoryOrderExpand(row) {
 }
 
 function recalcHistoryOrder(obid) {
-    var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
+    var ohItem = $('.orders-history-item[data-obid="' + obid + '"]');
     if(!ohItem.length) return;
     var quotePrec = ohItem.data('quote-prec');
     
