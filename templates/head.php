@@ -19,9 +19,6 @@
 <!-- Pretty checkbox -->
 <?php include(__DIR__.'/../imports/pretty_checkbox.html'); ?>
 
-<!-- Google fonts -->
-<?php include(__DIR__.'/../imports/google_fonts.html'); ?>
-
 <!-- App styles -->
 <link href="/css/styles.css?<?php echo filemtime(__DIR__.'/../css/styles.css'); ?>" rel="stylesheet">
 <link href="/css/dark.css?<?php echo filemtime(__DIR__.'/../css/dark.css'); ?>" rel="stylesheet" id="css-dark">
