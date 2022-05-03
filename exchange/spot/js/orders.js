@@ -573,3 +573,7 @@ $(document).on('orderUpdate', function(e, data) {
     }
     
 });
+
+$(document).on('trade', function(e, data) {
+    window.tradesHistoryAS.prepend(renderHistoryTrade(data, false));
+});
