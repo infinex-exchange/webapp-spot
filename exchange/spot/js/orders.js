@@ -114,6 +114,34 @@ function toggleHistoryOrderExpand(row) {
     }
 }
 
+function recalcHistoryOrder(obid) {
+    var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
+    if(!ohItem.length) return;
+    var quotePrec = ohItem.data('quote-prec');
+    
+    var tradesInOrder = ohItem.find('.trades-in-order-item');
+    if(!tradesInOrder.length) return;
+    
+    var averageWeight = new BigNumber(0);
+    var averageSum = new BigNumber(0);
+    var totalSum = new BigNumber(0);
+    
+    tradesInOrder.each(function() {
+        var amount = new BigNumber( $(this).data('amount') );
+        var price = new BigNumber( $(this).data('price') );
+        var total = new BigNumber( $(this).data('total') );
+        averageWeight = averageWeight.plus(weight);
+        averageSum = averageSum.plus(amount.times(price));
+        totalSum = totalSum.plus(total);
+    });
+            
+    var averageStr = averageSum.div(averageWeight).dp(quotePrec).toString();
+    var totalStr = totalSum.dp(quotePrec).toString();
+    
+    ohItem.find('.average').html(averageStr);
+    ohItem.find('.total').html(totalStr);
+}
+
 function renderHistoryOrder(data) {
     var time = new Date(data.time * 1000).toLocaleString();
     
@@ -145,42 +173,20 @@ function renderHistoryOrder(data) {
     var displayButtons = 'd-none';
     var trades = '';
     
-    var averageWeight = '0';
-    var averageSum = '0';
-    var average = '-';
     var total = '-';
-    
     if(typeof(data.filled) !== 'undefined')
         total = '0';
-    
-    
+
     if(typeof(data.trades) !== 'undefined' && data.trades.length > 0) {        
         displayButtons = '';
         
-        averageWeight = new BigNumber(0);
-        averageSum = new BigNumber(0);
-        
-        total = new BigNumber(0);
-        
         $.each(data.trades, function(k, v) {
-            var weight = new BigNumber(v.amount);
-            averageWeight = averageWeight.plus(weight);
-            averageSum = averageSum.plus(weight.times(v.price));
-            
-            total = total.plus(v.total);
-             
             trades += renderHistoryTrade(v, true);
         });
-        
-        average = averageSum.div(averageWeight).dp(data.quote_prec).toString();
-        averageWeight = averageWeight.toString();
-        averageSum = averageSum.toString();
-        
-        total = total.dp(data.quote_prec).toString();
     }
     
     return `
-        <div class="row hoverable orders-history-item px-1 py-2 py-lg-1" data-obid="${data.obid}" onClick="toggleHistoryOrderExpand(this)">
+        <div class="row hoverable orders-history-item px-1 py-2 py-lg-1" data-obid="${data.obid}" data-quote-prec="${data.quote_prec}" onClick="toggleHistoryOrderExpand(this)">
             <div class="d-none d-lg-block order-lg-1 pe-0 text-center secondary" style="width: 2%">
                 <span class="buttons ${displayButtons}">
                     <i class="expand-button fa-solid fa-square-plus"></i>
@@ -215,7 +221,7 @@ function renderHistoryOrder(data) {
             <div class="sm-w-50 d-lg-none order-7 secondary">
                 Average:
             </div>
-            <div class="sm-w-50 order-8 order-lg-7 text-end average" data-sum="${averageSum}" data-weight="${averageWeight}" style="width: 9%">
+            <div class="sm-w-50 order-8 order-lg-7 text-end average" style="width: 9%">
                 ${average}
             </div>
             <div class="sm-w-50 d-lg-none order-9 secondary">
@@ -233,7 +239,7 @@ function renderHistoryOrder(data) {
             <div class="sm-w-50 d-lg-none order-13 secondary">
                 Total:
             </div>
-            <div class="sm-w-50 order-14 order-lg-10 text-end" style="width: 10%">
+            <div class="sm-w-50 order-14 order-lg-10 text-end total" style="width: 10%">
                 ${total}
             </div>
             <div class="sm-w-50 d-lg-none order-15 secondary">
@@ -315,7 +321,7 @@ function renderHistoryTrade(data, inOrder) {
     }
     
     var html = `
-        <div class="row hoverable px-1 py-2 py-lg-1 ${inOrdClass}">
+        <div class="row hoverable px-1 py-2 py-lg-1 ${inOrdClass}" data-price="${data.price}" data-amount="${data.amount}" data-total="${data.total}">
             <div class="sm-w-50 time order-2 order-lg-1" style="width: ${timeWPerc}%">
                 ${time}
             </div>
@@ -438,6 +444,7 @@ $(document).on('authChecked pairSelected', function() {
         if(data.success) {
             $.each(data.orders, function(k, v) {
                 thisAS.append(renderHistoryOrder(v));
+                recalcHistoryOrder(v.obid);
             });
             
             thisAS.done();
@@ -582,6 +589,7 @@ $(document).on('trade', function(e, data) {
     var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
     if(ohItem.length) {
         ohItem.find('.trades-in-order-data').prepend(renderHistoryTrade(data, true));
+        recalcHistoryOrder(v.obid);
         ohItem.find('.buttons').removeClass('d-none');
     }
 });
