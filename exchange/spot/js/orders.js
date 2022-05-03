@@ -222,7 +222,7 @@ function renderHistoryOrder(data) {
                 Average:
             </div>
             <div class="sm-w-50 order-8 order-lg-7 text-end average" style="width: 9%">
-                ${average}
+                -
             </div>
             <div class="sm-w-50 d-lg-none order-9 secondary">
                 Amount:
@@ -577,6 +577,7 @@ $(document).on('orderUpdate', function(e, data) {
         // Update filled in orders history
         var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
         ohItem.find('.filled').html(data.filled);
+        if(data.filled == 0) ohItem.find('.total').html('0');
     }
     
 });
