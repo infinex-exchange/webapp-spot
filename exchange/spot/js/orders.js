@@ -590,7 +590,7 @@ $(document).on('trade', function(e, data) {
     var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
     if(ohItem.length) {
         ohItem.find('.trades-in-order-data').prepend(renderHistoryTrade(data, true));
-        recalcHistoryOrder(v.obid);
+        recalcHistoryOrder(data.obid);
         ohItem.find('.buttons').removeClass('d-none');
     }
 });
