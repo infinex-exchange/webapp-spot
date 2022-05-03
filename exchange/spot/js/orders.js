@@ -575,5 +575,13 @@ $(document).on('orderUpdate', function(e, data) {
 });
 
 $(document).on('trade', function(e, data) {
+    // Add trade to trades history
     window.tradesHistoryAS.prepend(renderHistoryTrade(data, false));
+    
+    // Add trade to orders history
+    var ohItem = $('.orders-history-item[data-obid="' + data.obid + '"]');
+    if(ohItem.length) {
+        ohItem.find('.trades-in-order-data').prepend(renderHistoryTrade(data, true));
+        ohItem.find('.buttons').removeClass('d-none');
+    }
 });
