@@ -88,8 +88,11 @@ class StreamsClient {
         
         clearTimeout(t.pingTimeout);
         t.pingTimeout = setTimeout(function() {
-            t.closed();
-        }, 1000);
+            if(t.ws.readyState === t.ws.OPEN)
+                t.ws.close();
+            else
+                t.closed();
+        }, 2000);
         
         t.pingId = t.randomId();
         
