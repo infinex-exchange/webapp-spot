@@ -165,7 +165,8 @@ $(document).on('pairSelected', function() {
         // Save data-val when everythink ok
         else $(this).data('val', newVal);
     
-        $(this).trigger('prevalidated');
+        $(this).trigger('pre');
+        $(this).trigger('post');
     });
     
     // Move data-val to real visible value
@@ -186,7 +187,7 @@ $(document).on('pairSelected', function() {
     });
     
     // Price changed not important for user: amount or total
-    $('.form-price').on('prevalidated', function() {
+    $('.form-price').on('pre', function() {
         var side = $(this).data('side');
         // If market order - empty opposite field
         var oppositeStr = '';
@@ -208,13 +209,17 @@ $(document).on('pairSelected', function() {
         }
         
         if(window.keepOnTypeChange[side] != 'total')
-            $('.form-total[data-side="' + side + '"]').data('val', oppositeStr).val(oppositeStr);
+            $('.form-total[data-side="' + side + '"]').data('val', oppositeStr)
+                                                      .val(oppositeStr)
+                                                      .trigger('post');
         else
-            $('.form-amount[data-side="' + side + '"]').data('val', oppositeStr).val(oppositeStr);
+            $('.form-amount[data-side="' + side + '"]').data('val', oppositeStr)
+                                                       .val(oppositeStr)
+                                                       .trigger('post');
     });
     
     // Amount changes total
-    $('.form-amount').on('prevalidated', function() {
+    $('.form-amount').on('pre', function() {
         var side = $(this).data('side');
         // If market order - empty opposite field
         var totalStr = '';
@@ -228,11 +233,13 @@ $(document).on('pairSelected', function() {
             totalStr = total.toFixed(window.currentQuotePrecision);
         }
         
-        $('.form-total[data-side="' + side + '"]').data('val', totalStr).val(totalStr);
+        $('.form-total[data-side="' + side + '"]').data('val', totalStr)
+                                                  .val(totalStr)
+                                                  .trigger('post');
     });
     
     // Total changes amount
-    $('.form-total').on('prevalidated', function() {
+    $('.form-total').on('pre', function() {
         var side = $(this).data('side');
         // If market order - empty opposite field
         var amountStr = '';
@@ -245,7 +252,9 @@ $(document).on('pairSelected', function() {
             amountStr = amount.toFixed(window.currentBasePrecision);
         }
         
-        $('.form-amount[data-side="' + side + '"]').data('val', amountStr).val(amountStr);
+        $('.form-amount[data-side="' + side + '"]').data('val', amountStr)
+                                                   .val(amountStr)
+                                                   .trigger('post');
     });
             
     // Slider
@@ -256,7 +265,7 @@ $(document).on('pairSelected', function() {
         
         $('#form-buy-total').data('val', buyTotal.toFixed(window.currentQuotePrecision))
                             .val(buyTotal.toFixed(window.currentQuotePrecision))
-                            .trigger('prevalidated');
+                            .trigger('pre');
     });
     
     $('#form-sell-range').on('input', function() {
@@ -266,7 +275,7 @@ $(document).on('pairSelected', function() {
         
         $('#form-sell-amount').data('val', sellAmount.toFixed(window.currentBasePrecision))
                               .val(sellAmount.toFixed(window.currentBasePrecision))
-                              .trigger('prevalidated');
+                              .trigger('pre');
     });
     
     // What is important for user - amount or total
@@ -274,12 +283,43 @@ $(document).on('pairSelected', function() {
     window.keepOnTypeChange['BUY'] = 'total';
     window.keepOnTypeChange['SELL'] = 'amount';
     
-    $('.form-amount').on('prevalidated', function() {
+    $('.form-amount').on('pre', function() {
         window.keepOnTypeChange[$(this).data('side')] = 'amount';
     });
     
-    $('.form-total').on('prevalidated', function() {
+    $('.form-total').on('pre', function() {
         window.keepOnTypeChange[$(this).data('side')] = 'total';
+    });
+    
+    // Drop to available balance
+    $('#form-buy-total').on('post', function() {
+        var decimalTotal = new BigNumber($(this).data('val'));
+        if(decimalTotal.gt(window.currentQuoteBalance)) {
+            $('#form-quote-balance').addClass('blink-red');
+            setTimeout(function() {
+                $('#form-quote-balance').removeClass('blink-red');
+                
+                var max = window.currentQuoteBalance.toFixed(window.currentQuotePrecision);
+                $('#form-buy-total').data('val', max)
+                                    .val(max)
+                                    .trigger('pre');
+            }, 1000);
+        }
+    });
+    
+    $('#form-sell-amount').on('post', function() {
+        var decimalAmount = new BigNumber($(this).data('val'));
+        if(decimalAmount.gt(window.currentBaseBalance)) {
+            $('#form-base-balance').addClass('blink-red');
+            setTimeout(function() {
+                $('#form-base-balance').removeClass('blink-red');
+                
+                var max = window.currentBaseBalance.toFixed(window.currentBasePrecision);
+                $('#form-sell-amount').data('val', max)
+                                      .val(max)
+                                      .trigger('pre');
+            }, 1000);
+        }
     });
     
     // Submit order
