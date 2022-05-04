@@ -1,3 +1,7 @@
 [submodule "asset-icons"]
 	path = asset-icons
 	url = git@github.com:vayamos-exchange/asset-icons.git
+
+[submodule "charting_library"]
+	path = charting_library
+	url = git@github.com:vayamos-exchange/charting_library.git
