@@ -278,6 +278,19 @@ $(document).on('pairSelected', function() {
                               .trigger('pre');
     });
     
+    // Input changes slider
+    $('#form-buy-total').on('post', function() {
+        var total = new BigNumber($(this).data('val'));
+        var perc = total.dividedBy(window.currentQuoteBalance).multipliedBy(100).toFixed(0);
+        $('#form-buy-range').val(perc).trigger('_input');
+    });
+    
+    $('#form-sell-amount').on('post', function() {
+        var amount = new BigNumber($(this).data('val'));
+        var perc = amount.dividedBy(window.currentBaseBalance).multipliedBy(100).toFixed(0);
+        $('#form-sell-range').val(perc).trigger('_input');
+    });
+    
     // What is important for user - amount or total
     window.keepOnTypeChange = new Object();
     window.keepOnTypeChange['BUY'] = 'total';
