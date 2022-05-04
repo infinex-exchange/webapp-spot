@@ -144,22 +144,33 @@ $(document).on('pairSelected', function() {
         if($(this).hasClass('form-amount'))
             prec = window.currentBasePrecision;
         
-        var regex = new RegExp("^[0-9]+(\\.[0-9]{0," + prec + "})?$");
+        var regex = new RegExp("^[0-9]*(\\.[0-9]{0," + prec + "})?$");
+        var newVal = $(this).val();
         
-        if (this.value != '' && !regex.test(this.value)) {
-            $(this).val($(this).data('val'));
-        } else {
-            $(this).data('val', $(this).val());
+        // Revert bad format (real visible value)
+        if (!regex.test(newVal)) {
+            $(this).val( $(this).data('val') );
         }
+        
+        // Drop . on last position (data-val only)
+        else if(newVal.slice(-1) == '.') {
+            $(this).data('val', newVal.substring(0, newVal.length - 1));
+        }
+        
+        // Change . to 0. on first position (data-val only)
+        else if(newVal.startsWith('.')) {
+            $(this).data('val', '0' + newVal);
+        }
+        
+        // Save data-val when everythink ok
+        else $(this).data('val', newVal);
     
         $(this).trigger('prevalidated');
     });
     
-    // "10." ->  "10"
+    // Move data-val to real visible value
     $('.form-stop, .form-price, .form-amount, .form-total').on('focusout', function() {
-        if(this.value.slice(-1) == '.') {
-            this.value = this.value.substring(0, this.value.length - 1);
-        }
+        $(this).val( $(this).data('val') );
     });
     
     // Auto market price when price ''
