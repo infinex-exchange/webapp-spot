@@ -26,6 +26,7 @@ $(document).on('themeInitialized pairSelected', function() {
         fullscreen: false,
         autosize: true,
         theme: localStorage.getItem('colorMode'),
+        custom_css_url: '../../css/tradingview.css',
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     });
     

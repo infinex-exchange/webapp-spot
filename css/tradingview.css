@@ -1,0 +1,19 @@
+html.theme-light .chart-page {
+    background: rgb(220, 230, 240);
+}
+
+html.theme-dark .chart-page {
+    background: rgb(40, 40, 40);
+}
+
+html.theme-light .group-wWM3zP_M-,
+html.theme-light .group-2JyOhh7Z-,
+html.theme-light .chart-controls-bar {
+    background-color: rgb(248, 249, 250);
+}
+
+html.theme-dark .group-wWM3zP_M-,
+html.theme-dark .group-2JyOhh7Z-,
+html.theme-dark .chart-controls-bar {
+    background-color: rgb(20, 25, 30);
+}
