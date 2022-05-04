@@ -278,28 +278,28 @@
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Stop</span>
-                                    <input id="form-buy-stop" type="text" class="form-control form-stop" data-side="BUY">
+                                    <input id="form-buy-stop" type="text" class="form-control form-stop" data-side="BUY" data-val="">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Price</span>
-                                    <input id="form-buy-price" type="text" class="form-control form-price" data-side="BUY">
+                                    <input id="form-buy-price" type="text" class="form-control form-price" data-side="BUY" data-val="">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Amount</span>
-                                    <input id="form-buy-amount" type="text" class="form-control form-amount" data-side="BUY">
+                                    <input id="form-buy-amount" type="text" class="form-control form-amount" data-side="BUY" data-val="">
                                     <span class="suffix form-base-suffix"></span>
                                 </div>
                             </div>
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Total</span>
-                                    <input id="form-buy-total" type="text" class="form-control form-total" data-side="BUY">
+                                    <input id="form-buy-total" type="text" class="form-control form-total" data-side="BUY" data-val="">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
@@ -324,28 +324,28 @@
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Stop</span>
-                                    <input id="form-sell-stop" type="text" class="form-control form-stop" data-side="SELL">
+                                    <input id="form-sell-stop" type="text" class="form-control form-stop" data-side="SELL" data-val="">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Price</span>
-                                    <input id="form-sell-price" type="text" class="form-control form-price" data-side="SELL">
+                                    <input id="form-sell-price" type="text" class="form-control form-price" data-side="SELL" data-val="">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Amount</span>
-                                    <input id="form-sell-amount" type="text" class="form-control form-amount" data-side="SELL">
+                                    <input id="form-sell-amount" type="text" class="form-control form-amount" data-side="SELL" data-val="">
                                     <span class="suffix form-base-suffix"></span>
                                 </div>
                             </div>
                             <div class="col-12 p-0 pb-2">
                                 <div class="input-ps-group">
                                     <span>Total</span>
-                                    <input id="form-sell-total" type="text" class="form-control form-total" data-side="SELL">
+                                    <input id="form-sell-total" type="text" class="form-control form-total" data-side="SELL" data-val="">
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>

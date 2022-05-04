@@ -175,12 +175,14 @@ $(document).on('pairSelected', function() {
     
     // Auto market price when price ''
     $('.form-amount, .form-total, .form-range').onFirst('input', function() {
+        if(window.orderType == 'MARKET')
+            return;
+        
         var priceField = $('.form-price[data-side="' + $(this).data('side') + '"]');
         
-        if(priceField.val() == '') {
+        if(priceField.data('val') == '')
             priceField.data('val', window.currentMarketPrice.toFixed(window.currentQuotePrecision))
                       .val(window.currentMarketPrice.toFixed(window.currentQuotePrecision));
-        }
     });
     
     // Price and amount changes total
@@ -190,9 +192,9 @@ $(document).on('pairSelected', function() {
         var totalStr = '';
         
         // If limit order calculate
-        if($(this).val() != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
-            var price = new BigNumber($('.form-price[data-side="' + side + '"]').val());
-            var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').val());
+        if($(this).data('val') != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
+            var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
+            var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').data('val'));
         
             var total = amount.multipliedBy(price);
             totalStr = total.toFixed(window.currentQuotePrecision);
@@ -207,9 +209,9 @@ $(document).on('pairSelected', function() {
         // If market order - empty opposite field
         var amountStr = '';
         
-        if($(this).val() != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {        
-            var price = new BigNumber($('.form-price[data-side="' + side + '"]').val());
-            var total = new BigNumber($('.form-total[data-side="' + side + '"]').val());
+        if($(this).data('val') != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {        
+            var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
+            var total = new BigNumber($('.form-total[data-side="' + side + '"]').data('val'));
         
             var amount = total.dividedBy(price);
             amountStr = amount.toFixed(window.currentBasePrecision);
