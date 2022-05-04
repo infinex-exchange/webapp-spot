@@ -29,12 +29,10 @@ function renderOpenOrder(data) {
     
     var filled = '-';
     var filledPerc = '';
-    if(typeof(data.filled) !== 'undefined')
+    if(typeof(data.filled) !== 'undefined') {
         filled = data.filled;
-    else if(data.type == 'LIMIT')
-        filled = 0;
-    if(filled !== '-')
         filledPerc = '(' + Math.round(data.filled / data.amount * 100) + '%)';
+    }
     
     var stopStr = '-';
     if(typeof(data.stop) !== 'undefined') {
@@ -149,7 +147,7 @@ function renderHistoryOrder(data) {
     if(typeof(data.status) !== 'undefined')
         status = data.status;
     
-    var amountStr = '';
+    var amountStr = null;
     if(typeof(data.amount) !== 'undefined') amountStr = data.amount + ' ' + data.base;
     else amountStr = data.total + ' ' + data.quote;
     
