@@ -37,37 +37,50 @@ class TvDatafeed {
         if(resolution == 'D')
             resolution = '1D';
         
-        $.ajax({
-            url: config.apiUrl + '/spot/candlestick',
-            type: 'POST',
-            data: JSON.stringify({
-                pair: symbolInfo.base_name[0],
-                res: resolution,
-                from: from,
-                to: to
-            }),
-            contentType: "application/json",
-            dataType: "json",
-        })
-        .done(function (data) {
-            if(data.success) {
-                for(var i = 0; i < data.candlestick.length; i++) {
-                    data.candlestick[i].time *= 1000;
-                    data.candlestick[i].open = parseFloat(data.candlestick[i].open);
-                    data.candlestick[i].high = parseFloat(data.candlestick[i].high);
-                    data.candlestick[i].low = parseFloat(data.candlestick[i].low);
-                    data.candlestick[i].close = parseFloat(data.candlestick[i].close);
-                    data.candlestick[i].volume = parseFloat(data.candlestick[i].volume);
+        var tmpFrom = from;
+        var buffer = new Array();
+        
+        function ajaxGetBars() {
+            $.ajax({
+                url: config.apiUrl + '/spot/candlestick',
+                type: 'POST',
+                data: JSON.stringify({
+                    pair: symbolInfo.base_name[0],
+                    res: resolution,
+                    from: tmpFrom,
+                    to: to
+                }),
+                contentType: "application/json",
+                dataType: "json",
+            })
+            .done(function (data) {
+                if(data.success) {
+                    for(var i = 0; i < data.candlestick.length; i++)
+                        buffer.push({
+                            time: parseInt(data.candlestick[i].time * 1000),
+                            open: parseFloat(data.candlestick[i].open),
+                            high: parseFloat(data.candlestick[i].high),
+                            low: parseFloat(data.candlestick[i].low),
+                            close: parseFloat(data.candlestick[i].close),
+                            volume: parseFloat(data.candlestick[i].volume)
+                        });
+                        
+                    if(i == 500) {
+                        tmpFrom = parseInt(data.candlestick[499].time);
+                        ajaxGetBars();
+                    }
+                    else
+                        onHistoryCallback(buffer, { noData: (buffer.length == 0) });
+                } else {
+                    onErrorCallback(data.error);
                 }
-                    
-                onHistoryCallback(data.candlestick, { noData: (i == 0) });
-            } else {
-                onErrorCallback(data.error);
-            }
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            onErrorCallback(textStatus);  
-        });
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                onErrorCallback(textStatus);  
+            });
+        }
+        
+        ajaxGetBars();
     };
   
     static subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscribeUID, onResetCacheNeededCallback) {
