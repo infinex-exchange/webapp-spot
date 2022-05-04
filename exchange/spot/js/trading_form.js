@@ -185,8 +185,36 @@ $(document).on('pairSelected', function() {
                       .val(window.currentMarketPrice.toFixed(window.currentQuotePrecision));
     });
     
-    // Price and amount changes total
-    $('.form-price, .form-amount').on('prevalidated', function() {
+    // Price changed not important for user: amount or total
+    $('.form-price').on('prevalidated', function() {
+        var side = $(this).data('side');
+        // If market order - empty opposite field
+        var oppositeStr = '';
+        
+        // If limit order calculate
+        if($(this).data('val') != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
+            var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
+            
+            if(window.keepOnTypeChange[side] != 'total' && $('.form-amount[data-side="' + side + '"]').data('val') != '') {
+                var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').data('val'));
+                var total = amount.multipliedBy(price);
+                oppositeStr = total.toFixed(window.currentQuotePrecision);
+            }
+            else if($('.form-total[data-side="' + side + '"]').data('val') != '') {
+                var total = new BigNumber($('.form-total[data-side="' + side + '"]').data('val'));
+                var amount = total.dividedBy(price);
+                oppositeStr = amount.toFixed(window.currentBasePrecision);
+            }
+        }
+        
+        if(window.keepOnTypeChange[side] != 'total')
+            $('.form-total[data-side="' + side + '"]').data('val', oppositeStr).val(oppositeStr);
+        else
+            $('.form-amount[data-side="' + side + '"]').data('val', oppositeStr).val(oppositeStr);
+    });
+    
+    // Amount changes total
+    $('.form-amount').on('prevalidated', function() {
         var side = $(this).data('side');
         // If market order - empty opposite field
         var totalStr = '';
