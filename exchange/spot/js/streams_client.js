@@ -13,11 +13,11 @@ class StreamsClient {
         t.ws = new WebSocket(t.url);
                
         t.ws.onopen = function(e) {
+            t.good = true;
+            
             t.pingInterval = setInterval(function() {
                 t.ping();
             }, 5000);
-            
-            t.good = true;
             
             if(typeof(t.apiKey) !== 'undefined')
                 t.auth(t.apiKey, t.authRespCb, t.authErrorCb);
@@ -43,10 +43,6 @@ class StreamsClient {
         
         t.ws.onclose = function(e) {
             t.closed();
-            
-            setTimeout(function() {
-                t.reconnect();
-            }, 1000);
         }
         
         t.ws.onmessage = function(e) {
@@ -56,6 +52,8 @@ class StreamsClient {
     }
     
     closed() {
+        var t = this;
+        
         this.good = false;
             
         clearTimeout(this.pingTimeout);
@@ -63,6 +61,10 @@ class StreamsClient {
             
         if(this.onClose != null)
             this.onClose();
+        
+        setTimeout(function() {
+            t.reconnect();
+        }, 1000);
     }
     
     reconnect() {
