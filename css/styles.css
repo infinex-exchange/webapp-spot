@@ -36,8 +36,16 @@ html body {
     }
 }
 
-.h-rest {
-    min-height: calc(100vh - 70px);
+@media (max-width: 991px) {
+    .h-rest {
+        min-height: calc(100vh - 70px);
+    }
+}
+
+@media (min-width: 992px) {
+    .h-rest {
+        min-height: calc(100vh - 70px - 53px);
+    }
 }
 
 /* Font sizes */
