@@ -134,7 +134,7 @@ $(document).on('authChecked', function() {
                         var csOnClick = 'killSession(' + sid + ')';
                         var csButton = 'Kill';
                         if(v.current_session) {
-                            csInfo = '<br>(<strong>Current</strong>)';
+                            csInfo = '<br>(<strong class="small">This</strong>)';
                             csOnClick = 'logOut()';
                             csButton = 'Logout';
                         }
@@ -143,11 +143,11 @@ $(document).on('authChecked', function() {
                         
                         $('#sessions-data').append(`
                             <div class="sessions-item row p-2 hoverable" data-sid="${sid}">
-                                <div class="col-2">
+                                <div style="width: 17%">
                                     #${sid}
                                     ${csInfo}
                                 </div>
-                                <div class="col-3">
+                                <div style="width: 20%">
                                     <i class="${deviceTypeIconDict[v.device]}"></i>
                                     <span class="d-none d-lg-inline">
                                         ${v.device}<br>
@@ -161,11 +161,11 @@ $(document).on('authChecked', function() {
                                         ${v.os}
                                     </span>
                                 </div>
-                                <div class="col-4">
+                                <div style="width: 38%">
                                     ${time}
                                 </div>
-                                <div class="col-3">
-                                    <button type="button" class="btn btn-primary btn-sm" onClick="${csOnClick}">${csButton}</a>
+                                <div style="width: 25%">
+                                    <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="${csOnClick}">${csButton}</a>
                                 </div>
                             </div>
                         `);

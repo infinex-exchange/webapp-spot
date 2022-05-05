@@ -24,20 +24,20 @@
         <div class="col-12 col-lg-8 p-0 ui-card ui-column">
             
             <div class="row p-2">
-                <h3>Sessions list</h3>
+                <h3>Active sessions</h3>
             </div>
             
             <div class="row p-2 secondary">
-                <div class="col-2">
+                <div style="width: 17%">
                 <h5>Session ID</h5>
                 </div>
-                <div class="col-3">
+                <div style="width: 20%">
                 <h5>Info</h5>
                 </div>
-                <div class="col-4">
+                <div style="width: 38%">
                 <h5>Last activity</h5>
                 </div>
-                <div class="col-3">
+                <div style="width: 25%">
                 <h5>Options</h5>
                 </div>
             </div>
@@ -50,24 +50,32 @@
             </div>
             
             <div class="row p-2">
+                <div class="col-12 col-md-6">
                 <form id="chp-form" class="d-grid gap-3">
                         <div class="form-group">
                             <label for="chp-old">Old password:</label>
                             <input type="password" class="form-control" id="chp-old">
-                            <small id="help-chp-old" class="form-text" style="display: none">Password a-a A-A 0-0 x8</small>
+                            <small id="help-chp-old" class="form-text" style="display: none">
+                                The password must be at least 8 characters long and contain
+                                one lowercase letter, one uppercase letter, and one digit
+                            </small>
                         </div>
                         <div class="form-group">
                             <label for="chp-new">New password:</label>
                             <input type="password" class="form-control" id="chp-new">
-                            <small id="help-chp-new" class="form-text" style="display: none">Password a-a A-A 0-0 x8</small>
+                            <small id="help-chp-new" class="form-text" style="display: none">
+                                The password must be at least 8 characters long and contain
+                                one lowercase letter, one uppercase letter, and one digit
+                            </small>
                         </div>
                         <div class="form-group">
                             <label for="chp-new2">Confirm password:</label>
                             <input type="password" class="form-control" id="chp-new2">
-                            <small id="help-chp-new2" class="form-text" style="display: none">Passwords not match</small>
+                            <small id="help-chp-new2" class="form-text" style="display: none">Passwords does not match</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Change password</button>
                     </form>
+                </div>
             </div>
         
         <!-- / Main column -->
