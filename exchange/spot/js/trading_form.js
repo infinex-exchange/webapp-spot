@@ -189,13 +189,13 @@ $(document).on('pairSelected', function() {
     // Price changed not important for user: amount or total
     $('.form-price').on('pre', function() {
         var side = $(this).data('side');
+        var price = new BigNumber($(this).data('val'));
+        
         // If market order - empty opposite field
         var oppositeStr = '';
         
         // If limit order calculate
-        if($(this).data('val') != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
-            var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
-            
+        if(!price.isZero() && !price.isNaN() && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
             if(window.keepOnTypeChange[side] != 'total' && $('.form-amount[data-side="' + side + '"]').data('val') != '') {
                 var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').data('val'));
                 var total = amount.multipliedBy(price);
@@ -221,14 +221,14 @@ $(document).on('pairSelected', function() {
     // Amount changes total
     $('.form-amount').on('pre', function() {
         var side = $(this).data('side');
+        var amount = new BigNumber($(this).data('val'));
+        
         // If market order - empty opposite field
         var totalStr = '';
         
         // If limit order calculate
-        if($(this).data('val') != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
+        if(!amount.isZero() && !amount.isNaN() && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
             var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
-            var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').data('val'));
-        
             var total = amount.multipliedBy(price);
             totalStr = total.toFixed(window.currentQuotePrecision);
         }
@@ -241,13 +241,13 @@ $(document).on('pairSelected', function() {
     // Total changes amount
     $('.form-total').on('pre', function() {
         var side = $(this).data('side');
+        var total = new BigNumber($(this).data('val'));
+        
         // If market order - empty opposite field
         var amountStr = '';
         
-        if($(this).data('val') != '' && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {        
+        if(!total.isZero() && !total.isNaN() && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {        
             var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
-            var total = new BigNumber($('.form-total[data-side="' + side + '"]').data('val'));
-        
             var amount = total.dividedBy(price);
             amountStr = amount.toFixed(window.currentBasePrecision);
         }
