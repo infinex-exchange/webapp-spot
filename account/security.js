@@ -197,7 +197,7 @@ $(document).on('authChecked', function() {
                                     #${sid}
                                     ${csInfo}
                                 </div>
-                                <div style="width: 20%">
+                                <div style="width: 21%">
                                     <i class="${deviceTypeIconDict[v.device]}"></i>
                                     <span class="d-none d-lg-inline">
                                         ${v.device}<br>
@@ -211,7 +211,7 @@ $(document).on('authChecked', function() {
                                         ${v.os}
                                     </span>
                                 </div>
-                                <div style="width: 38%">
+                                <div style="width: 37%">
                                     ${time}
                                 </div>
                                 <div style="width: 25%">

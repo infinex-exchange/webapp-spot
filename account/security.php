@@ -29,12 +29,13 @@
             
             <div class="row p-2 secondary">
                 <div style="width: 17%">
-                <h5>Session ID</h5>
+                <h5 class="d-none d-lg-block">Session ID</h5>
+                <h5 class="d-lg-none">SID</h5>
                 </div>
-                <div style="width: 20%">
+                <div style="width: 21%">
                 <h5>Info</h5>
                 </div>
-                <div style="width: 38%">
+                <div style="width: 37%">
                 <h5>Last activity</h5>
                 </div>
                 <div style="width: 25%">
