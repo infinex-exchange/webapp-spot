@@ -45,13 +45,13 @@
             <div id="sessions-data">
             </div>
             
-            <div class="row p-2">
-                <h3>Change password</h3>
-            </div>
-            
-            <div class="row p-2">
+            <div class="row">
                 <div class="col-12 col-md-6">
-                <form id="chp-form" class="d-grid gap-3">
+                    <div class="row p-2 pt-4">
+                        <h3>Change password</h3>
+                    </div>  
+                    
+                    <form id="chp-form" class="d-grid gap-3">
                         <div class="form-group">
                             <label for="chp-old">Old password:</label>
                             <input type="password" class="form-control" id="chp-old">
@@ -74,6 +74,31 @@
                             <small id="help-chp-new2" class="form-text" style="display: none">Passwords does not match</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Change password</button>
+                    </form>
+                </div>
+                
+                <div class="col-12 col-md-6">
+                    <div class="row p-2 pt-4">
+                        <h3>Change e-mail</h3>
+                    </div>  
+                    
+                    <form id="che-form" class="d-grid gap-3">
+                        <div class="form-group">
+                            <label for="che-email">New e-mail:</label>
+                            <input type="text" class="form-control" id="che-email">
+                            <small id="help-che-email" class="form-text" style="display: none">
+                                Incorrect e-mail format
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="che-password">Current password:</label>
+                            <input type="password" class="form-control" id="che-password">
+                            <small id="help-che-password" class="form-text" style="display: none">
+                                The password must be at least 8 characters long and contain
+                                one lowercase letter, one uppercase letter, and one digit
+                            </small>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Change e-mail</button>
                     </form>
                 </div>
             </div>
