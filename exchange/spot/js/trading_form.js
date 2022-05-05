@@ -190,19 +190,19 @@ $(document).on('pairSelected', function() {
     $('.form-price').on('pre', function() {
         var side = $(this).data('side');
         var price = new BigNumber($(this).data('val'));
+        var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').data('val'));
+        var total = new BigNumber($('.form-total[data-side="' + side + '"]').data('val'));
         
         // If market order - empty opposite field
         var oppositeStr = '';
         
         // If limit order calculate
         if(!price.isZero() && !price.isNaN() && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
-            if(window.keepOnTypeChange[side] != 'total' && $('.form-amount[data-side="' + side + '"]').data('val') != '') {
-                var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').data('val'));
+            if(window.keepOnTypeChange[side] != 'total' && !amount.isZero() && !amount.isNaN()) {
                 var total = amount.multipliedBy(price);
                 oppositeStr = total.toFixed(window.currentQuotePrecision);
             }
-            else if($('.form-total[data-side="' + side + '"]').data('val') != '') {
-                var total = new BigNumber($('.form-total[data-side="' + side + '"]').data('val'));
+            else if(!total.isZero() && !total.isNaN()) {
                 var amount = total.dividedBy(price);
                 oppositeStr = amount.toFixed(window.currentBasePrecision);
             }
@@ -222,13 +222,16 @@ $(document).on('pairSelected', function() {
     $('.form-amount').on('pre', function() {
         var side = $(this).data('side');
         var amount = new BigNumber($(this).data('val'));
+        var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
         
         // If market order - empty opposite field
         var totalStr = '';
         
         // If limit order calculate
-        if(!amount.isZero() && !amount.isNaN() && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
-            var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
+        if(!amount.isZero() && !amount.isNaN() &&
+           !price.isZero() && !price.isNaN() &&
+           (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT'))
+        {
             var total = amount.multipliedBy(price);
             totalStr = total.toFixed(window.currentQuotePrecision);
         }
@@ -242,12 +245,15 @@ $(document).on('pairSelected', function() {
     $('.form-total').on('pre', function() {
         var side = $(this).data('side');
         var total = new BigNumber($(this).data('val'));
+        var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
         
         // If market order - empty opposite field
         var amountStr = '';
         
-        if(!total.isZero() && !total.isNaN() && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {        
-            var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('val'));
+        if(!total.isZero() && !total.isNaN() &&
+           !price.isZero() && !price.isNaN() &&
+           (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT'))
+        {        
             var amount = total.dividedBy(price);
             amountStr = amount.toFixed(window.currentBasePrecision);
         }
