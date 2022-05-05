@@ -11,7 +11,6 @@
         
         <!-- Navbar -->
         <?php include('templates/navbar.php'); ?>
-        <?php include('templates/vanilla_mobile_nav.php'); ?>
         
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 h-rest pt-2 p-0">
@@ -145,6 +144,7 @@
         
         <!-- Footer -->
         <?php include('templates/footer.html'); ?>
+        <?php include('templates/vanilla_mobile_nav.php'); ?>
     
     </body>
 </html>

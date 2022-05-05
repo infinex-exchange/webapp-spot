@@ -12,7 +12,6 @@
         
         <!-- Navbar -->
         <?php include('../templates/navbar.php'); ?>
-        <?php include('../templates/vanilla_mobile_nav.php'); ?>
         
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 p-0 user-only">
@@ -83,6 +82,7 @@
         <script src="/wallet/withdraw.js?<?php echo filemtime(__DIR__.'/withdraw.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>
+        <?php include('../templates/vanilla_mobile_nav.php'); ?>
     
     </body>
 </html>

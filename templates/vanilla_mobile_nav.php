@@ -3,3 +3,5 @@
         <?php include('mobile_menu_inner.php'); ?>
     </ul>
 </nav>
+
+<div style="height: 53px" class="d-block d-lg-none"></div>
