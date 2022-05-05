@@ -36,6 +36,7 @@ function killSession(sid) {
 $(document).ready(function() {
     window.renderingStagesTarget = 1;
     
+    // Change passsword form
     $('#chp-old').on('input', function() {
         if(validatePassword($(this).val()))
             $('#help-chp-old').hide();
@@ -65,7 +66,7 @@ $(document).ready(function() {
         var newP2 = $('#chp-new2').val();
         
         if(!validatePassword(oldP) || !validatePassword(newP) || newP != newP2) {
-            msgBox('fill in the form correctly first');
+            msgBox('Fill the form correctly');
             return;
         }
         
@@ -76,6 +77,55 @@ $(document).ready(function() {
                 api_key: window.apiKey,
                 password: newP,
                 old_password: oldP
+            }),
+            datatype: 'json'
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                alert(1);
+            } else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false);
+        });
+    });
+    
+    // Change email form
+    $('#che-email').on('input', function() {
+        if(validateEmail($(this).val()))
+            $('#help-che-email').hide();
+        else
+            $('#help-che-email').show();
+    });
+    
+    $('#che-password').on('input', function() {
+        if(validatePassword($(this).val()))
+            $('#help-che-password').hide();
+        else
+            $('#help-che-password').show();
+    });
+    
+    $('#che-form').submit(function(event) {
+        event.preventDefault();
+        
+        var email = $('#che-email').val();
+        var pass = $('#che-password').val();
+        
+        if(!validateEmail(email) || !validatePassword(pass)) {
+            msgBox('Fill the form correctly');
+            return;
+        }
+        
+        $.ajax({
+            url: config.apiUrl + '/account/change',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey,
+                email: email,
+                old_password: pass
             }),
             datatype: 'json'
         })
