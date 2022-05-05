@@ -15,8 +15,8 @@
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
         
         <!-- Root container -->
-        <div id="root" class="container-fluid container-1500 container-rest p-0 user-only">
-        <div class="row m-0 h-100">
+        <div id="root" class="container-fluid container-1500 p-0 user-only">
+        <div class="row m-0 h-rest">
         
         <!-- Left column -->
         <?php include('../templates/sidebar_account.php'); ?>

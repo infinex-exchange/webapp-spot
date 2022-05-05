@@ -15,8 +15,8 @@
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
         
         <!-- Root container -->
-        <div id="root" class="container-fluid container-1500 pt-2 guest-only container-rest">
-        <div class="row m-0 h-100">
+        <div id="root" class="container-fluid container-1500 pt-2 guest-only">
+        <div class="row m-0 h-rest">
         
         <!-- Main column -->
         <div class="col-12 col-lg-6 m-auto ui-card-light rounded">

@@ -36,12 +36,8 @@ html body {
     }
 }
 
-.container-rest {
-    min-height: calc(100% - 70px);
-}
-
 .h-rest {
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 70px);
 }
 
 /* Font sizes */

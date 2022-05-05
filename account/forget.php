@@ -15,7 +15,7 @@
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
         
         <!-- Root container -->
-        <div id="root" class="container-fluid container-1500 pt-2 guest-only container-rest">
+        <div id="root" class="container-fluid container-1500 pt-2 guest-only">
         <div class="row m-0 h-rest">
         
         <!-- Main column -->
