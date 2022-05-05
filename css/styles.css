@@ -38,13 +38,13 @@ html body {
 
 @media (max-width: 991px) {
     .h-rest {
-        min-height: calc(100vh - 70px);
+        min-height: calc(100vh - 70px - 53px);
     }
 }
 
 @media (min-width: 992px) {
     .h-rest {
-        min-height: calc(100vh - 70px - 53px);
+        min-height: calc(100vh - 70px);
     }
 }
 
