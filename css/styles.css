@@ -63,7 +63,7 @@ html body {
 }
 
 .btn-sm {
-    font-size: var(--font-small);
+    font-size: var(--font-small) !important;
     margin: 4px;
 }
 
