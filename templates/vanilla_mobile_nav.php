@@ -4,4 +4,4 @@
     </ul>
 </nav>
 
-<div style="height: 53px" class="d-block d-lg-none"></div>
+<div style="height: 53px; margin-bottom: min(10px, env(safe-area-inset-bottom, 0));" class="d-block d-lg-none"></div>
