@@ -100,6 +100,50 @@
         </div>
         </div>
         
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-mobile-asset-details">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <img id="mad-icon" width="20" height="20" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+                        <h3 class="ps-1 modal-title" id="mad-name"></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Total:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="mad-total"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Available:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="mad-avbl"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Locked:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="mad-locked"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <a href="#" id="mad-deposit" class="btn btn-primary">Deposit</a>
+                        <a href="#" id="mad-withdraw" class="btn btn-primary">Withdraw</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <script src="/js/recent_tx.js?<?php echo filemtime(__DIR__.'/../js/recent_tx.js'); ?>"></script>
         <script src="/wallet/overview.js?<?php echo filemtime(__DIR__.'/overview.js'); ?>"></script>
         

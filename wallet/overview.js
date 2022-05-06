@@ -44,7 +44,9 @@ $(document).on('authChecked', function() {
                             if(v.total == '0') zero = 'zero';
                             
                             thisAS.append(`
-                                <div class="assets-item row p-1 hoverable ${zero}">
+                                <div class="assets-item row p-1 hoverable ${zero}" onClick="mobileAssetDetails(this)"
+                                data-icon="${v.icon_url}" data-symbol="${k}" data-name="${v.name}"
+                                data-total="${v.total}" data-avbl="${v.avbl}" data-locked="${v.locked}">
                                     <div class="my-auto" style="width: 60px">
                                         <img width="40px" height="40px" src="${v.icon_url}">
                                     </div>
@@ -97,3 +99,17 @@ $(document).on('authChecked', function() {
         });
     }
 });
+
+function mobileAssetDetails(item) {
+    if($(window).width() > 991) return;
+    
+    $('#mad-icon').attr('src', $(item).data('icon'));
+    $('#mad-name').html($(item).data('name'));
+    $('#mad-total').html($(item).data('total') + ' ' + $(item).data('symbol'));;
+    $('#mad-avbl').html($(item).data('avbl') + ' ' + $(item).data('symbol'));
+    $('#mad-locked').html($(item).data('locked') + ' ' + $(item).data('symbol'));
+    $('#mad-deposit').attr('href', '/wallet/deposit/' + $(item).data('symbol'));
+    $('#mad-withdraw').attr('href', '/wallet/withdraw/' + $(item).data('symbol'));
+    
+    $('#modal-mobile-asset-details').modal('show');
+}
