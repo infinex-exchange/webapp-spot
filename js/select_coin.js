@@ -7,7 +7,12 @@ $(document).ready(function() {
         event.stopPropagation();
     });
     
-    $('html').on('click', function() {
+    $('html').on('click', function(e) {
+        if($(e.target).is('#select-coin-search')) {
+            e.preventDefault();
+            return;
+        }
+        
         $('#select-coin-dropdown').hide();
         $('#select-coin-arrow').removeClass('flip');
     });
