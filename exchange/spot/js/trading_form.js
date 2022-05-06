@@ -58,7 +58,7 @@ function postOrder(data) {
         type: 'POST',
         data: JSON.stringify(data),
         contentType: "application/json",
-        dataType: "json",
+        dataType: "json"
     })
     .retry(config.retry)
     .done(function (data) {
@@ -400,6 +400,16 @@ $(document).on('pairSelected', function() {
     $('.form-close-button').onFirst('click', function() {
         $('#form-inner').addClass('d-none');
         $('#form-compact-buttons').removeClass('d-none');
+    });
+    
+    // Swipe up down to change side
+    function swipeChangeSide(event, direction, distance, duration, fingerCount, fingerData) {
+        $('.form-inner-side').toggleClass('d-none');
+    }
+    
+    $('#form-inner').swipe({
+        swipeUp: swipeChangeSide,
+        swipeDown: swipeChangeSide
     });
 });
 
