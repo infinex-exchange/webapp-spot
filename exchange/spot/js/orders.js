@@ -107,7 +107,7 @@ function renderOpenOrder(data) {
 }
 
 function toggleHistoryOrderExpand(event, row) {
-    if($(event.target).is('.trades-in-order-item')) return;
+    if($(event.target).parents('.trades-in-order-item').length) return;
     
     $('.orders-history-item').not(row).removeClass('expand-trades');
     
