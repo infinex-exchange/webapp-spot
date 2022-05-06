@@ -528,6 +528,16 @@ $(document).on('authChecked pairSelected', function() {
         $(document).trigger('renderingStage'); // 6
         $(document).trigger('renderingStage');
     }
+	
+    // Swipe left right to navigate between tabs
+    $('#orders-open-data, #orders-history-data, #trades-history-data').swipe({
+        swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
+            $('.orders-tab-switch.active').next('.orders-tab-switch').trigger('click');
+        },
+        swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
+            $('.orders-tab-switch.active').prev('.orders-tab-switch').trigger('click');
+        }
+    });
 });
 
 $(document).on('wsAuth', function() {   
