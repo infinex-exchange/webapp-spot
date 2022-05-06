@@ -106,7 +106,9 @@ function renderOpenOrder(data) {
     `;
 }
 
-function toggleHistoryOrderExpand(row) {
+function toggleHistoryOrderExpand(event, row) {
+    if($(event.target).is('.trades-in-order-item')) return;
+    
     $('.orders-history-item').not(row).removeClass('expand-trades');
     
     if($(row).find('.trades-in-order-item').length > 0) {
@@ -186,7 +188,7 @@ function renderHistoryOrder(data) {
     }
     
     return `
-        <div class="row hoverable orders-history-item px-1 py-2 py-lg-1" data-obid="${data.obid}" data-quote-prec="${data.quote_prec}" onClick="toggleHistoryOrderExpand(this)">
+        <div class="row hoverable orders-history-item px-1 py-2 py-lg-1" data-obid="${data.obid}" data-quote-prec="${data.quote_prec}" onClick="toggleHistoryOrderExpand(event, this)">
             <div class="d-none d-lg-block order-lg-1 pe-0 text-center secondary" style="width: 2%">
                 <span class="buttons ${displayButtons}">
                     <i class="expand-button fa-solid fa-square-plus"></i>
