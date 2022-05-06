@@ -11,12 +11,7 @@ $(document).ready(function() {
     });
     
     $('#asset-hide-zero').change(function() {
-        var elements = $('#asset-data').find('[zero="1"]');
-        
-        if($(this).prop('checked'))
-            elements.hide();
-        else
-            elements.show();
+        $('#asset-data').toggleClass('hide-zero')
     });
 });
 
@@ -45,28 +40,28 @@ $(document).on('authChecked', function() {
                 .done(function (data) {
                     if(data.success) {
                         $.each(data.balances, function(k, v) {
-                            zero = 0;
-                            if(v.total == '0') zero = 1;
+                            zero = '';
+                            if(v.total == '0') zero = 'zero';
                             
                             thisAS.append(`
-                                <div class="assets-item row p-1 hoverable" zero="${zero}">
-                                    <div class="col-1 my-auto">
+                                <div class="assets-item row p-1 hoverable ${zero}">
+                                    <div class="my-auto" style="width: 60px">
                                         <img width="40px" height="40px" src="${v.icon_url}">
                                     </div>
-                                    <div class="col-2 my-auto">
+                                    <div class="my-auto m-50-minus" style="width: calc(20% - 60px)">
                                         ${k}<br>
                                         <span class="small">${v.name}</span>
                                     </div>
-                                    <div class="col-2 text-end my-auto">
+                                    <div class="text-end my-auto d-none d-lg-block" style="width: 19%">
                                         ${v.total} ${k}
                                     </div>
-                                    <div class="col-2 text-end my-auto">
-                                        ${v.avbl} ${k}
+                                    <div class="text-end my-auto m-50-percent" style="width: 19%">
+                                        ${v.avbl}<span class="d-none d-lg-inline"> ${k}</span>
                                     </div>
-                                    <div class="col-2 text-end my-auto">
+                                    <div class="text-end my-auto d-none d-lg-block" style="width: 18%">
                                         ${v.locked} ${k}
                                     </div>
-                                    <div class="col-3 my-auto">
+                                    <div class="my-auto d-none d-lg-block" style="width: 24%">
                                         <a href="/wallet/deposit/${k}" class="btn btn-primary btn-sm">Deposit</a>
                                         <a href="/wallet/withdraw/${k}" class="btn btn-primary btn-sm">Withdraw</a>
                                     </div>

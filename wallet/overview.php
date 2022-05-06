@@ -4,6 +4,21 @@
         <?php include('../templates/head.php'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
         <title>Wallet | Vayamos Exchange</title>
+        <style type="text/css">
+            .hide-zero .zero {
+                display: none;
+            }
+            
+            @media (max-width: 991px) {
+                .m-50-percent {
+                    width: 50% !important;
+                }
+                
+                .m-50-minus {
+                    width: calc(50% - 60px) !important;
+                }
+            }
+        </style>
     </head>
     <body>
     
@@ -21,43 +36,43 @@
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
             
             <form>
-            <div class="row p-2">
-                <div class="col-auto my-auto">
+            <div class="row p-2 flex-nowrap">
+                <div class="col-auto my-auto px-1">
                     <a href="/wallet/deposit" class="btn btn-primary btn-sm">Deposit</a>
                     <a href="/wallet/withdraw" class="btn btn-primary btn-sm">Withdraw</a>
                 </div>
                 
-                <div class="col-auto my-auto">
-                    <input id="asset-search" type="text" size="5" placeholder="Search" class="form-control input-search">
+                <div class="col-auto my-auto px-1">
+                    <input id="asset-search" type="text" size="7" placeholder="Search" class="form-control input-search">
                 </div>
                 
-                <div class="col-auto my-auto">
+                <div class="col-auto my-auto px-1">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="asset-hide-zero">
                         <label class="form-check-label" for="asset-hide-zero">
-                            Hide zero balances
+                            Hide zero
                         </label>
                     </div>
                 </div>
             </div>
             </form>
             
-            <div class="row p-2 secondary">
-                <div class="col-1">
+            <div class="row p-2 secondary d-none d-lg-flex">
+                <div style="width: 60px">
                 </div>
-                <div class="col-2">
+                <div style="width: calc(20% - 60px)">
                 <h5>Token</h5>
                 </div>
-                <div class="col-2 text-end">
+                <div class="text-end" style="width: 19%">
                 <h5>Total</h5>
                 </div>
-                <div class="col-2 text-end">
+                <div class="text-end" style="width: 19%">
                 <h5>Available</h5>
                 </div>
-                <div class="col-2 text-end">
+                <div class="text-end" style="width: 18%">
                 <h5>Locked</h5>
                 </div>
-                <div class="col-3">
+                <div style="width: 24%">
                 <h5>Action</h5>
                 </div>
             </div>
@@ -69,7 +84,7 @@
         </div>
         
         <!-- Right column -->
-        <div class="col-12 col-lg-3 p-0 ui-card ui-column">
+        <div class="col-12 col-lg-3 p-0 ui-card ui-column d-none d-lg-block">
         
             <div class="row p-2">
                 <h3>Recent transactions</h3>
