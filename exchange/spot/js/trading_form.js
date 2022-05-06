@@ -409,7 +409,13 @@ $(document).on('pairSelected', function() {
     
     $('#form-inner').swipe({
         swipeUp: swipeChangeSide,
-        swipeDown: swipeChangeSide
+        swipeDown: swipeChangeSide,
+        swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
+            $('.switch-order-type.active').prev('.switch-order-type').trigger('click');
+        },
+        swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
+            $('.switch-order-type.active').next('.switch-order-type').trigger('click');
+        }
     });
 });
 
