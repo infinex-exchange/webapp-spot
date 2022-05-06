@@ -532,10 +532,10 @@ $(document).on('authChecked pairSelected', function() {
     // Swipe left right to navigate between tabs
     $('#orders .tab-content').swipe({
         swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
-            $('#orders .tab-pane.active').next('.tab-pane').tab('show');
+            $('.orders-tab-switch.active').next('.orders-tab-switch').tab('show');
         },
         swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
-            $('#orders .tab-pane.active').prev('.tab-pane').tab('show');
+            $('.orders-tab-switch.active').prev('.orders-tab-switch').tab('show');
         }
     });
 });
