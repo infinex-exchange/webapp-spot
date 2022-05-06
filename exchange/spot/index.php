@@ -431,9 +431,9 @@
             
                 <nav id="orders-header">
                 <div class="nav nav-tab nav-deco d-flex flex-nowrap" role="tablist">
-                    <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#orders-open" href="#_" role="tab" aria-controls="orders-open" aria-selected="true">Open orders</a>
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#orders-history" href="#_" role="tab" aria-controls="orders-history" aria-selected="false">Orders history</a>
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#trades-history" href="#_" role="tab" aria-controls="trades-history" aria-selected="false">Trades history</a>
+                    <a class="nav-link orders-tab-switch active" data-bs-toggle="tab" data-bs-target="#orders-open" href="#_" role="tab" aria-controls="orders-open" aria-selected="true">Open orders</a>
+                    <a class="nav-link orders-tab-switch" data-bs-toggle="tab" data-bs-target="#orders-history" href="#_" role="tab" aria-controls="orders-history" aria-selected="false">Orders history</a>
+                    <a class="nav-link orders-tab-switch" data-bs-toggle="tab" data-bs-target="#trades-history" href="#_" role="tab" aria-controls="trades-history" aria-selected="false">Trades history</a>
                 </div>
                 </nav>
                 
