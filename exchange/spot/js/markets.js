@@ -222,6 +222,7 @@ $(document).on('prePairSelected', function() {
         },
         swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
             $('.markets-filter-btn.active').prev('.markets-filter-btn').trigger('click');
-        }
+        },
+        fallbackToMouseEvents: false
     });
 });

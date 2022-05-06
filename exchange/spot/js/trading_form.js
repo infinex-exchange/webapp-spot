@@ -415,7 +415,8 @@ $(document).on('pairSelected', function() {
         },
         swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
             $('.switch-order-type.active').prev('.switch-order-type').trigger('click');
-        }
+        },
+        fallbackToMouseEvents: false
     });
 });
 

@@ -536,7 +536,8 @@ $(document).on('authChecked pairSelected', function() {
         },
         swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
             $('.orders-tab-switch.active').prev('.orders-tab-switch').tab('show');
-        }
+        },
+        fallbackToMouseEvents: false
     });
 });
 
