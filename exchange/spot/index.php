@@ -304,7 +304,7 @@
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0">
+                            <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 noSwipe">
                                 <span class="range-value" for="form-buy-range" suffix="%"></span>
                                 <input id="form-buy-range" type="range" class="form-range" data-side="BUY" min="0" max="100" step="5" value="0">
                             </div>
@@ -350,7 +350,7 @@
                                     <span class="suffix form-quote-suffix"></span>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0">
+                            <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 noSwipe">
                                 <span class="range-value" for="form-sell-range" suffix="%"></span>
                                 <input id="form-sell-range" type="range" class="form-range" data-side="SELL" min="0" max="100" step="5" value="0">
                             </div>
