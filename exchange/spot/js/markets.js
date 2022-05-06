@@ -213,3 +213,15 @@ $(document).on('wsConnected', function() {
         msgBoxNoConn(true); 
     });
 });
+
+$(document).on('prePairSelected', function() {
+    // Swipe left / right to filter by quote
+    $('#markets-table').swipe({
+        swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
+            $('.markets-filter-btn.active').next('.markets-filter-btn').trigger('click');
+        },
+        swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
+            $('.markets-filter-btn.active').prev('.markets-filter-btn').trigger('click');
+        }
+    });
+});
