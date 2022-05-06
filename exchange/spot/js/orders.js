@@ -530,7 +530,7 @@ $(document).on('authChecked pairSelected', function() {
     }
 	
     // Swipe left right to navigate between tabs
-    $('#orders-open-data, #orders-history-data, #trades-history-data').swipe({
+    $('#orders .tab-content').swipe({
         swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
             $('.orders-tab-switch.active').next('.orders-tab-switch').trigger('click');
         },
