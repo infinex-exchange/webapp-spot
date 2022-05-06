@@ -411,10 +411,10 @@ $(document).on('pairSelected', function() {
         swipeUp: swipeChangeSide,
         swipeDown: swipeChangeSide,
         swipeLeft: function(event, direction, distance, duration, fingerCount, fingerData) {
-            $('.switch-order-type.active').prev('.switch-order-type').trigger('click');
+            $('.switch-order-type.active').next('.switch-order-type').trigger('click');
         },
         swipeRight: function(event, direction, distance, duration, fingerCount, fingerData) {
-            $('.switch-order-type.active').next('.switch-order-type').trigger('click');
+            $('.switch-order-type.active').prev('.switch-order-type').trigger('click');
         }
     });
 });
