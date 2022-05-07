@@ -11,7 +11,7 @@ $(document).ready(function() {
         $('#deposit-step3').hide();
         
         $.ajax({
-            url: config.apiUrl + '/wallet/withdraw/info',
+            url: config.apiUrl + '/wallet/deposit',
             type: 'POST',
             data: JSON.stringify({
                 api_key: window.apiKey,
