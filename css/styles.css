@@ -400,8 +400,7 @@ input[type="range"]::-moz-range-thumb {
     position: absolute;
     background-color: var(--color-bg-light);
     z-index: 1000;
-    max-width: calc(100% - 20px);
-    width: calc(100% - 20px);
+    width: 100%;
     border: 1px solid var(--color-border);
     padding: 10px;
 }
