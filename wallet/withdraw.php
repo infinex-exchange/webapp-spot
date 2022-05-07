@@ -20,11 +20,11 @@
         <!-- Main column -->
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
         
-            <div class="row p-2">
+            <div class="row py-2">
                 <h2>Withdraw</h2>
             </div>
             
-            <div class="row p-2">
+            <div class="row py-2">
                 <div class="col-12">
                     <h3>&#9312 Select coin to withdraw:</h3>
                 </div>
@@ -34,7 +34,7 @@
             </div>
             
             <div id="withdraw-step2" style="display: none">
-                <div class="row p-2">
+                <div class="row py-2">
                     <div class="col-12">
                         <h3>&#9313 Select withdrawal network:</h3>
                     </div>
@@ -45,7 +45,7 @@
             </div>
             
             <div id="withdraw-step3" style="display: none">
-                <div class="row p-2">
+                <div class="row py-2">
                     <div class="col-12">
                         <h3>&#9314 Complete withdrawal:</h3>
                     </div>
