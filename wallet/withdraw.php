@@ -25,14 +25,22 @@
             </div>
             
             <div class="row p-2">
-                <h3>&#9312 Select coin to withdraw:</h3>
-                <?php include('../templates/select_coin.php'); ?>
+                <div class="col-12">
+                    <h3>&#9312 Select coin to withdraw:</h3>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <?php include('../templates/select_coin.php'); ?>
+                </div>
             </div>
             
             <div id="withdraw-step2" style="display: none">
                 <div class="row p-2">
-                    <h3>&#9313 Select withdrawal network:</h3>
-                    <?php include('../templates/select_net.php'); ?>
+                    <div class="col-12">
+                        <h3>&#9313 Select withdrawal network:</h3>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <?php include('../templates/select_net.php'); ?>
+                    </div>
                 </div>
             </div>
             
