@@ -45,7 +45,7 @@ function initSelectNet(asset) {
                 $('#select-net').trigger('change');
             });
                 
-            if(data.networks.length == 1)
+            if(Object.keys(data.networks).length == 1)
                 $('.select-net-item').trigger('click');
         } else {
             msgBox(data.error);
