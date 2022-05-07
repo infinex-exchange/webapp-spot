@@ -60,14 +60,15 @@ $(document).ready(function() {
         window.qrcode.clear();
         window.qrcode.makeCode(di.address);
         $('#deposit-step3').show();
+        $('html, body').animate({
+            scrollTop: $("#deposit-step3").offset().top
+        }, 1000);
     });
 });
 
 $(document).on('authChecked', function() {
     if(window.loggedIn) {
         window.qrcode = new QRCode("deposit-qrcode", {
-            width: 128,
-            height: 128,
             correctLevel : QRCode.CorrectLevel.H
         });
     

@@ -48,4 +48,18 @@ $( document ).ready(function() {
         gotoUiCard($(this).attr('data-ui-card-target'));        
     });
     gotoUiCard( $('.nav-link.active[data-ui-card-target]').data('ui-card-target') );
+    
+    // Copy button
+    $('.copy-button').on('click', function() {
+        if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(
+                $($(this).data('copy')).html()
+            );
+            var icon = $(this).find('.fa-copy');
+            icon.removeClass('fa-copy').addClass('fa-check');
+            setTimeout(function() {
+                icon.removeClass('fa-check').addClass('fa-copy');
+            }, 1000);
+        }
+    });
 });

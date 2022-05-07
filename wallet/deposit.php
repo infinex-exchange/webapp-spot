@@ -21,30 +21,72 @@
         <!-- Main column -->
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
         
-            <div class="row p-2">
+            <div class="row py-2">
                 <h2>Deposit</h2>
             </div>
             
-            <div class="row p-2">
+            <div class="row py-2">
                 <h3>&#9312 Select coin to deposit:</h3>
                 <?php include('../templates/select_coin.php'); ?>
             </div>
             
             <div id="deposit-step2" style="display: none">
-                <div class="row p-2">
+                <div class="row py-2">
                     <h3>&#9313 Select deposit network:</h3>
                     <?php include('../templates/select_net.php'); ?>
                 </div>
             </div>
             
             <div id="deposit-step3" style="display: none">
-                <div class="row p-2">
+                <div class="row py-2">
                     <h3>&#9314 Complete deposit:</h3>
-                    Address: <span id="deposit-addr"></span>
-                    <div class="qrcode-wrapper">
-                        <div id="deposit-qrcode"></div>
-                    </div>
                 </div>
+                
+                <div class="row">
+                    <div class="col-12 col-lg-auto p-4 text-center">
+                        <div class="qrcode-wrapper d-inline-block">
+                            <div id="deposit-qrcode"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-lg-auto p-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <span class="secondary">Address:</span>
+                            </div>
+                        </div>
+                        <div class="row flex-nowrap">
+                            <div class="col-10 col-lg-auto my-auto">
+                                <h4 class="wrap" id="deposit-addr"></h4>
+                            </div>
+                            <div class="col-auto my-auto">
+                                <a href="#_" class="secondary copy-button" data-copy="#deposit-addr"><i class="fa-solid fa-copy fa-xl"></i></a>
+                            </div>
+                        </div>
+                        <div id="deposit-memo-wrapper">
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <span class="secondary">Memo/tag:</span>
+                                </div>
+                            </div>
+                            <div class="row flex-nowrap">
+                                <div class="col-10 col-lg-auto my-auto">
+                                    <h4 class="wrap" id="deposit-memo"></h4>
+                                </div>
+                                <div class="col-auto my-auto">
+                                    <a href="#_" class="secondary copy-button" data-copy="#deposit-memo"><i class="fa-solid fa-copy fa-xl"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-12">
+                                <span class="secondary">Confirmations target:</span><br>
+                                <h5 class="wrap d-inline" id="deposit-confirmations"></h5>
+                                <h5 class="d-inline">confirmations</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
             </div>
         
         <!-- / Main column -->
