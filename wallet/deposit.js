@@ -10,15 +10,56 @@ $(document).ready(function() {
     $('#select-net').on('change', function() {
         $('#deposit-step3').hide();
         
-        var di = window.depositInfo[$(this).attr('data-network')];
-        $('#deposit-addr').html(di.address);
-        window.qrcode.clear();
-        window.qrcode.makeCode(di.address);
+        $.ajax({
+            url: config.apiUrl + '/wallet/withdraw/info',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey,
+                asset: $('#select-coin').val(),
+                network: $('#select-net').data('network')
+            }),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                // Operating warning
+                if(data.operating)
+                    $('#withdraw-operating-warning').addClass('d-none');
+                else
+                    $('#withdraw-operating-warning').removeClass('d-none');
+                
+                // Confirms target
+                $('#deposit-confirmations').html(data.confirms_target);
+                
+                // Address
+                $('#deposit-addr').html(data.address);
+                
+                // QR
+                window.qrcode.clear();
+                window.qrcode.makeCode(data.address);
+                
+                // Memo
+                if(typeof(data.memo_name) !== 'undefined' && typeof(data.memo) !== 'undefined') {
+                    $('#deposit-memo-name').html(data.memo_name);
+                    $('#deposit-memo').html(data.memo);
+                    $('#deposit-memo-wrapper').removeClass('d-none');
+                }
+                else
+                    $('#deposit-memo-wrapper').addClass('d-none');
         
-        $('#deposit-step3').show();
-        $('html, body').animate({
-            scrollTop: $("#deposit-step3").offset().top
-        }, 1000);
+                $('#deposit-step3').show();
+                $('html, body').animate({
+                    scrollTop: $("#deposit-step3").offset().top
+                }, 1000);
+            } else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false);
+        });
     });
 });
 

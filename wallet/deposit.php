@@ -74,7 +74,7 @@
                         <div id="deposit-memo-wrapper">
                             <div class="row mt-3">
                                 <div class="col-12">
-                                    <span class="secondary">Memo/tag:</span>
+                                    <span class="secondary" id="deposit-memo-name"></span>
                                 </div>
                             </div>
                             <div class="row flex-nowrap">
