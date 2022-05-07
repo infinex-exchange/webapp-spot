@@ -54,6 +54,9 @@ $(document).ready(function() {
     
     $('#select-net').on('change', function() {        
         $('#withdraw-step3').show();
+        $('html, body').animate({
+            scrollTop: $("#withdraw-step3").offset().top
+        }, 1000);
     });
     
     $('#withdraw-address').on('input', function() {

@@ -38,23 +38,35 @@
             
             <div id="withdraw-step3" style="display: none">
                 <div class="row p-2">
-                    <h3>&#9314 Complete withdrawal:</h3>
-                    <form class="d-grid gap-3">
-                        <div class="form-group">
-                            <label for="withdraw-address">Address:</label>
-                            <input type="text" class="form-control" id="withdraw-address">
-                            <small id="help-address" class="form-text" style="display: none">Address is invalid</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="withdraw-amount">Amount:</label>
-                            <input type="text" class="form-control" id="withdraw-amount">
-                        </div>
-                        <div class="form-group">
-                            <label for="withdraw-fee">Fee:</label>
-                            <input type="text" class="form-control" id="withdraw-fee">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+                    <div class="col-12">
+                        <h3>&#9314 Complete withdrawal:</h3>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <form class="d-grid gap-3">
+                            <div class="form-group">
+                                <label for="withdraw-address">Address:</label>
+                                <input type="text" class="form-control" id="withdraw-address">
+                                <small id="help-address" class="form-text" style="display: none">Address is invalid</small>
+                            </div>
+                            <div class="form-group" id="withdraw-memo-wrapper">
+                                <label for="withdraw-memo">Memo/tag:</label>
+                                <input type="text" class="form-control" id="withdraw-memo">
+                                <small id="help-memo" class="form-text" style="display: none">Memo/tag is invalid</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="withdraw-amount">Amount:</label>
+                                <input type="text" class="form-control" id="withdraw-amount">
+                            </div>
+                            <div class="form-group">
+                                <label for="withdraw-fee">Fee:</label>
+                            </div>
+                            <div class="form-group">
+                                <span class="range-value" for="withdraw-fee" suffix=""></span>
+                                <input id="withdraw-fee" type="range" class="form-range" min="0" max="1" step="1" value="0">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         
