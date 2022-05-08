@@ -251,33 +251,3 @@
 .orders-history-item.expand-trades .collapse-button {
     display: inline;
 }
-
-/* Blink red animation */
-
-.blink-red {
-  animation: blink-red 1s;
-}
-
-@keyframes blink-red {
-    0% {
-        color: inherit;
-    }
-    10% {
-        color: var(--color-red);
-    }
-    40% {
-        color: var(--color-red);
-    }
-    50% {
-        color: inherit;
-    }
-    60% {
-        color: var(--color-red);
-    }
-    90% {
-        color: var(--color-red);
-    }
-    100% {
-        color: inherit;
-    }
-}

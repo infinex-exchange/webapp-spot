@@ -73,7 +73,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="withdraw-amount">Amount:</label>
-                                <input type="text" class="form-control" id="withdraw-amount">
+                                <input type="text" class="form-control" id="withdraw-amount" data-val="">
                             </div>
                             <div class="form-group">
                                 <span class="range-value" for="withdraw-amount-range" suffix="%"></span>
