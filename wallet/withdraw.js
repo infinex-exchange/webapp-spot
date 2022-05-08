@@ -39,10 +39,10 @@ $(document).ready(function() {
                     $('#withdraw-operating-warning').removeClass('d-none');
                 
                 // Min and max fee
-                var feeStep = '0.';
-                for(var i = 0; i < data.prec - 1; i++)
-                    feeStep += '0';
-                feeStep += '1';
+                var feeMinDec = new BigNumber(data.fee_min);
+                var dp = feeMinDec.dp();
+                var feeStep = new BigNumber(10);
+                feeStep = feeStep.pow(-dp).dp(dp).toString();
                 
                 $('#withdraw-fee-range').attr('min', data.fee_min)
                                         .attr('max', data.fee_max)
