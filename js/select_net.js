@@ -14,6 +14,8 @@ $(document).ready(function() {
 });
 
 function initSelectNet(asset) {
+    $('#select-net-data').empty();
+    
     $.ajax({
         url: config.apiUrl + '/wallet/networks',
         type: 'POST',
@@ -38,10 +40,12 @@ function initSelectNet(asset) {
                     </div>
                 `);
             });
+            
+            $('#select-net').trigger('dataLoaded');
                 
             $('.select-net-item').on('click', function() {
                 $('#select-net').val($(this).attr('data-description'));
-                $('#select-net').attr('data-network', $(this).attr('data-network'));
+                $('#select-net').data('network', $(this).data('network'));
                 $('#select-net').trigger('change');
             });
                 

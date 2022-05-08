@@ -2,8 +2,12 @@ $(document).ready(function() {
     window.renderingStagesTarget = 2;
     
     $('#select-coin').on('change', function() {
+        #('#withdraw-step2').hide();
         $('#withdraw-step3').hide();
         initSelectNet( $('#select-coin').val() );
+    });
+    
+    $('#select-net').on('dataLoaded', function() {
         $('#withdraw-step2').show();
     });
     
