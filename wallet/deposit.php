@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     
-                    <div class="col-12 col-lg-auto p-4 text-center">
+                    <div id="deposit-qr-wrapper" class="col-12 col-lg-auto p-4 text-center">
                         <div class="qrcode-wrapper d-inline-block">
                             <div id="deposit-qrcode"></div>
                         </div>

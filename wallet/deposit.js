@@ -30,9 +30,9 @@ $(document).ready(function() {
             if(data.success) {
                 // Operating warning
                 if(data.operating)
-                    $('#withdraw-operating-warning').addClass('d-none');
+                    $('#deposit-operating-warning').addClass('d-none');
                 else
-                    $('#withdraw-operating-warning').removeClass('d-none');
+                    $('#deposit-operating-warning').removeClass('d-none');
                 
                 // Confirms target
                 $('#deposit-confirmations').html(data.confirms_target);
@@ -41,8 +41,13 @@ $(document).ready(function() {
                 $('#deposit-addr').html(data.address);
                 
                 // QR
-                window.qrcode.clear();
-                window.qrcode.makeCode(data.address);
+                if(typeof(data.qr_content) !== 'undefined') {
+                    window.qrcode.clear();
+                    window.qrcode.makeCode(data.qr_content);
+                    $('#deposit-qr-wrapper').removeClass('d-none');
+                }
+                else
+                    $('#deposit-qr-wrapper').addClass('d-none');
                 
                 // Memo
                 if(typeof(data.memo_name) !== 'undefined' && typeof(data.memo) !== 'undefined') {
