@@ -67,7 +67,7 @@
                             </div>
                             <div class="form-group" id="withdraw-memo-wrapper">
                                 <label for="withdraw-memo">Memo/tag:</label>
-                                <input type="text" class="form-control" id="withdraw-memo">
+                                <input type="text" class="form-control" id="withdraw-memo" placeholder="Optional">
                                 <small id="help-memo" class="form-text" style="display: none">Memo/tag is invalid</small>
                             </div>
                             <div class="form-group">
@@ -75,11 +75,15 @@
                                 <input type="text" class="form-control" id="withdraw-amount">
                             </div>
                             <div class="form-group">
-                                <label for="withdraw-fee">Fee:</label>
+                                <span class="range-value" for="withdraw-amount-range" suffix="%"></span>
+                                <input id="withdraw-amount-range" type="range" class="form-range" min="0" max="100" step="1" value="0">
                             </div>
                             <div class="form-group">
-                                <span class="range-value" for="withdraw-fee" suffix=""></span>
-                                <input id="withdraw-fee" type="range" class="form-range" min="0" max="1" step="1" value="0">
+                                <label for="withdraw-fee">Fee:</label>
+                                <input type="text" class="form-control" id="withdraw-fee" readonly>
+                            </div>
+                            <div class="form-group">
+                                <input id="withdraw-fee-range" type="range" class="form-range" min="0" max="1" step="1" value="0">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

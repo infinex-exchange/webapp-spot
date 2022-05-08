@@ -11,6 +11,10 @@ $(document).ready(function() {
         $('#withdraw-step2').show();
     });
     
+    $('#withdraw-fee-range').on('input', function() {
+        $('#withdraw-fee').val($(this).val());
+    });
+    
     $('#select-net').on('change', function() {        
         $('#withdraw-step3').hide();
         
@@ -40,9 +44,10 @@ $(document).ready(function() {
                     feeStep += '0';
                 feeStep += '1';
                 
-                $('#withdraw-fee').attr('min', data.fee_min)
-                                  .attr('max', data.fee_max)
-                                  .attr('step', feeStep);
+                $('#withdraw-fee-range').attr('min', data.fee_min)
+                                        .attr('max', data.fee_max)
+                                        .attr('step', feeStep)
+                                        .trigger('input');
                 
                 // Precision
                 
