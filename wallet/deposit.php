@@ -51,6 +51,18 @@
                 </div>
                 
                 <div class="row">
+                    <div id="deposit-operating-warning" class="col-12">
+                        <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
+                            <div class="px-2">
+                                <i class="fa-solid fa-plug-circle-xmark fa-2x"></i>
+                            </div>
+                            <div class="px-2">
+                                Looks like our connection to this network is not working properly.<br>
+                                You can make a deposit right now, but the funds will appear in your account with a delay.
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="col-12 col-lg-auto p-4 text-center">
                         <div class="qrcode-wrapper d-inline-block">
                             <div id="deposit-qrcode"></div>

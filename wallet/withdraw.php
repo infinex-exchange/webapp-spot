@@ -50,6 +50,15 @@
                         <h3>&#9314 Complete withdrawal:</h3>
                     </div>
                     <div class="col-12 col-lg-6">
+                        <div id="withdraw-operating-warning" class="alert alert-danger d-flex align-items-center my-2" role="alert">
+                            <div class="px-2">
+                                <i class="fa-solid fa-plug-circle-xmark fa-2x"></i>
+                            </div>
+                            <div class="px-2">
+                                Looks like our connection to this network is not working properly.<br>
+                                You can request a withdrawal as normal, but it will be processed with delay.
+                            </div>
+                        </div>
                         <form class="d-grid gap-3">
                             <div class="form-group">
                                 <label for="withdraw-address">Address:</label>
