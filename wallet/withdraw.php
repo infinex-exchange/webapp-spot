@@ -66,10 +66,27 @@
                                 <?php include('../templates/select_adbk.php'); ?>
                                 <small id="help-address" class="form-text" style="display: none">Address is invalid</small>
                             </div>
+                            <div id="withdraw-save-wrapper" class="form-group pretty p-switch">
+                                <input type="checkbox" id="withdraw-save">
+                                <div class="state p-primary">
+                                    <label for="withdraw-save">Save in addressbook</label>
+                                </div>
+                            </div>
+                            <div class="form-group" id="withdraw-save-name-wrapper">
+                                <label for="withdraw-save-name">Save as:</label>
+                                <input type="text" class="form-control" id="withdraw-save-name">
+                                <small id="help-save-name" class="form-text" style="display: none">Invalid name</small>
+                            </div>
                             <div class="form-group" id="withdraw-memo-wrapper">
                                 <label id="withdraw-memo-name" for="withdraw-memo"></label>
                                 <input type="text" class="form-control" id="withdraw-memo" placeholder="Optional">
                                 <small id="help-memo" class="form-text" style="display: none">Invalid format</small>
+                            </div>
+                            <div id="withdraw-save-memo-wrapper" class="form-group pretty p-switch">
+                                <input type="checkbox" id="withdraw-save-memo">
+                                <div class="state p-primary">
+                                    <label for="withdraw-save-memo">Include in addressbook</label>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="withdraw-amount">Amount:</label>
