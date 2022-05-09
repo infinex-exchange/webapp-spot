@@ -50,74 +50,88 @@
                     <div class="col-12">
                         <h3>&#9314 Complete withdrawal:</h3>
                     </div>
-                    <div class="col-12 col-lg-6">
-                        <div id="withdraw-operating-warning" class="alert alert-danger d-flex align-items-center my-2" role="alert">
-                            <div class="px-2">
-                                <i class="fa-solid fa-plug-circle-xmark fa-2x"></i>
-                            </div>
-                            <div class="px-2">
-                                Looks like our connection to this network is not working properly.<br>
-                                You can request a withdrawal as normal, but it will be processed with delay.
+                </div>
+                
+                <form id="withdraw-form">
+                    <div class="row" id="withdraw-operating-warning">
+                        <div class="col-12 py-2">
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <div class="px-2">
+                                    <i class="fa-solid fa-plug-circle-xmark fa-2x"></i>
+                                </div>
+                                <div class="px-2">
+                                    Looks like our connection to this network is not working properly.<br>
+                                    You can request a withdrawal as normal, but it will be processed with delay.
+                                </div>
                             </div>
                         </div>
-                        <form id="withdraw-form" class="d-grid gap-3">
-                            <div class="form-group">
-                                <label for="select-adbk">Address:</label>
-                                <?php include('../templates/select_adbk.php'); ?>
-                                <small id="help-address" class="form-text" style="display: none">Address is invalid</small>
-                            </div>
-                            <div class="save-control">
-                                <div class="form-group pretty p-switch">
-                                    <input type="checkbox" id="withdraw-save">
-                                    <div class="state p-primary">
-                                        <label for="withdraw-save">Save in addressbook</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="withdraw-save-name">Save as:</label>
-                                    <input type="text" class="form-control" id="withdraw-save-name">
-                                    <small id="help-save-name" class="form-text" style="display: none">Invalid name</small>
-                                </div>
-                            </div>
-                            <div id="withdraw-memo-wrapper">
-                                <div class="form-group">
-                                    <label id="withdraw-memo-name" for="withdraw-memo"></label>
-                                    <input type="text" class="form-control" id="withdraw-memo" placeholder="Optional">
-                                    <small id="help-memo" class="form-text" style="display: none">Invalid format</small>
-                                </div>
-                                <div class="save-control form-group pretty p-switch">
-                                    <input type="checkbox" id="withdraw-save-memo">
-                                    <div class="state p-primary">
-                                        <label for="withdraw-save-memo">Include in addressbook</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="withdraw-amount">Amount:</label>
-                                <input type="text" class="form-control" id="withdraw-amount" data-val="">
-                            </div>
-                            <div class="form-group">
-                                <span class="range-value" for="withdraw-amount-range" suffix="%"></span>
-                                <input id="withdraw-amount-range" type="range" class="form-range" min="0" max="100" step="1" value="0">
-                            </div>
-                            <div class="form-group">
-                                <span class="secondary">Available:</span>
-                                <span class="float-end" id="withdraw-balance"></span>
-                                <br>
-                                <span class="secondary">After pay fee:</span>
-                                <span class="float-end" id="withdraw-amount-max"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="withdraw-fee">Fee:</label>
-                                <input type="text" class="form-control" id="withdraw-fee" readonly>
-                            </div>
-                            <div class="form-group">
-                                <input id="withdraw-fee-range" type="range" class="form-range" min="0" max="1" step="1" value="0">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
                     </div>
-                </div>
+                    
+                    <div class="row">
+                        <div class="col-12 col-lg-6 py-2">
+                            <label for="select-adbk">Address:</label>
+                            <?php include('../templates/select_adbk.php'); ?>
+                            <small id="help-address" class="form-text" style="display: none">Address is invalid</small>
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 py-2" id="withdraw-memo-wrapper">
+                            <label id="withdraw-memo-name" for="withdraw-memo"></label>
+                            <input type="text" class="form-control" id="withdraw-memo" placeholder="Optional">
+                            <small id="help-memo" class="form-text" style="display: none">Invalid format</small>
+                        </div>
+                    </div>
+                    
+                    <div class="row" id="withdraw-save-wrapper">
+                        <div class="col-12 col-lg-6 py-2 my-auto">
+                            <div class="pretty p-switch">
+                                <input type="checkbox" id="withdraw-save">
+                                <div class="state p-primary">
+                                    <label for="withdraw-save">Save in addressbook</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 py-2" id="withdraw-save-expand">
+                            <label for="withdraw-save-name">Save as:</label>
+                            <input type="text" class="form-control" id="withdraw-save-name">
+                            <small id="help-save-name" class="form-text" style="display: none">Invalid name</small>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12 col-lg-6 py-2 order-lg-1">
+                            <label for="withdraw-amount">Amount:</label>
+                            <input type="text" class="form-control" id="withdraw-amount" data-val="">
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 py-2 order-lg-3 mt-auto">
+                            <span class="range-value" for="withdraw-amount-range" suffix="%"></span>
+                            <input id="withdraw-amount-range" type="range" class="form-range" min="0" max="100" step="1" value="0">
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 py-2 order-lg-2">
+                            <label for="withdraw-fee">Fee:</label>
+                            <input type="text" class="form-control" id="withdraw-fee" readonly>
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 py-2 order-lg-4 mt-auto">
+                            <input id="withdraw-fee-range" type="range" class="form-range" min="0" max="1" step="1" value="0">
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 py-2 order-lg-5 my-auto">
+                            <span class="secondary">Available:</span>
+                            <span class="float-end" id="withdraw-balance"></span>
+                            <br>
+                            <span class="secondary">After pay fee:</span>
+                            <span class="float-end" id="withdraw-amount-max"></span><strong></strong>
+                        </div>
+                        
+                        <div class="col-12 col-lg-6 py-2 order-lg-6 my-auto">
+                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                        </div>
+                    </div>
+                        
+                </form>
             </div>
         
         <!-- / Main column -->

@@ -322,6 +322,20 @@ $(document).ready(function() {
             msgBoxNoConn(false);
         });
     });
+    
+    
+    
+    
+    // Expand save name
+    $('#withdraw-save').on('change', function() { 
+        if (this.checked) {
+            $('#withdraw-save-wrapper').addClass('ui-card-light');
+            $('#withdraw-save-internal').show(); 
+        } else {
+            $('#withdraw-save-internal').hide();
+            $('#withdraw-save-wrapper').removeClass('ui-card-light');
+        }
+    });
 });
 
 $(document).on('authChecked', function() {
