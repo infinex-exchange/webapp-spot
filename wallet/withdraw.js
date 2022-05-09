@@ -64,7 +64,8 @@ $(document).ready(function() {
                 // Reset form
                 $('#withdraw-form').get(0).reset();
                 $('small[id^="help-"]').hide();
-                $('#withdraw-amount').val('').trigger('prevalidated');
+                $('#withdraw-amount').data('val', '').val('').trigger('prevalidated');
+                $('#withdraw-save').trigger('change');
                 
                 // Operating warning
                 if(data.operating)
@@ -366,6 +367,7 @@ $(document).ready(function() {
             $('#withdraw-save-expand').hide();
             $('#withdraw-save-wrapper').removeClass('ui-card-light');
             $('#withdraw-save-name').val('');
+            window.validAdbkName = false;
         }
     });
     
