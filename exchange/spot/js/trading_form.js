@@ -314,9 +314,9 @@ $(document).on('pairSelected', function() {
     $('#form-buy-total').on('post', function() {
         var decimalTotal = new BigNumber($(this).data('val'));
         if(decimalTotal.gt(window.currentQuoteBalance)) {
-            $('#form-quote-balance').addClass('blink-red');
+            $('#form-buy-total, #form-quote-balance').addClass('blink-red');
             setTimeout(function() {
-                $('#form-quote-balance').removeClass('blink-red');
+                $('#form-buy-total, #form-quote-balance').removeClass('blink-red');
                 
                 var max = window.currentQuoteBalance.toFixed(window.currentQuotePrecision);
                 $('#form-buy-total').data('val', max)
@@ -329,9 +329,9 @@ $(document).on('pairSelected', function() {
     $('#form-sell-amount').on('post', function() {
         var decimalAmount = new BigNumber($(this).data('val'));
         if(decimalAmount.gt(window.currentBaseBalance)) {
-            $('#form-base-balance').addClass('blink-red');
+            $('#form-sell-amount, #form-base-balance').addClass('blink-red');
             setTimeout(function() {
-                $('#form-base-balance').removeClass('blink-red');
+                $('#form-sell-amount, #form-base-balance').removeClass('blink-red');
                 
                 var max = window.currentBaseBalance.toFixed(window.currentBasePrecision);
                 $('#form-sell-amount').data('val', max)
