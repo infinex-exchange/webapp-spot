@@ -40,6 +40,8 @@ $(document).ready(function() {
     $('#select-net').on('change', function() {        
         $('#withdraw-step3').hide();
         
+        initSelectAdbk($('#select-coin').val(), $('#select-net').data('network'));
+        
         $.ajax({
             url: config.apiUrl + '/wallet/withdraw/info',
             type: 'POST',

@@ -38,12 +38,17 @@ function initSelectAdbk(asset, network) {
     .done(function (data) {
         if(data.success) {
             $.each(data.addressbook, function(k, v) {
+                var memoHtml = '';
+                if(typeof(v.memo) !== 'undefined')
+                    memoHtml = '<br><small class="secondary"><strong>Memo:</strong> ' + v.memo + '</span>';
+                
                 $('#select-adbk-data').append(`
                     <div class="select-adbk-item row p-1 hoverable" data-address="${v.address}">
                         <div class="col-12">
-                            <strong>${v.description}</strong>
+                            <strong>${v.name}</strong>
                             <br>
                             <span class="secondary">${v.address}</span>
+                            ${memoHtml}
                         </div>
                     </div>
                 `);
