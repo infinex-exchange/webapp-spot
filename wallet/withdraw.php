@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         
-                        <div class="col-12 col-lg-6 py-2" id="withdraw-save-expand">
+                        <div class="col-12 col-lg-6 py-2" id="withdraw-save-expand" style="display: none">
                             <label for="withdraw-save-name">Save as:</label>
                             <input type="text" class="form-control" id="withdraw-save-name">
                             <small id="help-save-name" class="form-text" style="display: none">Invalid name</small>

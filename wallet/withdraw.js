@@ -330,10 +330,23 @@ $(document).ready(function() {
     $('#withdraw-save').on('change', function() { 
         if (this.checked) {
             $('#withdraw-save-wrapper').addClass('ui-card-light');
-            $('#withdraw-save-internal').show(); 
+            $('#withdraw-save-expand').show(); 
         } else {
-            $('#withdraw-save-internal').hide();
+            $('#withdraw-save-expand').hide();
             $('#withdraw-save-wrapper').removeClass('ui-card-light');
+        }
+    });
+    
+    // Hide save controls if already in adbk
+    $('#select-adbk, #withdraw-memo').on('input', function() {
+        var addr = $('#select-adbk').val();
+        var memo = $('#withdraw-memo').val();
+        
+        if($('.select-adbk-item[data-address="' + addr + '"][data-memo="' + memo + '"]').length) {
+            $('#withdraw-save-wrapper').hide();
+        }
+        else {
+            $('#withdraw-save-wrapper').show();
         }
     });
 });
