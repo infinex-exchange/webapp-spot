@@ -374,11 +374,11 @@ $(document).ready(function() {
     $('#withdraw-save-name').on('input', function() {
 	    if(validateAdbkName($(this).val())) {
 		    window.validAdbkName = true;
-		    $('#help-adbk-name').hide();
+		    $('#help-save-name').hide();
 	    }
 	    else {
 		    window.validAdbkName = false;
-		    $('#help-adbk-name').show();
+		    $('#help-save-name').show();
 	    }
     });
 });
