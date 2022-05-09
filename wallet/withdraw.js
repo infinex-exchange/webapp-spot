@@ -266,6 +266,60 @@ $(document).ready(function() {
             
         }, 750);
     });
+    
+    
+    
+    
+    // Submit withdraw
+    $('#withdraw-form').on('submit', function(event) {
+        // Prevent standard submit
+        event.preventDefault();
+        
+        // Validate data
+        var address = $('#withdraw-address').val();
+        if(address == '') {
+            msgBox('Missing address');
+            return;
+        }
+        
+        var amount = new BigNumber($('#withdraw-amount').data('val'));
+        if(amount.isNaN() || amount.isZero()) {
+            msgBox('Missing amount');
+            return;
+        }
+        
+        // Prepare data
+        var data = new Object();
+        data['api_key'] = window.apiKey;
+        data['asset'] = $('#select-coin').val();
+        data['network'] = $('#select-net').data('network');
+        data['address'] = address;
+        data['amount'] = amount.toFixed(window.wdAmountPrec);
+        
+        var memo = $('#withdraw-memo').val();
+        if(memo != '')
+            data['memo'] = memo;
+            
+        // Post
+        $.ajax({
+            url: config.apiUrl + '/wallet/withdraw/validate',
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+            }
+            else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false);
+        });
+    });
 });
 
 $(document).on('authChecked', function() {

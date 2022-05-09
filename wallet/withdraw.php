@@ -60,7 +60,7 @@
                                 You can request a withdrawal as normal, but it will be processed with delay.
                             </div>
                         </div>
-                        <form class="d-grid gap-3">
+                        <form id="withdraw-form" class="d-grid gap-3">
                             <div class="form-group">
                                 <label for="withdraw-address">Address:</label>
                                 <input type="text" class="form-control" id="withdraw-address">
