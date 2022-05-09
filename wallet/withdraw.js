@@ -63,6 +63,8 @@ $(document).ready(function() {
                 
                 // Reset form
                 $('#withdraw-form').get(0).reset();
+                $('small[id^="help-"]').hide();
+                $('#withdraw-amount').val('').trigger('prevalidated');
                 
                 // Operating warning
                 if(data.operating)
