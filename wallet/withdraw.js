@@ -372,7 +372,7 @@ $(document).ready(function() {
     
     // Validate save name
     $('#withdraw-save-name').on('input', function() {
-	    if(validateAdbkName($(this).val()) {
+	    if(validateAdbkName($(this).val())) {
 		    window.validAdbkName = true;
 		    $('#help-adbk-name').hide();
 	    }
