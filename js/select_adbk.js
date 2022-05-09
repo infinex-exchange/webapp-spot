@@ -38,12 +38,15 @@ function initSelectAdbk(asset, network) {
     .done(function (data) {
         if(data.success) {
             $.each(data.addressbook, function(k, v) {
+                var memo = '';
                 var memoHtml = '';
-                if(typeof(v.memo) !== 'undefined')
-                    memoHtml = '<br><small class="secondary"><strong>Memo:</strong> ' + v.memo + '</span>';
+                if(typeof(v.memo) !== 'undefined') {
+                    memo = v.memo;
+                    memoHtml = '<br><i class="small secondary">' + v.memo + '</i>';
+                }
                 
                 $('#select-adbk-data').append(`
-                    <div class="select-adbk-item row p-1 hoverable" data-address="${v.address}">
+                    <div class="select-adbk-item row p-1 hoverable" data-address="${v.address}" data-memo="${memo}">
                         <div class="col-12">
                             <strong>${v.name}</strong>
                             <br>
@@ -56,6 +59,8 @@ function initSelectAdbk(asset, network) {
                 
             $('.select-adbk-item').on('click', function() {
                 $('#select-adbk').val($(this).data('address')).trigger('input');
+                if($(this).data('memo') != '')
+                    $('#withdraw-memo').val($(this).data('memo')).trigger('input');
             });
         } else {
             msgBox(data.error);
