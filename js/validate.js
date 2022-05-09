@@ -20,5 +20,9 @@ function validateCaptchaResp(captcha) {
 }
 
 function validateApiKeyDescription(desc) {
-    return desc.match(/^[a-zA-Z0-9]{1,255}$/);
+    return desc.match(/^[a-zA-Z0-9 ]{1,255}$/);
+}
+
+function validateAdbkName(name) {
+    return name.match(/^[a-zA-Z0-9 ]{1,255}$/);
 }

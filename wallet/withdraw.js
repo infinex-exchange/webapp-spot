@@ -56,6 +56,11 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
+                // Reset validation variables
+                window.validAddress = false;
+                window.validMemo = false;
+                window.validAdbkName = false;
+                
                 // Operating warning
                 if(data.operating)
                     $('#withdraw-operating-warning').addClass('d-none');
@@ -219,9 +224,11 @@ $(document).ready(function() {
                     msgBox(data.error);
                 }
                 else if(!data.valid) {
+	                window.validAddress = false;
                     $('#help-address').show();
                 }
                 else {
+	                window.validAddress = true;
                     $('#help-address').hide();
                 }
             })
@@ -256,9 +263,11 @@ $(document).ready(function() {
                     msgBox(data.error);
                 }
                 else if(!data.valid) {
+	                window.validMemo = false;
                     $('#help-memo').show();
                 }
                 else {
+	                window.validMemo = true;
                     $('#help-memo').hide();
                 }
             })
@@ -290,7 +299,6 @@ $(document).ready(function() {
             return;
         }
         
-        // Prepare data
         var data = new Object();
         data['api_key'] = window.apiKey;
         data['asset'] = $('#select-coin').val();
@@ -301,6 +309,18 @@ $(document).ready(function() {
         var memo = $('#withdraw-memo').val();
         if(memo != '')
             data['memo'] = memo;
+        
+        var adbkName = $('#withdraw-adbk-name').val();
+        if(adbkName != '')
+	        data['adbk_name'] = adbkName;
+        
+        if(!window.validAddress ||
+           (memo != '' && !window.validMemo) ||
+           (adbkName != '' && !window.validAdbkName))
+        {
+	        msgBox('Fill the form correctly');
+	        return;
+        }
             
         // Post
         $.ajax({
@@ -348,6 +368,18 @@ $(document).ready(function() {
         else {
             $('#withdraw-save-wrapper').show();
         }
+    });
+    
+    // Validate save name
+    $('#withdraw-save-name').on('input', function() {
+	    if(validateAdbkName($(this).val()) {
+		    window.validAdbkName = true;
+		    $('#help-adbk-name').hide();
+	    }
+	    else {
+		    window.validAdbkName = false;
+		    $('#help-adbk-name').show();
+	    }
     });
 });
 

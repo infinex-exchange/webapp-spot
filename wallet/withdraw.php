@@ -3,6 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <?php include('../imports/bignumber.html'); ?>
+        <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
         <title>Withdrawal | Vayamos Exchange</title>
     </head>
