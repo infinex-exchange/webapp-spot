@@ -61,6 +61,9 @@ $(document).ready(function() {
                 window.validMemo = false;
                 window.validAdbkName = false;
                 
+                // Reset form
+                $('#withdraw-form').get(0).reset();
+                
                 // Operating warning
                 if(data.operating)
                     $('#withdraw-operating-warning').addClass('d-none');
