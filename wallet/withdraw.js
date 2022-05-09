@@ -299,6 +299,13 @@ $(document).ready(function() {
             return;
         }
         
+        var adbkSave = $('#adbk-save').prop('checked');
+        var adbkName = $('#withdraw-adbk-name').val();
+        if(adbkSave && adbkName == '') {
+	        msgBox('Missing saved address name');
+	        return;
+        }
+        
         var data = new Object();
         data['api_key'] = window.apiKey;
         data['asset'] = $('#select-coin').val();
@@ -310,13 +317,12 @@ $(document).ready(function() {
         if(memo != '')
             data['memo'] = memo;
         
-        var adbkName = $('#withdraw-adbk-name').val();
-        if(adbkName != '')
+        if(adbkSave)
 	        data['adbk_name'] = adbkName;
         
         if(!window.validAddress ||
            (memo != '' && !window.validMemo) ||
-           (adbkName != '' && !window.validAdbkName))
+           (adbkSave && !window.validAdbkName))
         {
 	        msgBox('Fill the form correctly');
 	        return;
@@ -347,13 +353,14 @@ $(document).ready(function() {
     
     
     // Expand save name
-    $('#withdraw-save').on('change', function() { 
+    $('#withdraw-save').on('change', function() {
         if (this.checked) {
             $('#withdraw-save-wrapper').addClass('ui-card-light');
             $('#withdraw-save-expand').show(); 
         } else {
             $('#withdraw-save-expand').hide();
             $('#withdraw-save-wrapper').removeClass('ui-card-light');
+            $('#withdraw-save-name').val('');
         }
     });
     
@@ -364,6 +371,7 @@ $(document).ready(function() {
         
         if($('.select-adbk-item[data-address="' + addr + '"][data-memo="' + memo + '"]').length) {
             $('#withdraw-save-wrapper').hide();
+            $('#withdraw-save').prop('checked', false).trigger('change');
         }
         else {
             $('#withdraw-save-wrapper').show();
