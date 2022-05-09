@@ -20,7 +20,7 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                window.wdAvblBalance = new BigNumber(data.balances[asset].avbl);
+                window.wdRawBalance = new BigNumber(data.balances[asset].avbl);
                 initSelectNet(asset);
             } else {
                 msgBox(data.error);
@@ -35,6 +35,86 @@ $(document).ready(function() {
     $('#select-net').on('dataLoaded', function() {
         $('#withdraw-step2').show();
     });
+    
+    // Download info and show step3 when network selected
+    $('#select-net').on('change', function() {        
+        $('#withdraw-step3').hide();
+        
+        $.ajax({
+            url: config.apiUrl + '/wallet/withdraw/info',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey,
+                asset: $('#select-coin').val(),
+                network: $('#select-net').data('network')
+            }),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                // Operating warning
+                if(data.operating)
+                    $('#withdraw-operating-warning').addClass('d-none');
+                else
+                    $('#withdraw-operating-warning').removeClass('d-none');
+                
+                // Precision
+                window.wdAmountPrec = data.prec;
+                
+                // Round raw balance to this precision
+                window.wdBalance = window.wdRawBalance.dp(data.prec, BigNumber.ROUND_DOWN);
+                $('#withdraw-balance').html(window.wdBalance.toString());
+                
+                // Min and max fee
+                var feeMinDec = new BigNumber(data.fee_min);
+                var feeMaxDec = new BigNumber(data.fee_max);
+                var dp = Math.max(feeMinDec.dp(), feeMaxDec.dp());
+                var feeStep = new BigNumber(10);
+                feeStep = feeStep.pow(-dp).dp(dp).toString();
+                
+                $('#withdraw-fee-range').attr('min', data.fee_min)
+                                        .attr('max', data.fee_max)
+                                        .attr('step', feeStep)
+                                        .val(data.fee_min)
+                                        .trigger('input');
+                
+                // Memo
+                if(typeof(data.memo_name) !== 'undefined') {
+                    $('#withdraw-memo-name').html(data.memo_name + ':');
+                    $('#withdraw-memo-wrapper').removeClass('d-none');
+                }
+                else {
+                    $('#withdraw-memo-wrapper').addClass('d-none');
+                }
+                
+                $('#withdraw-step3').show();
+                $('html, body').animate({
+                    scrollTop: $("#withdraw-step3").offset().top
+                }, 1000);
+            } else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false);
+        });
+    });
+    
+    
+    
+    
+    // Fee range -> fee input
+    $('#withdraw-fee-range').on('input', function() {
+        window.wdAmountMax = window.wdBalance.minus( $(this).val() ).dp(window.wdAmountPrec);
+        $('#withdraw-amount-max').html(window.wdAmountMax.toString());
+        $('#withdraw-fee').val($(this).val());
+        $('#withdraw-amount').trigger('prevalidated');
+    });
+    
+    
+    
     
     // Lock format and precision of amount input
     $('#withdraw-amount').on('input', function () {
@@ -67,34 +147,42 @@ $(document).ready(function() {
         $(this).val( $(this).data('val') );
     });
     
-    // Amount range -> amount input
-    $('#withdraw-amount-range').on('input', function() {
-        var amount = window.wdAvblBalance.
-            multipliedBy( $(this).val() ).
-            dividedBy(100).
-            dp(window.wdAmountPrec, BigNumber.ROUND_DOWN).
-            toString();
-        
-        $('#withdraw-amount').data('val', amount)
-                            .val(amount);
-    });
+    
+    
     
     // Amount input -> amount range
     $('#withdraw-amount').on('prevalidated', function() {
         var amount = new BigNumber($(this).data('val'));
-        var perc = amount.dividedBy(window.wdAvblBalance).multipliedBy(100).toFixed(0);
+        var perc = 0;
+        if(!amount.isNaN())
+            perc = amount.dividedBy(window.wdAmountMax).multipliedBy(100).toFixed(0);
         $('#withdraw-amount-range').val(perc).trigger('_input');
     });
+    
+    // Amount range -> amount input
+    $('#withdraw-amount-range').on('input', function() {
+        var amount = window.wdAmountMax.
+            multipliedBy( $(this).val() ).
+            dividedBy(100).
+            dp(window.wdAmountPrec).
+            toString();
+        
+        $('#withdraw-amount').data('val', amount)
+                             .val(amount);
+    });
+    
+    
+    
     
     // Drop amount to available balance
     $('#withdraw-amount').on('prevalidated', function() {
         var amount = new BigNumber($(this).data('val'));
-        if(amount.gt(window.wdAvblBalance)) {
-            $('#withdraw-amount').addClass('blink-red');
+        if(amount.gt(window.wdAmountMax)) {
+            $('#withdraw-amount, #withdraw-amount-max').addClass('blink-red');
             setTimeout(function() {
-                $('#withdraw-amount').removeClass('blink-red');
+                $('#withdraw-amount, #withdraw-amount-max').removeClass('blink-red');
                 
-                var max = window.wdAvblBalance.dp(window.wdAmountPrec).toString();
+                var max = window.wdAmountMax.toString();
                 $('#withdraw-amount').data('val', max)
                                     .val(max)
                                     .trigger('prevalidated');
@@ -102,67 +190,8 @@ $(document).ready(function() {
         }
     });
     
-    // Fee range -> fee input
-    $('#withdraw-fee-range').on('input', function() {
-        $('#withdraw-fee').val($(this).val());
-    });
     
-    // Download info and show step3 when network selected
-    $('#select-net').on('change', function() {        
-        $('#withdraw-step3').hide();
-        
-        $.ajax({
-            url: config.apiUrl + '/wallet/withdraw/info',
-            type: 'POST',
-            data: JSON.stringify({
-                api_key: window.apiKey,
-                asset: $('#select-coin').val(),
-                network: $('#select-net').data('network')
-            }),
-            contentType: "application/json",
-            dataType: "json",
-        })
-        .retry(config.retry)
-        .done(function (data) {
-            if(data.success) {
-                // Operating warning
-                if(data.operating)
-                    $('#withdraw-operating-warning').addClass('d-none');
-                else
-                    $('#withdraw-operating-warning').removeClass('d-none');
-                
-                // Min and max fee
-                var feeMinDec = new BigNumber(data.fee_min);
-                var dp = feeMinDec.dp();
-                var feeStep = new BigNumber(10);
-                feeStep = feeStep.pow(-dp).dp(dp).toString();
-                
-                $('#withdraw-fee-range').attr('min', data.fee_min)
-                                        .attr('max', data.fee_max)
-                                        .attr('step', feeStep)
-                                        .trigger('input');
-                
-                // Precision
-                window.wdAmountPrec = data.prec;
-                
-                // Memo
-                if(typeof(data.memo_name) !== 'undefined')
-                    $('#withdraw-memo-wrapper').removeClass('d-none');
-                else
-                    $('#withdraw-memo-wrapper').addClass('d-none');
-                
-                $('#withdraw-step3').show();
-                $('html, body').animate({
-                    scrollTop: $("#withdraw-step3").offset().top
-                }, 1000);
-            } else {
-                msgBox(data.error);
-            }
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            msgBoxNoConn(false);
-        });
-    });
+    
     
     // Validate address
     $('#withdraw-address').on('input', function() {

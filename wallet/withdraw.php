@@ -67,9 +67,9 @@
                                 <small id="help-address" class="form-text" style="display: none">Address is invalid</small>
                             </div>
                             <div class="form-group" id="withdraw-memo-wrapper">
-                                <label for="withdraw-memo">Memo/tag:</label>
+                                <label id="withdraw-memo-name" for="withdraw-memo"></label>
                                 <input type="text" class="form-control" id="withdraw-memo" placeholder="Optional">
-                                <small id="help-memo" class="form-text" style="display: none">Memo/tag is invalid</small>
+                                <small id="help-memo" class="form-text" style="display: none">Invalid format</small>
                             </div>
                             <div class="form-group">
                                 <label for="withdraw-amount">Amount:</label>
@@ -78,6 +78,13 @@
                             <div class="form-group">
                                 <span class="range-value" for="withdraw-amount-range" suffix="%"></span>
                                 <input id="withdraw-amount-range" type="range" class="form-range" min="0" max="100" step="1" value="0">
+                            </div>
+                            <div class="form-group">
+                                <span class="secondary">Available:</span>
+                                <span class="float-end" id="withdraw-balance"></span>
+                                <br>
+                                <span class="secondary">After pay fee:</span>
+                                <span class="float-end" id="withdraw-amount-max"></span>
                             </div>
                             <div class="form-group">
                                 <label for="withdraw-fee">Fee:</label>
