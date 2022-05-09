@@ -62,8 +62,8 @@
                         </div>
                         <form id="withdraw-form" class="d-grid gap-3">
                             <div class="form-group">
-                                <label for="withdraw-address">Address:</label>
-                                <input type="text" class="form-control" id="withdraw-address">
+                                <label for="select-adbk">Address:</label>
+                                <?php include('../templates/select_adbk.php'); ?>
                                 <small id="help-address" class="form-text" style="display: none">Address is invalid</small>
                             </div>
                             <div class="form-group" id="withdraw-memo-wrapper">

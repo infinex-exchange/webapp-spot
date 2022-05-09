@@ -4,6 +4,8 @@ $(document).ready(function() {
         $('#select-coin-arrow').removeClass('flip');
         $('#select-net-dropdown').toggle();
         $('#select-net-arrow').toggleClass('flip');
+        $('#select-adbk-dropdown').hide();
+        $('#select-adbk-arrow').removeClass('flip');
         event.stopPropagation();
     });
     

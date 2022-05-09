@@ -194,7 +194,7 @@ $(document).ready(function() {
     
     
     // Validate address
-    $('#withdraw-address').on('input', function() {
+    $('#select-adbk').on('input', function() {
         if(typeof(window.addrTypingTimeout) !== 'undefined')
             clearTimeout(window.addrTypingTimeout);
         window.addrTypingTimeout = setTimeout(function() {
@@ -206,7 +206,7 @@ $(document).ready(function() {
                     api_key: window.apiKey,
                     asset: $('#select-coin').val(),
                     network: $('#select-net').data('network'),
-                    address: $('#withdraw-address').val()
+                    address: $('#select-adbk').val()
                 }),
                 contentType: "application/json",
                 dataType: "json",
@@ -276,7 +276,7 @@ $(document).ready(function() {
         event.preventDefault();
         
         // Validate data
-        var address = $('#withdraw-address').val();
+        var address = $('#select-adbk').val();
         if(address == '') {
             msgBox('Missing address');
             return;

@@ -388,14 +388,14 @@ input[type="range"]::-moz-range-thumb {
     font-size: var(--font-normal);
 }
 
-/* Coin and network selector */
+/* Coin / net / address selector */
 
-#select-coin-wrapper, #select-net-wrapper {
+#select-coin-wrapper, #select-net-wrapper, #select-adbk-wrapper {
     max-width: 100%;
     position: relative;
 }
 
-#select-coin-dropdown, #select-net-dropdown {
+#select-coin-dropdown, #select-net-dropdown, #select-adbk-dropdown {
     display: none;
     position: absolute;
     background-color: var(--color-bg-light);
@@ -405,21 +405,21 @@ input[type="range"]::-moz-range-thumb {
     padding: 10px;
 }
 
-#select-coin-dropdown > input, #select-net-dropdown > input {
+#select-coin-dropdown > input {
     margin-bottom: 10px;
 }
 
-#select-coin-data, #select-net-data {
+#select-coin-data, #select-net-data, #select-adbk-data {
     max-height: 250px;
 }
 
-input#select-coin, input#select-net {
+input#select-coin, input#select-net, input#select-adbk {
     cursor: pointer;
     max-width: 100%;
     width: 100%;
 }
 
-.select-coin-item, .select-net-item {
+.select-coin-item, .select-net-item, .select-adbk-item {
     cursor: pointer;
 }
 
