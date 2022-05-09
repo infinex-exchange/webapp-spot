@@ -205,7 +205,7 @@ $(document).ready(function() {
                 data: JSON.stringify({
                     api_key: window.apiKey,
                     asset: $('#select-coin').val(),
-                    network: $('#select-net').attr('data-network'),
+                    network: $('#select-net').data('network'),
                     address: $('#withdraw-address').val()
                 }),
                 contentType: "application/json",
@@ -221,6 +221,43 @@ $(document).ready(function() {
                 }
                 else {
                     $('#help-address').hide();
+                }
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                msgBoxNoConn(false);
+            });
+            
+        }, 750);
+    });
+    
+    // Validate memo
+    $('#withdraw-memo').on('input', function() {
+        if(typeof(window.memoTypingTimeout) !== 'undefined')
+            clearTimeout(window.memoTypingTimeout);
+        window.memoTypingTimeout = setTimeout(function() {
+            
+            $.ajax({
+                url: config.apiUrl + '/wallet/withdraw/validate',
+                type: 'POST',
+                data: JSON.stringify({
+                    api_key: window.apiKey,
+                    asset: $('#select-coin').val(),
+                    network: $('#select-net').data('network'),
+                    memo: $('#withdraw-memo').val()
+                }),
+                contentType: "application/json",
+                dataType: "json",
+            })
+            .retry(config.retry)
+            .done(function (data) {
+                if(!data.success) {
+                    msgBox(data.error);
+                }
+                else if(!data.valid) {
+                    $('#help-memo').show();
+                }
+                else {
+                    $('#help-memo').hide();
                 }
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
