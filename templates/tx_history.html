@@ -1,0 +1,43 @@
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-mobile-tx-details">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Transaction</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+                    
+            <div class="modal-body">
+                <div class="row py-2">
+                    <div class="col-6">
+                        <h5>Total:</h5>
+                    </div>
+                    <div class="col-6 text-end">
+                        <span id="mad-total"></span>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-6">
+                        <h5>Available:</h5>
+                    </div>
+                    <div class="col-6 text-end">
+                        <span id="mad-avbl"></span>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-6">
+                        <h5>Locked:</h5>
+                    </div>
+                    <div class="col-6 text-end">
+                        <span id="mad-locked"></span>
+                    </div>
+                </div>
+            </div>
+                    
+            <div class="modal-footer">
+                <a href="#" id="mad-deposit" class="btn btn-primary">Deposit</a>
+                <a href="#" id="mad-withdraw" class="btn btn-primary">Withdraw</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/tx_history.js?<?php echo filemtime(__DIR__.'/../js/tx_history.js'); ?>"></script>        

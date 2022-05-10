@@ -14,6 +14,7 @@ RewriteRule ^wallet/deposit/([^/]+)/?$ /wallet/deposit.php [L]
 RewriteRule ^wallet/deposit/?$ /wallet/deposit.php [L]
 RewriteRule ^wallet/withdraw/([^/]+)/?$ /wallet/withdraw.php [L]
 RewriteRule ^wallet/withdraw/?$ /wallet/withdraw.php [L]
+RewriteRule ^wallet/transactions/?$ /wallet/transactions.php [L]
 
 RewriteRule ^spot/?$ /exchange/spot/index.php [L]
 RewriteRule ^spot/css/([^/]+)$ /exchange/spot/css/$1 [L]

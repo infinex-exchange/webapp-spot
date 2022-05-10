@@ -94,9 +94,10 @@ $(document).on('authChecked', function() {
             }
         );
         
-        initRecentTx({
+        var txHistoryData = {
             api_key: window.apiKey
-        });
+        };
+        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true);
     }
 });
 

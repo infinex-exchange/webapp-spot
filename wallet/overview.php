@@ -144,7 +144,7 @@
             </div>
         </div>
         
-        <script src="/js/tx_history.js?<?php echo filemtime(__DIR__.'/../js/tx_history.js'); ?>"></script>
+        <?php include('../templates/tx_history.html'); ?>
         <script src="/wallet/overview.js?<?php echo filemtime(__DIR__.'/overview.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>

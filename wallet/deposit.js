@@ -78,10 +78,11 @@ $(document).on('authChecked', function() {
             correctLevel : QRCode.CorrectLevel.H
         });
     
-        var rtxData = {
+        var txHistoryData = {
             api_key: window.apiKey,
-            type: 'DEPOSIT',
+            type: 'DEPOSIT'
         };
+        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true);
         
         var pathArray = window.location.pathname.split('/');
         var pathLast = pathArray[pathArray.length - 1];
@@ -101,21 +102,17 @@ $(document).on('authChecked', function() {
                 if(data.success) {
                     $('#select-coin').val(symbol);
                     $('#select-coin').trigger('change');
-                    rtxData.asset = symbol;
                 } else {
                     msgBox(data.error);
                 }
                 $(document).trigger('renderingStage');
-                initRecentTx(rtxData);
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
                 msgBoxNoConn(false);
                 $(document).trigger('renderingStage');
-                initRecentTx(rtxData);
             });
         } else {
             $(document).trigger('renderingStage');
-            initRecentTx(rtxData);
         }
     }
 });

@@ -5,8 +5,7 @@ var txTypeIconDict = {
 
 var txTypeDict = {
     DEPOSIT: 'Deposit',
-    WITHDRAWAL: 'Withdrawal',
-    TRADE_SPOT: 'Spot trade'
+    WITHDRAWAL: 'Withdrawal'
 };
 
 var txStatusIconDict = {
@@ -14,14 +13,53 @@ var txStatusIconDict = {
     DONE: 'fa-solid fa-check'
 };
 
-function initRecentTx(data) {
-    window.recentTxAS = new AjaxScroll(
-        $('#recent-tx-data'),
-        $('#recent-tx-data-preloader'),
+function mobileTxDetails(item, forceSmall) {
+    if($(window).width() > 991 && !forceSmall) return;
+    
+    $('#mad-icon').attr('src', $(item).data('icon'));
+    $('#mad-name').html($(item).data('name'));
+    $('#mad-total').html($(item).data('total') + ' ' + $(item).data('symbol'));;
+    $('#mad-avbl').html($(item).data('avbl') + ' ' + $(item).data('symbol'));
+    $('#mad-locked').html($(item).data('locked') + ' ' + $(item).data('symbol'));
+    $('#mad-deposit').attr('href', '/wallet/deposit/' + $(item).data('symbol'));
+    $('#mad-withdraw').attr('href', '/wallet/withdraw/' + $(item).data('symbol'));
+    
+    $('#modal-mobile-tx-details').modal('show');
+}
+
+function renderTxHistoryItem(data, forceSmall) { 
+    return `
+        <div class="row hoverable tx-history-item px-1 py-2 py-lg-1" onClick="mobileTxDetails(this, ${forceSmall})">
+            <div class="col-2 my-auto">
+                <div class="p-2" style="position: relative">
+                    <img width="40" height="40" src="${data.icon_url}">
+                    <div style="position: absolute; bottom: 0px">
+                        <i style="font-size: 16px; color: var(--color-ultra);" class="${txTypeIconDict[data.type]}"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-8 my-auto">
+                <span>${txTypeDict[data.type]}</span>
+                <br>
+                <span>${data.amount} ${data.asset}</span>
+            </div>
+            
+            <div class="col-2 my-auto">
+                <i class="${txStatusIconDict[data.status]}"></i>
+            </div>
+        </div>
+    `;
+}
+
+function initTxHistory(container, preloader, data, forceSmall) {
+    var scrollable = container.hasClass('scrollable');
+    
+    window.TxHistoryAS = new AjaxScroll(
+        container,
+        preloader,
         data,
         function() {
-            
-            //---
             this.data.offset = this.offset;
             var thisAS = this;
                 
@@ -36,72 +74,7 @@ function initRecentTx(data) {
             .done(function (data) {
                 if(data.success) {
                     $.each(data.transactions, function() {
-                        var innerhtml = '';
-                        var amount = '';
-                        var innerhtml2 = `
-                            <span>Time:</span> ${this.creation_date}
-                        `;
-                    
-                        if(this.type == 'TRADE_SPOT') {
-                            innerhtml = `
-                                <div style="position: relative">
-                                    <img width="20" height="20" src="${this.icon_url}">
-                                    <img style="position: absolute; top: 20px; left: 20px;" width="20" height="20" src="${this.opposite_icon_url}">
-                                    <img style="position: absolute; top: 0px; left: 20px; transform: scaleX(-1) rotate(90deg);" src="/img/swap_arrow.svg" width="20" height="20">
-                                    <img style="position: absolute; top: 20px; left: 0px;" src="/img/swap_arrow.svg" width="20" height="20">
-                                </div>
-                            `;
-                            amount = this.amount + ' ' + this.asset + ' <i class="fa-solid fa-arrow-right-long"></i> '
-                                + this.opposite_amount + ' ' + this.opposite_asset;
-                            innerhtml2 += `
-                                <br>
-                                <span>Avg price:</span> ${this.avg_price}
-                            `;
-                        }
-                        else {
-                            innerhtml = `
-                                <div class="p-2" style="position: relative">
-                                    <img width="40" height="40" src="${this.icon_url}">
-                                    <div style="position: absolute; bottom: 0px">
-                                        <i style="font-size: 16px; color: var(--color-ultra);" class="${txTypeIconDict[this.type]}"></i>
-                                    </div>
-                                </div>
-                            `;
-                            amount = this.amount + ' ' + this.asset;
-                            if(this.type == 'DEPOSIT') {
-                                innerhtml2 += `
-                                    <br>
-                                    <span>Confirmations:</span> ${this.confirms}/${this.confirms_target}
-                                `;
-                            }
-                            if(typeof(this.txid) !== 'undefined') {
-                                var txiduser = showTxid(this.txid);
-                                innerhtml2 += `
-                                    <br>
-                                    <span>TxID:</span> ${txiduser}
-                                `;
-                            }
-                        }
-                
-                        thisAS.append(`
-                            <div class="row p-1 hoverable hover-to-expand">
-                                <div class="col-2 my-auto">
-                                    ${innerhtml}
-                                </div>
-                                <div class="col-8 my-auto">
-                                    <span>${txTypeDict[this.type]}</span><br>
-                                    <span>${amount}</span>
-                                </div>
-                                <div class="col-2 my-auto">
-                                    <i class="${txStatusIconDict[this.status]}"></i>
-                                </div>
-                                <div class="col-2 expand"></div>
-                                <div class="col-8 expand small">
-                                    ${innerhtml2}
-                                </div>
-                                <div class="col-2 expand"></div>
-                            </div>
-                        `);
+                        thisAS.append(renderTxHistoryItem(this, forceSmall);
                     });
                     
                     thisAS.done();
@@ -109,7 +82,7 @@ function initRecentTx(data) {
                     if(thisAS.offset == 0)
                         $(document).trigger('renderingStage');
                         
-                    if(data.transactions.length != 50)
+                    if(data.transactions.length != 50 || !scrollable)
                         thisAS.noMoreData();
                 }
                 else {
@@ -123,8 +96,6 @@ function initRecentTx(data) {
                 thisAS.done();
                 thisAS.noMoreData();
             });
-            //---
-        
         }
     );
 }

@@ -346,16 +346,6 @@ input[type="range"]::-moz-range-thumb {
     justify-content: flex-end;
 }
 
-/* Hover div to expand inner div */
-
-.hover-to-expand .expand {
-    display: none;
-}
-
-.hover-to-expand:hover .expand {
-    display: block;
-}
-
 /* Preloader */
 
 .preloader-wrapper {
