@@ -14,13 +14,20 @@ var txStatusIconDict = {
 };
 
 function mobileTxDetails(item) {
-    $('#mad-icon').attr('src', $(item).data('icon'));
-    $('#mad-name').html($(item).data('name'));
-    $('#mad-total').html($(item).data('total') + ' ' + $(item).data('symbol'));;
-    $('#mad-avbl').html($(item).data('avbl') + ' ' + $(item).data('symbol'));
-    $('#mad-locked').html($(item).data('locked') + ' ' + $(item).data('symbol'));
-    $('#mad-deposit').attr('href', '/wallet/deposit/' + $(item).data('symbol'));
-    $('#mad-withdraw').attr('href', '/wallet/withdraw/' + $(item).data('symbol'));
+    $('#mtd-type').html( $(item).data('type') );
+    $('#mtd-asset').html( $(item).data('asset') );
+    $('#mtd-network').html( $(item).data('network') );
+    $('#mtd-amount').html( $(item).data('amount') );
+    $('#mtd-status').html( $(item).data('status') );
+    $('#mtd-create-time').html( $(item).data('create-time') );
+    $('#mtd-address').html( $(item).data('address') );
+    $('#mtd-memo').html( $(item).data('memo') );
+    $('#mtd-exec-time').html( $(item).data('exec-time') );
+    $('#mtd-confirms').html( $(item).data('confirms') );
+    $('#mtd-txid').html( $(item).data('txid') );
+    $('#mtd-height').html( $(item).data('height') );
+    $('#mtd-fee').html( $(item).data('fee') );
+    $('#mtd-icon').attr('src', $(item).data('icon-url'));
     
     $('#modal-mobile-tx-details').modal('show');
 }
@@ -35,17 +42,26 @@ function renderTxHistoryItem(data, forceSmall) {
     var cTime = new Date(data.create_time * 1000).toLocaleString();
     
     var confHtml = '';
+    var bigConfHtml = '';
     var smallConfHtml = '';
     if(data.status != 'DONE' &&
        typeof(data.confirms) !== 'undefined' &&
        typeof(data.confirms_target) !== 'undefined')
     {
-        confHtml = `<br><span class="secondary">${data.confirms}&nbsp;/&nbsp;${data.confirms_target}</span>`;
-        smallConfHtml = `<span class="pe-2">${data.confirms}&nbsp;/&nbsp;${data.confirms_target}</span>`;
+        confHtml = `${data.confirms}&nbsp;/&nbsp;${data.confirms_target}`;
+        if(data.confirms != data.confirms_target) {
+            bigConfHtml = '<br><span class="secondary">' + confHtml + '</span>'';
+            smallConfHtml = '<span class="pe-2">' + confHtml + '</span>';
+        }
     }
     
     return `
-        <div class="row hoverable tx-history-item px-1 py-2" onClick="mobileTxDetails(this)">
+        <div class="row hoverable tx-history-item px-1 py-2" onClick="mobileTxDetails(this)"
+         data-type="${data.type}" data-asset="${data.asset}" data-network="${data.network}"
+         data-amount="${data.amount}" data-status="${data.status}" data-create-time="${data.create_time}"
+         data-address="${data.address}" data-memo="${data.memo}" data-exec-time="${data.exec_time}"
+         data-confirms="${confHtml}" data-txid="${data.txid}" data-height="${data.height}"
+         data-fee="${data.fee}" data-icon-url="${data.icon_url}">
             
             
             
