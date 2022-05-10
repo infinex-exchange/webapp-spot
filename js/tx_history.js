@@ -50,7 +50,7 @@ function renderTxHistoryItem(data, forceSmall) {
     {
         confHtml = `${data.confirms}&nbsp;/&nbsp;${data.confirms_target}`;
         if(data.confirms != data.confirms_target) {
-            bigConfHtml = '<br><span class="secondary">' + confHtml + '</span>'';
+            bigConfHtml = '<br><span class="secondary">' + confHtml + '</span>';
             smallConfHtml = '<span class="pe-2">' + confHtml + '</span>';
         }
     }
