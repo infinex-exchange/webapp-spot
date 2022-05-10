@@ -79,8 +79,8 @@ function renderTxHistoryItem(data, forceSmall) {
             <div style="width: 60px" class="my-auto ${dLgNone}">
                 <div class="p-2" style="position: relative">
                     <img width="40" height="40" src="${data.icon_url}">
-                    <div style="position: absolute; bottom: 0px">
-                        <i style="font-size: 16px; color: var(--color-ultra);" class="${txTypeIconDict[data.type]}"></i>
+                    <div class="tx-history-icon-wrapper">
+                        <i class="tx-history-icon ${txTypeIconDict[data.type]}"></i>
                     </div>
                 </div>
             </div>
