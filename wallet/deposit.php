@@ -129,7 +129,7 @@
         </div>
         </div>
         
-        <script src="/js/recent_tx.js?<?php echo filemtime(__DIR__.'/../js/recent_tx.js'); ?>"></script>
+        <script src="/js/tx_history.js?<?php echo filemtime(__DIR__.'/../js/tx_history.js'); ?>"></script>
         <script src="/wallet/deposit.js?<?php echo filemtime(__DIR__.'/deposit.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>
