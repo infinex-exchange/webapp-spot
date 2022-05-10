@@ -250,6 +250,10 @@ $(document).ready(function() {
         if(typeof(window.memoTypingTimeout) !== 'undefined')
             clearTimeout(window.memoTypingTimeout);
         window.memoTypingTimeout = setTimeout(function() {
+            if($('#withdraw-memo').val() == '') {
+                window.validMemo = false;
+                $('#help-memo').hide();
+            }
             
             $.ajax({
                 url: config.apiUrl + '/wallet/withdraw/validate',
