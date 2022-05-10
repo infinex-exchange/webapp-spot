@@ -344,7 +344,7 @@ $(document).ready(function() {
             
         // Post
         $.ajax({
-            url: config.apiUrl + '/wallet/withdraw/validate',
+            url: config.apiUrl + '/wallet/withdraw',
             type: 'POST',
             data: JSON.stringify(data),
             contentType: "application/json",
