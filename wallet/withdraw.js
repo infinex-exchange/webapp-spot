@@ -310,8 +310,10 @@ $(document).ready(function() {
             return;
         }
         
-        var adbkSave = $('#adbk-save').prop('checked');
-        var adbkName = $('#withdraw-adbk-name').val();
+        var fee = new BigNumber($('#withdraw-fee').val());
+        
+        var adbkSave = $('#withdraw-save').prop('checked');
+        var adbkName = $('#withdraw-save-name').val();
         if(adbkSave && adbkName == '') {
 	        msgBox('Missing saved address name');
 	        return;
@@ -323,6 +325,7 @@ $(document).ready(function() {
         data['network'] = $('#select-net').data('network');
         data['address'] = address;
         data['amount'] = amount.toFixed(window.wdAmountPrec);
+        data['fee'] = fee.toFixed(window.wdAmountPrec);
         
         var memo = $('#withdraw-memo').val();
         if(memo != '')
@@ -373,6 +376,7 @@ $(document).ready(function() {
             $('#withdraw-save-wrapper').removeClass('ui-card-light');
             $('#withdraw-save-name').val('');
             window.validAdbkName = false;
+            $('#help-save-name').hide();
         }
     });
     
