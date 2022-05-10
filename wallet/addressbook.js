@@ -106,7 +106,7 @@ function showRenameAdbkPrompt(item) {
 $(document).on('authChecked', function() {
     if(window.loggedIn) {
         $.ajax({
-            url: config.apiUrl + '/wallet/adreessbook',
+            url: config.apiUrl + '/wallet/addressbook',
             type: 'POST',
             data: JSON.stringify({
                 api_key: window.apiKey
