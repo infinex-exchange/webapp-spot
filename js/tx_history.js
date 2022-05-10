@@ -32,36 +32,51 @@ function renderTxHistoryItem(data, forceSmall) {
     var dNoneDLgBlock = 'd-none d-lg-block';
     if(forceSmall) dNoneDLgBlock = 'd-none';
     
+    var cTime = new Date(data.create_time * 1000).toLocaleString();
+    
+    var confHtml = '';
+    var smallConfHtml = '';
+    if(data.status != 'DONE' &&
+       typeof(data.confirms) !== 'undefined' &&
+       typeof(data.confirms_target) !== 'undefined')
+    {
+        confHtml = `<br><span class="secondary">${data.confirms}&nbsp;/&nbsp;${data.confirms_target}</span>`;
+        smallConfHtml = `<span class="pe-2">${data.confirms}&nbsp;/&nbsp;${data.confirms_target}</span>`;
+    }
+    
     return `
-        <div class="row hoverable tx-history-item px-1 py-2 py-lg-1" onClick="mobileTxDetails(this)">
+        <div class="row hoverable tx-history-item px-1 py-2" onClick="mobileTxDetails(this)">
             
             
             
             
-            <div class="${dNoneDLgBlock}" style="width: 20%">
-                <h5>Date</h5>
+            <div class="my-auto ${dNoneDLgBlock}" style="width: 20%">
+                ${cTime}
             </div>
             
-            <div class="${dNoneDLgBlock}" style="width: 20%">
-                <h5>Type</h5>
+            <div class=" my-auto ${dNoneDLgBlock}" style="width: 20%">
+                ${data.type}
             </div>
             
-            <div class="${dNoneDLgBlock}" style="width: 20%">
-                <h5>Asset</h5>
+            <div class="my-auto ${dNoneDLgBlock}" style="width: 20%">
+                <img width="16" height="16" src="${data.icon_url}">
+                ${data.asset}
             </div>
             
-            <div class="text-end ${dNoneDLgBlock}" style="width: 20%">
-                <h5>Amount</h5>
+            <div class="text-end my-auto ${dNoneDLgBlock}" style="width: 20%">
+                ${data.amount}
             </div>
             
-            <div class="text-end ${dNoneDLgBlock}" style="width: 20%">
-                <h5>Status</h5>
+            <div class="text-end my-auto ${dNoneDLgBlock}" style="width: 20%">
+                <i class="${txStatusIconDict[data.status]}"></i>
+                ${data.status}
+                ${confHtml}
             </div>
             
             
             
             
-            <div class="col-2 my-auto ${dLgNone}">
+            <div style="width: 60px" class="my-auto ${dLgNone}">
                 <div class="p-2" style="position: relative">
                     <img width="40" height="40" src="${data.icon_url}">
                     <div style="position: absolute; bottom: 0px">
@@ -70,13 +85,13 @@ function renderTxHistoryItem(data, forceSmall) {
                 </div>
             </div>
             
-            <div class="col-8 my-auto ${dLgNone}">
-                <span>${txTypeDict[data.type]}</span>
-                <br>
+            <div style="width: 50%" class="my-auto ${dLgNone}">
+                <h6 class="secondary">${txTypeDict[data.type]}</h6>
                 <span>${data.amount} ${data.asset}</span>
             </div>
             
-            <div class="col-2 my-auto ${dLgNone}">
+            <div style="width: calc(50% - 60px)" class="my-auto text-end ${dLgNone}">
+                ${smallConfHtml}
                 <i class="${txStatusIconDict[data.status]}"></i>
             </div>
             

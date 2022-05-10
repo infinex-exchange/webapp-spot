@@ -48,7 +48,7 @@ $(document).on('authChecked', function() {
                                 data-icon="${v.icon_url}" data-symbol="${k}" data-name="${v.name}"
                                 data-total="${v.total}" data-avbl="${v.avbl}" data-locked="${v.locked}">
                                     <div class="my-auto" style="width: 60px">
-                                        <img width="40px" height="40px" src="${v.icon_url}">
+                                        <img width="40" height="40" src="${v.icon_url}">
                                     </div>
                                     <div class="my-auto m-50-minus" style="width: calc(20% - 60px)">
                                         ${k}<br>
