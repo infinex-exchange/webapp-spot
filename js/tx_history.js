@@ -86,7 +86,7 @@ function renderTxHistoryItem(data, forceSmall) {
             <div class="text-end my-auto ${dNoneDLgBlock}" style="width: 20%">
                 <i class="${txStatusIconDict[data.status]}"></i>
                 ${data.status}
-                ${confHtml}
+                ${bigConfHtml}
             </div>
             
             
