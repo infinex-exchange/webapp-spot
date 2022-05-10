@@ -23,7 +23,25 @@
                 <h3>Transactions history</h3>
             </div>
             
-            <div id="transactions-data">
+            <div class="row p-2 secondary d-none d-lg-flex">
+                <div style="width: 20%">
+                    <h5>Date</h5>
+                </div>
+                <div style="width: 20%">
+                    <h5>Type</h5>
+                </div>
+                <div style="width: 20%">
+                    <h5>Asset</h5>
+                </div>
+                <div class="text-end" style="width: 20%">
+                    <h5>Amount</h5>
+                </div>
+                <div class="text-end" style="width: 20%">
+                    <h5>Status</h5>
+                </div>
+            </div>
+            
+            <div id="transactions-data" class="scrollable">
             </div>
         
         <!-- / Main column -->

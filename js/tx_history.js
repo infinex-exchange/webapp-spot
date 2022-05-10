@@ -13,9 +13,7 @@ var txStatusIconDict = {
     DONE: 'fa-solid fa-check'
 };
 
-function mobileTxDetails(item, forceSmall) {
-    if($(window).width() > 991 && !forceSmall) return;
-    
+function mobileTxDetails(item) {
     $('#mad-icon').attr('src', $(item).data('icon'));
     $('#mad-name').html($(item).data('name'));
     $('#mad-total').html($(item).data('total') + ' ' + $(item).data('symbol'));;
@@ -28,9 +26,42 @@ function mobileTxDetails(item, forceSmall) {
 }
 
 function renderTxHistoryItem(data, forceSmall) { 
+    var dLgNone = 'd-lg-none';
+    if(forceSmall) dLgNone = '';
+    
+    var dNoneDLgBlock = 'd-none d-lg-block';
+    if(forceSmall) dNoneDLgBlock = 'd-none';
+    
     return `
-        <div class="row hoverable tx-history-item px-1 py-2 py-lg-1" onClick="mobileTxDetails(this, ${forceSmall})">
-            <div class="col-2 my-auto">
+        <div class="row hoverable tx-history-item px-1 py-2 py-lg-1" onClick="mobileTxDetails(this)">
+            
+            
+            
+            
+            <div class="${dNoneDLgBlock}" style="width: 20%">
+                <h5>Date</h5>
+            </div>
+            
+            <div class="${dNoneDLgBlock}" style="width: 20%">
+                <h5>Type</h5>
+            </div>
+            
+            <div class="${dNoneDLgBlock}" style="width: 20%">
+                <h5>Asset</h5>
+            </div>
+            
+            <div class="text-end ${dNoneDLgBlock}" style="width: 20%">
+                <h5>Amount</h5>
+            </div>
+            
+            <div class="text-end ${dNoneDLgBlock}" style="width: 20%">
+                <h5>Status</h5>
+            </div>
+            
+            
+            
+            
+            <div class="col-2 my-auto ${dLgNone}">
                 <div class="p-2" style="position: relative">
                     <img width="40" height="40" src="${data.icon_url}">
                     <div style="position: absolute; bottom: 0px">
@@ -39,15 +70,19 @@ function renderTxHistoryItem(data, forceSmall) {
                 </div>
             </div>
             
-            <div class="col-8 my-auto">
+            <div class="col-8 my-auto ${dLgNone}">
                 <span>${txTypeDict[data.type]}</span>
                 <br>
                 <span>${data.amount} ${data.asset}</span>
             </div>
             
-            <div class="col-2 my-auto">
+            <div class="col-2 my-auto ${dLgNone}">
                 <i class="${txStatusIconDict[data.status]}"></i>
             </div>
+            
+            
+            
+            
         </div>
     `;
 }
