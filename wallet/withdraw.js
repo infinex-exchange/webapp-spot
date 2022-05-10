@@ -229,7 +229,7 @@ $(document).ready(function() {
                 if(!data.success) {
                     msgBox(data.error);
                 }
-                else if(!data.valid) {
+                else if(!data.valid_address) {
 	                window.validAddress = false;
                     $('#help-address').show();
                 }
@@ -272,7 +272,7 @@ $(document).ready(function() {
                 if(!data.success) {
                     msgBox(data.error);
                 }
-                else if(!data.valid) {
+                else if(!data.valid_memo) {
 	                window.validMemo = false;
                     $('#help-memo').show();
                 }
