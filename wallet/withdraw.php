@@ -87,7 +87,7 @@
                             <div class="pretty p-switch">
                                 <input type="checkbox" id="withdraw-save">
                                 <div class="state p-primary">
-                                    <label for="withdraw-save">Save in addressbook</label>
+                                    <label for="withdraw-save">Save in address book</label>
                                 </div>
                             </div>
                         </div>
