@@ -253,6 +253,7 @@ $(document).ready(function() {
             if($('#withdraw-memo').val() == '') {
                 window.validMemo = false;
                 $('#help-memo').hide();
+                return;
             }
             
             $.ajax({
