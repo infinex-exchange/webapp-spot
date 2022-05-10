@@ -7,6 +7,6 @@ $(document).on('authChecked', function() {
         var txHistoryData = {
             api_key: window.apiKey
         };
-        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, false);
+        initTxHistory($('#transactions-data'), $('#transactions-preloader'), txHistoryData, false);
     }
 });
