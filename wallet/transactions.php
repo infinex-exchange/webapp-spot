@@ -18,12 +18,12 @@
         <div class="row m-0 h-rest">
         
         <!-- Main column -->
-        <div class="col-12 col-lg-9 p-0 ui-card ui-column">
+        <div class="col-12 p-0 ui-card ui-column">
             <div class="row p-2">
                 <h3>Transactions history</h3>
             </div>
             
-            <div class="row p-2 secondary d-none d-lg-flex">
+            <div class="row p-2 secondary d-none d-lg-flex scrollable">
                 <div style="width: 20%">
                     <h5>Date</h5>
                 </div>
