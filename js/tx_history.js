@@ -74,7 +74,7 @@ function initTxHistory(container, preloader, data, forceSmall) {
             .done(function (data) {
                 if(data.success) {
                     $.each(data.transactions, function() {
-                        thisAS.append(renderTxHistoryItem(this, forceSmall);
+                        thisAS.append(renderTxHistoryItem(this, forceSmall));
                     });
                     
                     thisAS.done();
