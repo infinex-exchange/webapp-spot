@@ -13,21 +13,51 @@ var txStatusIconDict = {
     DONE: 'fa-solid fa-check'
 };
 
+var txExecTimeDict = {
+    DEPOSIT: 'Confirm time',
+    WITHDRAWAL: 'Execute time'
+};
+
 function mobileTxDetails(item) {
-    $('#mtd-type').html( $(item).data('type') );
+    var type = $(item).data('type');
+    var status = $(item).data('status');
+    var confirms = $(item).data('confirms');
+    var memoName = $(item).data('memo-name');
+    
+    $('#mtd-icon').attr('src', $(item).data('icon-url'));
+    $('#mtd-op-icon').removeClass()
+                     .addClass('tx-history-icon')
+                     .addClass(txTypeIconDict[type]);
     $('#mtd-asset').html( $(item).data('asset') );
+    $('#mtd-type').html(txTypeDict[type]);
+    $('#mtd-status').html(status);
+    $('#mtd-status-icon').removeClass()
+                         .addClass(txStatusIconDict[status]);
+    if(confirms != '')
+        $('#mtd-confirms').removeClass('d-none').addClass('d-block').html(confirms);
+    else
+        $('#mtd-confirms').removeClass('d-block').addClass('d-none').html('');
+        
     $('#mtd-network').html( $(item).data('network') );
-    $('#mtd-amount').html( $(item).data('amount') );
-    $('#mtd-status').html( $(item).data('status') );
-    $('#mtd-create-time').html( $(item).data('create-time') );
     $('#mtd-address').html( $(item).data('address') );
-    $('#mtd-memo').html( $(item).data('memo') );
+    if(memoName != '') {
+        $('#mtd-memo').html( $(item).data('memo') );
+        $('#mtd-memo-name').html(memoName);
+        $('#mtd-memo-wrapper').show();
+    }
+    else {
+        $('#mtd-memo-wrapper').hide();
+    }
+    
+    $('#mtd-amount').html( $(item).data('amount') );
+    $('#mtd-fee').html( $(item).data('fee') );
+    
+    $('#mtd-create-time').html( $(item).data('create-time') );
+    $('#mtd-exec-time-title').html(txExecTimeDict[type] + ':');
     $('#mtd-exec-time').html( $(item).data('exec-time') );
-    $('#mtd-confirms').html( $(item).data('confirms') );
+    
     $('#mtd-txid').html( $(item).data('txid') );
     $('#mtd-height').html( $(item).data('height') );
-    $('#mtd-fee').html( $(item).data('fee') );
-    $('#mtd-icon').attr('src', $(item).data('icon-url'));
     
     $('#modal-mobile-tx-details').modal('show');
 }
@@ -55,13 +85,33 @@ function renderTxHistoryItem(data, forceSmall) {
         }
     }
     
+    var memoName = '';
+    if(typeof(data.memo_name) !== 'undefined')
+        memoName = data.memo_name;
+    
+    var memo = '-';
+    if(typeof(data.memo) !== 'undefined')
+        memo = data.memo;
+    
+    var eTime = '-';
+    if(typeof(data.exec_time) !== 'undefined')
+        eTime = new Date(data.exec_time * 1000).toLocaleString();
+    
+    var txid = '-';
+    if(typeof(data.txid) !== 'undefined')
+        txid = data.txid;
+    
+    var height = '-';
+    if(typeof(data.height) !== 'undefined')
+        height = data.height;
+    
     return `
         <div class="row hoverable tx-history-item px-1 py-2" onClick="mobileTxDetails(this)"
          data-type="${data.type}" data-asset="${data.asset}" data-network="${data.network}"
-         data-amount="${data.amount}" data-status="${data.status}" data-create-time="${data.create_time}"
-         data-address="${data.address}" data-memo="${data.memo}" data-exec-time="${data.exec_time}"
-         data-confirms="${confHtml}" data-txid="${data.txid}" data-height="${data.height}"
-         data-fee="${data.fee}" data-icon-url="${data.icon_url}">
+         data-amount="${data.amount}" data-status="${data.status}" data-create-time="${cTime}"
+         data-address="${data.address}" data-memo="${memo}" data-exec-time="${eTime}"
+         data-confirms="${confHtml}" data-txid="${txid}" data-height="${height}"
+         data-fee="${data.fee}" data-icon-url="${data.icon_url}" data-memo-name="${memoName}">
             
             
             
