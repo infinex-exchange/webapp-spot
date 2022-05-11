@@ -353,6 +353,10 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
+                $('#withdraw-step2').hide();
+                $('#withdraw-step3').hide();
+                window.latestWithdrawalXid = data.xid;
+                updateTxHistory();
             }
             else {
                 msgBox(data.error);
@@ -446,4 +450,13 @@ $(document).on('authChecked', function() {
             $(document).trigger('renderingStage');
         }
     }
+});
+
+$(document).on('newWalletTransaction', function() {
+    if(typeof(window.latestWithdrawalXid) === 'undefied')
+        return;
+    
+    var newItem = $('.tx-history-item[data-xid="' + window.latestWithdrawalXid + '"]');
+    if(newItem.length)
+        mobileTxDetails(newItem);
 });

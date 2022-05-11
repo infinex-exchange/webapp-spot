@@ -257,6 +257,7 @@ function updateTxHistory(offset = 0) {
                 if(this.xid > window.xidLatest) {
                     window.TxHistoryAS.prepend(renderTxHistoryItem(this, window.TxHistoryAS.forceSmall));
                     window.xidLatest = this.xid;
+                    $(document).trigger('newWalletTransaction');
                 }
                 
                 else if(this.xid < window.xidOldest) {
