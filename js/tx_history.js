@@ -254,8 +254,10 @@ function updateTxHistory(offset = 0) {
             $.each(data.transactions, function() {
                 i++;
                 
-                if(this.xid > window.xidLatest)
+                if(this.xid > window.xidLatest) {
                     window.TxHistoryAS.prepend(renderTxHistoryItem(this, window.TxHistoryAS.forceSmall));
+                    window.xidLatest = this.xid;
+                }
                 
                 else if(this.xid < window.xidOldest) {
                     end = true;
