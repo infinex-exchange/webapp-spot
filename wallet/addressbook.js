@@ -36,19 +36,19 @@ function removeAdbk(adbkid) {
 function renderAdbkItem(adbkid, data) {
 	return `
         <div class="adbk-item row p-2 hoverable" data-adbkid="${adbkid}" data-name="${data.name}">
-            <div style="width: 15%">
+            <div class="my-auto" style="width: 15%">
                 ${data.asset}
             </div>
-            <div style="width: 15%">
+            <div class="my-auto" style="width: 15%">
                 ${data.network}
             </div>
-            <div class="wrap" style="width: 20%">
+            <div class="my-auto wrap" style="width: 20%">
 	            <span class="name">${data.name}</span>
             </div>
-            <div class="wrap" style="width: 25%">
+            <div class="my-auto wrap" style="width: 25%">
 	            ${data.address}
             </div>
-            <div style="width: 25%">
+            <div class="my-auto" style="width: 25%">
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="showRenameAdbkPrompt(this)">Rename</a>
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="removeAdbk(${adbkid})">Remove</a>
             </div>
