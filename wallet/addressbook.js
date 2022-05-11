@@ -174,6 +174,7 @@ function mobileAdbkDetails(item) {
         showRenameAdbkPrompt(adbkid);
     });
     $('#madbk-remove-btn').unbind('click').on('click', function() {
+        $('#modal-adbk-details').modal('hide');
         removeAdbk(adbkid);
     });
     $('#madbk-address').html($(item).data('address'));
