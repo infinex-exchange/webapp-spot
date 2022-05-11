@@ -63,7 +63,7 @@ $(document).ready(function() {
                                 ${asset.asset}
                             </div>
                             <div class="col">
-                                ${network.network}
+                                ${network.network_description}
                             </div>
                             <div class="col text-end">
                                 0
