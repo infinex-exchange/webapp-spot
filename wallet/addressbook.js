@@ -23,7 +23,7 @@ function removeAdbk(adbkid) {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            $('.adbk-item[data-adbkid=' + adbkid + ']').remove();
+            $('.adbk-item[data-adbkid="' + adbkid + '"]').remove();
         } else {
             msgBox(data.error);
         }
@@ -174,7 +174,7 @@ function mobileAdbkDetails(item) {
         showRenameAdbkPrompt(adbkid);
     });
     $('#madbk-remove-btn').unbind('click').on('click', function() {
-        removeAdbkItem(adbkid);
+        removeAdbk(adbkid);
     });
     $('#madbk-address').html($(item).data('address'));
     $('#madbk-network').html($(item).data('network'));
