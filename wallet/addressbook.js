@@ -34,21 +34,36 @@ function removeAdbk(adbkid) {
 }
 
 function renderAdbkItem(adbkid, data) {
-	return `
+	var memoInner = '';
+    if(typeof(data.memo) !== 'undefined' && typeof(data.memo_name) !== 'undefined') {
+        memoInner = `
+            <br>
+            <h6 class="d-inline secondary">
+                ${data.memo_name}:
+            </h6>
+            <small>
+                ${data.memo}
+            </small>
+        `;
+    }
+    
+    return `
         <div class="adbk-item row p-2 hoverable" data-adbkid="${adbkid}" data-name="${data.name}">
-            <div class="my-auto" style="width: 15%">
+            <div class="my-auto" style="width: 10%">
+                <img width="16" height="16" src="${data.icon_url}">
                 ${data.asset}
             </div>
             <div class="my-auto" style="width: 15%">
-                ${data.network}
+                ${data.network_description}
             </div>
             <div class="my-auto wrap" style="width: 20%">
 	            <span class="name">${data.name}</span>
             </div>
-            <div class="my-auto wrap" style="width: 25%">
+            <div class="my-auto wrap" style="width: 35%">
 	            ${data.address}
+                ${memoInner}
             </div>
-            <div class="my-auto text-end" style="width: 25%">
+            <div class="my-auto text-end" style="width: 20%">
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="showRenameAdbkPrompt(this)">Rename</a>
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="removeAdbk(${adbkid})">Remove</a>
             </div>
