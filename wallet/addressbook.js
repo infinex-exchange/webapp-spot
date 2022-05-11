@@ -48,7 +48,7 @@ function renderAdbkItem(adbkid, data) {
             <div class="my-auto wrap" style="width: 25%">
 	            ${data.address}
             </div>
-            <div class="my-auto" style="width: 25%">
+            <div class="my-auto text-end" style="width: 25%">
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="showRenameAdbkPrompt(this)">Rename</a>
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="removeAdbk(${adbkid})">Remove</a>
             </div>
@@ -56,9 +56,10 @@ function renderAdbkItem(adbkid, data) {
     `;
 }
 
-function showRenameAdbkPrompt(item) {
-	var adbkid = $(item).data('adbkid');
-    var oldName = $(item).data('name');
+function showRenameAdbkPrompt(btn) {
+    var item = $(btn).closest('.adbk-item');
+	var adbkid = item.data('adbkid');
+    var oldName = item.data('name');
     
     $('#adbk-rename-form').unbind('submit');
     $('#adbk-rename-form').submit(function(event) {
@@ -87,8 +88,8 @@ function showRenameAdbkPrompt(item) {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                $(item).data('name', name);
-                $(item).find('.name').html(name);
+                item.data('name', name);
+                item.find('.name').html(name);
             } else {
                 msgBox(data.error);
             }

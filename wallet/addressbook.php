@@ -62,7 +62,7 @@
             <form id="adbk-rename-form">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="adbk-name">New name:</label>
+                        <label for="adbk-name">Name:</label>
                         <input type="text" class="form-control" id="adbk-name">
                         <small id="help-adbk-name" class="form-text" style="display: none">Invalid name</small>
                     </div>
