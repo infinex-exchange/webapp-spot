@@ -118,9 +118,7 @@ function renderTxHistoryItem(data, forceSmall) {
     `;
 }
 
-function initTxHistory(container, preloader, data, forceSmall) {
-    var scrollable = container.hasClass('scrollable');
-    
+function initTxHistory(container, preloader, data, forceSmall = false, disableScroll = false) {
     window.TxHistoryAS = new AjaxScroll(
         container,
         preloader,
@@ -148,7 +146,7 @@ function initTxHistory(container, preloader, data, forceSmall) {
                     if(thisAS.offset == 0)
                         $(document).trigger('renderingStage');
                         
-                    if(data.transactions.length != 50 || !scrollable)
+                    if(data.transactions.length != 50 || disableScroll)
                         thisAS.noMoreData();
                 }
                 else {

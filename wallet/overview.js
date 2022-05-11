@@ -97,7 +97,7 @@ $(document).on('authChecked', function() {
         var txHistoryData = {
             api_key: window.apiKey
         };
-        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true);
+        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true, true);
     }
 });
 

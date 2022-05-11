@@ -413,7 +413,7 @@ $(document).on('authChecked', function() {
             api_key: window.apiKey,
             type: 'WITHDRAWAL'
         };
-        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true);
+        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true, true);
         
         var pathArray = window.location.pathname.split('/');
         var pathLast = pathArray[pathArray.length - 1];

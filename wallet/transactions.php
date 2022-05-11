@@ -23,7 +23,7 @@
                 <h3>Transactions history</h3>
             </div>
             
-            <div class="row p-2 secondary d-none d-lg-flex scrollable">
+            <div class="row p-2 secondary d-none d-lg-flex">
                 <div style="width: 20%">
                     <h5>Date</h5>
                 </div>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             
-            <div id="transactions-data" class="scrollable">
+            <div id="transactions-data">
             </div>
         
         <!-- / Main column -->
