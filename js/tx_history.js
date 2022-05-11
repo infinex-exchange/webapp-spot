@@ -237,7 +237,6 @@ function updateTxHistory(offset = 0) {
     
     var data = window.TxHistoryAS.data;
     data.offset = offset;
-    data.status = 'PENDING';
     
     $.ajax({
         url: config.apiUrl + '/wallet/transactions',
