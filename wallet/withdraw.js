@@ -121,6 +121,8 @@ $(document).ready(function() {
     // Fee range -> fee input
     $('#withdraw-fee-range').on('input', function() {
         window.wdAmountMax = window.wdBalance.minus( $(this).val() ).dp(window.wdAmountPrec);
+        if(window.wdAmountMax.isNegative())
+	        window.wdAmountMax = new BigNumber(0);
         $('#withdraw-amount-max').html(window.wdAmountMax.toString());
         $('#withdraw-fee').val($(this).val());
         $('#withdraw-amount').trigger('prevalidated');
