@@ -79,7 +79,7 @@ function renderAdbkItem(adbkid, data) {
                 <img width="40" height="40" src="${data.icon_url}">
             </div>
             <div class="d-lg-none" style="width: calc(100% - 60px)">
-                <h5 class="secondary">${data.name}</h5>
+                <h5 class="secondary name">${data.name}</h5>
                 ${data.address}
                 ${memoInner}
             </div>
