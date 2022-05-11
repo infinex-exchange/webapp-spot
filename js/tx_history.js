@@ -107,7 +107,7 @@ function renderTxHistoryItem(data, forceSmall) {
     
     return `
         <div class="row hoverable tx-history-item px-1 py-2" onClick="mobileTxDetails(this)"
-         data-type="${data.type}" data-asset="${data.asset}" data-network="${data.network}"
+         data-type="${data.type}" data-asset="${data.asset}" data-network="${data.network_description}"
          data-amount="${data.amount}" data-status="${data.status}" data-create-time="${cTime}"
          data-address="${data.address}" data-memo="${memo}" data-exec-time="${eTime}"
          data-confirms="${confHtml}" data-txid="${txid}" data-height="${height}"
