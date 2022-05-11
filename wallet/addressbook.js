@@ -34,8 +34,12 @@ function removeAdbk(adbkid) {
 }
 
 function renderAdbkItem(adbkid, data) {
-	var memoInner = '';
+	var memo = '';
+    var memoName = '';
+    var memoInner = '';
     if(typeof(data.memo) !== 'undefined' && typeof(data.memo_name) !== 'undefined') {
+        memoName = data.memo_name;
+        memo = data.memo;
         memoInner = `
             <br>
             <h6 class="d-inline secondary">
@@ -48,7 +52,10 @@ function renderAdbkItem(adbkid, data) {
     }
     
     return `
-        <div class="adbk-item row p-2 hoverable" data-adbkid="${adbkid}" data-name="${data.name}">
+        <div class="adbk-item row p-2 hoverable" onClick="mobileAdbkDetails(this)"
+            data-adbkid="${adbkid}" data-name="${data.name}" data-network="${data.network_description}"
+            data-asset="${data.asset}" data-address="${data.address}" data-memo-name="${memoName}"
+            data-memo="${memo}">
             <div class="my-auto d-none d-lg-block" style="width: 10%">
                 <img width="16" height="16" src="${data.icon_url}">
                 ${data.asset}
@@ -64,7 +71,7 @@ function renderAdbkItem(adbkid, data) {
                 ${memoInner}
             </div>
             <div class="my-auto text-end d-none d-lg-block" style="width: 20%">
-                <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="showRenameAdbkPrompt(this)">Rename</a>
+                <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="showRenameAdbkPrompt(${adbkid})">Rename</a>
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="removeAdbk(${adbkid})">Remove</a>
             </div>
             
@@ -80,9 +87,8 @@ function renderAdbkItem(adbkid, data) {
     `;
 }
 
-function showRenameAdbkPrompt(btn) {
-    var item = $(btn).closest('.adbk-item');
-	var adbkid = item.data('adbkid');
+function showRenameAdbkPrompt(adbkid) {
+    var item = $('.adbk-item[data-adbkid="' + adbkid + '"]');
     var oldName = item.data('name');
     
     $('#adbk-rename-form').unbind('submit');
@@ -156,3 +162,32 @@ $(document).on('authChecked', function() {
         });     
     }
 });
+
+function mobileAdbkDetails(item) {
+    if($(window).width() > 991) return;
+    
+    var adbkid = $(item).data('adbkid');
+    
+    $('#madbk-name').html($(item).data('name'));
+    $('#madbk-rename-btn').unbind('click').on('click', function() {
+        $('#modal-adbk-details').modal('hide');
+        showRenameAdbkPrompt(adbkid);
+    });
+    $('#madbk-remove-btn').unbind('click').on('click', function() {
+        removeAdbkItem(adbkid);
+    });
+    $('#madbk-address').html($(item).data('address'));
+    $('#madbk-network').html($(item).data('network'));
+    $('#madbk-asset').html($(item).data('asset'));
+    
+    var memo = $(item).data('memo');
+    if(memo != '') {
+        $('#madbk-memo-name').html($(item).data('memo-name') + ':');
+        $('#madbk-memo').html(memo);
+        $('#madbk-memo-wrapper').show();
+    }
+    else
+        $('#madbk-memo-wrapper').hide();
+    
+    $('#modal-adbk-details').modal('show');
+}

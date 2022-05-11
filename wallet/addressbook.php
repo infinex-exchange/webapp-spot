@@ -52,6 +52,65 @@
         </div>
         </div>
         
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-adbk-details">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Address book item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Asset:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="madbk-asset"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Network:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="madbk-network"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Name:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="madbk-name"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Address:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="madbk-address" class="wrap"></span>
+                            </div>
+                        </div>
+                        <div id="madbk-memo-wrapper" class="row py-2">
+                            <div class="col-6">
+                                <h5 id="madbk-memo-name"></h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="madbk-memo" class="wrap"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button id="madbk-rename-btn" type="button" class="btn btn-primary">Rename</a>
+                        <button id="madbk-remove-btn" type="button" class="btn btn-primary">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="modal fade" tabindex="-1" role="dialog" id="modal-adbk-rename">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
