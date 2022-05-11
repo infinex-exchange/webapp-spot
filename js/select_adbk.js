@@ -40,17 +40,24 @@ function initSelectAdbk(asset, network) {
             $.each(data.addressbook, function(k, v) {
                 var memo = '';
                 var memoHtml = '';
-                if(typeof(v.memo) !== 'undefined') {
+                if(typeof(data.memo) !== 'undefined' && typeof(data.memo_name) !== 'undefined') {
                     memo = v.memo;
-                    memoHtml = '<br><i class="small secondary">' + v.memo + '</i>';
+                    memoHtml = `
+                        <br>
+                        <h6 class="d-inline secondary">
+                            ${data.memo_name}:
+                        </h6>
+                        <small>
+                            ${data.memo}
+                        </small>
+                    `;
                 }
                 
                 $('#select-adbk-data').append(`
                     <div class="select-adbk-item row p-1 hoverable" data-address="${v.address}" data-memo="${memo}">
                         <div class="col-12">
-                            <strong>${v.name}</strong>
-                            <br>
-                            <span class="secondary">${v.address}</span>
+                            <h5 class="secondary">${v.name}</h5>
+                            ${v.address}
                             ${memoHtml}
                         </div>
                     </div>

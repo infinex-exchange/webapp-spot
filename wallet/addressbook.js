@@ -49,23 +49,32 @@ function renderAdbkItem(adbkid, data) {
     
     return `
         <div class="adbk-item row p-2 hoverable" data-adbkid="${adbkid}" data-name="${data.name}">
-            <div class="my-auto" style="width: 10%">
+            <div class="my-auto d-none d-lg-block" style="width: 10%">
                 <img width="16" height="16" src="${data.icon_url}">
                 ${data.asset}
             </div>
-            <div class="my-auto" style="width: 15%">
+            <div class="my-auto d-none d-lg-block" style="width: 15%">
                 ${data.network_description}
             </div>
-            <div class="my-auto wrap" style="width: 20%">
+            <div class="my-auto wrap d-none d-lg-block" style="width: 20%">
 	            <span class="name">${data.name}</span>
             </div>
-            <div class="my-auto wrap" style="width: 35%">
+            <div class="my-auto wrap d-none d-lg-block" style="width: 35%">
 	            ${data.address}
                 ${memoInner}
             </div>
-            <div class="my-auto text-end" style="width: 20%">
+            <div class="my-auto text-end d-none d-lg-block" style="width: 20%">
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="showRenameAdbkPrompt(this)">Rename</a>
                 <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="removeAdbk(${adbkid})">Remove</a>
+            </div>
+            
+            <div class="m-auto d-lg-none" style="width: 60px">
+                <img width="40" height="40" src="${data.icon_url}">
+            </div>
+            <div class="d-lg-none" style="width: calc(100% - 60px)">
+                <h5 class="secondary">${data.name}</h5>
+                ${data.address}
+                ${memoInner}
             </div>
         </div>
     `;
