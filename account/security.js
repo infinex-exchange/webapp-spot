@@ -214,7 +214,7 @@ $(document).on('authChecked', function() {
                                 <div style="width: 37%">
                                     ${time}
                                 </div>
-                                <div class="text-end" style="width: 25%">
+                                <div style="width: 25%">
                                     <button type="button" class="btn btn-primary btn-sm" style="width: 70px" onClick="${csOnClick}">${csButton}</a>
                                 </div>
                             </div>
