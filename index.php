@@ -23,7 +23,7 @@
                 </div>
             </div>
         
-            <div class="row gx-0 gx-lg-3 gy-3 m-0 mx-lg-5">
+            <div class="row gx-0 gx-lg-3 gy-3 m-0">
                 <div class="col-12">
                     <div class="p-2 p-lg-4 ui-card-light rounded">
                         <div class="row py-2 text-center">
