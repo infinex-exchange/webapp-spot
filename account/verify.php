@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label for="verify-code">Verification code:</label>
                         <input type="text" class="form-control" id="verify-code">
-                        <small id="help-code" class="form-text" style="display: none">8 characters, only alphanumeric</small>
+                        <small id="help-code" class="form-text" style="display: none">Code must be 6 digits</small>
                     </div>
                     <button type="submit" class="btn btn-primary">Confirm</button>
                 </form>

@@ -12,7 +12,7 @@ function validatePassword(pw) {
 }
 
 function validateVeriCode(code) {
-    return code.match(/^[a-zA-Z0-9]{6}$/);
+    return code.match(/^[0-9]{6}$/);
 }
 
 function validateCaptchaResp(captcha) {

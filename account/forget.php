@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <label for="forget-code">Verification code:</label>
                             <input type="text" class="form-control" id="forget-code">
-                            <small id="help-code" class="form-text" style="display: none">8 characters, only alphanumeric</small>
+                            <small id="help-code" class="form-text" style="display: none">Code must be 6 digits</small>
                         </div>
                         <div class="form-group">
                             <label for="forget-password">New password:</label>
