@@ -38,7 +38,7 @@
                 <div style="width: 37%">
                 <h5>Last activity</h5>
                 </div>
-                <div style="width: 25%">
+                <div class="text-end" style="width: 25%">
                 <h5>Options</h5>
                 </div>
             </div>
