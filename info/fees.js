@@ -61,53 +61,72 @@ $(document).ready(function() {
         msgBoxNoConn(true); 
     });
     
-    $.ajax({
-        url: config.apiUrl + '/info/withdrawal_fees',
-        type: 'POST',
-        data: JSON.stringify({
-        }),
-        contentType: "application/json",
-        dataType: "json",
-    })
-    .retry(config.retry)
-    .done(function (data) {
-        if(data.success) {
-            $.each(data.fees, function(k, asset) {
-                var showAsset = true;
-                
-                $.each(asset.networks, function(k, network) {
-                    var assetStr = '';
-                    if(showAsset) {
-                        assetStr = asset.asset;
-                        showAsset = false;
-                    }
+    window.wdFeesAS = new AjaxScroll(
+        $('#withdrawal-fees-data'),
+        $('#withdrawal-fees-data-preloader'),
+        {},
+        function() {
+            this.data.offset = this.offset;
+            var thisAS = this;
+    
+            $.ajax({
+                url: config.apiUrl + '/info/withdrawal_fees',
+                type: 'POST',
+                data: JSON.stringify(thisAS.data),
+                contentType: "application/json",
+                dataType: "json",
+            })
+            .retry(config.retry)
+            .done(function (data) {
+                if(data.success) {
+                    $.each(data.fees, function(k, asset) {
+                        var showAsset = true;
+                        
+                        $.each(asset.networks, function(k, network) {
+                            var assetStr = '';
+                            if(showAsset) {
+                                assetStr = asset.asset;
+                                showAsset = false;
+                            }
+                               
+                            $('#withdrawal-fees-data').append(`
+                                <div class="row p-2 hoverable">
+                                    <div class="col">
+                                        ${assetStr}
+                                    </div>
+                                    <div class="col">
+                                        ${network.network_description}
+                                    </div>
+                                    <div class="col text-end d-none d-lg-block">
+                                        0
+                                    </div>
+                                    <div class="col text-end">
+                                        ${network.fee}
+                                    </div>
+                                </div>
+                            `);
+                        });
+                    });
+                    
+                    thisAS.done();
+                    
+                    if(thisAS.offset == 0)
+                        $(document).trigger('renderingStage');
                        
-                    $('#withdrawal-fees-data').append(`
-                        <div class="row p-2 hoverable">
-                            <div class="col">
-                                ${assetStr}
-                            </div>
-                            <div class="col">
-                                ${network.network_description}
-                            </div>
-                            <div class="col text-end d-none d-lg-block">
-                                0
-                            </div>
-                            <div class="col text-end">
-                                ${network.fee}
-                            </div>
-                        </div>
-                    `);
-                });
+                    if(data.fees.length != 50)
+                        thisAS.noMoreData(); 
+                }
+                else {
+                    msgBoxRedirect(data.error);
+                    thisAS.done();
+                    thisAS.noMoreData();
+                }
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                msgBoxNoConn(true);
+                thisAS.done();
+                thisAS.noMoreData(); 
             });
-            
-            $(document).trigger('renderingStage'); 
         }
-        else {
-            msgBoxRedirect(data.error);
-        }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(true); 
-    });        
+    );        
 });
