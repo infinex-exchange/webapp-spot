@@ -26,21 +26,25 @@
             <div class="row p-2 ui-card-light">
             <div class="col-12">
             
-                <div class="row p-2 secondary">
-                    <div class="col">
+                <div class="row p-2 secondary d-none d-lg-flex">
+                    <div class="col-1">
                         <h5>Level</h5>
                     </div>
-                    <div class="col text-end">
-                        <h5>30d trade volume</h5>
-                    </div>
-                    <div class="col text-end">
-                        <h5>Hold</h5>
-                    </div>
-                    <div class="col text-end">
-                        <h5>Maker fee</h5>
-                    </div>
-                    <div class="col text-end">
-                        <h5>Taker fee</h5>
+                    <div class="col-11">
+                        <div class="row">
+                            <div class="col text-end">
+                                <h5>30d trade volume</h5>
+                            </div>
+                            <div class="col text-end">
+                                <h5>Hold</h5>
+                            </div>
+                            <div class="col text-end">
+                                <h5>Maker fee</h5>
+                            </div>
+                            <div class="col text-end">
+                                <h5>Taker fee</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -64,7 +68,7 @@
                     <div class="col">
                         <h5>Network</h5>
                     </div>              
-                    <div class="col text-end">
+                    <div class="col text-end d-none d-lg-block">
                         <h5>Deposit fee</h5>
                     </div>
                     <div class="col text-end">
