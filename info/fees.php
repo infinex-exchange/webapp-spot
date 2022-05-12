@@ -36,10 +36,10 @@
                     <div class="col text-end">
                         <h5>Hold</h5>
                     </div>
-                    <div class="col">
+                    <div class="col text-end">
                         <h5>Maker fee</h5>
                     </div>
-                    <div class="col">
+                    <div class="col text-end">
                         <h5>Taker fee</h5>
                     </div>
                 </div>

@@ -24,10 +24,10 @@ $(document).ready(function() {
                         <div class="col text-end">
                             &ge; ${data.hold} ${data.hold_asset}
                         </div>
-                        <div class="col">
+                        <div class="col text-end">
                             ${data.maker_fee}%
                         </div>
-                        <div class="col">
+                        <div class="col text-end">
                             ${data.taker_fee}%
                         </div>
                     </div>
@@ -56,11 +56,19 @@ $(document).ready(function() {
     .done(function (data) {
         if(data.success) {
             $.each(data.fees, function(k, asset) {
-                $.each(asset.networks, function(k, network) {   
+                var showAsset = true;
+                
+                $.each(asset.networks, function(k, network) {
+                    var assetStr = '';
+                    if(showAsset) {
+                        assetStr = asset.asset;
+                        showAsset = false;
+                    }
+                       
                     $('#withdrawal-fees-data').append(`
                         <div class="row p-2 hoverable">
                             <div class="col">
-                                ${asset.asset}
+                                ${assetStr}
                             </div>
                             <div class="col">
                                 ${network.network_description}
