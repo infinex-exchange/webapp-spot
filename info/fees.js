@@ -16,31 +16,34 @@ $(document).ready(function() {
                 $('#spot-fees-data').append(`
                     <div class="row p-2 hoverable">
                         <div class="col-1 d-none d-lg-block">
-                            <span class="d-none d-lg-inline">${level}</span>
-                            <h3 class="d-lg-none m-auto">${level}</h3>
+                            ${level}
+                        </div>
+                        <div class="col-1 d-lg-none my-auto text-center">
+                            Lvl
+                            <h3>${level}</h3>
                         </div>
                         <div class="col-11">
                             <div class="row">
-                                <div class="col-6 d-lg-none">
-                                    <h5 class="secondary">30d trade volume:</h5>
+                                <div class="col-6 d-lg-none secondary">
+                                    30d trade volume:
                                 </div>
                                 <div class="col-6 col-lg text-end">
                                     &ge; ${data.volume} ${data.volume_asset}
                                 </div>
-                                <div class="col-6 d-lg-none">
-                                    <h5 class="secondary">Hold:</h5>
+                                <div class="col-6 d-lg-none secondary">
+                                    Hold:
                                 </div>
                                 <div class="col-6 col-lg text-end">
                                     &ge; ${data.hold} ${data.hold_asset}
                                 </div>
-                                <div class="col-6 d-lg-none">
-                                    <h5 class="secondary">Maker fee:</h5>
+                                <div class="col-6 d-lg-none secondary">
+                                    Maker fee:
                                 </div>
                                 <div class="col-6 col-lg text-end">
                                     ${data.maker_fee}%
                                 </div>
-                                <div class="col-6 d-lg-none">
-                                    <h5 class="secondary">Taker fee:</h5>
+                                <div class="col-6 d-lg-none secondary">
+                                    Taker fee:
                                 </div>
                                 <div class="col-6 col-lg text-end">
                                     ${data.taker_fee}%
