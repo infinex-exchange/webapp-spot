@@ -88,22 +88,25 @@ $(document).ready(function() {
                         $.each(asset.networks, function(k, network) {
                             var assetStr = '';
                             if(showAsset) {
-                                assetStr = asset.asset;
+                                assetStr = `
+                                    <img width="16" height="16" src="${asset.asset_icon_url}">
+                                    ${asset.asset}
+                                `;
                                 showAsset = false;
                             }
                                
                             $('#withdrawal-fees-data').append(`
                                 <div class="row p-2 hoverable">
-                                    <div class="col">
+                                    <div class="col my-auto">
                                         ${assetStr}
                                     </div>
-                                    <div class="col">
+                                    <div class="col my-auto">
                                         ${network.network_description}
                                     </div>
-                                    <div class="col text-end d-none d-lg-block">
+                                    <div class="col text-end d-none d-lg-block my-auto">
                                         0
                                     </div>
-                                    <div class="col text-end">
+                                    <div class="col text-end my-auto">
                                         ${network.fee}
                                     </div>
                                 </div>
