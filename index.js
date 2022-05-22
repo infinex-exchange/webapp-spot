@@ -14,30 +14,39 @@ function getMarketsForIndex(div, req) {
             data.markets = data.markets.slice(0, 5);
             $.each(data.markets, function(k, v) {   
                 var color = '';
-                var changeStr = v.change;
-                if(v.change > 0) {
-                    color = 'text-green';
+                var bnCurrent = new BigNumber(data.price);
+                var bnPrevious = new BigNumber(data.previous);
+                var comp = bnCurrent.comparedTo(bnPrevious);
+                if(comp == 1) color = 'text-green';
+                else if(comp == -1) color = 'text-red';
+    
+                var chgColor = '';
+                var changeStr = data.change;
+                if(data.change > 0) {
+                    chgColor = 'bg-green';
                     changeStr = '+' + changeStr;
                 }
-                if(v.change < 0)
-                    color = 'text-red';
+                if(data.change < 0)
+                    chgColor = 'bg-red';
                 
                 div.append(`
                     <div class="row py-1 hoverable">
                         <div class="col-3 m-auto text-nowrap">
                             <img width="28" height="28" src="${v.icon_url}">
-                            ${v.pair}
+                            ${v.base}<span class="small secondary">/${v.quote}</span>
                         </div>
                         <div class="col-3 m-auto text-end">
-                            ${v.price} ${v.quote}
+                            <spcn class="${color}">
+                                ${v.price}
+                            </span>
                         </div>
                         <div class="col-3 m-auto text-end">
-                            <span class="${color}">
+                            <span class="${chgColor}">
                                 ${changeStr}%
                             </span>
                         </div>
                         <div class="col-3 m-auto text-end">
-                            ${v.vol_quote} ${v.quote}
+                            ${v.vol_quote}
                         </div>
                     </div>
                 `);

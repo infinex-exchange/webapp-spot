@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('templates/head.php'); ?>
+        <?php include('imports/bignumber.html'); ?>
         <title>Vayamos Exchange - cryptocurrency trading platform</title>
     </head>
     <body class="body-background">
