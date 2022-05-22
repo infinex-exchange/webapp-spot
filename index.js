@@ -9,6 +9,8 @@ function getMarketsForIndex(div, req) {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
+            div.empty();
+            
             data.markets = data.markets.slice(0, 5);
             $.each(data.markets, function(k, v) {   
                 var color = '';
