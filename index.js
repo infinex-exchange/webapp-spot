@@ -39,12 +39,12 @@ function getMarketsForIndex(div, req) {
                             <img width="28" height="28" src="${v.icon_url}">
                             ${v.base}<span class="small secondary">/${v.quote}</span>
                         </div>
-                        <div class="col-3 m-auto text-end">
+                        <div class="col-4 m-auto text-end">
                             <span class="${color}">
                                 ${v.price}
                             </span>
                         </div>
-                        <div class="col-3 m-auto text-end">
+                        <div class="col-2 m-auto text-end">
                             <span class="price-change-box ${chgColor}">
                                 ${changeStr}%
                             </span>

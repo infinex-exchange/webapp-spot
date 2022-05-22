@@ -31,10 +31,10 @@
                             <h3>Market trend</h3>
                         </div>
                         <div class="row py-2 secondary">
-                            <div class="col-3"><h5>Name</h5></div>
-                            <div class="col-3 text-end"><h5>Last price</h5></div>
-                            <div class="col-3 text-end"><h5>24h change</h5></div>
-                            <div class="col-3 text-end"><h5>24h volume</h5></div>
+                            <div class="col-3 my-auto"><h5>Name</h5></div>
+                            <div class="col-4 my-auto text-end"><h5>Last price</h5></div>
+                            <div class="col-2 my-auto text-end"><h5>24h change</h5></div>
+                            <div class="col-3 my-auto text-end"><h5>24h volume</h5></div>
                         </div>            
                         <div id="market-trend-spot-data"></div>
                     </div>
@@ -46,10 +46,10 @@
                             <h3>Top gainers</h3>
                         </div>
                         <div class="row py-2 secondary">
-                            <div class="col-3"><h5>Name</h5></div>
-                            <div class="col-3 text-end"><h5>Last price</h5></div>
-                            <div class="col-3 text-end"><h5>24h change</h5></div>
-                            <div class="col-3 text-end"><h5>24h volume</h5></div>
+                            <div class="col-3 my-auto"><h5>Name</h5></div>
+                            <div class="col-4 my-auto text-end"><h5>Last price</h5></div>
+                            <div class="col-2 my-auto text-end"><h5>24h change</h5></div>
+                            <div class="col-3 my-auto text-end"><h5>24h volume</h5></div>
                         </div>
                         <div id="top-gainers-spot-data"></div>
                     </div>
@@ -61,10 +61,10 @@
                             <h3>Top losers</h3>
                         </div>                    
                         <div class="row py-2 secondary">
-                            <div class="col-3"><h5>Name</h5></div>
-                            <div class="col-3 text-end"><h5>Last price</h5></div>
-                            <div class="col-3 text-end"><h5>24h change</h5></div>
-                            <div class="col-3 text-end"><h5>24h volume</h5></div>
+                            <div class="col-3 my-auto"><h5>Name</h5></div>
+                            <div class="col-4 my-auto text-end"><h5>Last price</h5></div>
+                            <div class="col-2 my-auto text-end"><h5>24h change</h5></div>
+                            <div class="col-3 my-auto text-end"><h5>24h volume</h5></div>
                         </div>                    
                         <div id="top-losers-spot-data"></div>
                     </div>
