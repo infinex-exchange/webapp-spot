@@ -140,6 +140,7 @@
         <!-- / Root container -->
         </div>
         
+        <?php include('templates/modals.html'); ?>
         <script src="/index.js?<?php echo filemtime(__DIR__.'/index.js'); ?>"></script>
         
         <!-- Footer -->
