@@ -729,3 +729,16 @@ footer {
         color: inherit;
     }
 }
+
+/* Price change box */
+
+.price-change-box {
+	background-color: var(--color-bg-light);
+	color: var(--color-primary) !important;
+    font-size: var(--font-small);
+	border-radius: 10%;
+	padding: 3px;
+	width: 50px;
+	text-align: center;
+	display: inline-block;
+}

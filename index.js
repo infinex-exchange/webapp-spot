@@ -40,12 +40,12 @@ function getMarketsForIndex(div, req) {
                             ${v.base}<span class="small secondary">/${v.quote}</span>
                         </div>
                         <div class="col-3 m-auto text-end">
-                            <spcn class="${color}">
+                            <span class="${color}">
                                 ${v.price}
                             </span>
                         </div>
                         <div class="col-3 m-auto text-end">
-                            <span class="${chgColor}">
+                            <span class="price-change-box ${chgColor}">
                                 ${changeStr}%
                             </span>
                         </div>
