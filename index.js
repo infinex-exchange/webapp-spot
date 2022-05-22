@@ -14,19 +14,19 @@ function getMarketsForIndex(div, req) {
             data.markets = data.markets.slice(0, 5);
             $.each(data.markets, function(k, v) {   
                 var color = '';
-                var bnCurrent = new BigNumber(data.price);
-                var bnPrevious = new BigNumber(data.previous);
+                var bnCurrent = new BigNumber(v.price);
+                var bnPrevious = new BigNumber(v.previous);
                 var comp = bnCurrent.comparedTo(bnPrevious);
                 if(comp == 1) color = 'text-green';
                 else if(comp == -1) color = 'text-red';
     
                 var chgColor = '';
-                var changeStr = data.change;
-                if(data.change > 0) {
+                var changeStr = v.change;
+                if(v.change > 0) {
                     chgColor = 'bg-green';
                     changeStr = '+' + changeStr;
                 }
-                if(data.change < 0)
+                if(v.change < 0)
                     chgColor = 'bg-red';
                 
                 div.append(`
