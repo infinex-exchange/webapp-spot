@@ -55,7 +55,7 @@ function getMarketsForIndex(div, req) {
 function indexUpdate() {
     getMarketsForIndex($('#market-trend-spot-data'), {
         offset: 0,
-        sort: 'marketcap',
+        sort: 'volume',
         sort_dir: 'desc'
     });
     

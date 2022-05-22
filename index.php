@@ -33,7 +33,7 @@
                             <div class="col-3"><h5>Name</h5></div>
                             <div class="col-3 text-end"><h5>Last price</h5></div>
                             <div class="col-3 text-end"><h5>24h change</h5></div>
-                            <div class="col-3 text-end"><h5>Market cap</h5></div>
+                            <div class="col-3 text-end"><h5>24h volume</h5></div>
                         </div>            
                         <div id="market-trend-spot-data"></div>
                     </div>
@@ -48,7 +48,7 @@
                             <div class="col-3"><h5>Name</h5></div>
                             <div class="col-3 text-end"><h5>Last price</h5></div>
                             <div class="col-3 text-end"><h5>24h change</h5></div>
-                            <div class="col-3 text-end"><h5>Market cap</h5></div>
+                            <div class="col-3 text-end"><h5>24h volume</h5></div>
                         </div>
                         <div id="top-gainers-spot-data"></div>
                     </div>
@@ -63,7 +63,7 @@
                             <div class="col-3"><h5>Name</h5></div>
                             <div class="col-3 text-end"><h5>Last price</h5></div>
                             <div class="col-3 text-end"><h5>24h change</h5></div>
-                            <div class="col-3 text-end"><h5>Market cap</h5></div>
+                            <div class="col-3 text-end"><h5>24h volume</h5></div>
                         </div>                    
                         <div id="top-losers-spot-data"></div>
                     </div>
