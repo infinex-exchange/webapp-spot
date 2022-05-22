@@ -50,13 +50,9 @@ function getMarketsForIndex(div, req) {
     });    
 }
 
-$(document).ready(function() {
-    window.renderingStagesTarget = 1;
-    $(document).trigger('renderingStage');
-    
+function indexUpdate() {
     getMarketsForIndex($('#market-trend-spot-data'), {
         offset: 0,
-        quote: 'USDT',
         sort: 'marketcap',
         sort_dir: 'desc'
     });
@@ -72,4 +68,12 @@ $(document).ready(function() {
         sort: 'change',
         sort_dir: 'asc'
     });
+}
+
+$(document).ready(function() {
+    window.renderingStagesTarget = 1;
+    $(document).trigger('renderingStage');
+    
+    indexUpdate();
+    setInterval(indexUpdate, 5000);
 });
