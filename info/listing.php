@@ -28,9 +28,11 @@
             
             <div class="row p-2">
             <div class="col-12">
-                Want your coin to be listed on our exchange? We are open to cooperation.
-                Vayamos Exchange is a good place to launch a new crypto project.<br>
-                Contact us at the following e-mail address to arrange a listing:
+                Vayamos Exchange is a good place to launch a new crypto project.
+                Want your coin to be listed on our exchange?
+                <br>
+                Contact us at the e-mail address below to arrange a listing.
+                We are open to cooperation.
             </div>
             </div>
             
@@ -43,13 +45,54 @@
             </div>
             </div>
             
+            <div class="row p-2">
+            <div class="col-12">
+                Please submit the following information about your project in the message:
+                <ul>
+                    <li>Token full name</li>
+                    <li>Token symbol</li>
+                    <li>Project chain (e.g. ERC-20, TRC-20, own blockchain)</li>
+                    <li>Official website</li>
+                    <li>Exchanges it has been already listed on</li>
+                    <li>Your position with this project</li>
+                    <li>Suggested listing date and time</li>
+                </ul>
+            </div>
+            </div>
+            
+            <div class="row p-2">
+            <div class="col-12">
+                Please make sure you contact us using the project's official email address,
+                which can be found on its official website or in social media.
+            </div>
+            </div>
+            
             <div class="row p-2 pt-4">
                 <h3>Listing fee</h3>
             </div>
             
             <div class="row p-2">
             <div class="col-12">
-                ...
+                <ul>
+                    <li class="py-1">
+                        Standard token on already supported blockchain<br>
+                        <i>e.g. your project is TRC-20 token</i><br>
+                        <strong>FREE LISTING</strong>
+                    </li>
+                    <li class="py-1">
+                        Own blockchain, with compatible RPC interface<br>
+                        <i>e.g. your project is fork of Chia, with the same RPC interface, and we're already supporting Chia</i><br>
+                        <strong>FREE LISTING</strong>
+                    </li>
+                    <li class="py-1">
+                        Own blockchain, with incompatible RPC interface<br>
+                        <i>e.g. your project is a custom blockchain created from the scratch</i><br>
+                        <strong>FREE LISTING</strong> - if you develop and provide the integration plugin on your own
+                        in accordance with the template available on our GitHub<br>
+                        Otherwise, you have to pay for the listing in our BPX token, and the price depends
+                        on the complexity of your project.
+                    </li>
+                </ul>
             </div>
             </div>
             
