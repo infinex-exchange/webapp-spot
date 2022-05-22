@@ -16,7 +16,7 @@
         <div id="root" class="container-fluid container-1500 h-rest background">
         
         <!-- Left column -->
-        <?php include('../templates/sidebar_account.php'); ?>
+        <?php include('../templates/sidebar_info.php'); ?>
         
         <!-- Main column -->
         <div class="col-12 col-lg-8 p-0 ui-card ui-column">
