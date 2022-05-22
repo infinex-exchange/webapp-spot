@@ -1,3 +1,7 @@
+function gotoMarket(pair) {
+    window.location.replace('/spot/' + pair.replace('/', '_'));
+}
+
 function getMarketsForIndex(div, req) {
     $.ajax({
         url: config.apiUrl + '/spot/markets_ex',
@@ -30,7 +34,7 @@ function getMarketsForIndex(div, req) {
                     chgColor = 'bg-red';
                 
                 div.append(`
-                    <div class="row py-1 hoverable">
+                    <div class="row py-1 hoverable" onClick="gotoMarket('${v.pair}')">
                         <div class="col-3 m-auto text-nowrap">
                             <img width="28" height="28" src="${v.icon_url}">
                             ${v.base}<span class="small secondary">/${v.quote}</span>
