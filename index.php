@@ -26,7 +26,7 @@
         
             <div class="row gx-0 gx-lg-3 gy-3 m-0">
                 <div class="col-12">
-                    <div class="p-2 p-lg-4 ui-card-light rounded">
+                    <div class="p-2 p-lg-4 background rounded">
                         <div class="row py-2 text-center">
                             <h3>Market trend</h3>
                         </div>
