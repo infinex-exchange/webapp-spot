@@ -26,6 +26,7 @@ RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
 
 RewriteRule ^info/fees/?$ /info/fees.php [L]
 RewriteRule ^info/announcements/?$ /info/announcements.php [L]
+RewriteRule ^info/listing/?$ /info/listing.php [L]
 
 RewriteRule ^error/403/?$ /error/403.php [L]
 RewriteRule ^error/404/?$ /error/404.php [L]
