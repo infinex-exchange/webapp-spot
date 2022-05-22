@@ -733,7 +733,7 @@ footer {
 /* Price change box */
 
 .price-change-box {
-	background-color: var(--color-bg-light);
+	background-color: var(--color-bg);
 	color: var(--color-primary) !important;
     font-size: var(--font-small);
 	border-radius: 10%;
