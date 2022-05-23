@@ -231,10 +231,7 @@ function initTxHistory(container, preloader, data, forceSmall = false, disableSc
     );
 }
 
-function updateTxHistory(offset = 0) {
-    if(typeof(window.xidOldest) === 'undefined' || typeof(window.xidLatest) === 'undefined')
-        return;
-    
+function updateTxHistory(offset = 0) {  
     var data = window.TxHistoryAS.data;
     data.offset = offset;
     
@@ -259,7 +256,8 @@ function updateTxHistory(offset = 0) {
                     $(document).trigger('newWalletTransaction');
                 }
                 
-                else if(this.xid < window.xidOldest) {
+                else if(typeof(window.xidOldest) == 'undefined' || this.xid < window.xidOldest) {
+                    window.xidOldest = this.xid;
                     end = true;
                     return false;
                 }
