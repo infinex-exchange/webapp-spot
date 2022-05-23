@@ -16,6 +16,7 @@ $(document).ready(function() {
 });
 
 function initSelectNet(asset) {
+    $('#select-net').val('');
     $('#select-net-data').empty();
     
     $.ajax({
