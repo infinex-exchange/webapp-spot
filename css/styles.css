@@ -25,6 +25,7 @@ html body {
     font-family: Arial, sans-serif !important;
     color: var(--color-primary);
     background-color: var(--color-bg);
+    overflow-x: hidden;
     touch-action: pan-x pan-y; /* Fix for user-scallable=no on iOS */
 }
 
