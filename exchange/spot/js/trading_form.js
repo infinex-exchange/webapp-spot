@@ -61,9 +61,16 @@ function postOrder(data) {
         dataType: "json"
     })
     .retry(config.retry)
-    .done(function (data) {
-        if(!data.success) {
-            msgBox(data.error);
+    .done(function (resp) {
+        if(resp.success) {
+            // Reset current side of trading form
+            var sideDiv = $('.form-inner-side[data-side="' + data.side + '"]');
+            sideDiv.find('input[type=text]').data('val', '').val('');
+            sideDiv.find('input[type=range]').val(0).trigger('_input');
+            switchOrderType(data.type);
+        }
+        else {
+            msgBox(resp.error);
         }
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
