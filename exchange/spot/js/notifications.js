@@ -19,6 +19,15 @@ $(document).on('orderRejected', function(e, data) {
                 position: 'top-right'
             });
             break;
+        case 'INSUF_TRADE_AMOUNT':
+            $.toast({
+                heading: 'Order rejected',
+                text: `Too low trade amount for ${data.side} ${data.pair} order`,
+                showHideTransition: 'fade',
+                icon: 'error',
+                position: 'top-right'
+            });
+            break;
         default:
             break;
     }
