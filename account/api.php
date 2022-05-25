@@ -35,7 +35,7 @@
             
             <div class="row p-2 d-none d-lg-flex secondary">
                 <div class="col-4">
-                <h5>Description</h5>
+                <h5>Name</h5>
                 </div>
                 <div class="col-5">
                 <h5>API key</h5>
@@ -66,7 +66,7 @@
                     <div class="modal-body">
                         <div class="row py-2">
                             <div class="col-4">
-                                <h5>Description:</h5>
+                                <h5>Name:</h5>
                             </div>
                             <div class="col-8 text-end">
                                 <span id="makd-description"></span>
@@ -107,9 +107,9 @@
             <form id="api-key-description-form">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="api-key-description">Description:</label>
+                        <label for="api-key-description">Name:</label>
                         <input type="text" class="form-control" id="api-key-description">
-                        <small id="help-api-key-description" class="form-text" style="display: none">Invalid description</small>
+                        <small id="help-api-key-description" class="form-text" style="display: none">Invalid name</small>
                     </div>
                 </div>
                 <div class="modal-footer">
