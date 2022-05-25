@@ -36,6 +36,7 @@ function removeAK(sid) {
 function addChangeApiKey(sid, api_key, description) {
     var elem = $('.sessions-item[data-sid=' + sid + ']');
     if(elem.length) {
+        elem.attr('data-description', description);
         elem.find('.api-key-description').html(description);
     }
     else $('#api-keys-data').append(`
