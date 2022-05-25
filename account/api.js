@@ -41,21 +41,21 @@ function addChangeApiKey(sid, api_key, description) {
     else $('#api-keys-data').append(`
         <div class="sessions-item row p-2 hoverable" onClick="mobileApiKeyDetails(this)"
          data-sid="${sid}" data-api-key="${api_key}" data-description="${description}">
-            <div class="col-12 col-lg-4 wrap">
+            <div class="col-12 col-lg-4 my-auto wrap">
                 <h5 class="secondary api-key-description d-lg-none">${description}</h5>
                 <span class="api-key-description d-none d-lg-inline">${description}</span>
             </div>
             <div class="col-12 col-lg-5">
                 <div class="row flex-nowrap">
-                    <div class="col-10 my-auto wrap">
+                    <div class="col-auto col-lg-10 my-auto wrap">
                         <span class="wrap" id="api-key-${sid}">${api_key}</span>
                     </div>
-                    <div class="col-2 my-auto">
-                        <a href="#_" class="secondary copy-button" data-copy="#api-key-${sid}"><i class="fa-solid fa-copy fa-xl"></i></a>
+                    <div class="col-auto col-lg-2 my-auto">
+                        <a href="#_" class="secondary" data-copy="#api-key-${sid}" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-3 d-none d-lg-block">
+            <div class="col-3 d-none d-lg-block my-auto">
                 <button type="button" class="btn btn-primary btn-sm" onClick="showEditAKPrompt(${sid})">Rename</a>
                 <button type="button" class="btn btn-primary btn-sm" onClick="removeAK(${sid})">Remove</a>
             </div>
