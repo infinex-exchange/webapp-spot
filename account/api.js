@@ -48,7 +48,7 @@ function addChangeApiKey(sid, api_key, description) {
             <div class="col-12 col-lg-5">
                 <div class="row flex-nowrap">
                     <div class="col-10 my-auto wrap">
-                        <h4 class="wrap" id="api-key-${sid}">${api_key}</h4>
+                        <span class="wrap" id="api-key-${sid}">${api_key}</span>
                     </div>
                     <div class="col-2 my-auto">
                         <a href="#_" class="secondary copy-button" data-copy="#api-key-${sid}"><i class="fa-solid fa-copy fa-xl"></i></a>
