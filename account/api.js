@@ -178,3 +178,22 @@ $(document).on('authChecked', function() {
         });     
     }
 });
+
+function mobileApiKeyDetails(item) {
+    if($(window).width() > 991) return;
+    
+    var sid = $(item).data('sid');
+    
+    $('#makd-description').html($(item).data('description'));
+    $('#makd-rename-btn').unbind('click').on('click', function() {
+        $('#modal-api-key-details').modal('hide');
+        showEditAKPrompt(sid);
+    });
+    $('#madbk-remove-btn').unbind('click').on('click', function() {
+        $('#modal-api-key-details').modal('hide');
+        removeAK(sid);
+    });
+    $('#makd-api-key').html($(item).data('api-key'));
+    
+    $('#modal-api-key-details').modal('show');
+}

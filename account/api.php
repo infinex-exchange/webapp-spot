@@ -55,6 +55,41 @@
         </div>
         </div>
         
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-api-key-details">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">API key</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Description:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="makd-description"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>API key:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="makd-api-key"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button id="makd-rename-btn" type="button" class="btn btn-primary">Rename</a>
+                        <button id="makd-remove-btn" type="button" class="btn btn-primary">Remove</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="modal fade" tabindex="-1" role="dialog" id="modal-ak-desc-prompt">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
