@@ -141,13 +141,12 @@ class StreamsClient {
             if(msg.id == t.authId) {
                 if(msg.success)
                     t.authRespCb(msg.authorized);
-                else {
-                    delete t.apiKey;
-                    delete t.authRespCb;
-                    delete t.authErrorCb;
+                else
                     t.authErrorCb(msg.error);
-                }
-                    
+                
+                delete t.apiKey;
+                delete t.authRespCb;
+                delete t.authErrorCb;
                 delete t.authId;
             }
                 
