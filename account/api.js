@@ -41,11 +41,11 @@ function addChangeApiKey(sid, api_key, description) {
     else $('#api-keys-data').append(`
         <div class="sessions-item row p-2 hoverable" onClick="mobileApiKeyDetails(this)"
          data-sid="${sid}" data-api-key="${api_key}" data-description="${description}">
-            <div class="col-4 col-lg-12 wrap">
+            <div class="col-12 col-lg-4 wrap">
                 <h5 class="secondary api-key-description d-lg-none">${description}</h5>
                 <span class="api-key-description d-none d-lg-inline">${description}</span>
             </div>
-            <div class="col-5 col-lg-12">
+            <div class="col-12 col-lg-5">
                 <div class="row flex-nowrap">
                     <div class="col-10 my-auto wrap">
                         <h4 class="wrap" id="api-key-${sid}">${api_key}</h4>
