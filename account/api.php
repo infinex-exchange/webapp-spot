@@ -33,7 +33,7 @@
                 </div>
             </div>
             
-            <div class="row p-2 secondary">
+            <div class="row p-2 d-none d-lg-flex secondary">
                 <div class="col-4">
                 <h5>Description</h5>
                 </div>
