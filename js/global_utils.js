@@ -9,6 +9,19 @@ function gotoUiCard(card) {
     $('.nav-link[data-ui-card-target~="' + card + '"]').addClass('active');
 }
 
+function copyButton(t) {
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(
+                $($(t).data('copy')).html()
+            );
+            var icon = $(t).find('.fa-copy');
+            icon.removeClass('fa-copy').addClass('fa-check');
+            setTimeout(function() {
+                icon.removeClass('fa-check').addClass('fa-copy');
+            }, 1000);
+        }
+}
+
 $( document ).ready(function() {
     // Dropdown on hover
     $('.dropdown-on-hover').hover(function() {
@@ -51,16 +64,7 @@ $( document ).ready(function() {
     
     // Copy button
     $('.copy-button').on('click', function() {
-        if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(
-                $($(this).data('copy')).html()
-            );
-            var icon = $(this).find('.fa-copy');
-            icon.removeClass('fa-copy').addClass('fa-check');
-            setTimeout(function() {
-                icon.removeClass('fa-check').addClass('fa-copy');
-            }, 1000);
-        }
+        copyButton(this);
     });
     
     // Range with value label
