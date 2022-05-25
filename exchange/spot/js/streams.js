@@ -11,12 +11,7 @@ $(document).on('authChecked', function() {
                 if(window.loggedIn)
                     window.wsClient.auth(
                         window.apiKey,
-                        function(authorized) {
-                            if(!authorized) {
-                                msgBoxRedirect('Unauthorized to notifications stream');
-                                return;
-                            }
-                        
+                        function() {
                             if(typeof(window.multiEvents['wsAuth']) == 'undefined') {
                                 $(document).trigger('wsAuth');
                             }

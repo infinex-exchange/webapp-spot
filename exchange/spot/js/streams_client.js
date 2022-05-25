@@ -140,7 +140,7 @@ class StreamsClient {
             
             if(msg.id == t.authId) {
                 if(msg.success)
-                    t.authRespCb(msg.authorized);
+                    t.authRespCb();
                 else
                     t.authErrorCb(msg.error);
                 
