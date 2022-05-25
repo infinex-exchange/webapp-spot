@@ -76,8 +76,15 @@
                             <div class="col-6">
                                 <h5>API key:</h5>
                             </div>
-                            <div class="col-6 text-end">
-                                <span id="makd-api-key"></span>
+                            <div class="col-6">
+                                <div class="row flex-nowrap">
+                                    <div class="col-auto my-auto wrap">
+                                        <span class="wrap" id="makd-api-key"></span>
+                                    </div>
+                                    <div class="col-auto my-auto">
+                                        <a href="#_" class="secondary copy-button" data-copy="#makd-api-key"><i class="fa-solid fa-copy fa-xl"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -189,7 +189,7 @@ function mobileApiKeyDetails(item) {
         $('#modal-api-key-details').modal('hide');
         showEditAKPrompt(sid);
     });
-    $('#madbk-remove-btn').unbind('click').on('click', function() {
+    $('#makd-remove-btn').unbind('click').on('click', function() {
         $('#modal-api-key-details').modal('hide');
         removeAK(sid);
     });
