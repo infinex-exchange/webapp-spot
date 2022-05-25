@@ -65,23 +65,23 @@
                     
                     <div class="modal-body">
                         <div class="row py-2">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <h5>Description:</h5>
                             </div>
-                            <div class="col-6 text-end">
+                            <div class="col-8 text-end">
                                 <span id="makd-description"></span>
                             </div>
                         </div>
                         <div class="row py-2">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <h5>API key:</h5>
                             </div>
-                            <div class="col-6">
+                            <div class="col-8">
                                 <div class="row flex-nowrap">
-                                    <div class="col-auto my-auto wrap">
+                                    <div class="col-10 my-auto wrap">
                                         <span class="wrap" id="makd-api-key"></span>
                                     </div>
-                                    <div class="col-auto my-auto">
+                                    <div class="col-2 my-auto">
                                         <a href="#_" class="secondary copy-button" data-copy="#makd-api-key"><i class="fa-solid fa-copy fa-xl"></i></a>
                                     </div>
                                 </div>
