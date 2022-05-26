@@ -370,7 +370,7 @@ $(document).on('pairSelected', function() {
     
     // On: setVal buy total, sell amount
     // Move value from input to slider
-    $('#form-buy-total').on('setVal', function() {
+    $('#form-buy-total').on('setVal focusout', function() {
         var total = new BigNumber($(this).data('rval'));
         var perc = 0;
         if(! total.isNaN())
@@ -378,7 +378,7 @@ $(document).on('pairSelected', function() {
         $('#form-buy-range').val(perc).trigger('_input');
     });
     
-    $('#form-sell-amount').on('setVal', function() {
+    $('#form-sell-amount').on('setVal focusout', function() {
         var amount = new BigNumber($(this).data('rval'));
         var perc = 0;
         if(! amount.isNaN())
