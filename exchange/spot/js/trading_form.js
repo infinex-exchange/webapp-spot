@@ -370,7 +370,7 @@ $(document).on('pairSelected', function() {
     
     // On: setVal buy total, sell amount
     // Move value from input to slider
-    $('#form-buy-total').on('updateCalc', function() {
+    $('#form-buy-total').on('setVal', function() {
         var total = new BigNumber($(this).data('rval'));
         var perc = 0;
         if(! total.isNaN())
