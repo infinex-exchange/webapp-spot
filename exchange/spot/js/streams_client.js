@@ -19,15 +19,18 @@ class StreamsClient {
                 t.ping();
             }, 5000);
             
-            if(typeof(t.apiKey) !== 'undefined')
+            if(typeof(t.apiKey) !== 'undefined') {
+	            var oldCallback = t.authRespCb;
+	            
                 t.auth(
 	                t.apiKey,
 	                function() {
-		                t.authRespCb();
+		                oldCallback();
 		                t.restoreSubs();
 		            },
 	                t.authErrorCb
 	            );
+	        }
             else
 	            t.restoreSubs();
             
