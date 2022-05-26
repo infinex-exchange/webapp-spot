@@ -262,12 +262,12 @@ $(document).on('pairSelected', function() {
            (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT'))
         {        
             var amount = total.dividedBy(price);
-            amountStr = amount.toFixed(window.currentBasePrecision);
+            amountStr = amount.toFixed(window.currentBasePrecision, BigNumber.ROUND_DOWN);
         }
         
         $('.form-amount[data-side="' + side + '"]').data('val', amountStr)
                                                    .val(amountStr)
-                                                   .trigger('post');
+                                                   .trigger('pre');
     });
             
     // Slider
