@@ -281,8 +281,8 @@ $(document).on('pairSelected', function() {
             toFixed(window.currentQuotePrecision, BigNumber.ROUND_DOWN);
         
         $('#form-buy-total').data('val', buyTotal)
-                            .val(buyTotal)
                             .trigger('pre');
+        $('#form-buy-amount').trigger('pre');
     });
     
     $('#form-sell-range').on('input', function() {
