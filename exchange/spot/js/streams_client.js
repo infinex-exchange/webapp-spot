@@ -20,22 +20,16 @@ class StreamsClient {
             }, 5000);
             
             if(typeof(t.apiKey) !== 'undefined')
-                t.auth(t.apiKey, t.authRespCb, t.authErrorCb);
-            
-            var streams = new Array();
-            var i = 0;
-            for(var stream in t.subDb) {
-                streams.push(stream);
-                i++;
-            }
-            
-            if(i > 0) {
-                t.send({
-                    op: 'sub',
-                    streams: streams,
-                    id: t.subDb[streams[0]]['id']
-                });
-            }
+                t.auth(
+	                t.apiKey,
+	                function() {
+		                t.authRespCb();
+		                t.restoreSubs();
+		            },
+	                t.authErrorCb
+	            );
+            else
+	            t.restoreSubs();
             
             if(t.onOpen != null)
                 t.onOpen();
@@ -48,6 +42,23 @@ class StreamsClient {
         t.ws.onmessage = function(e) {
             var msg = JSON.parse(e.data);
             t.process(msg);
+        }
+    }
+    
+    restoreSubs() {
+	    var streams = new Array();
+        var i = 0;
+        for(var stream in this.subDb) {
+            streams.push(stream);
+            i++;
+        }
+        
+        if(i > 0) {
+            this.send({
+                op: 'sub',
+                streams: streams,
+                id: this.subDb[streams[0]]['id']
+            });
         }
     }
     
@@ -141,13 +152,14 @@ class StreamsClient {
             if(msg.id == t.authId) {
                 if(msg.success)
                     t.authRespCb();
-                else
+                else {
                     t.authErrorCb(msg.error);
-                
-                delete t.apiKey;
-                delete t.authRespCb;
-                delete t.authErrorCb;
-                delete t.authId;
+	                delete t.apiKey;
+	                delete t.authRespCb;
+	                delete t.authErrorCb;
+	            }
+	            
+	            delete t.authId;
             }
                 
             var errorCalled = false;
