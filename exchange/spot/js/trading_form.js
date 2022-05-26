@@ -266,8 +266,11 @@ $(document).on('pairSelected', function() {
         }
         
         $('.form-amount[data-side="' + side + '"]').data('val', amountStr)
-                                                   .val(amountStr)
-                                                   .trigger('pre');
+                                                   .val(amountStr);
+        
+        setTimeout(function() {
+            $('.form-amount[data-side="' + side + '"]').trigger('pre');
+        }, 1000);
     });
             
     // Slider
