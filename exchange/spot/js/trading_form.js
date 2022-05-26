@@ -324,7 +324,7 @@ $(document).on('pairSelected', function() {
     
     // On: updateCalc total
     // Change amount, then updateCalc for amount
-    $('.form-total').on('changeOpposite', function() {
+    $('.form-total').on('updateCalc', function() {
         var side = $(this).data('side');
         var total = new BigNumber($(this).data('rval'));
         var price = new BigNumber($('.form-price[data-side="' + side + '"]').data('rval'));
