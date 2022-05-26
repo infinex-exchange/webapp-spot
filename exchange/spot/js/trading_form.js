@@ -274,20 +274,22 @@ $(document).on('pairSelected', function() {
     $('#form-buy-range').on('input', function() {
         var buyTotal = window.currentQuoteBalance.
             multipliedBy( $(this).val() ).
-            dividedBy(100);
+            dividedBy(100).
+            toFixed(window.currentQuotePrecision, BigNumber.ROUND_DOWN);
         
-        $('#form-buy-total').data('val', buyTotal.toFixed(window.currentQuotePrecision))
-                            .val(buyTotal.toFixed(window.currentQuotePrecision))
+        $('#form-buy-total').data('val', buyTotal)
+                            .val(buyTotal)
                             .trigger('pre');
     });
     
     $('#form-sell-range').on('input', function() {
         var sellAmount = window.currentBaseBalance.
             multipliedBy( $(this).val() ).
-            dividedBy(100);
+            dividedBy(100).
+            toFixed(window.currentBasePrecision, BigNumber.ROUND_DOWN);
         
-        $('#form-sell-amount').data('val', sellAmount.toFixed(window.currentBasePrecision))
-                              .val(sellAmount.toFixed(window.currentBasePrecision))
+        $('#form-sell-amount').data('val', sellAmount)
+                              .val(sellAmount)
                               .trigger('pre');
     });
     
@@ -325,7 +327,7 @@ $(document).on('pairSelected', function() {
             setTimeout(function() {
                 $('#form-buy-total, #form-quote-balance').removeClass('blink-red');
                 
-                var max = window.currentQuoteBalance.toFixed(window.currentQuotePrecision);
+                var max = window.currentQuoteBalance.toFixed(window.currentQuotePrecision, BigNumber.ROUND_DOWN);
                 $('#form-buy-total').data('val', max)
                                     .val(max)
                                     .trigger('pre');
@@ -340,7 +342,7 @@ $(document).on('pairSelected', function() {
             setTimeout(function() {
                 $('#form-sell-amount, #form-base-balance').removeClass('blink-red');
                 
-                var max = window.currentBaseBalance.toFixed(window.currentBasePrecision);
+                var max = window.currentBaseBalance.toFixed(window.currentBasePrecision, BigNumber.ROUND_DOWN);
                 $('#form-sell-amount').data('val', max)
                                       .val(max)
                                       .trigger('pre');
