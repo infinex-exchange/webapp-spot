@@ -19,18 +19,8 @@ class StreamsClient {
                 t.ping();
             }, 5000);
             
-            if(typeof(t.apiKey) !== 'undefined') {
-	            var oldCallback = t.authRespCb;
-	            
-                t.auth(
-	                t.apiKey,
-	                function() {
-		                oldCallback();
-		                t.restoreSubs();
-		            },
-	                t.authErrorCb
-	            );
-	        }
+            if(typeof(t.apiKey) !== 'undefined')
+	            t.auth(t.apiKey, t.authRespCb, t.authErrorCb);
             else
 	            t.restoreSubs();
             
@@ -153,8 +143,10 @@ class StreamsClient {
             }
             
             if(msg.id == t.authId) {
-                if(msg.success)
+                if(msg.success) {
                     t.authRespCb();
+                    t.restoreSubs();
+                }
                 else {
                     t.authErrorCb(msg.error);
 	                delete t.apiKey;
