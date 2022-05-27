@@ -10,7 +10,7 @@ $(document).ready(function() {
             var thisAS = this;
     
             $.ajax({
-                url: config.apiUrl + '/spot_markets',
+                url: config.apiUrl + '/spot/markets_ex',
                 type: 'POST',
                 data: JSON.stringify(thisAS.data),
                 contentType: "application/json",
@@ -19,43 +19,45 @@ $(document).ready(function() {
             .retry(config.retry)
             .done(function (data) {
                 if(data.success) {
-                    $.each(data.rules, function(k, v) { 
+                    $.each(data.markets, function(k, v) {
+                        var minAmount = new BigNumber(10);
+                        minAmount = minAmount.pow(-v.base_precision).toFixed(v.base_precision);
+                        
+                        var minPrice = new BigNumber(10);
+                        minPrice = minPrice.pow(-v.quote_precision).toFixed(v.quote_precision);
+                     
                         thisAS.append(`
                             <div class="row p-2 hoverable">
-                                <div class="col-1 d-none d-lg-block">
-                                    ${level}
+                                <div class="col-6 d-lg-none secondary my-auto">
+                                    Pair:
                                 </div>
-                                <div class="col-1 d-lg-none my-auto text-center">
-                                    Lvl
-                                    <h3>${level}</h3>
+                                <div class="col-6 col-lg text-end text-lg-start my-auto">
+                                    <img width="16" height="16" src="${v.icon_url}">
+                                    ${v.base}<span class="small secondary">/${v.quote}</span>
                                 </div>
-                                <div class="col-11">
-                                    <div class="row">
-                                        <div class="col-6 d-lg-none secondary">
-                                            30d trade volume:
-                                        </div>
-                                        <div class="col-6 col-lg text-end">
-                                            &ge; ${data.volume} ${data.volume_asset}
-                                        </div>
-                                        <div class="col-6 d-lg-none secondary">
-                                            Hold:
-                                        </div>
-                                        <div class="col-6 col-lg text-end">
-                                            &ge; ${data.hold} ${data.hold_asset}
-                                        </div>
-                                        <div class="col-6 d-lg-none secondary">
-                                            Maker fee:
-                                        </div>
-                                        <div class="col-6 col-lg text-end">
-                                            ${data.maker_fee}%
-                                        </div>
-                                        <div class="col-6 d-lg-none secondary">
-                                            Taker fee:
-                                        </div>
-                                        <div class="col-6 col-lg text-end">
-                                            ${data.taker_fee}%
-                                        </div>
-                                    </div>
+                                <div class="col-6 d-lg-none secondary">
+                                    Min trade amount:
+                                </div>
+                                <div class="col-6 col-lg text-end text-lg-start">
+                                    ${minAmount} ${v.base}
+                                </div>
+                                <div class="col-6 d-lg-none secondary">
+                                    Min amount move:
+                                </div>
+                                <div class="col-6 col-lg text-end text-lg-start">
+                                    ${minAmount} ${v.base}
+                                </div>
+                                <div class="col-6 d-lg-none secondary">
+                                    Min price move:
+                                </div>
+                                <div class="col-6 col-lg text-end text-lg-start">
+                                    ${minPrice} ${v.quote}
+                                </div>
+                                <div class="col-6 d-lg-none secondary">
+                                    Min order size:
+                                </div>
+                                <div class="col-6 col-lg text-end text-lg-start">
+                                    ${v.min_order} ${v.quote}
                                 </div>
                             </div>
                         `);
@@ -66,7 +68,7 @@ $(document).ready(function() {
                     if(thisAS.offset == 0)
                         $(document).trigger('renderingStage');
                        
-                    if(data.rules.length != 50)
+                    if(data.markets.length != 50)
                         thisAS.noMoreData(); 
                 }
                 else {

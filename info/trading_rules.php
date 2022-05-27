@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
+        <?php include('../imports/bignumber.html'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
         <title>Trading rules | Vayamos Exchange</title>
     </head>
@@ -35,23 +36,20 @@
             <div class="col-12">
             
                 <div class="row p-2 secondary d-none d-lg-flex">
-                    <div class="col">
+                    <div class="col my-auto">
                         <h5>Pair</h5>
                     </div>
-                    <div class="col">
+                    <div class="col my-auto">
                         <h5>Min trade amount</h5>
                     </div>
-                    <div class="col">
-                        <h5>Min amount movement</h5>
+                    <div class="col my-auto">
+                        <h5>Min amount move</h5>
                     </div>
-                    <div class="col">
-                        <h5>Min price movement</h5>
+                    <div class="col my-auto">
+                        <h5>Min price move</h5>
                     </div>
-                    <div class="col">
+                    <div class="col my-auto">
                         <h5>Min order size</h5>
-                    </div>
-                    <div class="col">
-                        <h5>Max market order</h5>
                     </div>
                 </div>
                 
