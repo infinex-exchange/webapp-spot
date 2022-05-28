@@ -4,7 +4,7 @@ class StreamsClient {
         this.onOpen = onOpen;
         this.onClose = onClose;
         this.subDb = new Array();
-        this.good = false;
+        this.reconDelay = 0;
     }
     
     open() {
@@ -13,8 +13,9 @@ class StreamsClient {
         t.ws = new WebSocket(t.url);
                
         t.ws.onopen = function(e) {
-            t.good = true;
-            
+	        clearTimeout(t.connTimeout);
+	        t.reconDelay = 0;
+	        
             t.pingInterval = setInterval(function() {
                 t.ping();
             }, 5000);
@@ -29,7 +30,21 @@ class StreamsClient {
         }
         
         t.ws.onclose = function(e) {
-            t.closed();
+	        t.ws = null;
+	        
+            clearTimeout(t.connTimeout);
+            if(t.reconDelay < 20000)
+	            t.reconDelay += 1000;
+	        
+	        clearTimeout(this.pingTimeout);
+	        clearInterval(this.pingInterval);
+            
+            setTimeout(function() {
+	            t.open();
+            }, t.connTimeoutVal);
+            
+            if(this.onClose != null)
+	            this.onClose();
         }
         
         t.ws.onmessage = function(e) {
@@ -38,66 +53,12 @@ class StreamsClient {
         }
     }
     
-    restoreSubs() {
-	    var streams = new Array();
-        var i = 0;
-        for(var stream in this.subDb) {
-            streams.push(stream);
-            i++;
-        }
-        
-        if(i > 0) {
-            this.send({
-                op: 'sub',
-                streams: streams,
-                id: this.subDb[streams[0]]['id']
-            });
-        }
-    }
-    
-    closed() {
-        var t = this;
-        
-        this.good = false;
-            
-        clearTimeout(this.pingTimeout);
-        clearInterval(this.pingInterval);
-            
-        if(this.onClose != null)
-            this.onClose();
-        
-        setTimeout(function() {
-            t.reconnect();
-        }, 1000);
-    }
-    
-    reconnect() {
-        var t = this;
-        
-        var id = t.randomId();
-                
-        for(var stream in t.subDb) {
-            if(t.subDb[stream]['status'] == 'sub' || t.subDb[stream]['status'] == 'sub_wait') {
-                t.subDb[stream]['status'] = 'sub_wait';
-                t.subDb[stream]['id'] = id;
-            }
-            else {
-                delete t.subDb[stream];
-            }
-        }
-        
-        t.open();
-    }
-    
     ping() {
         var t = this;
         
         clearTimeout(t.pingTimeout);
         t.pingTimeout = setTimeout(function() {
-            if(t.ws.readyState === t.ws.OPEN)
-                t.ws.close();
-            else
-                t.closed();
+            t.ws.close();
         }, 2000);
         
         t.pingId = t.randomId();
@@ -122,10 +83,8 @@ class StreamsClient {
     }
     
     send(obj) {
-        if(this.ws.readyState === this.ws.OPEN)
+        if(this.ws)
             this.ws.send(JSON.stringify(obj));
-        else
-            this.closed();
     }
     
     randomId() {
@@ -191,6 +150,34 @@ class StreamsClient {
                 if(msg.stream == stream)
                     t.subDb[stream]['dataCallback'](msg);
             }
+        }
+    }
+    
+    restoreSubs() {
+	    var t = this;
+        
+        var id = t.randomId();
+        var streams = new Array();
+        var i = 0;
+                
+        for(var stream in t.subDb) {
+            if(t.subDb[stream]['status'] == 'sub' || t.subDb[stream]['status'] == 'sub_wait') {
+                t.subDb[stream]['status'] = 'sub_wait';
+                t.subDb[stream]['id'] = id;
+                streams.push(stream);
+	            i++;
+            }
+            else {
+                delete t.subDb[stream];
+            }
+        }
+        
+        if(i > 0) {
+            this.send({
+                op: 'sub',
+                streams: streams,
+                id: id
+            });
         }
     }
     
