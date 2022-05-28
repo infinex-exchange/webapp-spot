@@ -221,7 +221,7 @@ $(document).on('pairSelected', function() {
                 
                 var max = window.currentQuoteBalance.toFixed(window.currentQuotePrecision, BigNumber.ROUND_DOWN);
                 $('#form-buy-total').data('rval', max)
-                                    // No setVal because total changes amount, then amount changes total and setVal
+                                    .trigger('setVal')
                                     .trigger('updateCalc');
             }, 1000);
         }
@@ -271,32 +271,7 @@ $(document).on('pairSelected', function() {
     // Change not important for user opposite field: amount or total
     $('.form-price').on('updateCalc', function() {
         var side = $(this).data('side');
-        var price = new BigNumber($(this).data('rval'));
-        var amount = new BigNumber($('.form-amount[data-side="' + side + '"]').data('rval'));
-        var total = new BigNumber($('.form-total[data-side="' + side + '"]').data('rval'));
-        
-        // If market order - empty opposite field
-        var oppositeStr = '';
-        
-        // If limit order calculate
-        if(!price.isZero() && !price.isNaN() && (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT')) {
-            if(window.keepOnTypeChange[side] != 'total' && !amount.isZero() && !amount.isNaN()) {
-                var total = amount.multipliedBy(price);
-                oppositeStr = total.toFixed(window.currentQuotePrecision);
-            }
-            else if(!total.isZero() && !total.isNaN()) {
-                var amount = total.dividedBy(price);
-                oppositeStr = amount.toFixed(window.currentBasePrecision);
-            }
-        }
-        
-        if(window.keepOnTypeChange[side] != 'total')
-            $('.form-total[data-side="' + side + '"]').data('rval', oppositeStr)
-                                                      .trigger('updateCalc');
-        else
-            $('.form-amount[data-side="' + side + '"]').data('rval', oppositeStr)
-                                                       .trigger('setVal')
-                                                       .trigger('updateCalc');
+        $('.form-' + window.keepOnTypeChange[side] + '[data-side="' + side + '"]').trigger('updateCalc');
     });
     
     // On: updateCalc amount
@@ -323,7 +298,9 @@ $(document).on('pairSelected', function() {
     });
     
     // On: updateCalc total
-    // Change amount, then updateCalc for amount
+    // BUY: We want not to spend more than the total
+    // SELL: We want to receive at least as much as the total
+    // Change amount, round up
     $('.form-total').on('updateCalc', function() {
         var side = $(this).data('side');
         var total = new BigNumber($(this).data('rval'));
@@ -337,12 +314,14 @@ $(document).on('pairSelected', function() {
            (window.orderType == 'LIMIT' || window.orderType == 'STOP_LIMIT'))
         {        
             var amount = total.dividedBy(price);
-            amountStr = amount.toFixed(window.currentBasePrecision, BigNumber.ROUND_DOWN);
+            if(side == 'BUY')
+                amountStr = amount.toFixed(window.currentBasePrecision, BigNumber.ROUND_DOWN);
+            else
+                amountStr = amount.toFixed(window.currentBasePrecision, BigNumber.ROUND_UP);
         }
         
         $('.form-amount[data-side="' + side + '"]').data('rval', amountStr)
-                                                   .trigger('setVal')
-                                                   .trigger('updateCalc');
+                                                   .trigger('setVal');
     });
             
     // On: slider input
@@ -354,6 +333,7 @@ $(document).on('pairSelected', function() {
             toFixed(window.currentQuotePrecision, BigNumber.ROUND_DOWN);
         
         $('#form-buy-total').data('rval', buyTotal)
+                            .trigger('setVal')
                             .trigger('updateCalc');
     });
     
