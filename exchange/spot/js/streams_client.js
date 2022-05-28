@@ -10,6 +10,10 @@ class StreamsClient {
     open() {
         var t = this;
         
+        t.connTimeout = setTimeout(function() {
+	        t.ws.close();
+	    }, 5000);
+        
         t.ws = new WebSocket(t.url);
                
         t.ws.onopen = function(e) {
@@ -41,7 +45,7 @@ class StreamsClient {
             
             setTimeout(function() {
 	            t.open();
-            }, t.connTimeoutVal);
+            }, t.reconDelay);
             
             if(this.onClose != null)
 	            this.onClose();
@@ -83,6 +87,7 @@ class StreamsClient {
     }
     
     send(obj) {
+console.log(obj);
         if(this.ws)
             this.ws.send(JSON.stringify(obj));
     }
