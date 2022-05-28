@@ -95,7 +95,7 @@ function switchOrderType(type) {
             if(window.keepOnTypeChange['BUY'] == 'amount')
                 $('#form-buy-total').data('rval', '').trigger('setVal');
             else
-                $('#form-buy-amount').data('rval', '').triger('setVal');
+                $('#form-buy-amount').data('rval', '').trigger('setVal');
             
             if(window.keepOnTypeChange['SELL'] == 'amount')
                 $('#form-sell-total').data('rval', '').trigger('setVal');
