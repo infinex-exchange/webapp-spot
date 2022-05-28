@@ -83,20 +83,24 @@ function switchOrderType(type) {
         case 'LIMIT':
         case 'STOP_LIMIT':
             if(window.orderType == 'MARKET')
-                $('.form-price').data('val', '').val('').prop('disabled', false);
+                $('.form-price').data('rval', '').prop('disabled', false).trigger('setVal');
             
             $('.switch-time-in-force[data-tif="GTC"]').show();
             switchTimeInForce('GTC');
             
             break;
         case 'MARKET':
-            $('.form-price').data('val', '').val('Market').prop('disabled', true);
+            $('.form-price').data('rval', '').val('Market').prop('disabled', true);
             
-            if(window.keepOnTypeChange['BUY'] == 'amount') $('#form-buy-total').data('val', '').val('');
-            else $('#form-buy-amount').data('val', '').val('');
+            if(window.keepOnTypeChange['BUY'] == 'amount')
+                $('#form-buy-total').data('rval', '').trigger('setVal');
+            else
+                $('#form-buy-amount').data('rval', '').triger('setVal');
             
-            if(window.keepOnTypeChange['SELL'] == 'amount') $('#form-sell-total').data('val', '').val('');
-            else $('#form-sell-amount').data('val', '').val('');
+            if(window.keepOnTypeChange['SELL'] == 'amount')
+                $('#form-sell-total').data('rval', '').trigger('setVal');
+            else
+                $('#form-sell-amount').data('rval', '').trigger('setVal');
             
             switchTimeInForce('FOK');
             $('.switch-time-in-force[data-tif="GTC"]').hide();
