@@ -40,15 +40,15 @@ class StreamsClient {
             if(t.reconDelay < 20000)
 	            t.reconDelay += 1000;
 	        
-	        clearTimeout(this.pingTimeout);
-	        clearInterval(this.pingInterval);
+	        clearTimeout(t.pingTimeout);
+	        clearInterval(t.pingInterval);
             
             setTimeout(function() {
 	            t.open();
             }, t.reconDelay);
             
-            if(this.onClose != null)
-	            this.onClose();
+            if(t.onClose != null)
+	            t.onClose();
         }
         
         t.ws.onmessage = function(e) {
@@ -60,7 +60,6 @@ class StreamsClient {
     ping() {
         var t = this;
         
-        clearTimeout(t.pingTimeout);
         t.pingTimeout = setTimeout(function() {
             t.ws.close();
         }, 2000);
