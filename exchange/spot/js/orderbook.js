@@ -96,11 +96,11 @@ function orderBookClick(row) {
     if(window.orderType == 'MARKET') return;
     
     if($(row).attr('data-side') == 'bid') {
-        $('#form-sell-price').val($(row).attr('data-price')).trigger('input');
+        $('#form-sell-price').data('rval', $(row).attr('data-price')).trigger('setVal');
     }
     
     else {
-        $('#form-buy-price').val($(row).attr('data-price')).trigger('input');
+        $('#form-buy-price').data('rval', $(row).attr('data-price')).trigger('setVal');
     }
 }
 
