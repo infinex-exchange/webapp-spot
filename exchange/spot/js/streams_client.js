@@ -86,7 +86,6 @@ class StreamsClient {
     }
     
     send(obj) {
-console.log(obj);
         if(this.ws)
             this.ws.send(JSON.stringify(obj));
     }
