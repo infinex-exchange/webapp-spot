@@ -65,7 +65,7 @@ function postOrder(data) {
         if(resp.success) {
             // Reset current side of trading form
             var sideDiv = $('.form-inner-side[data-side="' + data.side + '"]');
-            sideDiv.find('input[type=text]').data('val', '').val('');
+            sideDiv.find('input[type=text]').data('rval', '').trigger('setVal');
             sideDiv.find('input[type=range]').val(0).trigger('_input');
             switchOrderType(data.type);
         }
