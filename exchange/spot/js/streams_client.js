@@ -86,7 +86,7 @@ class StreamsClient {
     }
     
     send(obj) {
-        if(this.ws)
+        if(this.ws && this.ws.readyState === this.ws.OPEN)
             this.ws.send(JSON.stringify(obj));
     }
     
