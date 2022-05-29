@@ -5,6 +5,7 @@ class StreamsClient {
         this.onClose = onClose;
         this.subDb = new Array();
         this.reconDelay = 0;
+        this.onCloseCalled = false;
     }
     
     open() {
@@ -31,6 +32,8 @@ class StreamsClient {
             
             if(t.onOpen != null)
                 t.onOpen();
+            
+            t.onCloseCalled = false;
         }
         
         t.ws.onclose = function(e) {
@@ -47,8 +50,10 @@ class StreamsClient {
 	            t.open();
             }, t.reconDelay);
             
-            if(t.onClose != null)
-	            t.onClose();
+            if(t.onClose != null && !t.onCloseCalled) {
+	            t.onCloseCalled = true;
+                t.onClose();
+            }
         }
         
         t.ws.onmessage = function(e) {
@@ -61,6 +66,10 @@ class StreamsClient {
         var t = this;
         
         t.pingTimeout = setTimeout(function() {
+            if(t.onClose != null && !t.onCloseCalled) {
+	            t.onCloseCalled = true;
+                t.onClose();
+            }
             t.ws.close();
         }, 2000);
         
