@@ -115,8 +115,8 @@ class StreamsClient {
             
             if(msg.id == t.authId) {
                 if(msg.success) {
-                    t.authRespCb();
                     t.restoreSubs();
+                    t.authRespCb();
                 }
                 else {
                     t.authErrorCb(msg.error);
