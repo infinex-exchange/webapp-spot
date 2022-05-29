@@ -211,7 +211,7 @@ class StreamsClient {
             t.subDb[stream] = dbEntry;
         });
         
-        if(t.good) t.send({
+        t.send({
             op: 'sub',
             streams: streams,
             id: id
@@ -232,7 +232,7 @@ class StreamsClient {
             t.subDb[stream]['id'] = id;
         });
         
-        if(t.good) t.send({
+        t.send({
             op: 'unsub',
             streams: streams,
             id: id
