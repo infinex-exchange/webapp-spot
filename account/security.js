@@ -83,7 +83,8 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                alert(1);
+                msgBox('Your password was changed');
+                $('#chp-form').reset();
             } else {
                 msgBox(data.error);
             }
