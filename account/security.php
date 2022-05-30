@@ -107,8 +107,8 @@
                                 Pending e-mail change to:<br>
                                 <strong id="che-pending-email"></strong>
                             </div>
-                            <div class="px-2">
-                                <button type="button" class="btn btn-primary" id="che-cancel">Cancel</button>
+                            <div class="ms-auto px-2">
+                                <button type="button" class="btn btn-primary btn-sm" id="che-cancel">Cancel</button>
                             </div>
                         </div>
                         <div class="form-group">
