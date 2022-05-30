@@ -84,7 +84,7 @@ $(document).ready(function() {
         .done(function (data) {
             if(data.success) {
                 msgBox('Your password was changed');
-                $('#chp-form').reset();
+                $('#chp-form')[0].reset();
             } else {
                 msgBox(data.error);
             }
