@@ -124,6 +124,41 @@
                         <button id="che-submit-btn" type="submit" class="btn btn-primary">Change e-mail</button>
                     </form>
                 </div>
+                
+                <div class="col-12 col-md-6">
+                    <div class="row p-2 pt-4">
+                        <h3>Two factor authentication</h3>
+                    </div>  
+                    
+                    <div class="row p-2">
+                        <div class="col-12 col-lg-6">
+                            <div class="alert alert-secondary d-flex align-items-center" role="alert">
+                                <div class="px-2">
+                                    <i class="fa-solid fa-envelope fa-2x"></i>
+                                </div>
+                                <div class="px-2">
+                                    E-mail codes<br>
+                                    <strong class="text-success">Available</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="alert alert-secondary d-flex align-items-center" role="alert">
+                                <div class="px-2">
+                                    <i class="fa-brands fa-google fa-2x"></i>
+                                </div>
+                                <div class="px-2">
+                                    Google Authenticator<br>
+                                    <strong class="text-success">Available</strong>
+                                    <strong class="text-danger">Not configured</strong>
+                                </div>
+                                <div class="ms-auto px-2">
+                                    <button type="button" class="btn btn-primary btn-sm" id="che-cancel">Configure</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         
         <!-- / Main column -->
