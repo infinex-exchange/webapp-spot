@@ -34,7 +34,8 @@ function killSession(sid) {
 }
 
 $(document).ready(function() {
-    window.renderingStagesTarget = 1;
+    window.renderingStagesTarget = 2;
+    window.pendingEmailChange = false;
     
     // Change passsword form
     $('#chp-old').on('input', function() {
@@ -229,6 +230,39 @@ $(document).on('authChecked', function() {
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             msgBoxNoConn(true);
-        });     
+        });
+        
+        $.ajax({
+            url: config.apiUrl + '/account/change_email/check',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey
+            }),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                window.pendingEmailChange = data.pending;
+                
+                if(data.pending) {
+                    $('#che-step1').hide();
+                    $('#che-pending-email').html(data.new_email);
+                    $('#che-pending').show();
+                }
+                else {
+                    $('#che-step1').show();
+                    $('#che-pending').hide();
+                }
+                        
+                $(document).trigger('renderingStage');
+            } else {
+                msgBoxRedirect(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(true);
+        });          
     }
 });

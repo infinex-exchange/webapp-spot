@@ -84,20 +84,31 @@
                     </div>  
                     
                     <form id="che-form" class="d-grid gap-3">
-                        <div class="form-group">
-                            <label for="che-email">New e-mail:</label>
-                            <input type="text" class="form-control" id="che-email">
-                            <small id="help-che-email" class="form-text" style="display: none">
-                                Incorrect e-mail format
-                            </small>
+                        <div id="che-step1">
+                            <div class="form-group">
+                                <label for="che-email">New e-mail:</label>
+                                <input type="text" class="form-control" id="che-email">
+                                <small id="help-che-email" class="form-text" style="display: none">
+                                    Incorrect e-mail format
+                                </small>
+                            </div>
+                            <div class="form-group">
+                                <label for="che-password">Current password:</label>
+                                <input type="password" class="form-control" id="che-password">
+                                <small id="help-che-password" class="form-text" style="display: none">
+                                    The password must be at least 8 characters long and contain
+                                    one lowercase letter, one uppercase letter, and one digit
+                                </small>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="che-password">Current password:</label>
-                            <input type="password" class="form-control" id="che-password">
-                            <small id="help-che-password" class="form-text" style="display: none">
-                                The password must be at least 8 characters long and contain
-                                one lowercase letter, one uppercase letter, and one digit
-                            </small>
+                        <div id="che-pending" class="alert alert-danger d-flex align-items-center" role="alert">
+                            <div class="px-2">
+                                <i class="fa-solid fa-plug-circle-xmark fa-2x"></i>
+                            </div>
+                            <div class="px-2">
+                                Looks like our connection to this network is not working properly.<br>
+                                You can request a withdrawal as normal, but it will be processed with delay.
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="che-code">Verification code:</label>
