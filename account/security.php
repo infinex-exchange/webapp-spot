@@ -161,7 +161,7 @@
                     </div>
                     
                     <div class="row p-2">
-                        <div class="col-12 col-lg-3 my-auto">
+                        <div class="col-12 col-lg-3 pb-1 pb-lg-0 my-auto">
                             <h5>Login to account</h5>
                         </div>
                         
@@ -190,7 +190,7 @@
                     </div>
                     
                     <div class="row p-2">
-                        <div class="col-12 col-lg-3 my-auto">
+                        <div class="col-12 col-lg-3 pb-1 pb-lg-0 my-auto">
                             <h5>Withdrawal</h5>
                         </div>
                         
