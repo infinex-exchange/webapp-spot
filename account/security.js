@@ -35,6 +35,7 @@ function killSession(sid) {
 
 function cheStep1() {
     $('#che-submit-btn').prop('disabled', true);
+    $('#che-code-get').prop('disabled', false);
     $('#che-pending').addClass('d-none').removeClass('d-flex');
     $('.che-step1').show();
     $('#che-form')[0].reset();
@@ -42,7 +43,7 @@ function cheStep1() {
 
 function cheStep2(newEmail) {
     $('#che-submit-btn').prop('disabled', false);
-    $('#che-code-get').prop('disabled', false);
+    $('#che-code-get').prop('disabled', true);
     $('.che-step1').hide();
     $('#che-pending-email').html(newEmail);
     $('#che-pending').addClass('d-flex').removeClass('d-none');
