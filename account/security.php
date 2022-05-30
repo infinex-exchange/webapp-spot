@@ -164,21 +164,21 @@
                         </div>
                         
                         <div class="col-12 col-lg-9 my-auto">
-                            <div class="pretty p-default p-round">
+                            <div class="pretty p-default p-round p-bigger">
                                 <input type="radio" name="2fa-login">
                                 <div class="state">
                                     <label>Disabled</label>
                                 </div>
                             </div>
                         
-                            <div class="pretty p-default p-round">
+                            <div class="pretty p-default p-round p-bigger">
                                 <input type="radio" name="2fa-login">
                                 <div class="state">
                                     <label>E-mail</label>
                                 </div>
                             </div>
                         
-                            <div class="pretty p-default p-round">
+                            <div class="pretty p-default p-round p-bigger">
                                 <input type="radio" name="2fa-login">
                                 <div class="state">
                                     <label>Google</label>
@@ -191,21 +191,21 @@
                         </div>
                         
                         <div class="col-12 col-lg-9 my-auto">
-                            <div class="pretty p-default p-round">
+                            <div class="pretty p-default p-round p-bigger">
                                 <input type="radio" name="2fa-withdraw">
                                 <div class="state">
                                     <label>Disabled</label>
                                 </div>
                             </div>
                         
-                            <div class="pretty p-default p-round">
+                            <div class="pretty p-default p-round p-bigger">
                                 <input type="radio" name="2fa-withdraw">
                                 <div class="state">
                                     <label>E-mail</label>
                                 </div>
                             </div>
                         
-                            <div class="pretty p-default p-round">
+                            <div class="pretty p-default p-round p-bigger">
                                 <input type="radio" name="2fa-withdraw">
                                 <div class="state">
                                     <label>Google</label>

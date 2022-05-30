@@ -36,7 +36,7 @@
                     <label for="login-password">Password:</label>
                     <input type="password" class="form-control" id="login-password">
                 </div>
-                <div class="form-group mx-auto pretty p-switch">
+                <div class="form-group mx-auto pretty p-switch p-bigger">
                     <input type="checkbox" id="login-remember">
                     <div class="state p-primary">
                         <label for="login-remember">Remember me</label>
