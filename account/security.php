@@ -220,7 +220,7 @@
                     
                     <div class="row p-2">
                         <div class="col-12 col-lg-6">
-                            <button type="button" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-primary w-100">Save</button>
                         </div>
                     </div>
                     
