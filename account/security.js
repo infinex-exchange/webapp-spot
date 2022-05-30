@@ -71,7 +71,7 @@ $(document).ready(function() {
         }
         
         $.ajax({
-            url: config.apiUrl + '/account/change',
+            url: config.apiUrl + '/account/change_password',
             type: 'POST',
             data: JSON.stringify({
                 api_key: window.apiKey,
