@@ -125,7 +125,7 @@
                     </form>
                 </div>
                 
-                <div class="col-12 col-md-6">
+                <div class="col-12">
                     <div class="row p-2 pt-4">
                         <h3>Two factor authentication</h3>
                     </div>  
