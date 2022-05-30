@@ -247,13 +247,13 @@ $(document).on('authChecked', function() {
                 window.pendingEmailChange = data.pending;
                 
                 if(data.pending) {
-                    $('#che-step1').hide();
+                    $('.che-step1').hide();
                     $('#che-pending-email').html(data.new_email);
-                    $('#che-pending').show();
+                    $('#che-pending').addClass('d-flex').removeClass('d-none');
                 }
                 else {
-                    $('#che-step1').show();
-                    $('#che-pending').hide();
+                    $('.che-step1').show();
+                    $('#che-pending').addClass('d-none').removeClass('d-flex');
                 }
                         
                 $(document).trigger('renderingStage');
