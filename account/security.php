@@ -120,11 +120,8 @@
                             <small id="help-che-code" class="form-text" style="display: none">
                                 8 characters, only alphanumeric
                             </small>
-                            <small id="help-che-code-get" class="form-text" style="display: none">
-                                Verification code sent to: <strong class="che-email"></strong>
-                            </small>
                         </div>
-                        <button type="submit" class="btn btn-primary">Change e-mail</button>
+                        <button id="che-submit-btn" type="submit" class="btn btn-primary">Change e-mail</button>
                     </form>
                 </div>
             </div>

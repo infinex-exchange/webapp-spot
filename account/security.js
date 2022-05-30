@@ -33,9 +33,22 @@ function killSession(sid) {
     });     
 }
 
+function cheStep1() {
+    $('#che-submit-btn').prop('disabled', true);
+    $('#che-pending').addClass('d-none').removeClass('d-flex');
+    $('.che-step1').show();
+    $('#che-form')[0].reset();
+}
+
+function cheStep2(newEmail) {
+    $('#che-submit-btn').prop('disabled', false);
+    $('.che-step1').hide();
+    $('#che-pending-email').html(newEmail);
+    $('#che-pending').addClass('d-flex').removeClass('d-none');
+}
+
 $(document).ready(function() {
     window.renderingStagesTarget = 2;
-    window.pendingEmailChange = false;
     
     // Change passsword form
     $('#chp-old').on('input', function() {
@@ -110,9 +123,47 @@ $(document).ready(function() {
             $('#help-che-password').show();
     });
     
+    $('#che-code').on('input', function() {
+        if(validateVeriCode($(this).val()))
+            $('#help-che-code').hide();
+        else
+            $('#help-che-code').show();
+    });
+    
     $('#che-form').submit(function(event) {
         event.preventDefault();
         
+        var code = $('#che-code').val();
+        
+        if(!validateVeriCode(code)) {
+            msgBox('Fill the form correctly');
+            return;
+        }
+        
+        $.ajax({
+            url: config.apiUrl + '/account/change_email/step2',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey,
+                code: code
+            }),
+            datatype: 'json'
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                msgBox('Your e-mail address was changed');
+                cheStep1();
+            } else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false);
+        });
+    });
+    
+    $('#che-code-get').click(function() {
         var email = $('#che-email').val();
         var pass = $('#che-password').val();
         
@@ -122,7 +173,7 @@ $(document).ready(function() {
         }
         
         $.ajax({
-            url: config.apiUrl + '/account/change',
+            url: config.apiUrl + '/account/change_email/step1',
             type: 'POST',
             data: JSON.stringify({
                 api_key: window.apiKey,
@@ -134,7 +185,7 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                alert(1);
+                cheStep2(email);
             } else {
                 msgBox(data.error);
             }
@@ -156,8 +207,7 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                $('#che-pending').addClass('d-none').removeClass('d-flex');
-                $('.che-step1').show();
+                cheStep1();
             } else {
                 msgBox(data.error);
             }
@@ -267,17 +317,10 @@ $(document).on('authChecked', function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                window.pendingEmailChange = data.pending;
-                
-                if(data.pending) {
-                    $('.che-step1').hide();
-                    $('#che-pending-email').html(data.new_email);
-                    $('#che-pending').addClass('d-flex').removeClass('d-none');
-                }
-                else {
-                    $('.che-step1').show();
-                    $('#che-pending').addClass('d-none').removeClass('d-flex');
-                }
+                if(data.pending)
+                    cheStep2(data.new_email);
+                else
+                    cheStep1();
                         
                 $(document).trigger('renderingStage');
             } else {
