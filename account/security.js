@@ -143,6 +143,29 @@ $(document).ready(function() {
             msgBoxNoConn(false);
         });
     });
+    
+    $('#che-cancel').click(function() {
+        $.ajax({
+            url: config.apiUrl + '/account/change_email/cancel',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey
+            }),
+            datatype: 'json'
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                $('#che-pending').addClass('d-none').removeClass('d-flex');
+                $('.che-step1').show();
+            } else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false);
+        });
+    });
 });
 
 $(document).on('authChecked', function() {
