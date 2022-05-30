@@ -142,6 +142,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-12 col-lg-6">
                             <div class="alert alert-secondary d-flex align-items-center" role="alert">
                                 <div class="px-2">
@@ -154,6 +155,60 @@
                                 </div>
                                 <div class="ms-auto px-2">
                                     <button type="button" class="btn btn-primary btn-sm" id="che-cancel">Configure</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-3 my-auto">
+                            <h5>Login to account</h5>
+                        </div>
+                        
+                        <div class="col-12 col-lg-9 my-auto">
+                            <div class="pretty p-default p-round">
+                                <input type="radio" name="2fa-login">
+                                <div class="state">
+                                    <label>Disabled</label>
+                                </div>
+                            </div>
+                        
+                            <div class="pretty p-default p-round">
+                                <input type="radio" name="2fa-login">
+                                <div class="state">
+                                    <label>E-mail</label>
+                                </div>
+                            </div>
+                        
+                            <div class="pretty p-default p-round">
+                                <input type="radio" name="2fa-login">
+                                <div class="state">
+                                    <label>Google</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-3 my-auto">
+                            <h5>Withdrawal</h5>
+                        </div>
+                        
+                        <div class="col-12 col-lg-9 my-auto">
+                            <div class="pretty p-default p-round">
+                                <input type="radio" name="2fa-withdraw">
+                                <div class="state">
+                                    <label>Disabled</label>
+                                </div>
+                            </div>
+                        
+                            <div class="pretty p-default p-round">
+                                <input type="radio" name="2fa-withdraw">
+                                <div class="state">
+                                    <label>E-mail</label>
+                                </div>
+                            </div>
+                        
+                            <div class="pretty p-default p-round">
+                                <input type="radio" name="2fa-withdraw">
+                                <div class="state">
+                                    <label>Google</label>
                                 </div>
                             </div>
                         </div>
