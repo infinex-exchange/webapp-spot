@@ -99,7 +99,7 @@
                                 one lowercase letter, one uppercase letter, and one digit
                             </small>
                         </div>
-                        <div id="che-pending" class="alert align-items-center" role="alert">
+                        <div id="che-pending" class="alert alert-secondary align-items-center" role="alert">
                             <div class="px-2">
                                 <i class="fa-solid fa-hourglass fa-2x"></i>
                             </div>
