@@ -114,7 +114,7 @@
                         <div class="form-group">
                             <label for="che-code">Verification code:</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="che-code" readonly>
+                                <input type="text" class="form-control" id="che-code">
                                 <button type="button" id="che-code-get" class="btn btn-primary">Get</button>
                             </div>
                             <small id="help-che-code" class="form-text" style="display: none">

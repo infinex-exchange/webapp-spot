@@ -42,6 +42,7 @@ function cheStep1() {
 
 function cheStep2(newEmail) {
     $('#che-submit-btn').prop('disabled', false);
+    $('#che-code-get').prop('disabled', false);
     $('.che-step1').hide();
     $('#che-pending-email').html(newEmail);
     $('#che-pending').addClass('d-flex').removeClass('d-none');
