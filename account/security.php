@@ -125,6 +125,7 @@
                     </form>
                 </div>
                 
+                <!--
                 <div class="col-12">
                     <div class="row p-2 pt-4">
                         <h3>Two factor authentication</h3>
@@ -139,6 +140,10 @@
                                 <div class="px-2">
                                     E-mail codes<br>
                                     <strong class="text-success">Available</strong>
+                                    <strong class="text-success">Active</strong>
+                                </div>
+                                <div class="ms-auto px-2">
+                                    <button type="button" class="btn btn-primary btn-sm">Use</button>
                                 </div>
                             </div>
                         </div>
@@ -151,10 +156,13 @@
                                 <div class="px-2">
                                     Google Authenticator<br>
                                     <strong class="text-success">Available</strong>
-                                    <strong class="text-danger">Not configured</strong>
+                                    <strong class="text-success">Active</strong>
+                                    <strong class="text-danger">Not available</strong>
                                 </div>
                                 <div class="ms-auto px-2">
-                                    <button type="button" class="btn btn-primary btn-sm" id="che-cancel">Configure</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Configure</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Remove</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Use</button>
                                 </div>
                             </div>
                         </div>
@@ -191,7 +199,7 @@
                     
                     <div class="row p-2">
                         <div class="col-12 col-lg-3 pb-1 pb-lg-0 my-auto">
-                            <h5>Withdrawal</h5>
+                            <h5>Withdraw funds</h5>
                         </div>
                         
                         <div class="col-12 col-lg-9 my-auto">
@@ -225,6 +233,7 @@
                     </div>
                     
                 </div>
+                -->
             </div>
         
         <!-- / Main column -->
