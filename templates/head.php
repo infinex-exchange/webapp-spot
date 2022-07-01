@@ -41,3 +41,6 @@
 
 <!-- Favicons -->
 <?php include(__DIR__.'/../favicon/html_code.html'); ?>
+
+<!-- Twitter card -->
+<?php include(__DIR__.'/twitter.html'); ?>
