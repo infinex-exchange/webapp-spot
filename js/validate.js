@@ -1,5 +1,5 @@
 function validateEmail(mail) {
-    return mail.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) &&
+    return mail.match(/^\w+([\.\+-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/) &&
         mail.length <= 254;
 }
 
