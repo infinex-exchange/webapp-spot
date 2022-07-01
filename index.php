@@ -73,7 +73,7 @@
             
             <div class="row m-0 px-4 py-5 index-section gy-4">
                 <div class="col-12">
-                    <h2>Exchange as you wanted</h2>
+                    <h2>Exchange as you want</h2>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <h3>
@@ -103,15 +103,14 @@
                         Quick & easy listing
                     </h3>
                     <span class="secondary">
-                    We help new crypto projects.
-                    Listing on Vayamos is as simple as possible.
-                    And if there are no technical barriers, it can be done for free.
+                    Vayamos helps make the addition of new crypto projects as simple as possible.
+                    If there are no technical barriers, it can be listed for free.
                     </span>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <h3>
                         <i class="fa-solid fa-check-circle"></i>
-                        < 0,10%
+                        < 0.10%
                     </h3>
                     <span class="secondary">
                     Competitive transaction fees with the possibility of obtaining discounts.
