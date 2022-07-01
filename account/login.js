@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('#login-form').submit(function(event) {
         event.preventDefault();
         
-        var email = $(this).find('#login-email').val();
+        var email = $(this).find('#login-email').val().toLowerCase();
         var password = $(this).find('#login-password').val();
         var remember = $(this).find('#login-remember').prop('checked');
         
