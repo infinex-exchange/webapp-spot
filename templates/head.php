@@ -44,3 +44,6 @@
 
 <!-- Twitter card -->
 <?php include(__DIR__.'/twitter.html'); ?>
+
+<!-- Google Analytics -->
+<?php include(__DIR__.'/../imports/gtag.html'); ?>
