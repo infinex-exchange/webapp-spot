@@ -38,7 +38,10 @@ function mobileTxDetails(item, update = false) {
     $('#mtd-txid').html( $(item).data('txid') );
     $('#mtd-height').html( $(item).data('height') );
     
-    if($(item).data('delayed') == 'true')
+    console.log($(item).data('delayed'));
+    console.log(typeof($(item).data('delayed')));
+    
+    if($(item).data('delayed'))
         $('#mtd-delayed-alert').show();
     else
         $('#mtd-delayed-alert').hide();
