@@ -19,11 +19,36 @@ var txExecTimeDict = {
     WITHDRAWAL: 'Execute time'
 };
 
+function cancelWithdrawal(xid) {
+    $.ajax({
+        url: config.apiUrl + '/wallet/withdraw/cancel',
+        type: 'POST',
+        data: JSON.stringify({
+            api_key: window.apiKey,
+            xid: xid
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            updateTxHistory();
+        } else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false);
+    });     
+}
+
 function mobileTxDetails(item, update = false) {
     var type = $(item).data('type');
     var status = $(item).data('status');
     var confirms = $(item).data('confirms');
     var memoName = $(item).data('memo-name');
+    var xid = $(item).data('xid');
     
     $('#mtd-status').html(status);
     $('#mtd-status-icon').removeClass()
@@ -43,8 +68,13 @@ function mobileTxDetails(item, update = false) {
     else
         $('#mtd-delayed-alert').hide();
     
+    if(type == 'WITHDRAWAL' && status == 'PENDING')
+        $('#mtd-cancel-btn').show();
+    else
+        $('#mtd-cancel-btn').hide();
+    
     if(!update) {
-        $('#modal-mobile-tx-details').attr('data-xid', $(item).data('xid'));
+        $('#modal-mobile-tx-details').attr('data-xid', xid);
         
         $('#mtd-icon').attr('src', $(item).data('icon-url'));
         $('#mtd-op-icon').removeClass()
@@ -70,6 +100,10 @@ function mobileTxDetails(item, update = false) {
         $('#mtd-create-time').html( $(item).data('create-time') );
         
         $('#mtd-exec-time-title').html(txExecTimeDict[type] + ':');
+        
+        $('#mtd-cancel-btn').unbind('click').on('click', function() {
+            cancelWithdrawal(xid);
+        });
         
         $('#modal-mobile-tx-details').modal('show');
     }
