@@ -38,6 +38,11 @@ function mobileTxDetails(item, update = false) {
     $('#mtd-txid').html( $(item).data('txid') );
     $('#mtd-height').html( $(item).data('height') );
     
+    if($(item).data('delayed') == 'true')
+        $('#mtd-delayed-alert').show();
+    else
+        $('#mtd-delayed-alert').hide();
+    
     if(!update) {
         $('#modal-mobile-tx-details').attr('data-xid', $(item).data('xid'));
         
@@ -113,7 +118,7 @@ function renderTxHistoryItem(data, forceSmall) {
     if(typeof(data.height) !== 'undefined')
         height = data.height;
     
-    var delayed = '-';
+    var delayed = 'false';
     if(typeof(data.delayed) !== 'undefined')
         delayed = data.delayed;
     
