@@ -101,7 +101,7 @@ $(document).ready(function() {
             var date = new Date();
             if(date <= expires)
                 Object.assign(data, {
-                    refid: localStorage.getItem('refid')
+                    refid: parseInt(localStorage.getItem('refid'))
                 });
         }
         
