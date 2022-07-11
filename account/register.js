@@ -88,15 +88,27 @@ $(document).ready(function() {
             return;
         }
         
+        var data = {
+            email: email,
+            password: password,
+            captcha_challenge: captchaChallenge,
+            captcha_response: captchaResponse
+        };
+        
+        // Refid
+        if(localStorage.getItem('refid') !== null) {
+            var expires = localStorage.getItem('refid_expires');
+            var date = new Date();
+            if(date <= expires)
+                data.assign({
+                    refid: localStorage.getItem('refid')
+                });
+        }
+        
         $.ajax({
             url: config.apiUrl + '/account/register',
             type: 'POST',
-            data: JSON.stringify({
-                email: email,
-                password: password,
-                captcha_challenge: captchaChallenge,
-                captcha_response: captchaResponse
-            }),
+            data: JSON.stringify(data),
             datatype: 'json'
         })
         .done(function (data) {
