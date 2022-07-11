@@ -84,7 +84,7 @@ $( document ).ready(function() {
     if(usp.has('r')) {
         var refid = usp.get('r');
         var date = new Date();
-        var expires = expires.getTime() + (3 * 24 * 60 * 60 * 1000);
+        var expires = date.getTime() + (3 * 24 * 60 * 60 * 1000);
         localStorage.setItem('refid', refid);
         localStorage.setItem('refid_expires', expires);
     }
