@@ -83,8 +83,8 @@ $( document ).ready(function() {
     var usp = new URLSearchParams(window.location.search);
     if(usp.has('r')) {
         var refid = usp.get('r');
-        var expires = new Date();
-        expires.setTime(expires.getTime() + (3 * 24 * 60 * 60 * 1000));
+        var date = new Date();
+        var expires = expires.getTime() + (3 * 24 * 60 * 60 * 1000);
         localStorage.setItem('refid', refid);
         localStorage.setItem('refid_expires', expires);
     }
