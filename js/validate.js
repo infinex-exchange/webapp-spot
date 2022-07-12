@@ -26,3 +26,7 @@ function validateApiKeyDescription(desc) {
 function validateAdbkName(name) {
     return name.match(/^[a-zA-Z0-9 ]{1,255}$/);
 }
+
+function validateReflinkDescription(desc) {
+    return desc.match(/^[a-zA-Z0-9 ]{1,255}$/);
+}

@@ -8,6 +8,7 @@ RewriteRule ^account/login/?$ /account/login.php [L]
 RewriteRule ^account/forget/?$ /account/forget.php [L]
 RewriteRule ^account/security/?$ /account/security.php [L]
 RewriteRule ^account/api/?$ /account/api.php [L]
+RewriteRule ^account/affiliate/?$ /account/affiliate.php [L]
 
 RewriteRule ^wallet/?$ /wallet/overview.php [L]
 RewriteRule ^wallet/deposit/([^/]+)/?$ /wallet/deposit.php [L]
