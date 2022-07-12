@@ -104,19 +104,19 @@
             </div>
         </div>
         
-        <div class="modal fade" tabindex="-1" role="dialog" id="modal-ak-desc-prompt">
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-reflink-desc-prompt">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit API key</h5>
+                <h5 class="modal-title">Edit reflink</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form id="api-key-description-form">
+            <form id="reflink-description-form">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="api-key-description">Name:</label>
-                        <input type="text" class="form-control" id="api-key-description">
-                        <small id="help-api-key-description" class="form-text" style="display: none">Invalid name</small>
+                        <label for="reflink-description">Name:</label>
+                        <input type="text" class="form-control" id="reflink-description">
+                        <small id="help-reflink-description" class="form-text" style="display: none">Invalid name</small>
                     </div>
                 </div>
                 <div class="modal-footer">
