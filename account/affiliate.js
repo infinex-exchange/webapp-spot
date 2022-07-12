@@ -60,7 +60,7 @@ function addChangeReflink(refid, description, members) {
                     <span class="reflink-description d-none d-lg-inline">${description}</span>
                 </div>
                 <div class="col-12 col-lg-5 py-2 my-auto">
-                    <div class="row">
+                    <div class="row m-0 flex-nowrap">
                         ${levelsInnerHtml}
                     </div>
                 </div>
