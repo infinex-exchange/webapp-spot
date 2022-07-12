@@ -45,7 +45,7 @@
                 <h5>Name</h5>
                 </div>
                 <div class="col-5">
-                <h5>Members</h5>
+                <h5>Members, reflinks</h5>
                 </div>
                 <div class="col-3">
                 <h5>Options</h5>
