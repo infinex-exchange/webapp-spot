@@ -121,7 +121,7 @@
     </div>
 </div>
         
-        <script src="/account/api.js?<?php echo filemtime(__DIR__.'/affiliate.js'); ?>"></script>
+        <script src="/account/affiliate.js?<?php echo filemtime(__DIR__.'/affiliate.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
