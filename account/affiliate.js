@@ -41,8 +41,8 @@ function addChangeReflink(refid, description, members) {
     }
     else $('#reflinks-data').append(`
         <div class="reflinks-item row p-2 hoverable" onClick="mobileReflinkDetails(this)"
-         data-refid="${refid}" data-description="${description}" data-members-1="${members.1}"
-         data-members-2="${members.2}" data-members-3="${members.3}" data-members-4="${members.4}">
+         data-refid="${refid}" data-description="${description}" data-members-1="${members[1]}"
+         data-members-2="${members[2]}" data-members-3="${members[3]}" data-members-4="${members[4]}">
             <div class="col-12 col-lg-4 my-auto wrap">
                 <h5 class="secondary reflink-description d-lg-none">${description}</h5>
                 <span class="reflink-description d-none d-lg-inline">${description}</span>
