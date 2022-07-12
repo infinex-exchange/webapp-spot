@@ -34,13 +34,10 @@
             </div>
             
             <div class="row p-2 d-none d-lg-flex secondary">
-                <div class="col-3">
+                <div class="col-4">
                 <h5>Name</h5>
                 </div>
-                <div class="col-3">
-                <h5>Links</h5>
-                </div>
-                <div class="col-3">
+                <div class="col-5">
                 <h5>Members</h5>
                 </div>
                 <div class="col-3">

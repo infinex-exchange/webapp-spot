@@ -48,7 +48,21 @@ function addChangeReflink(refid, description, members) {
                 <span class="reflink-description d-none d-lg-inline">${description}</span>
             </div>
             <div class="col-12 col-lg-5">
-                aa
+                <div class="row">
+                    <div class="col-3">
+                        <div>
+                            <i class="fa-solid fa-sitemap"></i> 1
+                            <br>
+                            ${members[1]}
+                        </div>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                    </div>
+                    <div class="col-3">
+                    </div>
+                </div>
             </div>
             <div class="col-3 d-none d-lg-block my-auto">
                 <button type="button" class="btn btn-primary btn-sm" onClick="showEditReflinkPrompt(${refid})">Rename</a>
