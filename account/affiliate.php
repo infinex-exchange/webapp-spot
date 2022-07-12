@@ -81,15 +81,38 @@
                         </div>
                         <div class="row py-2">
                             <div class="col-4">
-                                <h5>API key:</h5>
+                                <h5>Members:</h5>
                             </div>
                             <div class="col-8">
-                                <div class="row flex-nowrap">
-                                    <div class="col-10 my-auto wrap">
-                                        <span class="wrap" id="makd-api-key"></span>
+                                <div id="mrd-members-inner" class="row flex-nowrap"></div>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-12">
+                                <h5>Home page reflink:</h5>
+                            </div>
+                            <div class="col-12">
+                                <div class="row p-2 flex-nowrap ui-card-light rounded">
+                                    <div class="col-auto my-auto wrap">
+                                        <span class="wrap" id="mrd-reflink-index"></span>
                                     </div>
-                                    <div class="col-2 my-auto">
-                                        <a href="#_" class="secondary copy-button" data-copy="#makd-api-key"><i class="fa-solid fa-copy fa-xl"></i></a>
+                                    <div class="col-auto my-auto">
+                                        <a href="#_" class="secondary" data-copy="#mrd-reflink-index" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-12">
+                                <h5>Register form reflink:</h5>
+                            </div>
+                            <div class="col-12">
+                                <div class="row p-2 flex-nowrap ui-card-light rounded">
+                                    <div class="col-auto my-auto wrap">
+                                        <span class="wrap" id="mrd-reflink-reg"></span>
+                                    </div>
+                                    <div class="col-auto my-auto">
+                                        <a href="#_" class="secondary" data-copy="#mrd-reflink-reg" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
                                     </div>
                                 </div>
                             </div>

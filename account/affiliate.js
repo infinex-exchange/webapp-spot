@@ -231,7 +231,8 @@ function mobileReflinkDetails(item) {
         $('#modal-reflink-details').modal('hide');
         removeReflink(refid);
     });
-    $('#mrd-api-key').html($(item).data('api-key'));
+    $('#mrd-reflink-index').html('https://vayamos.cc/?r=' + $(item).data('refid'));
+    $('#mrd-reflink-reg').html('https://vayamos.cc/account/register?r=' + $(item).data('refid'));
     
     $('#modal-reflink-details').modal('show');
 }
