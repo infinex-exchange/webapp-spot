@@ -39,48 +39,38 @@ function addChangeReflink(refid, description, members) {
         elem.data('description', description);
         elem.find('.reflink-description').html(description);
     }
-    else $('#reflinks-data').append(`
-        <div class="reflinks-item row px-2 hoverable" onClick="mobileReflinkDetails(this)"
-         data-refid="${refid}" data-description="${description}" data-members-1="${members[1]}"
-         data-members-2="${members[2]}" data-members-3="${members[3]}" data-members-4="${members[4]}">
-            <div class="col-12 col-lg-4 py-2 my-auto wrap">
-                <h5 class="secondary reflink-description d-lg-none">${description}</h5>
-                <span class="reflink-description d-none d-lg-inline">${description}</span>
-            </div>
-            <div class="col-12 col-lg-5 py-2 my-auto">
-                <div class="row">
-                    <div class="col-3 text-center">
-                        <div class="p-1 ui-card-light rounded">
-                            <h6 class="secondary p-1">Lvl 1</h6>
-                            <span class="p-1">${members[1]} <i class="fa-solid fa-users secondary"></i></span>
-                        </div>
-                    </div>
-                    <div class="col-3 text-center">
-                        <div class="p-1 ui-card-light rounded">
-                            <h6>Lvl 2</h6>
-                            <span>${members[2]} <i class="fa-solid fa-users"></i></span>
-                        </div>
-                    </div>
-                    <div class="col-3 text-center">
-                        <div class="p-1 ui-card-light rounded">
-                            <h6>Lvl 3</h6>
-                            <span>${members[3]} <i class="fa-solid fa-users"></i></span>
-                        </div>
-                    </div>
-                    <div class="col-3 text-center">
-                        <div class="p-1 ui-card-light rounded">
-                            <h6>Lvl 4</h6>
-                            <span>${members[4]} <i class="fa-solid fa-users"></i></span>
-                        </div>
+    else {
+        var levelsInnerHtml = '';
+        for(var i = 1; i <= 4; i++)
+            levelsInnerHtml += `
+                <div class="col-3 text-center">
+                    <div class="p-1 ui-card-light rounded">
+                        <h6 class="secondary p-1">Lvl ${i}</h6>
+                        <span class="p-1">${members[${i}]} <i class="fa-solid fa-users secondary"></i></span>
                     </div>
                 </div>
+            `;
+        
+        $('#reflinks-data').append(`
+            <div class="reflinks-item row px-2 hoverable" onClick="mobileReflinkDetails(this)"
+             data-refid="${refid}" data-description="${description}" data-members-1="${members[1]}"
+             data-members-2="${members[2]}" data-members-3="${members[3]}" data-members-4="${members[4]}">
+                <div class="col-12 col-lg-4 py-2 my-auto wrap">
+                    <h5 class="secondary reflink-description d-lg-none">${description}</h5>
+                    <span class="reflink-description d-none d-lg-inline">${description}</span>
+                </div>
+                <div class="col-12 col-lg-5 py-2 my-auto">
+                    <div class="row">
+                        ${levelsInnerHtml}
+                    </div>
+                </div>
+                <div class="col-3 py-2 d-none d-lg-block my-auto">
+                    <button type="button" class="btn btn-primary btn-sm" onClick="showEditReflinkPrompt(${refid})">Rename</a>
+                    <button type="button" class="btn btn-primary btn-sm" onClick="removeReflink(${refid})">Remove</a>
+                </div>
             </div>
-            <div class="col-3 py-2 d-none d-lg-block my-auto">
-                <button type="button" class="btn btn-primary btn-sm" onClick="showEditReflinkPrompt(${refid})">Rename</a>
-                <button type="button" class="btn btn-primary btn-sm" onClick="removeReflink(${refid})">Remove</a>
-            </div>
-        </div>
-    `);      
+        `);
+    }      
 }
 
 function showAddReflinkPrompt() {
