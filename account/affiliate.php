@@ -4,11 +4,6 @@
         <?php include('../templates/head.php'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <title>Affiliate program | Vayamos Exchange</title>
-        <style type="text/css">
-            .reflinks-item ~ .reflinks-item {
-                border-top: 1px solid var(--color-border);
-            }
-        </style>
     </head>
     <body>
     
