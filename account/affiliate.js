@@ -52,8 +52,7 @@ function addChangeReflink(refid, description, members) {
                     <div class="col-3 text-center">
                         <div class="p-1 ui-card-light rounded">
                             <h6>Lvl 1</h6>
-                            <br>
-                            ${members[1]} <i class="fa-solid fa-users"></i>
+                            <span>${members[1]} <i class="fa-solid fa-users"></i></span>
                         </div>
                     </div>
                     <div class="col-3">
