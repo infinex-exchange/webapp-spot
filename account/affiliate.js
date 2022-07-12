@@ -64,7 +64,10 @@ function addChangeReflink(refid, description, members) {
                         ${levelsInnerHtml}
                     </div>
                     <div class="row d-none d-lg-flex">
-                        <div class="col-12">
+                        <div class="col-12 p-2">
+                            <h5 class="secondary">Home page reflink:</h5>
+                        </div>
+                        <div class="col-12 p-2">
                             <div class="row flex-nowrap ui-card-light rounded">
                                 <div class="col-auto my-auto wrap">
                                     <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
@@ -73,6 +76,11 @@ function addChangeReflink(refid, description, members) {
                                     <a href="#_" class="secondary" data-copy="#reflink-${refid}-index" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-12 p-2">
+                            <h5 class="secondary">Registration form reflink:</h5>
+                        </div>
+                        <div class="col-12 p-2">
                             <div class="row flex-nowrap ui-card-light rounded">
                                 <div class="col-auto my-auto wrap">
                                     <span class="wrap" id="reflink-${refid}-reg">http://vayamos.cc/account/register?r=${refid}</span>
