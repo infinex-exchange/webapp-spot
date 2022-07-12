@@ -126,8 +126,8 @@
                     </div>
                     
                     <div class="modal-footer">
-                        <button id="makd-rename-btn" type="button" class="btn btn-primary">Rename</a>
-                        <button id="makd-remove-btn" type="button" class="btn btn-primary">Remove</a>
+                        <button id="mrd-rename-btn" type="button" class="btn btn-primary">Rename</a>
+                        <button id="mrd-remove-btn" type="button" class="btn btn-primary">Remove</a>
                     </div>
                 </div>
             </div>
