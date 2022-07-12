@@ -52,24 +52,17 @@ function addChangeReflink(refid, description, members) {
             `;
         
         $('#reflinks-data').append(`
-            <div class="reflinks-item row px-2 hoverable" onClick="mobileReflinkDetails(this)"
+            <div class="reflinks-item row p-2 hoverable" onClick="mobileReflinkDetails(this)"
              data-refid="${refid}" data-description="${description}" data-members-1="${members[1]}"
              data-members-2="${members[2]}" data-members-3="${members[3]}" data-members-4="${members[4]}">
-                <div class="col-5 col-lg-4 py-2 my-auto wrap">
+                <div class="col-5 col-lg-4 my-auto wrap">
                     <h5 class="secondary reflink-description d-lg-none">${description}</h5>
                     <span class="reflink-description d-none d-lg-inline">${description}</span>
                 </div>
-                <div class="col-auto col-lg-5 py-2 my-auto ms-auto">
+                <div class="col-auto col-lg-5 my-auto ms-auto">
                     <div class="row flex-nowrap">
                         ${levelsInnerHtml}
                     </div>
-                </div>
-                <div class="col-3 py-2 d-none d-lg-block my-auto">
-                    <button type="button" class="btn btn-primary btn-sm" onClick="showEditReflinkPrompt(${refid})">Rename</a>
-                    <button type="button" class="btn btn-primary btn-sm" onClick="removeReflink(${refid})">Remove</a>
-                </div>
-                <div class="col-4 d-none d-lg-block"></div>
-                <div class="col-5 py-2 d-none d-lg-block">
                     <div class="row flex-nowrap ui-card-light rounded p-2">
                         <div class="col-auto my-auto wrap">
                             <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
@@ -86,6 +79,10 @@ function addChangeReflink(refid, description, members) {
                             <a href="#_" class="secondary" data-copy="#reflink-${refid}-reg" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
                         </div>
                     </div>
+                </div>
+                <div class="col-3 d-none d-lg-block my-auto">
+                    <button type="button" class="btn btn-primary btn-sm" onClick="showEditReflinkPrompt(${refid})">Rename</a>
+                    <button type="button" class="btn btn-primary btn-sm" onClick="removeReflink(${refid})">Remove</a>
                 </div>
             </div>
         `);
