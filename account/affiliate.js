@@ -49,12 +49,10 @@ function addChangeReflink(refid, description, members) {
             </div>
             <div class="col-12 col-lg-5">
                 <div class="row">
-                    <div class="col-3">
-                        <div>
-                            <i class="fa-solid fa-sitemap"></i> 1
-                            <br>
-                            ${members[1]}
-                        </div>
+                    <div class="col-3 text-center">
+                        Lvl 1
+                        <br>
+                        ${members[1]}
                     </div>
                     <div class="col-3">
                     </div>
