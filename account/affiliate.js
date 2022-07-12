@@ -43,7 +43,7 @@ function addChangeReflink(refid, description, members) {
         var levelsInnerHtml = '';
         for(var i = 1; i <= 4; i++)
             levelsInnerHtml += `
-                <div class="col-auto m-0 text-center">
+                <div class="col-auto ps-0 text-center">
                     <div class="p-1 ui-card-light rounded">
                         <h6 class="secondary p-1">Lvl ${i}</h6>
                         <span class="p-1">${members[i]} <i class="fa-solid fa-users secondary"></i></span>
