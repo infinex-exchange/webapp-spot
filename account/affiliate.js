@@ -239,7 +239,7 @@ function mobileReflinkDetails(item) {
         var members = $(item).data('members-' + i);
         levelsInnerHtml += `
             <div class="col-auto ps-0 text-center">
-                <div class="p-1 ui-card-light rounded">
+                <div class="p-1 rounded" style="background-color: var(--color-input);">
                     <h6 class="secondary p-1">Lvl ${i}</h6>
                     <span class="p-1">${members} <i class="fa-solid fa-users secondary"></i></span>
                 </div>
