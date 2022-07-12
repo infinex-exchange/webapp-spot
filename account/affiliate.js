@@ -63,7 +63,7 @@ function addChangeReflink(refid, description, members) {
                     <div class="row flex-nowrap">
                         ${levelsInnerHtml}
                     </div>
-                    <div class="row flex-nowrap ui-card-light rounded p-2">
+                    <div class="row flex-nowrap ui-card-light rounded">
                         <div class="col-auto my-auto wrap">
                             <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
                         </div>
@@ -71,7 +71,7 @@ function addChangeReflink(refid, description, members) {
                             <a href="#_" class="secondary" data-copy="#reflink-${refid}-index" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
                         </div>
                     </div>
-                    <div class="row flex-nowrap ui-card-light rounded p-2">
+                    <div class="row flex-nowrap ui-card-light rounded">
                         <div class="col-auto my-auto wrap">
                             <span class="wrap" id="reflink-${refid}-reg">http://vayamos.cc/account/register?r=${refid}</span>
                         </div>
