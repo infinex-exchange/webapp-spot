@@ -98,7 +98,7 @@
                                 <h5>Home page reflink:</h5>
                             </div>
                             <div class="col-12">
-                                <div class="row p-2 flex-nowrap rounded" style="background-color: var(--color-input);">
+                                <div class="row m-2 px-1 py-2 flex-nowrap rounded" style="background-color: var(--color-input);">
                                     <div class="col-auto my-auto wrap">
                                         <span class="wrap" id="mrd-reflink-index"></span>
                                     </div>
@@ -113,7 +113,7 @@
                                 <h5>Register form reflink:</h5>
                             </div>
                             <div class="col-12">
-                                <div class="row p-2 flex-nowrap rounded" style="background-color: var(--color-input);">
+                                <div class="row m-2 px-1 py-2 flex-nowrap rounded" style="background-color: var(--color-input);">
                                     <div class="col-auto my-auto wrap">
                                         <span class="wrap" id="mrd-reflink-reg"></span>
                                     </div>
