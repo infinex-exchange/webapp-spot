@@ -72,7 +72,7 @@ function addChangeReflink(refid, description, members) {
                             <h6 class="secondary">Home page reflink:</h6>
                         </div>
                         <div class="col-12 p-2">
-                            <div class="row p-2 flex-nowrap ui-card-light rounded">
+                            <div class="row px-2 py-3 flex-nowrap ui-card-light rounded">
                                 <div class="col-auto my-auto wrap">
                                     <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
                                 </div>
@@ -85,7 +85,7 @@ function addChangeReflink(refid, description, members) {
                             <h6 class="secondary">Registration form reflink:</h6>
                         </div>
                         <div class="col-12 p-2">
-                            <div class="row p-2 flex-nowrap ui-card-light rounded">
+                            <div class="row px-2 py-3 flex-nowrap ui-card-light rounded">
                                 <div class="col-auto my-auto wrap">
                                     <span class="wrap" id="reflink-${refid}-reg">http://vayamos.cc/account/register?r=${refid}</span>
                                 </div>
