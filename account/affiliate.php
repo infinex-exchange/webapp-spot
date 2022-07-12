@@ -86,8 +86,8 @@
                             <div class="col-12">
                                 <h5>Members:</h5>
                             </div>
-                            <div class="col-12 p-2">
-                                <div id="mrd-members-inner" class="row flex-nowrap"></div>
+                            <div class="col-12">
+                                <div id="mrd-members-inner" class="row p-2 flex-nowrap"></div>
                             </div>
                         </div>
                         
@@ -97,7 +97,7 @@
                             <div class="col-12">
                                 <h5>Home page reflink:</h5>
                             </div>
-                            <div class="col-12 p-2">
+                            <div class="col-12">
                                 <div class="row p-2 flex-nowrap rounded" style="background-color: var(--color-input);">
                                     <div class="col-auto my-auto wrap">
                                         <span class="wrap" id="mrd-reflink-index"></span>
@@ -112,7 +112,7 @@
                             <div class="col-12">
                                 <h5>Register form reflink:</h5>
                             </div>
-                            <div class="col-12 p-2">
+                            <div class="col-12">
                                 <div class="row p-2 flex-nowrap rounded" style="background-color: var(--color-input);">
                                     <div class="col-auto my-auto wrap">
                                         <span class="wrap" id="mrd-reflink-reg"></span>
