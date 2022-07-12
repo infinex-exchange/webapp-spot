@@ -64,7 +64,7 @@ function addChangeReflink(refid, description, members) {
                         ${levelsInnerHtml}
                     </div>
                     <div class="row d-none d-lg-flex">
-                        <div class="col-12 px-0 pt-2">
+                        <div class="col-12 px-0 pt-4">
                             <h6 class="secondary">Home page reflink:</h6>
                         </div>
                         <div class="col-12 p-2">
@@ -77,7 +77,7 @@ function addChangeReflink(refid, description, members) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 px-0 pt-2">
+                        <div class="col-12 px-0 pt-4">
                             <h6 class="secondary">Registration form reflink:</h6>
                         </div>
                         <div class="col-12 p-2">
