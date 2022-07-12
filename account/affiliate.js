@@ -70,10 +70,10 @@ function addChangeReflink(refid, description, members) {
                 </div>
                 <div class="col-10 mx-auto py-2 d-none d-lg-block">
                     <div class="row flex-nowrap ui-card-light rounded p-2">
-                        <div class="col-10 my-auto wrap">
+                        <div class="col-auto my-auto wrap">
                             <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
                         </div>
-                        <div class="col-2 my-auto">
+                        <div class="col-auto my-auto">
                             <a href="#_" class="secondary" data-copy="#reflink-${refid}-index" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
                         </div>
                     </div>
