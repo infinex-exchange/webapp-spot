@@ -85,7 +85,7 @@ function showAddReflinkPrompt() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                addChangeReflink(data.refid, description);
+                addChangeReflink(data.refid, description, {1:0, 2:0, 3:0, 4:0});
             } else {
                 msgBox(data.error);
             }
@@ -130,7 +130,7 @@ function showEditReflinkPrompt(refid) {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                addChangeReflink(refid, description);
+                addChangeReflink(refid, description, null);
             } else {
                 msgBox(data.error);
             }
@@ -160,7 +160,7 @@ $(document).on('authChecked', function() {
         .done(function (data) {
             if(data.success) {
                 $.each(data.reflinks, function(refid, v) {
-                    addChangeReflink(refid, v.description); 
+                    addChangeReflink(refid, v.description, v.members); 
                 });
                         
                 $(document).trigger('renderingStage');
