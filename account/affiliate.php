@@ -34,6 +34,16 @@
                 <h3>Affiliate program</h3>
             </div>
             
+            <div class="row p-4">
+                <p>Every Vayamos Exchange customer can earn lifetime rewards by simply sharing a personal referral link.
+                Invite your friend to the Vayamos Exchange or share a reflink on your website, social media or YouTube channel.
+                When users create an account within 3 days after your reflink was clicked,
+                you will receive 20% of the commission paid by this user every month.
+                The affiliate program has four levels, which means that you will also receive profits from people recommended by your referrals.
+                The fee refund rate for the following levels is respectively: direct referrals - 20%, 2nd level - 10%, 3rd level - 5%, 4th level - 2.5%.
+                </p>
+            </div>
+            
             <div class="row p-2">
                 <div class="col-auto my-auto">
                     <button type="button" class="btn btn-primary btn-sm" onClick="showAddReflinkPrompt()">New reflink</a>
