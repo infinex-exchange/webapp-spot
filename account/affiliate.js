@@ -65,20 +65,21 @@ function addChangeReflink(refid, description, members) {
                     </div>
                     <div class="row d-none d-lg-flex">
                         <div class="col-12">
-                        <div class="row flex-nowrap ui-card-light rounded">
-                            <div class="col-auto my-auto wrap">
-                                <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
+                            <div class="row flex-nowrap ui-card-light rounded">
+                                <div class="col-auto my-auto wrap">
+                                    <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
+                                </div>
+                                <div class="col-auto my-auto">
+                                    <a href="#_" class="secondary" data-copy="#reflink-${refid}-index" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
+                                </div>
                             </div>
-                            <div class="col-auto my-auto">
-                                <a href="#_" class="secondary" data-copy="#reflink-${refid}-index" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
-                            </div>
-                        </div>
-                        <div class="row flex-nowrap ui-card-light rounded">
-                            <div class="col-auto my-auto wrap">
-                                <span class="wrap" id="reflink-${refid}-reg">http://vayamos.cc/account/register?r=${refid}</span>
-                            </div>
-                            <div class="col-auto my-auto">
-                                <a href="#_" class="secondary" data-copy="#reflink-${refid}-reg" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
+                            <div class="row flex-nowrap ui-card-light rounded">
+                                <div class="col-auto my-auto wrap">
+                                    <span class="wrap" id="reflink-${refid}-reg">http://vayamos.cc/account/register?r=${refid}</span>
+                                </div>
+                                <div class="col-auto my-auto">
+                                    <a href="#_" class="secondary" data-copy="#reflink-${refid}-reg" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
