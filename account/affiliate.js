@@ -41,15 +41,19 @@ function addChangeReflink(refid, description, members) {
     }
     else {
         var levelsInnerHtml = '';
-        for(var i = 1; i <= 4; i++)
+        for(var i = 1; i <= 4; i++) {
+            var display = 'd-none d-lg-block';
+            if(i == 1) display = '';
+            
             levelsInnerHtml += `
-                <div class="col-auto ps-0 text-center">
+                <div class="col-auto ps-0 text-center ${display}">
                     <div class="p-1 ui-card-light rounded">
                         <h6 class="secondary p-1">Lvl ${i}</h6>
                         <span class="p-1">${members[i]} <i class="fa-solid fa-users secondary"></i></span>
                     </div>
                 </div>
             `;
+        }
         
         $('#reflinks-data').append(`
             <div class="reflinks-item row p-2 hoverable" onClick="mobileReflinkDetails(this)"
