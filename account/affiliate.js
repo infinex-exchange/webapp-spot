@@ -47,7 +47,7 @@ function addChangeReflink(refid, description, members) {
                 <h5 class="secondary reflink-description d-lg-none">${description}</h5>
                 <span class="reflink-description d-none d-lg-inline">${description}</span>
             </div>
-            <div class="col-12 col-lg-5">
+            <div class="col-12 col-lg-5 my-auto">
                 <div class="row">
                     <div class="col-3 text-center">
                         <div class="p-1 ui-card-light rounded">
