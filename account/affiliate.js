@@ -59,7 +59,7 @@ function addChangeReflink(refid, description, members) {
                     <h5 class="secondary reflink-description d-lg-none">${description}</h5>
                     <span class="reflink-description d-none d-lg-inline">${description}</span>
                 </div>
-                <div class="col-7 col-lg-5 py-2 my-auto ms-auto ms-lg-0">
+                <div class="col-auto col-lg-5 py-2 my-auto ms-auto">
                     <div class="row flex-nowrap">
                         ${levelsInnerHtml}
                     </div>
