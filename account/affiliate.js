@@ -160,7 +160,7 @@ function showEditReflinkPrompt(refid) {
         $('#modal-reflink-desc-prompt').modal('hide');
         
         $.ajax({
-            url: config.apiUrl + '/account/reflinks/edit',
+            url: config.apiUrl + '/account/reflinks/rename',
             type: 'POST',
             data: JSON.stringify({
                 api_key: window.apiKey,
