@@ -79,15 +79,20 @@
                                 <span id="mrd-description"></span>
                             </div>
                         </div>
+                        
+                        <div class="py-3"></div>
+                        
                         <div class="row py-2">
-                            <div class="col-4">
+                            <div class="col-12">
                                 <h5>Members:</h5>
                             </div>
-                            <div class="col-8">
+                            <div class="col-12">
                                 <div id="mrd-members-inner" class="row flex-nowrap"></div>
                             </div>
                         </div>
+                        
                         <div class="py-3"></div>
+                        
                         <div class="row py-2">
                             <div class="col-12">
                                 <h5>Home page reflink:</h5>
