@@ -234,5 +234,18 @@ function mobileReflinkDetails(item) {
     $('#mrd-reflink-index').html('https://vayamos.cc/?r=' + $(item).data('refid'));
     $('#mrd-reflink-reg').html('https://vayamos.cc/account/register?r=' + $(item).data('refid'));
     
+    var levelsInnerHtml = '';
+    for(var i = 1; i <= 4; i++) {
+        var members = $(item).data('members-' + i);
+        levelsInnerHtml += `
+            <div class="col-auto ps-0 text-center">
+                <div class="p-1 ui-card-light rounded">
+                    <h6 class="secondary p-1">Lvl ${i}</h6>
+                    <span class="p-1">${members} <i class="fa-solid fa-users secondary"></i></span>
+                </div>
+            </div>
+        `;
+    }
+    
     $('#modal-reflink-details').modal('show');
 }
