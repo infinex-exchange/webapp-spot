@@ -87,12 +87,13 @@
                                 <div id="mrd-members-inner" class="row flex-nowrap"></div>
                             </div>
                         </div>
+                        <div class="py-3"></div>
                         <div class="row py-2">
                             <div class="col-12">
                                 <h5>Home page reflink:</h5>
                             </div>
                             <div class="col-12">
-                                <div class="row p-2 flex-nowrap ui-card-light rounded">
+                                <div class="row p-2 flex-nowrap rounded" style="background-color: var(--color-input);">
                                     <div class="col-auto my-auto wrap">
                                         <span class="wrap" id="mrd-reflink-index"></span>
                                     </div>
@@ -107,7 +108,7 @@
                                 <h5>Register form reflink:</h5>
                             </div>
                             <div class="col-12">
-                                <div class="row p-2 flex-nowrap ui-card-light rounded">
+                                <div class="row p-2 flex-nowrap rounded" style="background-color: var(--color-input);">
                                     <div class="col-auto my-auto wrap">
                                         <span class="wrap" id="mrd-reflink-reg"></span>
                                     </div>
