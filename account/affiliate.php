@@ -44,6 +44,9 @@
                 The affiliate program has four levels, which means that you will also receive profits from people recommended by your referrals.
                 The fee refund rate for the following levels is respectively: direct referrals - 20%, 2nd level - 10%, 3rd level - 5%, 4th level - 2.5%.
                 </p>
+                <p>
+                Affiliate rewards are calculated and paid on the 1st of each month as internal deposits from the user <i>system@vayamos.cc</i>.
+                </p>
             </div>
             
             <div class="row p-2">
