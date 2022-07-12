@@ -184,8 +184,8 @@ $(document).on('authChecked', function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                $.each(data.reflinks, function(refid, v) {
-                    addChangeReflink(refid, v.description, v.members); 
+                $.each(data.reflinks, function(k, v) {
+                    addChangeReflink(v.refid, v.description, v.members); 
                 });
                         
                 $(document).trigger('renderingStage');
