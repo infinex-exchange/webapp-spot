@@ -68,7 +68,8 @@ function addChangeReflink(refid, description, members) {
                     <button type="button" class="btn btn-primary btn-sm" onClick="showEditReflinkPrompt(${refid})">Rename</a>
                     <button type="button" class="btn btn-primary btn-sm" onClick="removeReflink(${refid})">Remove</a>
                 </div>
-                <div class="col-10 mx-auto py-2 d-none d-lg-block">
+                <div class="col-4 d-none d-lg-block"></div>
+                <div class="col-8 py-2 d-none d-lg-block">
                     <div class="row flex-nowrap ui-card-light rounded p-2">
                         <div class="col-auto my-auto wrap">
                             <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
