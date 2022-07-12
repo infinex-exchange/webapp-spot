@@ -246,6 +246,7 @@ function mobileReflinkDetails(item) {
             </div>
         `;
     }
+    $('#mrd-members-inner').html(levelsInnerHtml);
     
     $('#modal-reflink-details').modal('show');
 }
