@@ -35,38 +35,44 @@
             </div>
             
             <div class="row py-3">
-                <p>
-                    Recommend Vayamos to your friends or share a reflink on your website or social media and earn
-                    20% lifetime commissions on every trade.
-                    Users who sign up for a Vayamos account using your unique referral link will be attributed as a successful referral.
-                    You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to 4th level.
-                </p>
-                <table class="table table-bordered">
-                    <tr>
-                        <th scope="row">Lvl 1</th>
-                        <td>Referred directly by you</td>
-                        <td>20%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Lvl 1</th>
-                        <td>Referred by your level 1 referrals</td>
-                        <td>10%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Lvl 1</th>
-                        <td>Referred by your level 2 referrals</td>
-                        <td>5%</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Lvl 1</th>
-                        <td>Referred by your level 1 referrals</td>
-                        <td>2.5%</td>
-                    </tr>
-                </table>
-                <p>
-                    You can track the performance of each referral links in the "Your campaigns" table.
-                    Affiliate rewards are calculated on the 1st day of each month and distributed as internal deposit from the user: <i>system@vayamos.cc</i>.
-                </p>
+                <div class="col-12">
+                    <p>
+                        Recommend Vayamos to your friends or share a reflink on your website or social media and earn
+                        20% lifetime commissions on every trade.
+                        Users who sign up for a Vayamos account using your unique referral link will be attributed as a successful referral.
+                        You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to 4th level.
+                    </p>
+                </div>
+                <div class="col-12 col-lg-9">
+                    <table class="table table-bordered primary">
+                        <tr>
+                            <th scope="row">Lvl 1</th>
+                            <td>Referred directly by you</td>
+                            <td>20%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Lvl 1</th>
+                            <td>Referred by your level 1 referrals</td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Lvl 1</th>
+                            <td>Referred by your level 2 referrals</td>
+                            <td>5%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Lvl 1</th>
+                            <td>Referred by your level 1 referrals</td>
+                            <td>2.5%</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-12">
+                    <p>
+                        You can track the performance of each referral links in the "Your campaigns" table.
+                        Affiliate rewards are calculated on the 1st day of each month and distributed as internal deposit from the user: <i>system@vayamos.cc</i>.
+                    </p>
+                </div>
             </div>
             
             <div class="row p-2">
