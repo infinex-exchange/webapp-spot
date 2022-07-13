@@ -45,26 +45,35 @@
                 </div>
                 <div class="col-12 col-lg-9">
                     <table class="table table-bordered primary">
-                        <tr>
-                            <th scope="row">Lvl 1</th>
-                            <td>Referred directly by you</td>
-                            <td>20%</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Lvl 1</th>
-                            <td>Referred by your level 1 referrals</td>
-                            <td>10%</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Lvl 1</th>
-                            <td>Referred by your level 2 referrals</td>
-                            <td>5%</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Lvl 1</th>
-                            <td>Referred by your level 1 referrals</td>
-                            <td>2.5%</td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th scope="col">Level</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Earn rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Lvl 1</th>
+                                <td>Referred directly by you</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lvl 2</th>
+                                <td>Referred by your level 1 referrals</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lvl 3</th>
+                                <td>Referred by your level 2 referrals</td>
+                                <td>5%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lvl 4</th>
+                                <td>Referred by your level 3 referrals</td>
+                                <td>2.5%</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div class="col-12">
