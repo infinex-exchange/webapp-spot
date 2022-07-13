@@ -36,16 +36,16 @@
             
             <div class="row py-3">
                 <p>
-                Every Vayamos Exchange customer can earn lifetime rewards by simply sharing a personal referal link.
-                Invite your friend to the Vayamos Exchange or share a reflink on your website, social media or YouTube channel.
-                When users create an account within 3 days after your reflink was clicked, you will receive 20% of the trading fees paid by this user every month.
+                    Recommend Vayamos to your friends or share a reflink on your website or social media and earn
+                    20% lifetime commissions on every trade.
                 </p>
                 <p>
-                The affiliate program has four levels, which means that you will also receive profits from users refered by your referrals.
-                The fee return rate for the following levels is respectively: direct referrals - 20%, 2nd level - 10%, 3rd level - 5%, 4th level - 2.5%.
+                    Users who sign up for a Vayamos account using your unique referral link will be attributed as a successful referral.
+                    You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to 4th level.
+                    You can tract the performance of each referral links in the table below.
                 </p>
                 <p>
-                Affiliate rewards are calculated and paid on the 1st day of each month as internal deposits from the user <i>system@vayamos.cc</i>.
+                    Affiliate rewards are calculated on the 1st day of each month and distributed as internal deposit from the user: <i>system@vayamos.cc</i>.
                 </p>
             </div>
             
