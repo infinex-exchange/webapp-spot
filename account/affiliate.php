@@ -21,7 +21,7 @@
         <?php include('../templates/navbar.php'); ?>
         
         <!-- Root container -->
-        <div id="root" class="container-fluid container-1500 container-rest p-0">
+        <div id="root" class="container-fluid container-1500 container-rest p-0 user-only">
         <div class="row m-0 h-rest">
         
         <!-- Left column -->
@@ -40,7 +40,7 @@
                         Recommend Vayamos to your friends or share a reflink on your website or social media and earn
                         20% lifetime commissions on every trade.
                         Users who sign up for a Vayamos account using your unique referral link will be attributed as a successful referral.
-                        You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to 4th level.
+                        You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to the 4th level.
                     </p>
                 </div>
                 <div class="col-12 col-lg-9">

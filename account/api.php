@@ -14,7 +14,7 @@
         <?php include('../templates/navbar.php'); ?>
         
         <!-- Root container -->
-        <div id="root" class="container-fluid container-1500 container-rest p-0">
+        <div id="root" class="container-fluid container-1500 container-rest p-0 user-only">
         <div class="row m-0 h-rest">
         
         <!-- Left column -->
