@@ -23,6 +23,11 @@ RewriteRule ^spot/css/([^/]+)$ /exchange/spot/css/$1 [L]
 RewriteRule ^spot/js/([^/]+)$ /exchange/spot/js/$1 [L]
 RewriteRule ^spot/([^/]+)/?$ /exchange/spot/index.php [L]
 
+RewriteRule ^bridge/?$ /exchange/bridge/index.php [L]
+RewriteRule ^bridge/css/([^/]+)$ /exchange/bridge/css/$1 [L]
+RewriteRule ^bridge/js/([^/]+)$ /exchange/bridge/js/$1 [L]
+RewriteRule ^bridge/([^/]+)/?$ /exchange/bridge/index.php [L]
+
 RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
 
 RewriteRule ^info/announcements/?$ /info/announcements.php [L]
