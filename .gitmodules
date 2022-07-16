@@ -6,4 +6,4 @@
 	url = git@github.com:vayamos-exchange/charting_library.git
 [submodule "exchange/bridge"]
 	path = exchange/bridge
-	url = https://github.com/vayamos-exchange/webapp-bridge
+	url = git@github.com:vayamos-exchange/webapp-bridge
