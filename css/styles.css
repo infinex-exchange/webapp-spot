@@ -382,6 +382,11 @@ input[type="range"]::-moz-range-thumb {
     font-size: var(--font-normal);
 }
 
+.btn-secondary {
+    background-color: var(--color-input);
+    font-size: var(--font-normal);
+}
+
 /* Coin / net / address selector */
 
 #select-coin-wrapper, #select-net-wrapper, #select-adbk-wrapper {
