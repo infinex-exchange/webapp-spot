@@ -56,7 +56,7 @@ $(document).ready(function() {
                                         <div class="secondary">${markdown}</div>
                                     </div>
                                     <div class="${readMoreClass} ms-auto">
-                                        <a class="btn btn-primary" href="/announcements/${readMoreUrl}">
+                                        <a class="btn btn-primary" href="/info/announcements/${readMoreUrl}">
                                             Read more
                                         </a>
                                     </div>
