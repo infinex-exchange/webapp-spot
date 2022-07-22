@@ -20,7 +20,7 @@
         <?php include('../templates/sidebar_info.php'); ?>
         
         <!-- Main column -->
-        <div class="col-12 col-lg-9 p-0 ui-card ui-column">
+        <div class="col-12 col-lg-9 p-0 ui-card-light ui-column">
         
             <div class="row pt-2">
                 <h3 id="anno-title"></h2>
