@@ -105,6 +105,21 @@
                                 <h5 class="d-inline">confirmations</h5>
                             </div>
                         </div>
+                        <div class="deposit-contract-wrapper">
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <span class="secondary">Token contract / ID:</span>
+                                </div>
+                            </div>
+                            <div class="row flex-nowrap">
+                                <div class="col-10 col-lg-auto my-auto">
+                                    <h4 class="wrap" id="deposit-contract"></h4>
+                                </div>
+                                <div class="col-auto my-auto">
+                                    <a href="#_" class="secondary copy-button" data-copy="#deposit-contract"><i class="fa-solid fa-copy fa-xl"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>  
             </div>

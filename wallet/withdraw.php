@@ -130,6 +130,22 @@
                         <div class="col-12 col-lg-6 py-2 order-lg-6 my-auto">
                             <button type="submit" class="btn btn-primary w-100">Submit</button>
                         </div>
+                        
+                        <div class="col-12 col-lg-8 py-2 order-lg-7" id="withdraw-contract-wrapper">
+                            <div class="row mt-3">
+                                <div class="col-12">
+                                    <span class="secondary">Token contract / ID:</span>
+                                </div>
+                            </div>
+                            <div class="row flex-nowrap">
+                                <div class="col-10 col-lg-auto my-auto">
+                                    <h4 class="wrap" id="withdraw-contract"></h4>
+                                </div>
+                                <div class="col-auto my-auto">
+                                    <a href="#_" class="secondary copy-button" data-copy="#withdraw-contract"><i class="fa-solid fa-copy fa-xl"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                         
                 </form>
