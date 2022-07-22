@@ -57,6 +57,15 @@ $(document).ready(function() {
                 }
                 else
                     $('#deposit-memo-wrapper').addClass('d-none');
+                
+                // Contract
+                if(typeof(data.contract) !== 'undefined') {
+                    $('#deposit-contract').html(data.contract);
+                    $('#deposit-contract-wrapper').removeClass('d-none');
+                }
+                else {
+                    $('#deposit-contract-wrapper').addClass('d-none');
+                }
         
                 $('#deposit-step3').show();
                 $('html, body').animate({

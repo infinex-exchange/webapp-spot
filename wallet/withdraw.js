@@ -102,6 +102,15 @@ $(document).ready(function() {
                     $('#withdraw-memo-wrapper').addClass('d-none');
                 }
                 
+                // Contract
+                if(typeof(data.contract) !== 'undefined') {
+                    $('#withdraw-contract').html(data.contract);
+                    $('#withdraw-contract-wrapper').removeClass('d-none');
+                }
+                else {
+                    $('#withdraw-contract-wrapper').addClass('d-none');
+                }
+                
                 $('#withdraw-step3').show();
                 $('html, body').animate({
                     scrollTop: $("#withdraw-step3").offset().top
