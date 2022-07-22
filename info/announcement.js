@@ -6,12 +6,13 @@ $(document).ready(function() {
     
     const renderer = {
         heading(text, level) {
-            return '<h3>' + text + '</h3>';
+            var l = level + 2;
+            return `<h${l}>${text}</h${l}>`;
         },
         image(href) {
             return `
                 <div class="row">
-                    <div class="col-8 mx-auto">
+                    <div class="col-12 col-lg-8 mx-auto">
                         <img src="${href}" class="img-fluid">
                     </div>
                 </div>
