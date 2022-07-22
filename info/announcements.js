@@ -30,8 +30,8 @@ $(document).ready(function() {
                             var featureImg = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
                             
                             if(typeof(v.feature_img) != 'undefined') {
-                                leftColConf = 'col-2';
-                                rightColConf = 'col-10';
+                                leftColConf = 'col-4';
+                                rightColConf = 'col-8';
                                 featureImg = v.feature_img;
                             }
                             
@@ -47,8 +47,8 @@ $(document).ready(function() {
                             
                             thisAS.append(`
                                 <div class="row mt-0 mb-4 p-2 ui-card-light">
-                                    <div class="${leftColConf} m-auto text-center">
-                                        <img src="${featureImg}" class="img-fluid w-100" style="max-height: 150px">
+                                    <div class="${leftColConf} my-auto>
+                                        <img src="${featureImg}" class="img-fluid">
                                     </div>
                                     <div class="${rightColConf}">
                                         <h3 class="pt-3">${v.title}</h3>
