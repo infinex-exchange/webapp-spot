@@ -105,7 +105,7 @@
                                 <h5 class="d-inline">confirmations</h5>
                             </div>
                         </div>
-                        <div class="deposit-contract-wrapper">
+                        <div id="deposit-contract-wrapper">
                             <div class="row mt-3">
                                 <div class="col-12">
                                     <span class="secondary">Token contract / ID:</span>
