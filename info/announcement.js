@@ -4,6 +4,23 @@ $(document).ready(function() {
     var pathArray = window.location.pathname.split('/');
     var pathAnno = pathArray[pathArray.length - 1];
     
+    const renderer = {
+        heading(text, level) {
+            return '<h3>' + text + '</h3>';
+        },
+        image(href) {
+            return `
+                <div class="row">
+                    <div class="col-8 mx-auto">
+                        <img src="${href}" class="img-fluid">
+                    </div>
+                </div>
+            `;
+        }
+    };
+    
+    marked.use({ renderer });
+    
     $.ajax({
         url: config.apiUrl + '/info/announcement',
         type: 'POST',
