@@ -35,6 +35,16 @@ $(document).ready(function() {
                                 featureImg = v.feature_img;
                             }
                             
+                            var readMoreClass = 'd-none';
+                            var readMoreUrl = '';
+                            if(v.read_more) {
+                                readMoreClass = 'col-auto';
+                                if(typeof(v.url) !== 'undefined')
+                                    readMoreUrl = v.url;
+                                else
+                                    readMoreUrl = v.annoid;
+                            }
+                            
                             thisAS.append(`
                                 <div class="row mt-0 mb-4 p-2 ui-card-light">
                                     <div class="${leftColConf} m-auto">
@@ -44,6 +54,11 @@ $(document).ready(function() {
                                         <h3 class="pt-3">${v.title}</h3>
                                         <h6 class="pb-2">${time}</h6>
                                         <div class="secondary">${markdown}</div>
+                                    </div>
+                                    <div class="${readMoreClass} ms-auto">
+                                        <a class="btn btn-primary" href="/announcement/${readMoreUrl}">
+                                            Read more
+                                        </a>
                                     </div>
                                 </div>
                             `);
