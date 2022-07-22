@@ -29,10 +29,10 @@ $(document).ready(function() {
                             var rightColConf = 'col-12';
                             var featureImg = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
                             
-                            if(typeof(data.feature_img) != 'undefined') {
+                            if(typeof(v.feature_img) != 'undefined') {
                                 leftColConf = 'col-2';
                                 rightColConf = 'col-10';
-                                featureImg = data.feature_img;
+                                featureImg = v.feature_img;
                             }
                             
                             thisAS.append(`
