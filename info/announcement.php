@@ -22,12 +22,12 @@
         <!-- Main column -->
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
         
-            <div class="row p-2">
+            <div class="row pt-2">
                 <h2 id="anno-title"></h2>
             </div>
             
-            <div class="row p-2">
-                <h6 id="anno-time"></h6>
+            <div class="row pb-4">
+                <h6 class="secondary" id="anno-time"></h6>
             </div>
             
             <div id="anno-body" class="row p-2">
