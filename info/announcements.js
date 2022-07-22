@@ -48,7 +48,9 @@ $(document).ready(function() {
                             thisAS.append(`
                                 <div class="row mt-0 mb-4 p-2 ui-card-light">
                                     <div class="${leftColConf} m-auto">
-                                        <img src="${featureImg}" class="img-fluid w-100">
+                                        <div class="max-height: 100px">
+                                            <img src="${featureImg}" class="img-fluid w-100">
+                                        </div>
                                     </div>
                                     <div class="${rightColConf}">
                                         <h3 class="pt-3">${v.title}</h3>
