@@ -30,7 +30,9 @@
                 <h6 class="secondary" id="anno-time"></h6>
             </div>
             
-            <div id="anno-body" class="row p-2">
+            <div class="row p-2">
+                <div class="col-12" id="anno-body">
+                </div>
             </div>
         
         <!-- / Main column -->
