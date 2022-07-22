@@ -37,12 +37,9 @@ $(document).ready(function() {
                             
                             var readMoreClass = 'd-none';
                             var readMoreUrl = '';
-                            if(v.read_more) {
+                            if(typeof(v.read_more) != 'undefined') {
                                 readMoreClass = 'col-auto';
-                                if(typeof(v.url) !== 'undefined')
-                                    readMoreUrl = v.url;
-                                else
-                                    readMoreUrl = v.annoid;
+                                readMoreUrl = v.read_more;
                             }
                             
                             thisAS.append(`
