@@ -44,7 +44,7 @@ $(document).ready(function() {
                             
                             thisAS.append(`
                                 <div class="row mt-0 mb-4 p-2 ui-card-light">
-                                    <div class="${leftColConf} my-auto">
+                                    <div class="${leftCbootstrtlConf} my-auto">
                                         <img src="${featureImg}" class="img-fluid">
                                     </div>
                                     <div class="${rightColConf}">
@@ -52,7 +52,7 @@ $(document).ready(function() {
                                         <h6 class="pb-2">${time}</h6>
                                         <div class="secondary">${markdown}</div>
                                     </div>
-                                    <div class="${readMoreClass} ms-auto">
+                                    <div class="${readMoreClass} ms-auto ms-lg-0 pb-3">
                                         <a class="btn btn-primary" href="/info/announcements/${readMoreUrl}">
                                             Read more
                                         </a>
