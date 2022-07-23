@@ -44,7 +44,7 @@ $(document).ready(function() {
                             
                             thisAS.append(`
                                 <div class="row mt-0 mb-4 p-2 ui-card-light">
-                                    <div class="${leftCbootstrtlConf} my-auto">
+                                    <div class="${leftColConf} my-auto">
                                         <img src="${featureImg}" class="img-fluid">
                                     </div>
                                     <div class="${rightColConf}">
