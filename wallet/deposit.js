@@ -79,6 +79,8 @@ $(document).ready(function() {
             msgBoxNoConn(false);
         });
     });
+    
+    initSelectCoin();
 });
 
 $(document).on('authChecked', function() {

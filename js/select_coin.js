@@ -27,7 +27,9 @@ $(document).ready(function() {
             window.selectCoinAS.data.search = query;
         window.selectCoinAS.reset();
     });
+});
 
+function initSelectCoin(endpoint = '/wallet/assets') {
     window.selectCoinAS = new AjaxScroll(
         $('#select-coin-data'),
         $('#select-coin-data-preloader'),
@@ -37,7 +39,7 @@ $(document).ready(function() {
             var thisAS = this;
                 
             $.ajax({
-                url: config.apiUrl + '/wallet/assets',
+                url: config.apiUrl + endpoint,
                 type: 'POST',
                 data: JSON.stringify(thisAS.data),
                 contentType: "application/json",
@@ -82,4 +84,4 @@ $(document).ready(function() {
             }); 
         }
     );
-});
+}

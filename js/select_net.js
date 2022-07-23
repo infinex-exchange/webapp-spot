@@ -15,12 +15,12 @@ $(document).ready(function() {
     });
 });
 
-function initSelectNet(asset) {
+function initSelectNet(asset, endpoint = '/wallet/networks') {
     $('#select-net').val('');
     $('#select-net-data').empty();
     
     $.ajax({
-        url: config.apiUrl + '/wallet/networks',
+        url: config.apiUrl + endpoint,
         type: 'POST',
         data: JSON.stringify({
             asset: asset

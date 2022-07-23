@@ -420,6 +420,8 @@ $(document).ready(function() {
 		    $('#help-save-name').show();
 	    }
     });
+    
+    initSelectCoin();
 });
 
 $(document).on('authChecked', function() {
