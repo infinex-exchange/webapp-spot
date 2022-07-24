@@ -7,3 +7,6 @@
 [submodule "exchange/bridge"]
 	path = exchange/bridge
 	url = git@github.com:vayamos-exchange/webapp-bridge
+[submodule "exchange/dex"]
+	path = exchange/dex
+	url = git@github.com:vayamos-exchange/webapp-dex
