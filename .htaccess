@@ -29,6 +29,10 @@ RewriteRule ^bridge/js/([^/]+)$ /exchange/bridge/js/$1 [L]
 RewriteRule ^bridge/img/([^/]+)$ /exchange/bridge/img/$1 [L]
 RewriteRule ^bridge/([^/]+)/?$ /exchange/bridge/index.php [L]
 
+RewriteRule ^dex/css/([^/]+)$ /exchange/dex/css/$1 [L]
+RewriteRule ^dex/js/([^/]+)$ /exchange/dex/js/$1 [L]
+RewriteRule ^dex(/[^/]+)?(/[^/]+)?/?$ /exchange/dex/index.php [L]
+
 RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
 
 RewriteRule ^info/announcements/?$ /info/announcements.php [L]
