@@ -15,7 +15,7 @@ $(document).ready(function() {
     });
 });
 
-function initSelectNet(asset, endpoint = '/wallet/networks', forceAutoSelect = false) {
+function initSelectNet(asset, endpoint = '/wallet/networks', autoSelect = true) {
     $('#select-net').val('');
     $('#select-net-data').empty();
     
@@ -54,11 +54,8 @@ function initSelectNet(asset, endpoint = '/wallet/networks', forceAutoSelect = f
                 $('#select-net').trigger('change');
             });
                 
-            if(Object.keys(data.networks).length == 1)
+            if(autoSelect && Object.keys(data.networks).length == 1)
                 $('.select-net-item').trigger('click');
-            
-            else if(forceAutoSelect && Object.keys(data.networks).length > 0)
-                $('.select-net-item').first().trigger('click');
         } else {
             msgBox(data.error);
         }
