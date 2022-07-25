@@ -15,16 +15,18 @@ $(document).ready(function() {
     });
 });
 
-function initSelectNet(asset, endpoint = '/wallet/networks') {
+function initSelectNet(asset, endpoint = '/wallet/networks', forceAutoSelect = false) {
     $('#select-net').val('');
     $('#select-net-data').empty();
+    
+    var data = {};
+    if(asset !== null)
+        data = { asset: asset };
     
     $.ajax({
         url: config.apiUrl + endpoint,
         type: 'POST',
-        data: JSON.stringify({
-            asset: asset
-        }),
+        data: JSON.stringify(data),
         contentType: "application/json",
         dataType: "json",
     })
@@ -54,6 +56,9 @@ function initSelectNet(asset, endpoint = '/wallet/networks') {
                 
             if(Object.keys(data.networks).length == 1)
                 $('.select-net-item').trigger('click');
+            
+            else if(forceAutoSelect && Object.keys(data.networks).length > 0)
+                $('.select-net-item').first().trigger('click');
         } else {
             msgBox(data.error);
         }
