@@ -141,6 +141,8 @@ function renderTxHistoryItem(data, forceSmall) {
     var memoName = '';
     if(typeof(data.memo_name) !== 'undefined')
         memoName = data.memo_name;
+    else if(data.type == 'TRANSFER_IN' || data.type == 'TRANSFER_OUT')
+        memoName = 'Title';
     
     var memo = '-';
     if(typeof(data.memo) !== 'undefined')
@@ -162,13 +164,17 @@ function renderTxHistoryItem(data, forceSmall) {
     if(typeof(data.delayed) !== 'undefined')
         delayed = data.delayed;
     
+    var fee = '-';
+    if(typeof(data.fee) !== 'undefined')
+        fee = data.fee;
+    
     return `
         <div class="row hoverable tx-history-item px-1 py-2" onClick="mobileTxDetails(this)" data-xid="${data.xid}"
          data-type="${data.type}" data-asset="${data.asset}" data-network="${data.network_description}"
          data-amount="${data.amount}" data-status="${data.status}" data-create-time="${cTime}"
          data-address="${data.address}" data-memo="${memo}" data-exec-time="${eTime}"
          data-confirms="${confHtml}" data-txid="${txid}" data-height="${height}"
-         data-fee="${data.fee}" data-icon-url="${data.icon_url}" data-memo-name="${memoName}"
+         data-fee="${fee}" data-icon-url="${data.icon_url}" data-memo-name="${memoName}"
          data-delayed="${delayed}">
             
             
@@ -179,7 +185,7 @@ function renderTxHistoryItem(data, forceSmall) {
             </div>
             
             <div class=" my-auto ${dNoneDLgBlock}" style="width: 20%">
-                ${data.type}
+                ${txTypeDict[data.type]}
             </div>
             
             <div class="my-auto ${dNoneDLgBlock}" style="width: 20%">
