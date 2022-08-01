@@ -93,7 +93,7 @@ function mobileTxDetails(item, update = false) {
         $('#mtd-address').html( $(item).data('address') );
         if(memoName != '') {
             $('#mtd-memo').html( $(item).data('memo') );
-            $('#mtd-memo-name').html(memoName);
+            $('#mtd-memo-name').html(memoName + ':');
             $('#mtd-memo-wrapper').show();
         }
         else {
