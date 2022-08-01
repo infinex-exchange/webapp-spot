@@ -167,10 +167,14 @@ function renderTxHistoryItem(data, forceSmall) {
     var fee = '-';
     if(typeof(data.fee) !== 'undefined')
         fee = data.fee;
+        
+    var networkDescription = '-';
+    if(typeof(data.network_description) !== 'undefined')
+        networkDescription = data.network_description;
     
     return `
         <div class="row hoverable tx-history-item px-1 py-2" onClick="mobileTxDetails(this)" data-xid="${data.xid}"
-         data-type="${data.type}" data-asset="${data.asset}" data-network="${data.network_description}"
+         data-type="${data.type}" data-asset="${data.asset}" data-network="${networkDescription}"
          data-amount="${data.amount}" data-status="${data.status}" data-create-time="${cTime}"
          data-address="${data.address}" data-memo="${memo}" data-exec-time="${eTime}"
          data-confirms="${confHtml}" data-txid="${txid}" data-height="${height}"
