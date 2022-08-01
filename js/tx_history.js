@@ -1,11 +1,15 @@
 var txTypeIconDict = {
     DEPOSIT: 'fa-solid fa-circle-plus',
     WITHDRAWAL: 'fa-solid fa-circle-minus',
+    TRANSFER_IN: 'fa-solid fa-user-plus',
+    TRANSFER_OUT: 'fa-solid fa-user-minus'
 };
 
 var txTypeDict = {
     DEPOSIT: 'Deposit',
-    WITHDRAWAL: 'Withdrawal'
+    WITHDRAWAL: 'Withdrawal',
+    TRANSFER_IN: 'Transfer (incoming)',
+    TRANSFER_OUT: 'Transfer (outgoing)'
 };
 
 var txStatusIconDict = {
@@ -16,7 +20,9 @@ var txStatusIconDict = {
 
 var txExecTimeDict = {
     DEPOSIT: 'Confirm time',
-    WITHDRAWAL: 'Execute time'
+    WITHDRAWAL: 'Execute time',
+    TRANSFER_IN: 'Execute time',
+    TRANSFER_OUT: 'Execute time'
 };
 
 function cancelWithdrawal(xid) {
