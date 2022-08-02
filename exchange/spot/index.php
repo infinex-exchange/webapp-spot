@@ -396,16 +396,16 @@
                         </div>
                     </div>
                     
-                    <div id="orderbook-middle" class="col-6 d-none d-lg-block order-2 order-lg-2 px-0 py-3">
+                    <div id="orderbook-middle" class="col-auto d-none d-lg-block order-2 order-lg-2 px-0 py-3">
                         <h3 class="d-inline orderbook-middle-price"></h3>
                         <h3 class="d-inline">
                             <i class="orderbook-middle-arrow fa-solid"></i>
                         </h3>
                     </div>
                     
-                    <div id="orderbook-middle" class="col-6 d-none d-lg-block order-3 order-lg-3 px-0 py-3">
+                    <div id="orderbook-middle" class="col-auto ms-auto d-none d-lg-block order-3 order-lg-3 px-0 py-3">
                         <a href="#_"><img src="/img/ob_split.svg" width="16" height="16"></a>
-                        <a href="#_"><img src="/img/ob_bids.svg" width="16" height="16"></a>
+                        <a class="px-3" href="#_"><img src="/img/ob_bids.svg" width="16" height="16"></a>
                         <a href="#_"><img src="/img/ob_asks.svg" width="16" height="16"></a>
                     </div>
                     
