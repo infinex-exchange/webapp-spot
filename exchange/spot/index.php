@@ -379,7 +379,7 @@
             
             <div id="orderbook" class="col-12 ui-card ui-card-ver d-lg-block column-height sm-rest-of-height" data-ui-card="orderbook">
                 <div class="row m-0">
-                    <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-3 order-lg-1">
+                    <div class="col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-4 order-lg-1">
                         <div id="orderbook-header" class="row secondary">
                             <div class="col-6 col-lg-4">
                                 <h6>Price</h6>
@@ -396,14 +396,20 @@
                         </div>
                     </div>
                     
-                    <div id="orderbook-middle" class="col-12 d-none d-lg-block order-2 order-lg-2 px-0 py-3">
+                    <div id="orderbook-middle" class="col-6 d-none d-lg-block order-2 order-lg-2 px-0 py-3">
                         <h3 class="d-inline orderbook-middle-price"></h3>
                         <h3 class="d-inline">
                             <i class="orderbook-middle-arrow fa-solid"></i>
                         </h3>
                     </div>
                     
-                    <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-3">
+                    <div id="orderbook-middle" class="col-6 d-none d-lg-block order-3 order-lg-3 px-0 py-3">
+                        <a href="#_"><img src="/img/ob_split.svg"></a>
+                        <a href="#_"><img src="/img/ob_bids.svg"></a>
+                        <a href="#_"><img src="/img/ob_asks.svg"></a>
+                    </div>
+                    
+                    <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-4">
                         <div class="row d-lg-none secondary">
                             <div class="col-6">
                                 <h6>Price</h6>
