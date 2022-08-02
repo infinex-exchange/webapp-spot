@@ -35,104 +35,48 @@
                 </div>
             </div>
             
-            <div id="withdraw-step2" style="display: none">
+            <div id="transfer-step2" style="display: none">
                 <div class="row py-2">
                     <div class="col-12">
                         <h3>&#9313 Complete transfer:</h3>
                     </div>
                 </div>
                 
-                <form id="withdraw-form">
-                    <div class="row" id="withdraw-operating-warning">
-                        <div class="col-12 py-2">
-                            <div class="alert alert-danger d-flex align-items-center" role="alert">
-                                <div class="px-2">
-                                    <i class="fa-solid fa-plug-circle-xmark fa-2x"></i>
-                                </div>
-                                <div class="px-2">
-                                    Looks like our connection to this network is not working properly.<br>
-                                    You can request a withdrawal as normal, but it will be processed with delay.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
+                <form id="transfer-form">
                     <div class="row">
                         <div class="col-12 col-lg-6 py-2">
-                            <label for="select-adbk">Address:</label>
-                            <small id="help-address" class="form-text" style="display: none">Address is invalid</small>
+                            <label for="transfer-email">E-mail:</label>
+                            <small id="help-email" class="form-text" style="display: none">E-mail is invalid</small>
                         </div>
                         
-                        <div class="col-12 col-lg-6 py-2" id="withdraw-memo-wrapper">
-                            <label id="withdraw-memo-name" for="withdraw-memo"></label>
-                            <input type="text" class="form-control" id="withdraw-memo" placeholder="Optional">
+                        <div class="col-12 col-lg-6 py-2">
+                            <label for="withdraw-memo">Message:</label>
+                            <input type="text" class="form-control" id="transfer-memo" placeholder="Optional">
                             <small id="help-memo" class="form-text" style="display: none">Invalid format</small>
-                        </div>
-                    </div>
-                    
-                    <div class="row" id="withdraw-save-wrapper">
-                        <div class="col-12 col-lg-6 py-2 my-auto">
-                            <div class="pretty p-switch">
-                                <input type="checkbox" id="withdraw-save">
-                                <div class="state p-primary">
-                                    <label for="withdraw-save">Save in address book</label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12 col-lg-6 py-2" id="withdraw-save-expand" style="display: none">
-                            <label for="withdraw-save-name">Save as:</label>
-                            <input type="text" class="form-control" id="withdraw-save-name">
-                            <small id="help-save-name" class="form-text" style="display: none">Invalid name</small>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-12 col-lg-6 py-2 order-lg-1">
-                            <label for="withdraw-amount">Amount:</label>
-                            <input type="text" class="form-control" id="withdraw-amount" data-val="">
+                            <label for="transfer-amount">Amount:</label>
+                            <input type="text" class="form-control" id="transfer-amount" data-val="">
                         </div>
                         
                         <div class="col-12 col-lg-6 py-2 order-lg-3 mt-auto">
-                            <span class="range-value" for="withdraw-amount-range" suffix="%"></span>
-                            <input id="withdraw-amount-range" type="range" class="form-range" min="0" max="100" step="1" value="0">
-                        </div>
-                        
-                        <div class="col-12 col-lg-6 py-2 order-lg-2">
-                            <label for="withdraw-fee">Fee:</label>
-                            <input type="text" class="form-control" id="withdraw-fee" readonly>
-                        </div>
-                        
-                        <div class="col-12 col-lg-6 py-2 order-lg-4 mt-auto">
-                            <input id="withdraw-fee-range" type="range" class="form-range" min="0" max="1" step="1" value="0">
+                            <span class="range-value" for="transfer-amount-range" suffix="%"></span>
+                            <input id="transfer-amount-range" type="range" class="form-range" min="0" max="100" step="1" value="0">
                         </div>
                         
                         <div class="col-12 col-lg-6 py-2 order-lg-5 my-auto">
                             <span class="secondary">Available:</span>
-                            <span class="float-end" id="withdraw-balance"></span>
+                            <span class="float-end" id="transfer-balance"></span>
                             <br>
-                            <span class="secondary">After pay fee:</span>
-                            <span class="float-end" id="withdraw-amount-max"></span><strong></strong>
+                            <span class="secondary">Fee:</span>
+                            <span class="float-end">0</span>
                         </div>
                         
                         <div class="col-12 col-lg-6 py-2 order-lg-6 my-auto">
                             <button type="submit" class="btn btn-primary w-100">Submit</button>
-                        </div>
-                        
-                        <div class="col-12 col-lg-8 py-2 order-lg-7" id="withdraw-contract-wrapper">
-                            <div class="row mt-3">
-                                <div class="col-12">
-                                    <span class="secondary">Token contract / ID:</span>
-                                </div>
-                            </div>
-                            <div class="row flex-nowrap">
-                                <div class="col-10 col-lg-auto my-auto">
-                                    <h4 class="wrap" id="withdraw-contract"></h4>
-                                </div>
-                                <div class="col-auto my-auto">
-                                    <a href="#_" class="secondary copy-button" data-copy="#withdraw-contract"><i class="fa-solid fa-copy fa-xl"></i></a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                         
