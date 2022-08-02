@@ -377,9 +377,9 @@
         <div class="col-12 col-lg-3 p-0 ui-column order-3 order-lg-4">
         <div class="row m-0">
             
-            <div id="orderbook" class="col-12 ui-card ui-card-ver d-lg-block column-height sm-rest-of-height" data-ui-card="orderbook">
+            <div id="orderbook" class="orderbook-display-split col-12 ui-card ui-card-ver d-lg-block column-height sm-rest-of-height" data-ui-card="orderbook">
                 <div class="row m-0">
-                    <div class="orderbook-side-wrapper col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-3 order-lg-1" data-side="asks">
+                    <div class="orderbook-wrapper-asks col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-3 order-lg-1">
                         <div id="orderbook-header" class="row secondary">
                             <div class="col-6 col-lg-4">
                                 <h6>Price</h6>
@@ -412,7 +412,7 @@
                         </div>
                     </div>
                     
-                    <div class="orderbook-side-wrapper col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-3" data-side="bids">
+                    <div class="orderbook-wrapper-bids col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-3">
                         <div class="row d-lg-none secondary">
                             <div class="col-6">
                                 <h6>Price</h6>
