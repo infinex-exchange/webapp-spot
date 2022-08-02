@@ -380,14 +380,14 @@
             <div id="orderbook" class="orderbook-display-split col-12 ui-card ui-card-ver d-lg-block column-height sm-rest-of-height" data-ui-card="orderbook">
                 <div class="row m-0">
                     <div class="orderbook-wrapper-asks col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-3 order-lg-1">
-                        <div id="orderbook-header" class="row secondary">
+                        <div class="orderbook-header" class="row secondary">
                             <div class="col-6 col-lg-4">
                                 <h6>Price</h6>
                             </div>
                             <div class="col-6 col-lg-4 text-end">
                                 <h6>Amount</h6>
                             </div>
-                            <div class="col-6 col-lg-4 d-none d-lg-block text-end">
+                            <div class="col-6 col-lg-4 text-end">
                                 <h6>Total</h6>
                             </div>
                         </div>
@@ -396,7 +396,7 @@
                         </div>
                     </div>
                     
-                    <div id="orderbook-middle" class="col-12 d-none d-lg-block order-2 order-lg-2 px-0 py-3">
+                    <div id="orderbook-middle" class="col-12 order-2 order-lg-2 px-0 py-3">
                         <div class="row flex-nowrap">
                             <div class="col-auto">
                                 <h3 class="d-inline orderbook-middle-price"></h3>
@@ -413,12 +413,15 @@
                     </div>
                     
                     <div class="orderbook-wrapper-bids col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-3">
-                        <div class="row d-lg-none secondary">
-                            <div class="col-6">
+                        <div class="orderbook-header" class="row secondary">
+                            <div class="col-6 col-lg-4">
                                 <h6>Price</h6>
                             </div>
-                            <div class="col-6 text-end">
+                            <div class="col-6 col-lg-4 text-end">
                                 <h6>Amount</h6>
+                            </div>
+                            <div class="col-6 col-lg-4 text-end">
+                                <h6>Total</h6>
                             </div>
                         </div>
             

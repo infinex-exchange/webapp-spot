@@ -33,13 +33,30 @@
 /* Orderbook */
 
 #orderbook-buy, #orderbook-sell {
-    height: var(--target-height-orderbook-side);
     overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    .orderbook-display-split #orderbook-buy, .orderbook-display-split #orderbook-sell {
+        height: var(--target-height-orderbook-side);
+    }
+    
+    .orderbook-display-bids #orderbook-buy, .orderbook-display-asks #orderbook-sell {
+        height: var(--target-height-orderbook-side-sm) !important;
+    }
+    
+    .orderbook-display-bids #orderbook-sell, .orderbook-display-asks #orderbook-buy {
+        display: none;
+    }
 }
 
 @media (max-width: 991px) {
     #orderbook-buy, #orderbook-sell {
         height: var(--target-height-orderbook-side-sm) !important;
+    }
+    
+    .orderbook-display-bids #orderbook-sell, .orderbook-display-asks #orderbook-buy {
+        display: none;
     }
 }
 
