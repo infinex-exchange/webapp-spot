@@ -57,7 +57,7 @@
         order: 1 !important;
     }
     
-    .orderbook-display-split #orderbook-wrapper-bids .orderbook-header {
+    .orderbook-display-split .orderbook-wrapper-bids .orderbook-header {
         display: none;
     }
 }
