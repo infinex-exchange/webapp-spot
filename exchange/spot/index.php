@@ -379,7 +379,7 @@
             
             <div id="orderbook" class="col-12 ui-card ui-card-ver d-lg-block column-height sm-rest-of-height" data-ui-card="orderbook">
                 <div class="row m-0">
-                    <div class="orderbook-side-wrapper col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-4 order-lg-1" data-side="asks">
+                    <div class="orderbook-side-wrapper col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-3 order-lg-1" data-side="asks">
                         <div id="orderbook-header" class="row secondary">
                             <div class="col-6 col-lg-4">
                                 <h6>Price</h6>
@@ -396,22 +396,23 @@
                         </div>
                     </div>
                     
-                    <div id="orderbook-middle">
-                        <div class="col-auto d-none d-lg-block order-2 order-lg-2 px-0 py-3">
-                            <h3 class="d-inline orderbook-middle-price"></h3>
-                            <h3 class="d-inline">
-                                <i class="orderbook-middle-arrow fa-solid"></i>
-                            </h3>
-                        </div>
-                        
-                        <div class="col-auto ms-auto d-none d-lg-block order-3 order-lg-3 px-0 py-3">
-                            <a class="orderbook-btn-display" data-display="split" href="#_"><img src="/img/ob_split.svg" width="16" height="16"></a>
-                            <a class="orderbook-btn-display px-2" data-display="bids" href="#_"><img src="/img/ob_bids.svg" width="16" height="16"></a>
-                            <a class="orderbook-btn-display" data-display="asks" href="#_"><img src="/img/ob_asks.svg" width="16" height="16"></a>
+                    <div id="orderbook-middle" class="col-12 d-none d-lg-block order-2 order-lg-2 px-0 py-3">
+                        <div class="row flex-nowrap">
+                            <div class="col-auto">
+                                <h3 class="d-inline orderbook-middle-price"></h3>
+                                <h3 class="d-inline">
+                                    <i class="orderbook-middle-arrow fa-solid"></i>
+                                </h3>
+                            </div>
+                            <div class="col-auto ms-auto">
+                                <a class="orderbook-btn-display" data-display="split" href="#_"><img src="/img/ob_split.svg" width="16" height="16"></a>
+                                <a class="orderbook-btn-display px-2" data-display="bids" href="#_"><img src="/img/ob_bids.svg" width="16" height="16"></a>
+                                <a class="orderbook-btn-display" data-display="asks" href="#_"><img src="/img/ob_asks.svg" width="16" height="16"></a>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="orderbook-side-wrapper col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-4" data-side="bids">
+                    <div class="orderbook-side-wrapper col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-3" data-side="bids">
                         <div class="row d-lg-none secondary">
                             <div class="col-6">
                                 <h6>Price</h6>
