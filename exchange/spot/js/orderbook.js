@@ -147,6 +147,7 @@ $(document).on('pairSelected', function() {
 $(document).ready(function() {
     $('.orderbook-btn-display').on('click', function() {
         var display = $(this).data('display');
+        alert(display);
         
         if(display == 'split') {
             $('.orderbook-wrapper').show();
