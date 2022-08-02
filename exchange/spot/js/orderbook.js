@@ -147,15 +147,14 @@ $(document).on('pairSelected', function() {
 $(document).ready(function() {
     $('.orderbook-btn-display').on('click', function() {
         var display = $(this).data('display');
-        alert(display);
         
         if(display == 'split') {
-            $('.orderbook-wrapper').show();
+            $('.orderbook-side-wrapper').show();
         }
         
         else {
-            $('.orderbook-wrapper').hide();
-            $('.orderbook-wrapper[data-side="' + display + '"]').show();
+            $('.orderbook-side-wrapper').hide();
+            $('.orderbook-side-wrapper[data-side="' + display + '"]').show();
         }
     });
 });
