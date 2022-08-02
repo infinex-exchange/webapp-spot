@@ -3,8 +3,7 @@ $(document).ready(function() {
     
     // Download balance and init net selector when coin selected
     $('#select-coin').on('change', function() {
-        $('#withdraw-step2').hide();
-        $('#withdraw-step3').hide();
+        $('#transfer-step2').hide();
         var asset = $('#select-coin').val();
         
          $.ajax({
@@ -21,55 +20,16 @@ $(document).ready(function() {
         .done(function (data) {
             if(data.success) {
                 window.wdRawBalance = new BigNumber(data.balances[asset].avbl);
-            } else {
-                msgBox(data.error);
-            }
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            msgBoxNoConn(false);
-        });
-    });
-    
-    // Show net selector when networks list downloaded
-    $('#select-net').on('dataLoaded', function() {
-        $('#withdraw-step2').show();
-    });
-    
-    // Download info and show step3 when network selected
-    $('#select-net').on('change', function() {        
-        $('#withdraw-step3').hide();
-        
-        
-        $.ajax({
-            url: config.apiUrl + '/wallet/withdraw/info',
-            type: 'POST',
-            data: JSON.stringify({
-                api_key: window.apiKey,
-                asset: $('#select-coin').val(),
-                network: $('#select-net').data('network')
-            }),
-            contentType: "application/json",
-            dataType: "json",
-        })
-        .retry(config.retry)
-        .done(function (data) {
-            if(data.success) {
+                
                 // Reset validation variables
                 window.validAddress = false;
                 window.validMemo = false;
                 window.validAdbkName = false;
                 
                 // Reset form
-                $('#withdraw-form').get(0).reset();
+                $('#transfer-form').get(0).reset();
                 $('small[id^="help-"]').hide();
-                $('#withdraw-amount').data('val', '').val('').trigger('prevalidated');
-                $('#withdraw-save').trigger('change');
-                
-                // Operating warning
-                if(data.operating)
-                    $('#withdraw-operating-warning').addClass('d-none');
-                else
-                    $('#withdraw-operating-warning').removeClass('d-none');
+                $('#transfer-amount').data('val', '').val('').trigger('prevalidated');
                 
                 // Precision
                 window.wdAmountPrec = data.prec;
