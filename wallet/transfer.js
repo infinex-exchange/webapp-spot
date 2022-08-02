@@ -21,7 +21,6 @@ $(document).ready(function() {
         .done(function (data) {
             if(data.success) {
                 window.wdRawBalance = new BigNumber(data.balances[asset].avbl);
-                initSelectNet(asset);
             } else {
                 msgBox(data.error);
             }
@@ -40,7 +39,6 @@ $(document).ready(function() {
     $('#select-net').on('change', function() {        
         $('#withdraw-step3').hide();
         
-        initSelectAdbk($('#select-coin').val(), $('#select-net').data('network'));
         
         $.ajax({
             url: config.apiUrl + '/wallet/withdraw/info',
@@ -428,7 +426,7 @@ $(document).on('authChecked', function() {
     if(window.loggedIn) {
         var txHistoryData = {
             api_key: window.apiKey,
-            type: ['TRANSFER_IN', 'TRANSFER_OUT']
+            type: 'TRANSFER_OUT'
         };
         initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true, true);
         
