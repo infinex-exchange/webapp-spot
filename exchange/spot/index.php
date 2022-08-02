@@ -405,7 +405,7 @@
                     
                     <div id="orderbook-middle" class="col-auto ms-auto d-none d-lg-block order-3 order-lg-3 px-0 py-3">
                         <a href="#_"><img src="/img/ob_split.svg" width="16" height="16"></a>
-                        <a class="px-3" href="#_"><img src="/img/ob_bids.svg" width="16" height="16"></a>
+                        <a class="px-2" href="#_"><img src="/img/ob_bids.svg" width="16" height="16"></a>
                         <a href="#_"><img src="/img/ob_asks.svg" width="16" height="16"></a>
                     </div>
                     
