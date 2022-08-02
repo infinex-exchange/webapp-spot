@@ -48,6 +48,14 @@
     .orderbook-display-bids #orderbook-sell, .orderbook-display-asks #orderbook-buy {
         display: none;
     }
+    
+    .orderbook-display-split #orderbook-middle {
+        order: 3 !important;
+    }
+    
+    .orderbook-display-bids #orderbook-middle, .orderbook-display-asks #orderbook-middle {
+        order: 1 !important;
+    }
 }
 
 @media (max-width: 991px) {
