@@ -7,7 +7,7 @@ function doJsSizing() {
 	document.body.style.setProperty('--height-main-nav', $('#main-navbar').outerHeight() + 'px');
     document.body.style.setProperty('--height-desktop-header', $('#desktop-header').outerHeight() + 'px');
     
-    var obRemainH = $('#orderbook').height() - $('#orderbook-header').outerHeight() - $('#orderbook-middle').outerHeight();
+    var obRemainH = $('#orderbook').height() - $('.orderbook-header').first().outerHeight() - $('#orderbook-middle').outerHeight();
     var obSideRemainH = obRemainH / 2;
     var obItemH = $('.orderbook-item').first().outerHeight();
     if(typeof(obItemH) === 'undefined') obItemH = 18;
