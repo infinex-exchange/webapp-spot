@@ -56,6 +56,10 @@
     .orderbook-display-bids #orderbook-middle, .orderbook-display-asks #orderbook-middle {
         order: 1 !important;
     }
+    
+    .orderbook-display-split #orderbook-wrapper-bids .orderbook-header {
+        display: none;
+    }
 }
 
 @media (max-width: 991px) {
