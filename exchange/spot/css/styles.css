@@ -45,7 +45,7 @@
         height: var(--target-height-orderbook-side-sm) !important;
     }
     
-    .orderbook-display-bids #orderbook-sell, .orderbook-display-asks #orderbook-buy {
+    .orderbook-display-bids #orderbook-wrapper-asks, .orderbook-display-asks #orderbook-wrapper-bids {
         display: none;
     }
     
