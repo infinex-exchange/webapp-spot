@@ -70,6 +70,16 @@
     .orderbook-display-bids #orderbook-sell, .orderbook-display-asks #orderbook-buy {
         display: none;
     }
+    
+    .orderbook-display-split .mobile-ob-col {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    
+    .orderbook-display-bids .mobile-ob-col, .orderbook-display-asks .mobile-ob-col {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
 }
 
 #orderbook-sell .row {

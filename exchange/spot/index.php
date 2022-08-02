@@ -381,13 +381,13 @@
                 <div class="row m-0">
                     <div class="orderbook-wrapper-asks col-6 col-lg-12 p-0 ps-1 ps-lg-0 order-2 order-lg-2">
                         <div class="orderbook-header row secondary">
-                            <div class="col-6 col-lg-4">
+                            <div class="mobile-ob-col col-lg-4">
                                 <h6>Price</h6>
                             </div>
-                            <div class="col-6 col-lg-4 text-end">
+                            <div class="mobile-ob-col col-lg-4 text-end">
                                 <h6>Amount</h6>
                             </div>
-                            <div class="col-6 col-lg-4 text-end">
+                            <div class="mobile-ob-col col-lg-4 text-end">
                                 <h6>Total</h6>
                             </div>
                         </div>
@@ -414,13 +414,13 @@
                     
                     <div class="orderbook-wrapper-bids col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-4">
                         <div class="orderbook-header row secondary">
-                            <div class="col-6 col-lg-4">
+                            <div class="mobile-ob-col col-lg-4">
                                 <h6>Price</h6>
                             </div>
-                            <div class="col-6 col-lg-4 text-end">
+                            <div class="mobile-ob-col col-lg-4 text-end">
                                 <h6>Amount</h6>
                             </div>
-                            <div class="col-6 col-lg-4 text-end">
+                            <div class="mobile-ob-col col-lg-4 text-end">
                                 <h6>Total</h6>
                             </div>
                         </div>
