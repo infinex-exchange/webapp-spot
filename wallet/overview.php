@@ -40,6 +40,7 @@
                 <div class="col-auto my-auto px-1">
                     <a href="/wallet/deposit" class="btn btn-primary btn-sm">Deposit</a>
                     <a href="/wallet/withdraw" class="btn btn-primary btn-sm">Withdraw</a>
+                    <a href="/wallet/transfer" class="btn btn-primary btn-sm">Transfer</a>
                 </div>
                 
                 <div class="col-auto my-auto px-1">
