@@ -40,7 +40,7 @@
     .orderbook-display-split #orderbook-buy, .orderbook-display-split #orderbook-sell {
         height: var(--target-height-orderbook-side);
     }
-    
+
     .orderbook-display-bids #orderbook-buy, .orderbook-display-asks #orderbook-sell {
         height: var(--target-height-orderbook-side-sm) !important;
     }
@@ -67,8 +67,18 @@
         height: var(--target-height-orderbook-side-sm) !important;
     }
     
-    .orderbook-display-bids #orderbook-sell, .orderbook-display-asks #orderbook-buy {
+    .orderbook-display-bids .orderbook-wrapper-asks, .orderbook-display-asks .orderbook-wrapper-bids {
         display: none;
+    }
+    
+    .orderbook-display-split .orderbook-wrapper-bids, .orderbook-display-split .orderbook-wrapper-asks {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    
+    .orderbook-display-asks .orderbook-wrapper-asks, .orderbook-display-bids .orderbook-wrapper-bids {
+        flex: 0 0 auto;
+        width: 100%;
     }
     
     .orderbook-display-split .mobile-ob-col {
