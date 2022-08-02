@@ -143,3 +143,18 @@ $(document).on('pairSelected', function() {
         msgBoxNoConn(true);  
     }); 
 });
+
+$(document).ready(function() {
+    $('.orderbook-btn-display').on('click', function() {
+        var display = $(this).data('display');
+        
+        if(display == 'split') {
+            $('.orderbook-wrapper').show();
+        }
+        
+        else {
+            $('.orderbook-wrapper').hide();
+            $('.orderbook-wrapper[data-side="' + display + '"]').show();
+        }
+    });
+});
