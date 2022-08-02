@@ -404,9 +404,9 @@
                     </div>
                     
                     <div id="orderbook-middle" class="col-6 d-none d-lg-block order-3 order-lg-3 px-0 py-3">
-                        <a href="#_"><img src="/img/ob_split.svg"></a>
-                        <a href="#_"><img src="/img/ob_bids.svg"></a>
-                        <a href="#_"><img src="/img/ob_asks.svg"></a>
+                        <a href="#_"><img src="/img/ob_split.svg" width="16" height="16"></a>
+                        <a href="#_"><img src="/img/ob_bids.svg" width="16" height="16"></a>
+                        <a href="#_"><img src="/img/ob_asks.svg" width="16" height="16"></a>
                     </div>
                     
                     <div class="col-6 col-lg-12 p-0 pe-1 pe-lg-0 order-1 order-lg-4">
