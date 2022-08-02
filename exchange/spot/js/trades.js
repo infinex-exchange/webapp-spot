@@ -5,13 +5,16 @@ function renderTradesItem(data) {
     if(data.side == 'BUY') color = 'text-green';
     else color = 'text-red';
     
+    var bnAmount = new BigNumber(data.amount);
+    var strAmountSeparated = bnAmount.toFormat(window.currentBasePrecision);
+    
     return `
         <div class="trades-item row hoverable">
             <div class="col-4 ${color}">
                 ${data.price}
             </div>
             <div class="col-4 text-end">
-                ${data.amount}
+                ${strAmountSeparated}
             </div>
             <div class="col-4 text-end">
                 ${time}

@@ -8,6 +8,8 @@ function orderBookUpdate(side, row) {
     var bnAmount = new BigNumber(row.amount);
     var bnTotal = bnPrice.multipliedBy(bnAmount);
     var strTotal = bnTotal.toFixed(window.currentQuotePrecision);
+    var strTotalSeparated = bnTotal.toFormat(window.currentQuotePrecision);
+    var strAmountSeparated = bnAmount.toFormat(window.currentBasePrecision);
     
     var color = '';
     if(side == 'bid') color = 'text-green';
@@ -32,8 +34,8 @@ function orderBookUpdate(side, row) {
             price.removeClass('text-green text-red');
             price.addClass(color);
             price.html(row.price);
-            existing.find('.amount').html(row.amount);
-            existing.find('.total').html(strTotal);
+            existing.find('.amount').html(strAmountSeparated);
+            existing.find('.total').html(strTotalSeparated);
             existing.attr('data-total', strTotal);
             existing.css({"background-size": `calc(${strTotal} / var(--orderbook-total-max) * 100%) 100%`});
         }
@@ -49,10 +51,10 @@ function orderBookUpdate(side, row) {
                     ${row.price}
                 </div>
                 <div class="col-6 col-lg-4 amount text-end">
-                    ${row.amount}
+                    ${strAmountSeparated}
                 </div>
                 <div class="col-4 d-none d-lg-block total text-end">
-                    ${strTotal}
+                    ${strTotalSeparated}
                 </div>
             </div>
         `;
@@ -94,14 +96,7 @@ function orderBookUpdate(side, row) {
 
 function orderBookClick(row) {
     if(window.orderType == 'MARKET') return;
-    
-    if($(row).attr('data-side') == 'bid') {
-        $('#form-sell-price').data('rval', $(row).attr('data-price')).trigger('setVal');
-    }
-    
-    else {
-        $('#form-buy-price').data('rval', $(row).attr('data-price')).trigger('setVal');
-    }
+    $('.form-price').data('rval', $(row).attr('data-price')).trigger('setVal');
 }
 
 $(document).on('pairSelected', function() {
