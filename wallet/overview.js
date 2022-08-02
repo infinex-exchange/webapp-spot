@@ -64,10 +64,10 @@ $(document).on('authChecked', function() {
                                         ${v.locked} ${k}
                                     </div>
                                     <div class="my-auto d-none d-lg-block" style="width: 24%">
-                                        <a href="/wallet/deposit/${k}" class="link-ultra">Deposit</a>
-                                        <a href="/wallet/withdraw/${k}" class="link-ultra">Withdraw</a>
-                                        <a href="/wallet/transfer/${k}" class="link-ultra">Transfer</a>
-                                        <a href="#_" class="link-ultra">Trade</a>
+                                        <a href="/wallet/deposit/${k}" class="small link-ultra px-1">Deposit</a>
+                                        <a href="/wallet/withdraw/${k}" class="small link-ultra px-1">Withdraw</a>
+                                        <a href="/wallet/transfer/${k}" class="small link-ultra px-1">Transfer</a>
+                                        <a href="#_" class="small link-ultra px-1">Trade</a>
                                     </div>
                                 </div>
                             `);
