@@ -387,7 +387,7 @@
                             <div class="mobile-ob-col col-lg-4 text-end">
                                 <h6>Amount</h6>
                             </div>
-                            <div class="mobile-ob-col col-lg-4 text-end">
+                            <div class="mobile-ob-col col-lg-4 text-end total">
                                 <h6>Total</h6>
                             </div>
                         </div>
@@ -420,7 +420,7 @@
                             <div class="mobile-ob-col col-lg-4 text-end">
                                 <h6>Amount</h6>
                             </div>
-                            <div class="mobile-ob-col col-lg-4 text-end">
+                            <div class="mobile-ob-col col-lg-4 text-end total">
                                 <h6>Total</h6>
                             </div>
                         </div>
