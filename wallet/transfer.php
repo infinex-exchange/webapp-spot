@@ -45,8 +45,9 @@
                 <form id="transfer-form">
                     <div class="row">
                         <div class="col-12 col-lg-6 py-2">
-                            <label for="transfer-email">E-mail:</label>
-                            <small id="help-email" class="form-text" style="display: none">E-mail is invalid</small>
+                            <label for="transfer-address">E-mail:</label>
+                            <input type="text" class="form-control" id="transfer-address">
+                            <small id="help-address" class="form-text" style="display: none">E-mail is invalid</small>
                         </div>
                         
                         <div class="col-12 col-lg-6 py-2">
