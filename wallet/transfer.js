@@ -223,7 +223,7 @@ $(document).on('authChecked', function() {
     if(window.loggedIn) {
         var txHistoryData = {
             api_key: window.apiKey,
-            type: 'TRANSFER_OUT'
+            type: ['TRANSFER_IN', 'TRANSFER_OUT']
         };
         initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true, true);
         
