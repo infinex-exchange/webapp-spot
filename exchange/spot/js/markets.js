@@ -46,6 +46,21 @@ function liveMarketItem(data) {
     changeDiv.addClass(color);
 }
 
+function applySpotConfig(data) {
+    $.each(data.quotes, function() {
+        $('#markets-quotes').append(`
+            <a class="markets-filter-btn nav-link" href="#_" data-quote="${this}"
+                onClick="filterMarketsByQuote('${this}')">${this}</a>
+        `);
+    });
+    
+    window.defaultPair = data.default_pair;
+    $(document).trigger('prePairSelected');
+    
+    // Now it's time to run AjaxScroll
+    filterMarketsByQuote(data.quotes[0]);
+}
+
 $(document).on('wsConnected', function() {   
     // Set rendering stages target
     
@@ -182,36 +197,38 @@ $(document).on('wsConnected', function() {
     
     // Get quotes orders and default pair
     
-    $.ajax({
-        url: config.apiUrl + '/spot/config',
-        type: 'POST',
-        data: JSON.stringify({}),
-        contentType: "application/json",
-        dataType: "json",
-    })
-    .retry(config.retry)
-    .done(function (data) {
-        if(data.success) {
-            $.each(data.quotes, function() {
-                $('#markets-quotes').append(`
-                    <a class="markets-filter-btn nav-link" href="#_" data-quote="${this}"
-                        onClick="filterMarketsByQuote('${this}')">${this}</a>
-                `);
-            });
-            
-            window.defaultPair = data.default_pair;
-            $(document).trigger('prePairSelected');
-            
-            // Now it's time to run AjaxScroll
-            filterMarketsByQuote(data.quotes[0]);
-        }
-        else {
-            msgBoxRedirect(data.error);
-        }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(true); 
-    });
+    var lsConfig = localStorage.getItem("spotConfigCache");
+    var lsConfigTimestamp = localStorage.getItem("spotConfigTimestamp")
+    
+    if(lsConfig !== null &&
+       lsConfigTimestamp !== null &&
+       lsConfigTimestamp > Date.now() - 604800000)
+    {
+        applySpotConfig(JSON.parse(lsConfig));
+    }
+    else { 
+        $.ajax({
+            url: config.apiUrl + '/spot/config',
+            type: 'POST',
+            data: JSON.stringify({}),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                localStorage.setItem("spotConfigCache", JSON.serialize(data));
+                localStorage.setItem("spotConfigTimestamp", Date.now());
+                applySpotConfig(data);
+            }
+            else {
+                msgBoxRedirect(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(true); 
+        });
+    }
 });
 
 $(document).on('prePairSelected', function() {
