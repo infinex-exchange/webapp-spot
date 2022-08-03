@@ -392,33 +392,9 @@ $(document).on('authChecked', function() {
         
         var pathArray = window.location.pathname.split('/');
         var pathLast = pathArray[pathArray.length - 1];
-        if(pathLast != 'withdraw' && pathLast != '') {
+        if(pathLast != 'transfer' && pathLast != '') {
             var symbol = pathLast.toUpperCase();
-            $.ajax({
-                url: config.apiUrl + '/wallet/assets',
-                type: 'POST',
-                data: JSON.stringify({
-                    symbols: [symbol]
-                }),
-                contentType: "application/json",
-                dataType: "json",
-            })
-            .retry(config.retry)
-            .done(function (data) {
-                if(data.success) {
-                    $('#select-coin').val(symbol);
-                    $('#select-coin').trigger('change');
-                } else {
-                    msgBox(data.error);
-                }
-                $(document).trigger('renderingStage');
-            })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                msgBoxNoConn(false);
-                $(document).trigger('renderingStage');
-            });
-        } else {
-            $(document).trigger('renderingStage');
+            $('#select-coin').val(symbol).trigger('change');
         }
     }
 });
