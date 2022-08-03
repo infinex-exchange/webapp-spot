@@ -93,7 +93,7 @@ $(document).ready(function() {
         var perc = 0;
         if(!amount.isNaN())
             perc = amount.dividedBy(window.transferBalance).multipliedBy(100).toFixed(0);
-        $('#withdraw-amount-range').val(perc).trigger('_input');
+        $('#transfer-amount-range').val(perc).trigger('_input');
     });
     
     // Amount range -> amount input
@@ -144,13 +144,13 @@ $(document).ready(function() {
     
     // Validate memo
     $('#transfer-memo').on('input', function() {
-        if(!data.valid_memo) {
-          window.validMemo = false;
-            $('#help-memo').show();
+        if(validateTransferMessage($(this).val())) {
+            window.validMemo = true;
+            $('#help-memo').hide();
         }
         else {
-          window.validMemo = true;
-            $('#help-memo').hide();
+            window.validMemo = false;
+            $('#help-memo').show();
         }
     });
     
@@ -178,21 +178,15 @@ $(document).ready(function() {
         var data = new Object();
         data['api_key'] = window.apiKey;
         data['asset'] = $('#select-coin').val();
-        data['network'] = $('#select-net').data('network');
         data['address'] = address;
-        data['amount'] = amount.toFixed(window.wdAmountPrec);
-        data['fee'] = fee.toFixed(window.wdAmountPrec);
+        data['amount'] = amount.toFixed(window.transferAmountPrec);
         
         var memo = $('#transfer-memo').val();
         if(memo != '')
             data['memo'] = memo;
         
-        if(adbkSave)
-	        data['adbk_name'] = adbkName;
-        
         if(!window.validAddress ||
-           (memo != '' && !window.validMemo) ||
-           (adbkSave && !window.validAdbkName))
+           (memo != '' && !window.validMemo))
         {
 	        msgBox('Fill the form correctly');
 	        return;
@@ -200,7 +194,7 @@ $(document).ready(function() {
             
         // Post
         $.ajax({
-            url: config.apiUrl + '/wallet/withdraw',
+            url: config.apiUrl + '/wallet/transfer',
             type: 'POST',
             data: JSON.stringify(data),
             contentType: "application/json",
@@ -209,9 +203,8 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                $('#withdraw-step2').hide();
-                $('#withdraw-step3').hide();
-                window.latestWithdrawalXid = data.xid;
+                $('#transfer-step2').hide();
+                window.latestTransferXid = data.xid;
                 updateTxHistory();
             }
             else {
@@ -244,10 +237,10 @@ $(document).on('authChecked', function() {
 });
 
 $(document).on('newWalletTransaction', function() {
-    if(typeof(window.latestWithdrawalXid) === 'undefied')
+    if(typeof(window.latestTransferXid) === 'undefied')
         return;
     
-    var newItem = $('.tx-history-item[data-xid="' + window.latestWithdrawalXid + '"]');
+    var newItem = $('.tx-history-item[data-xid="' + window.latestTransferXid + '"]');
     if(newItem.length)
         mobileTxDetails(newItem);
 });
