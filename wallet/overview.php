@@ -140,6 +140,7 @@
                     <div class="modal-footer">
                         <a href="#" id="mad-deposit" class="btn btn-primary">Deposit</a>
                         <a href="#" id="mad-withdraw" class="btn btn-primary">Withdraw</a>
+                        <a href="#" id="mad-transfer" class="btn btn-primary">Transfer</a>
                     </div>
                 </div>
             </div>

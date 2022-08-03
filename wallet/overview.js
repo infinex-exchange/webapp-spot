@@ -67,7 +67,6 @@ $(document).on('authChecked', function() {
                                         <a href="/wallet/deposit/${k}" class="small link-ultra px-1"><strong>Deposit</strong></a>
                                         <a href="/wallet/withdraw/${k}" class="small link-ultra px-1"><strong>Withdraw</strong></a>
                                         <a href="/wallet/transfer/${k}" class="small link-ultra px-1"><strong>Transfer</strong></a>
-                                        <a href="#_" class="small link-ultra px-1"><strong>Trade</strong></a>
                                     </div>
                                 </div>
                             `);
@@ -104,8 +103,6 @@ $(document).on('authChecked', function() {
 });
 
 function mobileAssetDetails(item) {
-    if($(window).width() > 991) return;
-    
     $('#mad-icon').attr('src', $(item).data('icon'));
     $('#mad-name').html($(item).data('name'));
     $('#mad-total').html($(item).data('total') + ' ' + $(item).data('symbol'));;
@@ -113,6 +110,7 @@ function mobileAssetDetails(item) {
     $('#mad-locked').html($(item).data('locked') + ' ' + $(item).data('symbol'));
     $('#mad-deposit').attr('href', '/wallet/deposit/' + $(item).data('symbol'));
     $('#mad-withdraw').attr('href', '/wallet/withdraw/' + $(item).data('symbol'));
+    $('#mad-transfer').attr('href', '/wallet/transfer/' + $(item).data('symbol'));
     
     $('#modal-mobile-asset-details').modal('show');
 }
