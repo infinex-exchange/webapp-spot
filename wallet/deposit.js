@@ -1,6 +1,10 @@
 $(document).ready(function() {
     window.renderingStagesTarget = 2;
     
+    $('#select-coin').on('dataLoaded', function() {
+        $(document).trigger('renderingStage');
+    });
+    
     $('#select-coin').on('change', function() {
         $('#deposit-step2').hide();
         $('#deposit-step3').hide();
@@ -99,31 +103,7 @@ $(document).on('authChecked', function() {
         var pathLast = pathArray[pathArray.length - 1];
         if(pathLast != 'deposit' && pathLast != '') {
             var symbol = pathLast.toUpperCase();
-            $.ajax({
-                url: config.apiUrl + '/wallet/assets',
-                type: 'POST',
-                data: JSON.stringify({
-                    symbols: [symbol]
-                }),
-                contentType: "application/json",
-                dataType: "json",
-            })
-            .retry(config.retry)
-            .done(function (data) {
-                if(data.success) {
-                    $('#select-coin').val(symbol);
-                    $('#select-coin').trigger('change');
-                } else {
-                    msgBox(data.error);
-                }
-                $(document).trigger('renderingStage');
-            })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                msgBoxNoConn(false);
-                $(document).trigger('renderingStage');
-            });
-        } else {
-            $(document).trigger('renderingStage');
+            $('#select-coin').val(symbol).trigger('change');
         }
     }
 });
