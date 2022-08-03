@@ -38,8 +38,9 @@ $(document).ready(function() {
                 // Round raw balance to this precision
                 console.log(data.balances[asset].avbl);
                 window.transferBalance = new BigNumber(data.balances[asset].avbl);
-                console.log(window.transferBalance);
+                console.log(window.transferBalance.toString());
                 window.transferBalance = window.transferBalance.dp(data.max_prec, BigNumber.ROUND_DOWN);
+                console.log(window.transferBalance.toString());
                 $('#transfer-balance').html(window.transferBalance.toString());
                 
                 $('#transfer-step2').show();
