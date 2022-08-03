@@ -364,7 +364,7 @@ function renderHistoryTrade(data, inOrder) {
     return html;
 }
 
-$(document).on('authChecked pairSelected redneringComplete', function() {
+$(document).on('authChecked pairSelected renderingComplete', function() {
     if(typeof(window.multiEvents['authChecked']) == 'undefined' ||
        typeof(window.multiEvents['pairSelected']) == 'undefined' ||
        typeof(window.multiEvents['renderingComplete']) == 'undefined'
