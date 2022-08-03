@@ -30,9 +30,10 @@ $(document).on('themeInitialized pairSelected', function() {
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
     });
     
+    $(document).trigger('renderingStage'); // 8
+    
     window.tvWidget.onChartReady(function() {
         $(document).trigger('tradingViewReady');
-        $(document).trigger('renderingStage'); // 8
     });
     
 });

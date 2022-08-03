@@ -398,9 +398,6 @@ $(document).on('authChecked pairSelected', function() {
             
             thisAS.done();
             
-            if(thisAS.offset == 0)
-                $(document).trigger('renderingStage'); // 5
-            
             if(data.orders.length != 50)
                 thisAS.noMoreData(); 
         }
@@ -451,9 +448,6 @@ $(document).on('authChecked pairSelected', function() {
             
             thisAS.done();
             
-            if(thisAS.offset == 0)
-                $(document).trigger('renderingStage'); // 6
-            
             if(data.orders.length != 50)
                 thisAS.noMoreData(); 
         }
@@ -503,9 +497,6 @@ $(document).on('authChecked pairSelected', function() {
             
             thisAS.done();
             
-            if(thisAS.offset == 0)
-                $(document).trigger('renderingStage');
-            
             if(data.trades.length != 50)
                 thisAS.noMoreData(); 
         }
@@ -527,10 +518,6 @@ $(document).on('authChecked pairSelected', function() {
         );
         
         // -------------------- END OF AS --------------------
-    } else {
-        $(document).trigger('renderingStage'); // 5
-        $(document).trigger('renderingStage'); // 6
-        $(document).trigger('renderingStage');
     }
 	
     // Swipe left right to navigate between tabs
