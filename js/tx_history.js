@@ -8,8 +8,8 @@ var txTypeIconDict = {
 var txTypeDict = {
     DEPOSIT: 'Deposit',
     WITHDRAWAL: 'Withdrawal',
-    TRANSFER_IN: 'Transfer (incoming)',
-    TRANSFER_OUT: 'Transfer (outgoing)'
+    TRANSFER_IN: 'Incoming transfer',
+    TRANSFER_OUT: 'Outgoing transfer'
 };
 
 var txStatusIconDict = {
