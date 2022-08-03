@@ -217,7 +217,7 @@ $(document).on('wsConnected', function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                localStorage.setItem("spotConfigCache", JSON.serialize(data));
+                localStorage.setItem("spotConfigCache", JSON.stringify(data));
                 localStorage.setItem("spotConfigTimestamp", Date.now());
                 applySpotConfig(data);
             }
