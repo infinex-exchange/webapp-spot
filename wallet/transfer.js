@@ -1,6 +1,10 @@
 $(document).ready(function() {
     window.renderingStagesTarget = 2;
     
+    $('#select-coin').on('dataLoaded', function() {
+        $(document).trigger('renderingStage');
+    });
+    
     // Download balance and init net selector when coin selected
     $('#select-coin').on('change', function() {
         $('#transfer-step2').hide();

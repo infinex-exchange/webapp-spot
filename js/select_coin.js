@@ -62,6 +62,8 @@ function initSelectCoin(endpoint = '/wallet/assets') {
                         `);
                     });
                     
+                    $('#select-coin').trigger('dataLoaded');
+                    
                     $('.select-coin-item').on('click', function(event) {
                         $('#select-coin').val($(this).attr('data-asset'));
                         $('#select-coin').trigger('change');
