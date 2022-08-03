@@ -223,49 +223,6 @@ $(document).ready(function() {
         });
     });
     
-    
-    
-    
-    // Expand save name
-    $('#withdraw-save').on('change', function() {
-        if (this.checked) {
-            $('#withdraw-save-wrapper').addClass('ui-card-light');
-            $('#withdraw-save-expand').show(); 
-        } else {
-            $('#withdraw-save-expand').hide();
-            $('#withdraw-save-wrapper').removeClass('ui-card-light');
-            $('#withdraw-save-name').val('');
-            window.validAdbkName = false;
-            $('#help-save-name').hide();
-        }
-    });
-    
-    // Hide save controls if already in adbk
-    $('#select-adbk, #withdraw-memo').on('input', function() {
-        var addr = $('#select-adbk').val();
-        var memo = $('#withdraw-memo').val();
-        
-        if($('.select-adbk-item[data-address="' + addr + '"][data-memo="' + memo + '"]').length) {
-            $('#withdraw-save-wrapper').hide();
-            $('#withdraw-save').prop('checked', false).trigger('change');
-        }
-        else {
-            $('#withdraw-save-wrapper').show();
-        }
-    });
-    
-    // Validate save name
-    $('#withdraw-save-name').on('input', function() {
-	    if(validateAdbkName($(this).val())) {
-		    window.validAdbkName = true;
-		    $('#help-save-name').hide();
-	    }
-	    else {
-		    window.validAdbkName = false;
-		    $('#help-save-name').show();
-	    }
-    });
-    
     initSelectCoin();
 });
 
