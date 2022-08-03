@@ -92,13 +92,13 @@ $(document).ready(function() {
         var amount = new BigNumber($(this).data('val'));
         var perc = 0;
         if(!amount.isNaN())
-            perc = amount.dividedBy(window.transferAmountMax).multipliedBy(100).toFixed(0);
+            perc = amount.dividedBy(window.transferBalance).multipliedBy(100).toFixed(0);
         $('#withdraw-amount-range').val(perc).trigger('_input');
     });
     
     // Amount range -> amount input
     $('#transfer-amount-range').on('input', function() {
-        var amount = window.transferAmountMax.
+        var amount = window.transferBalance.
             multipliedBy( $(this).val() ).
             dividedBy(100).
             dp(window.transferAmountPrec).
@@ -114,12 +114,12 @@ $(document).ready(function() {
     // Drop amount to available balance
     $('#transfer-amount').on('prevalidated', function() {
         var amount = new BigNumber($(this).data('val'));
-        if(amount.gt(window.transferAmountMax)) {
+        if(amount.gt(window.transferBalance)) {
             $('#transfer-amount, #transfer-balance').addClass('blink-red');
             setTimeout(function() {
                 $('#transfer-amount, #transfer-balance').removeClass('blink-red');
                 
-                var max = window.transferAmountMax.toString();
+                var max = window.transferBalance.toString();
                 $('#transfer-amount').data('val', max)
                                     .val(max)
                                     .trigger('prevalidated');
