@@ -11,7 +11,7 @@ $(document).ready(function() {
         var asset = $('#select-coin').val();
         
          $.ajax({
-            url: config.apiUrl + '/wallet/balances',
+            url: config.apiUrl + '/wallet/balances_ex',
             type: 'POST',
             data: JSON.stringify({
                 api_key: window.apiKey,
@@ -23,12 +23,9 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                window.wdRawBalance = new BigNumber(data.balances[asset].avbl);
-                
                 // Reset validation variables
                 window.validAddress = false;
                 window.validMemo = false;
-                window.validAdbkName = false;
                 
                 // Reset form
                 $('#transfer-form').get(0).reset();
@@ -36,47 +33,14 @@ $(document).ready(function() {
                 $('#transfer-amount').data('val', '').val('').trigger('prevalidated');
                 
                 // Precision
-                window.wdAmountPrec = data.prec;
+                window.transferAmountPrec = data.max_prec;
                 
                 // Round raw balance to this precision
-                window.wdBalance = window.wdRawBalance.dp(data.prec, BigNumber.ROUND_DOWN);
-                $('#withdraw-balance').html(window.wdBalance.toString());
+                windows.transferBalance = new BigNumber(data.balances[asset].avbl);
+                window.transferBalance = window.transferBalance.dp(data.max_prec, BigNumber.ROUND_DOWN);
+                $('#transfer-balance').html(window.transferBalance.toString());
                 
-                // Min and max fee
-                var feeMinDec = new BigNumber(data.fee_min);
-                var feeMaxDec = new BigNumber(data.fee_max);
-                var dp = Math.max(feeMinDec.dp(), feeMaxDec.dp());
-                var feeStep = new BigNumber(10);
-                feeStep = feeStep.pow(-dp).dp(dp).toString();
-                
-                $('#withdraw-fee-range').attr('min', data.fee_min)
-                                        .attr('max', data.fee_max)
-                                        .attr('step', feeStep)
-                                        .val(data.fee_min)
-                                        .trigger('input');
-                
-                // Memo
-                if(typeof(data.memo_name) !== 'undefined') {
-                    $('#withdraw-memo-name').html(data.memo_name + ':');
-                    $('#withdraw-memo-wrapper').removeClass('d-none');
-                }
-                else {
-                    $('#withdraw-memo-wrapper').addClass('d-none');
-                }
-                
-                // Contract
-                if(typeof(data.contract) !== 'undefined') {
-                    $('#withdraw-contract').html(data.contract);
-                    $('#withdraw-contract-wrapper').removeClass('d-none');
-                }
-                else {
-                    $('#withdraw-contract-wrapper').addClass('d-none');
-                }
-                
-                $('#withdraw-step3').show();
-                $('html, body').animate({
-                    scrollTop: $("#withdraw-step3").offset().top
-                }, 1000);
+                $('#transfer-step2').show();
             } else {
                 msgBox(data.error);
             }
@@ -88,23 +52,10 @@ $(document).ready(function() {
     
     
     
-    
-    // Fee range -> fee input
-    $('#withdraw-fee-range').on('input', function() {
-        window.wdAmountMax = window.wdBalance.minus( $(this).val() ).dp(window.wdAmountPrec);
-        if(window.wdAmountMax.isNegative())
-	        window.wdAmountMax = new BigNumber(0);
-        $('#withdraw-amount-max').html(window.wdAmountMax.toString());
-        $('#withdraw-fee').val($(this).val());
-        $('#withdraw-amount').trigger('prevalidated');
-    });
-    
-    
-    
-    
+     
     // Lock format and precision of amount input
-    $('#withdraw-amount').on('input', function () {
-        var regex = new RegExp("^[0-9]*(\\.[0-9]{0," + window.wdAmountPrec + "})?$");
+    $('#transfer-amount').on('input', function () {
+        var regex = new RegExp("^[0-9]*(\\.[0-9]{0," + window.transferAmountPrec + "})?$");
         var newVal = $(this).val();
         
         // Revert bad format (real visible value)
@@ -129,7 +80,7 @@ $(document).ready(function() {
     });
     
     // Move data-val to real visible value
-    $('#withdraw-amount').on('focusout', function() {
+    $('#transfer-amount').on('focusout', function() {
         $(this).val( $(this).data('val') );
     });
     
@@ -137,23 +88,23 @@ $(document).ready(function() {
     
     
     // Amount input -> amount range
-    $('#withdraw-amount').on('prevalidated', function() {
+    $('#transfer-amount').on('prevalidated', function() {
         var amount = new BigNumber($(this).data('val'));
         var perc = 0;
         if(!amount.isNaN())
-            perc = amount.dividedBy(window.wdAmountMax).multipliedBy(100).toFixed(0);
+            perc = amount.dividedBy(window.transferAmountMax).multipliedBy(100).toFixed(0);
         $('#withdraw-amount-range').val(perc).trigger('_input');
     });
     
     // Amount range -> amount input
-    $('#withdraw-amount-range').on('input', function() {
-        var amount = window.wdAmountMax.
+    $('#transfer-amount-range').on('input', function() {
+        var amount = window.transferAmountMax.
             multipliedBy( $(this).val() ).
             dividedBy(100).
-            dp(window.wdAmountPrec).
+            dp(window.transferAmountPrec).
             toString();
         
-        $('#withdraw-amount').data('val', amount)
+        $('#transfer-amount').data('val', amount)
                              .val(amount);
     });
     
@@ -161,15 +112,15 @@ $(document).ready(function() {
     
     
     // Drop amount to available balance
-    $('#withdraw-amount').on('prevalidated', function() {
+    $('#transfer-amount').on('prevalidated', function() {
         var amount = new BigNumber($(this).data('val'));
-        if(amount.gt(window.wdAmountMax)) {
-            $('#withdraw-amount, #withdraw-amount-max').addClass('blink-red');
+        if(amount.gt(window.transferAmountMax)) {
+            $('#transfer-amount, #transfer-balance').addClass('blink-red');
             setTimeout(function() {
-                $('#withdraw-amount, #withdraw-amount-max').removeClass('blink-red');
+                $('#transfer-amount, #transfer-balance').removeClass('blink-red');
                 
-                var max = window.wdAmountMax.toString();
-                $('#withdraw-amount').data('val', max)
+                var max = window.transferAmountMax.toString();
+                $('#transfer-amount').data('val', max)
                                     .val(max)
                                     .trigger('prevalidated');
             }, 1000);
@@ -180,116 +131,48 @@ $(document).ready(function() {
     
     
     // Validate address
-    $('#select-adbk').on('input', function() {
-        if(typeof(window.addrTypingTimeout) !== 'undefined')
-            clearTimeout(window.addrTypingTimeout);
-        window.addrTypingTimeout = setTimeout(function() {
-            
-            $.ajax({
-                url: config.apiUrl + '/wallet/withdraw/validate',
-                type: 'POST',
-                data: JSON.stringify({
-                    api_key: window.apiKey,
-                    asset: $('#select-coin').val(),
-                    network: $('#select-net').data('network'),
-                    address: $('#select-adbk').val()
-                }),
-                contentType: "application/json",
-                dataType: "json",
-            })
-            .retry(config.retry)
-            .done(function (data) {
-                if(!data.success) {
-                    msgBox(data.error);
-                }
-                else if(!data.valid_address) {
-	                window.validAddress = false;
-                    $('#help-address').show();
-                }
-                else {
-	                window.validAddress = true;
-                    $('#help-address').hide();
-                }
-            })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                msgBoxNoConn(false);
-            });
-            
-        }, 750);
+    $('#transfer-address').on('input', function() {
+        if(validateEmail($(this).val())) {
+	        window.validAddress = true;
+            $('#help-address').hide();
+        }
+        else {
+	        window.validAddress = false;
+            $('#help-address').show();
+        }
     });
     
     // Validate memo
-    $('#withdraw-memo').on('input', function() {
-        if(typeof(window.memoTypingTimeout) !== 'undefined')
-            clearTimeout(window.memoTypingTimeout);
-        window.memoTypingTimeout = setTimeout(function() {
-            if($('#withdraw-memo').val() == '') {
-                window.validMemo = false;
-                $('#help-memo').hide();
-                return;
-            }
-            
-            $.ajax({
-                url: config.apiUrl + '/wallet/withdraw/validate',
-                type: 'POST',
-                data: JSON.stringify({
-                    api_key: window.apiKey,
-                    asset: $('#select-coin').val(),
-                    network: $('#select-net').data('network'),
-                    memo: $('#withdraw-memo').val()
-                }),
-                contentType: "application/json",
-                dataType: "json",
-            })
-            .retry(config.retry)
-            .done(function (data) {
-                if(!data.success) {
-                    msgBox(data.error);
-                }
-                else if(!data.valid_memo) {
-	                window.validMemo = false;
-                    $('#help-memo').show();
-                }
-                else {
-	                window.validMemo = true;
-                    $('#help-memo').hide();
-                }
-            })
-            .fail(function (jqXHR, textStatus, errorThrown) {
-                msgBoxNoConn(false);
-            });
-            
-        }, 750);
+    $('#transfer-memo').on('input', function() {
+        if(!data.valid_memo) {
+          window.validMemo = false;
+            $('#help-memo').show();
+        }
+        else {
+          window.validMemo = true;
+            $('#help-memo').hide();
+        }
     });
     
     
     
     
     // Submit withdraw
-    $('#withdraw-form').on('submit', function(event) {
+    $('#transfer-form').on('submit', function(event) {
         // Prevent standard submit
         event.preventDefault();
         
         // Validate data
-        var address = $('#select-adbk').val();
+        var address = $('#transfer-address').val();
         if(address == '') {
             msgBox('Missing address');
             return;
         }
         
-        var amount = new BigNumber($('#withdraw-amount').data('val'));
+        var amount = new BigNumber($('#transfer-amount').data('val'));
         if(amount.isNaN() || amount.isZero()) {
             msgBox('Missing amount');
             return;
-        }
-        
-        var fee = new BigNumber($('#withdraw-fee').val());
-        
-        var adbkSave = $('#withdraw-save').prop('checked');
-        var adbkName = $('#withdraw-save-name').val();
-        if(adbkSave && adbkName == '') {
-	        msgBox('Missing saved address name');
-	        return;
         }
         
         var data = new Object();
@@ -300,7 +183,7 @@ $(document).ready(function() {
         data['amount'] = amount.toFixed(window.wdAmountPrec);
         data['fee'] = fee.toFixed(window.wdAmountPrec);
         
-        var memo = $('#withdraw-memo').val();
+        var memo = $('#transfer-memo').val();
         if(memo != '')
             data['memo'] = memo;
         
