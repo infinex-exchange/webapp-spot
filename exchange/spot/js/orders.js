@@ -364,8 +364,12 @@ function renderHistoryTrade(data, inOrder) {
     return html;
 }
 
-$(document).on('authChecked pairSelected', function() {
-    if(typeof(window.multiEvents['authChecked']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
+$(document).on('authChecked pairSelected redneringComplete', function() {
+    if(typeof(window.multiEvents['authChecked']) == 'undefined' ||
+       typeof(window.multiEvents['pairSelected']) == 'undefined' ||
+       typeof(window.multiEvents['renderingComplete']) == 'undefined'
+    )
+        return;
     
     if(window.loggedIn) {
         // -------------------- OPEN ORDERS AS --------------------
