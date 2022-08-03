@@ -81,6 +81,22 @@
                     </div>
                         
                 </form>
+                
+                <div class="row py-2">
+                    <div class="col-12">
+                        <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
+                            <div class="px-2">
+                                <i class="fa-solid fa-spell-check fa-2x"></i>
+                            </div>
+                            <div class="px-2">
+                                Make sure the recipient's e-mail address is correct!<br>
+                                Transfers to invalid e-mail addresses will also be made to make it impossible to use this form
+                                to verify that someone else has an account on Vayamos.<br>
+                                In case of a mistake, it is possible to recover the funds by contacting the support.
+                            </div>
+                        </div>
+                    </div>    
+                </div>
             </div>
         
         <!-- / Main column -->
