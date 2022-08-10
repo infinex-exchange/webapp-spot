@@ -76,10 +76,8 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item secondary">
-                    <a href="#_">
-                        <i class="fa-solid fa-percent"></i>
-                        Fees
-                    </a>
+                    <i class="fa-solid fa-percent"></i>
+                    Fees
                 </li>
             </ul>
         </nav>
