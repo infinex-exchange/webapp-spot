@@ -623,7 +623,7 @@
                                 <h5>Maker fee:</h5>
                             </div>
                             <div class="col-6 text-end">
-                                <span id="mf-maker"></span>
+                                <span id="mf-maker"></span>%
                             </div>
                         </div>
                         <div class="row py-2">
@@ -631,12 +631,12 @@
                                 <h5>Taker fee:</h5>
                             </div>
                             <div class="col-6 text-end">
-                                <span id="mf-taker"></span>
+                                <span id="mf-taker"></span>%
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="/info/fees" class="btn btn-primary">More info</a>
+                        <a href="/info/fees" target="_blank" class="btn btn-primary">More info</a>
                         <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
