@@ -75,17 +75,11 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropup dropdown-on-hover">
-                    <a href="#_" class="nav-link secondary py-0" data-bs-toggle="dropdown">
+                <li class="nav-item">
+                    <a id="btn-statusbar-fees" href="#_" class="nav-link secondary py-0">
                         <i class="fa-solid fa-percent"></i>
                         Fees
                     </a>
-                    <div class="dropdown-menu">
-                        aaaaaaa<br>
-                        aaaaaaa<br>
-                        aaaaaaa<br>
-                        aaaaaaa
-                    </div>
                 </li>
             </ul>
         </nav>
@@ -608,6 +602,47 @@
         
         <?php include('../../templates/modals.php'); ?>
         
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-fees">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Fees</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Fee level:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="mf-level"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Maker fee:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="mf-maker"></span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col-6">
+                                <h5>Taker fee:</h5>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span id="mf-taker"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/info/fees" class="btn btn-primary">More info</a>
+                        <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <script type="text/javascript" src="/spot/js/js_sizing.js?<?php echo filemtime(__DIR__.'/js/js_sizing.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/streams.js?<?php echo filemtime(__DIR__.'/js/streams.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/markets.js?<?php echo filemtime(__DIR__.'/js/markets.js'); ?>"></script>
@@ -618,5 +653,6 @@
         <script type="text/javascript" src="/spot/js/orders.js?<?php echo filemtime(__DIR__.'/js/orders.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/trading_form.js?<?php echo filemtime(__DIR__.'/js/trading_form.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/notifications.js?<?php echo filemtime(__DIR__.'/js/notifications.js'); ?>"></script>
+        <script type="text/javascript" src="/spot/js/fees.js?<?php echo filemtime(__DIR__.'/js/fees.js'); ?>"></script>
     </body>
 </html>
