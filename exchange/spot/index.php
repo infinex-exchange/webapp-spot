@@ -75,7 +75,7 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item secondary">
+                <li class="nav-link secondary">
                     <i class="fa-solid fa-percent"></i>
                     Fees
                 </li>
