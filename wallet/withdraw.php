@@ -99,6 +99,20 @@
                         </div>
                     </div>
                     
+                    <div class="row d-none" id="withdraw-internal-notice">
+                        <div class="col-12 py-2">
+                            <div class="alert alert-success d-flex align-items-center" role="alert">
+                                <div class="px-2">
+                                    <i class="fa-solid fa-people-arrows fa-2x"></i>
+                                </div>
+                                <div class="px-2">
+                                    This is the deposit address of another Vayamos user.<br>
+                                    Withdrawal will be processed internally and you will not pay any fee.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="row">
                         <div class="col-12 col-lg-6 py-2 order-lg-1">
                             <label for="withdraw-amount">Amount:</label>

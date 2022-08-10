@@ -1,3 +1,17 @@
+function updateFees(feeMin, feeMax) {
+    var feeMinDec = new BigNumber(feeMin);
+    var feeMaxDec = new BigNumber(feeMax);
+    var dp = Math.max(feeMinDec.dp(), feeMaxDec.dp());
+    var feeStep = new BigNumber(10);
+    feeStep = feeStep.pow(-dp).dp(dp).toString();
+    
+    $('#withdraw-fee-range').attr('min', feeMin)
+                            .attr('max', feeMax)
+                            .attr('step', feeStep)
+                            .val(feeMin)
+                            .trigger('input');
+}
+
 $(document).ready(function() {
     window.renderingStagesTarget = 2;
     
@@ -84,18 +98,9 @@ $(document).ready(function() {
                 window.wdBalance = window.wdRawBalance.dp(data.prec, BigNumber.ROUND_DOWN);
                 $('#withdraw-balance').html(window.wdBalance.toString());
                 
-                // Min and max fee
-                var feeMinDec = new BigNumber(data.fee_min);
-                var feeMaxDec = new BigNumber(data.fee_max);
-                var dp = Math.max(feeMinDec.dp(), feeMaxDec.dp());
-                var feeStep = new BigNumber(10);
-                feeStep = feeStep.pow(-dp).dp(dp).toString();
-                
-                $('#withdraw-fee-range').attr('min', data.fee_min)
-                                        .attr('max', data.fee_max)
-                                        .attr('step', feeStep)
-                                        .val(data.fee_min)
-                                        .trigger('input');
+                window.wdFeeMinOrig = data.fee_min;
+                window.wdFeeMaxOrig = data.fee_max;
+                updateFees(data.fee_min, data.fee_max);
                 
                 // Memo
                 if(typeof(data.memo_name) !== 'undefined') {
@@ -251,6 +256,15 @@ $(document).ready(function() {
                 else {
 	                window.validAddress = true;
                     $('#help-address').hide();
+                }
+                
+                if(window.validAddress && data.internal) {
+                    updateFees('0', '0');
+                    $('#withdraw-internal-notice').removeClass('d-none');
+                }
+                else {
+                    updateFees(window.wdFeeMinOrig, window.wdFeeMaxOrig);
+                    $('#withdraw-internal-notice').addClass('d-none');
                 }
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
