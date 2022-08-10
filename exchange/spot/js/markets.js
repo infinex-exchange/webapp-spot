@@ -56,9 +56,6 @@ function applySpotConfig(data) {
     
     window.defaultPair = data.default_pair;
     $(document).trigger('prePairSelected');
-    
-    // Now it's time to run AjaxScroll
-    filterMarketsByQuote(data.quotes[0]);
 }
 
 $(document).on('wsConnected', function() {   

@@ -82,6 +82,9 @@ $(document).on('prePairSelected', function() {
             window.currentBasePrecision = v.base_precision;
             window.currentQuotePrecision = v.quote_precision;
             
+            // Now it's time to run AjaxScroll
+            filterMarketsByQuote(v.quote);
+            
             // Rest of data
             liveTicker(v);
             $(document).trigger('pairSelected');
