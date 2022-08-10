@@ -74,14 +74,16 @@
                     Connection lost
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto">
-                <li>
-                    <a href="#_" class="nav-link secondary py-0">
-                        <i class="fa-solid fa-percent"></i>
-                        Fees
-                    </a>
-                </li>
-            </ul>
+            <div class="dropdown ms-auto">
+                <a class="nav-link dropdown-toggle" href="#_" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-percent"></i>
+                    Fees
+                </a>
+            
+                <div class="dropdown-menu dropdown-menu-end">
+                    a<br>b<br>c
+                </div>
+            </div>
         </nav>
         
         <!-- Root container -->
