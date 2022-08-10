@@ -98,7 +98,7 @@ function orderBookClick(row) {
     if(window.orderType == 'MARKET') return;
     $('.form-price').data('rval', $(row).attr('data-price'))
                     .trigger('setVal')
-                    .triger('updateCalc');
+                    .trigger('updateCalc');
 }
 
 $(document).on('pairSelected', function() {
