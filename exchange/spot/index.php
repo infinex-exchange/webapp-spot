@@ -80,7 +80,7 @@
                         <i class="fa-solid fa-percent"></i>
                         Fees
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end">
+                    <div class="dropdown-menu">
                         aaaaaaa<br>
                         aaaaaaa<br>
                         aaaaaaa<br>
