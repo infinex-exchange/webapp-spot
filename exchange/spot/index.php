@@ -75,12 +75,12 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropup">
+                <li class="nav-item dropup dropdown-on-hover">
                     <a href="#_" class="nav-link secondary py-0" data-bs-toggle="dropdown">
                         <i class="fa-solid fa-percent"></i>
                         Fees
                     </a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu dropdown-menu-end">
                         aaaaaaa<br>
                         aaaaaaa<br>
                         aaaaaaa<br>
