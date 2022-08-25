@@ -26,6 +26,8 @@ function doJsSizing() {
     
     var remainH = $('#orders').height() - $('#orders-header').outerHeight();
     document.body.style.setProperty('--target-height-orders-data', remainH + 'px');
+    
+    $('#orderbook-sell').scrollTop(999999);
 }
 
 $(document).on('renderingComplete', function() {

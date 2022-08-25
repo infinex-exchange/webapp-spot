@@ -90,7 +90,7 @@ function orderBookUpdate(side, row) {
     
     // Scroll asks to bottom
     if(side == 'ask') {
-        document.getElementById("orderbook-sell").scrollTop = document.getElementById("orderbook-sell").scrollHeight;
+        $('#orderbook-sell').scrollTop(999999);
     }
 }
 
