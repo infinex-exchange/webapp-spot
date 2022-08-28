@@ -347,7 +347,6 @@ input[type="range"]::-moz-range-thumb {
 .reverse-rows {    
     display: flex;
     flex-direction: column-reverse;
-    justify-content: flex-end;
 }
 
 /* Preloader */
