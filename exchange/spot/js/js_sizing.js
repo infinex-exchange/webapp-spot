@@ -28,6 +28,7 @@ function doJsSizing() {
     document.body.style.setProperty('--target-height-orders-data', remainH + 'px');
     
     $('#orderbook-sell').scrollTop(999999);
+    $('#orderbook-buy').scrollTop(0);
 }
 
 $(document).on('renderingComplete', function() {
