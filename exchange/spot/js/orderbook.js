@@ -91,6 +91,7 @@ function orderBookUpdate(side, row) {
     // Scroll asks to bottom
     if(side == 'ask') {
         $('#orderbook-sell').scrollTop(999999);
+        $('#orderbook-buy').scrollTop(-999999);
     }
 }
 
