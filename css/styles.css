@@ -349,6 +349,10 @@ input[type="range"]::-moz-range-thumb {
     flex-direction: column-reverse;
 }
 
+.reverse-rows .row:last-child {
+    margin-bottom: auto;
+}
+
 /* Preloader */
 
 .preloader-wrapper {
