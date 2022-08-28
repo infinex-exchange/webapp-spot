@@ -349,7 +349,7 @@ input[type="range"]::-moz-range-thumb {
     flex-direction: column-reverse;
 }
 
-.reverse-rows .row:last-child {
+.reverse-rows .row:first-child {
     margin-bottom: auto;
 }
 
