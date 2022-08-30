@@ -36,6 +36,8 @@ RewriteRule ^dex/js/([^/]+)$ /exchange/dex/js/$1 [L]
 RewriteRule ^dex/img/([^/]+)$ /exchange/dex/img/$1 [L]
 RewriteRule ^dex(/[^/]+)?(/[^/]+)?/?$ /exchange/dex/index.php [L]
 
+RewriteRule ^p2p(/.*)?$ /exchange/p2p/$1 [L]
+
 RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
 
 RewriteRule ^info/announcements/?$ /info/announcements.php [L]
