@@ -12,4 +12,4 @@
 	url = git@github.com:vayamos-exchange/webapp-dex
 [submodule "exchange/p2p"]
 	path = exchange/p2p
-	url = https://github.com/vayamos-exchange/webapp-p2p
+	url = git@github.com:vayamos-exchange/webapp-p2p
