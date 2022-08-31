@@ -420,10 +420,6 @@ input[type="range"]::-moz-range-thumb {
     width: 100%;
 }
 
-.selector-item {
-    cursor: pointer;
-}
-
 .selector-inner {
     position: relative;
     max-width: 100%;
