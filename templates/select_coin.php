@@ -1,13 +1,13 @@
-<div id="select-coin-wrapper">
+<div class="selector-wrapper">
     <form>
-        <div class="select-arrow">
-            <input readonly id="select-coin" type="text" placeholder="Select coin" class="form-control">
-            <i id="select-coin-arrow" class="fa-solid fa-angle-down flippable"></i>
+        <div class="selector-inner">
+            <input readonly id="select-coin" type="text" placeholder="Select coin" class="form-control selector-input">
+            <i id="select-coin-arrow" class="fa-solid fa-angle-down flippable selector-arrow"></i>
         </div>
     </form>
-    <div id="select-coin-dropdown">
-        <input id="select-coin-search" type="text" placeholder="Search..." class="input-search form-control">
-        <div id="select-coin-data" class="scrollable"></div>
+    <div id="select-coin-dropdown" class="selector-dropdown">
+        <input id="select-coin-search" type="text" placeholder="Search..." class="input-search form-control selector-search">
+        <div id="select-coin-data" class="scrollable selector-data"></div>
         <div id="select-coin-data-preloader">
             Loading...
         </div>

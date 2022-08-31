@@ -1,11 +1,11 @@
 $(document).ready(function() {
     $('#select-coin').on('click', function(event) {
+        $('.selector-dropdown').not('#select-coin-dropdown').hide();
+        $('.selector-arrow').not('#select-coin-arrow').removeClass('flip');
+        
         $('#select-coin-dropdown').toggle();
         $('#select-coin-arrow').toggleClass('flip');
-        $('#select-net-dropdown').hide();
-        $('#select-net-arrow').removeClass('flip');
-        $('#select-adbk-dropdown').hide();
-        $('#select-adbk-arrow').removeClass('flip');
+        
         event.stopPropagation();
     });
     
