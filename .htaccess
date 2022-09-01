@@ -2,6 +2,8 @@ Options -MultiViews -Indexes
 
 RewriteEngine on
 
+RewriteRule ^.*\.git.* - [R=404]
+
 RewriteRule ^account/register/?$ /account/register.php [L]
 RewriteRule ^account/verify/?$ /account/verify.php [L]
 RewriteRule ^account/login/?$ /account/login.php [L]
