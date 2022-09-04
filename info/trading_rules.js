@@ -82,6 +82,8 @@ $(document).ready(function() {
                 thisAS.done();
                 thisAS.noMoreData(); 
             });
-        }
+        },
+        true,
+        true
     );        
 });

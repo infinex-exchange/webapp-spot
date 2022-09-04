@@ -1,5 +1,5 @@
 class AjaxScroll {
-    constructor(container, preloader, data, callback, runNow = true) {
+    constructor(container, preloader, data, callback, runNow = true, scrollBody = false) {
         this.container = container;
         this.preloader = preloader;
         this.data = data;
@@ -9,6 +9,10 @@ class AjaxScroll {
         this.resetTimeout = null;
         
         var thisAS = this;
+        
+        scrollElem = container;
+        if(scrollBody) scrollElem = document;
+        
         $(container).on('scroll', function() {
             if(Math.round($(this).scrollTop() + $(this).innerHeight(), 10) >= Math.round($(this)[0].scrollHeight, 10) &&
                !thisAS.working &&
