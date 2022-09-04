@@ -14,7 +14,7 @@ class AjaxScroll {
         if(scrollBody) scrollElem = window;
         
         $(scrollElem).on('scroll', function() {
-            if(Math.round($(this).scrollTop() + $(this).innerHeight(), 10) >= Math.round($(this)[0].scrollHeight, 10) &&
+            if(Math.round($(this).scrollTop() + $(this).innerHeight(), 10) >= Math.round(container.scrollHeight, 10) &&
                !thisAS.working &&
                !thisAS.noMore
             ) {
