@@ -21,7 +21,7 @@ class AjaxScroll {
             }
             
             else if(this == window &&
-                    $(window).scrollTop() + $(window).height() > thisAS.container.height()
+                    $(window).scrollTop() + $(window).height() >= $(document).height()
             ) {
                 thisAS.work();
             }
