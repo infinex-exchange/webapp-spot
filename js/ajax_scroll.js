@@ -10,7 +10,7 @@ class AjaxScroll {
         
         var thisAS = this;
         
-        scrollElem = container;
+        var scrollElem = container;
         if(scrollBody) scrollElem = document;
         
         $(scrollElem).on('scroll', function() {
