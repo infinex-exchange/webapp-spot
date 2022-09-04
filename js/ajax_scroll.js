@@ -10,7 +10,7 @@ class AjaxScroll {
         
         var thisAS = this;
         
-        $(scrollBody ? container : window).on('scroll', function() {
+        $(scrollBody ? window : container).on('scroll', function() {
             if(thisAS.working || thisAS.noMore)
 	            return;
 	        
@@ -21,7 +21,7 @@ class AjaxScroll {
             }
             
             else if(this == window &&
-                    $(window).scrollTop() + $(window).height() >= $(document).height()
+                    $(window).scrollTop() + $(window).height() >= thisAS.container.height()
             ) {
                 thisAS.work();
             }
