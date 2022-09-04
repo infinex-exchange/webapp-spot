@@ -92,7 +92,9 @@ $(document).on('authChecked', function() {
                 });
                 //---
                 
-            }
+            },
+            true,
+            true
         );
         
         var txHistoryData = {
