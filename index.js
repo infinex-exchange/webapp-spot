@@ -4,7 +4,7 @@ function gotoMarket(pair) {
 
 function getMarketsForIndex(div, req) {
     var lsKey = div.attr('id').replace('-', '');
-    var lsCache = localStorage.getKey(lsKey);
+    var lsCache = localStorage.getItem(lsKey);
     
     if(lsCache !== null) {
         div.html(lsCache);
