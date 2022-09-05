@@ -288,7 +288,9 @@ function initTxHistory(container, preloader, data, forceSmall = false, disableSc
                 thisAS.done();
                 thisAS.noMoreData();
             });
-        }
+        },
+        true,
+        true
     );
 }
 
