@@ -6,6 +6,10 @@ $(document).ready(function() {
         $('#select-net-arrow').removeClass('flip');
         $('#select-adbk-dropdown').hide();
         $('#select-adbk-arrow').removeClass('flip');
+        
+        if($('#select-coin-arrow').hasClass('flip'))
+            $('#select-coin-search').focus();
+        
         event.stopPropagation();
     });
     
