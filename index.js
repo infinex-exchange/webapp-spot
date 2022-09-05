@@ -3,6 +3,14 @@ function gotoMarket(pair) {
 }
 
 function getMarketsForIndex(div, req) {
+    var lsKey = div.attr('id').replace('-', '');
+    var lsCache = localStorage.getKey(lsKey);
+    
+    if(lsCache !== null) {
+        div.html(lsCache);
+		$(document).trigger('renderingStage');
+    }
+    
     $.ajax({
         url: config.apiUrl + '/spot/markets_ex',
         type: 'POST',
@@ -56,7 +64,10 @@ function getMarketsForIndex(div, req) {
                 `);
             });
             
-            $(document).trigger('renderingStage');
+            if(lsCache === null)
+	            $(document).trigger('renderingStage');
+	        
+	        lsCache = div.html();
         }
         else {
             msgBoxRedirect(data.error);
