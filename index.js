@@ -54,14 +54,16 @@ function getMarketsForIndex(div, req) {
                         </div>
                     </div>
                 `);
-            }); 
+            });
+            
+            $(document).trigger('renderingStage');
         }
         else {
-            msgBox(data.error);
+            msgBoxRedirect(data.error);
         }
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(false); 
+        msgBoxNoConn(true); 
     });    
 }
 
@@ -86,8 +88,7 @@ function indexUpdate() {
 }
 
 $(document).ready(function() {
-    window.renderingStagesTarget = 1;
-    $(document).trigger('renderingStage');
+    window.renderingStagesTarget = 3;
     
     indexUpdate();
     setInterval(indexUpdate, 5000);
