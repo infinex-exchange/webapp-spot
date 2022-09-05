@@ -67,7 +67,7 @@ function getMarketsForIndex(div, req) {
             if(lsCache === null)
 	            $(document).trigger('renderingStage');
 	        
-	        lsCache = div.html();
+	        localStorage.setItem(lsKey, div.html());
         }
         else {
             msgBoxRedirect(data.error);
