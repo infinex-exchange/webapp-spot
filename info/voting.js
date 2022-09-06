@@ -68,6 +68,37 @@ $(document).ready(function() {
         });
     });
     
+    $('#msp-submit').click(function() {
+        var symbol = $('#msp-symbol').val();
+        var name = $('#msp-name').val();
+        var website = $('#msp-website').val();
+        
+        $.ajax({
+            url: config.apiUrl + '/info/voting/submit/check',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey,
+                project_symbol: symbol,
+                project_name: name,
+                project_website: website
+            }),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                msgBox('The proposal has been sent and will appear in the next vote after being checked by the Vayamos staff.');
+            }
+            else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false); 
+        });
+    });
+    
     $.ajax({
         url: config.apiUrl + '/info/voting/current',
         type: 'POST',
