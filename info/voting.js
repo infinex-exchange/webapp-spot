@@ -97,7 +97,7 @@ $(document).ready(function() {
                     if(thisAS.offset == 0)
                         $(document).trigger('renderingStage');
                        
-                    if(data.fees.length != 50)
+                    if(data.votings.length != 50)
                         thisAS.noMoreData(); 
                 }
                 else {
