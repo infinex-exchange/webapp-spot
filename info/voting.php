@@ -30,7 +30,7 @@
                 <div class="col-auto ms-auto my-auto">
                     <a href="#_" class="btn btn-primary">
                         <i class="submit-project fa-solid fa-plus"></i>
-                        Submit project proposal
+                        Submit project
                     </a>
                 </div>
             </div>
