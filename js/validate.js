@@ -44,5 +44,5 @@ function validateVotingName(name) {
 }
 
 function validateVotingWebsite(website) {
-    return website.match(/^(https?:\/\/)?([a-z0-9\-]\.)+[a-z]{2,20}(\/[a-z0-9\-\/])?$/, website);
+    return website.match(/^(?:https?:\/\/)?(?:[a-z0-9\-]\.)+[a-z]{2,20}(?:\/[a-z0-9\-\/])?$/, website);
 }
