@@ -63,7 +63,7 @@ $(document).ready(function() {
             $(document).trigger('renderingStage'); 
         }
         else {
-            msgBoxRedirect(data.error);
+            msgBoxRedirect('t' + data.error);
         }
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
@@ -101,7 +101,7 @@ $(document).ready(function() {
                         thisAS.noMoreData(); 
                 }
                 else {
-                    msgBoxRedirect(data.error);
+                    msgBoxRedirect('x' + data.error);
                     thisAS.done();
                     thisAS.noMoreData();
                 }
