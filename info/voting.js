@@ -74,7 +74,7 @@ $(document).ready(function() {
         var website = $('#msp-website').val();
         
         $.ajax({
-            url: config.apiUrl + '/info/voting/submit/check',
+            url: config.apiUrl + '/info/voting/submit',
             type: 'POST',
             data: JSON.stringify({
                 api_key: window.apiKey,
