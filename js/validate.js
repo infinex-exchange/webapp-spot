@@ -43,13 +43,14 @@ function validateVotingName(name) {
     return name.length <= 64;
 }
 
-function validateVotingWebsite(website) {
+function validateVotingWebsite(website, recur = true) {
 	var url;
 	
 	try { 
       	url = new URL(website); 
     }
-    catch(e) { 
+    catch(e) {
+        if(recur) return validateVotingWebsite('https://' + website, false);
 	    return false; 
     }
     
