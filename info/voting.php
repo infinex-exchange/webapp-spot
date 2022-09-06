@@ -42,8 +42,13 @@
             <div class="row p-2 ui-card-light">
             <div class="col-12">
                 
-                <div id="no-voting" class="d-none">
-                    No voting
+                <div id="no-voting" class="row d-none">
+                    <div class="col-12 col-lg-4 py-4">
+                        Img
+                    </div>
+                    <div class="col-12 col-lg-8 py-4">
+                        Text
+                    </div>
                 </div>
                 
                 <div id="current-voting-data">
