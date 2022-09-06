@@ -96,18 +96,21 @@
                             </div>
                             <div class="col-12 pt-1">
                                 <input id="msp-symbol" type="text" class="form-control">
+                                <small id="msp-help-symbol" class="form-text" style="display: none">Only uppercase letters and digits</small>
                             </div>
                             <div class="col-12 pt-2">
                                 <h5>Token full name:</h5>
                             </div>
                             <div class="col-12 pt-1">
                                 <input id="msp-name" type="text" class="form-control">
+                                <small id="msp-help-name" class="form-text" style="display: none">Max 64 characters</small>
                             </div>
                             <div class="col-12 pt-2">
                                 <h5>Project website:</h5>
                             </div>
                             <div class="col-12 pt-1">
                                 <input id="msp-website" type="text" class="form-control">
+                                <small id="msp-help-website" class="form-text" style="display: none">Incorrect URL format</small>
                             </div>
                         </div>
                         
