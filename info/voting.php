@@ -27,7 +27,7 @@
                 <div class="col-12 col-lg-auto order-1 my-auto">
                     <h2>Vote for listing</h2>
                 </div>
-                <div class="user-only col-12 col-lg-auto ms-0 ms-lg-auto order-3 order-lg-2 my-auto">
+                <div class="user-only col-12 col-lg-auto ms-0 ms-lg-auto order-3 order-lg-2">
                     <a href="#_" class="submit-project btn btn-primary">
                         <i class="fa-solid fa-plus"></i>
                         Submit project proposal
