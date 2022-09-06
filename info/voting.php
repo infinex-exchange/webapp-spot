@@ -27,10 +27,10 @@
                 <div class="col-auto my-auto">
                     <h2>Vote for listing</h2>
                 </div>
-                <div class="user-only col-auto ms-auto my-auto">
+                <div class="user-only col-auto ms-0 ms-lg-auto my-auto">
                     <a href="#_" class="submit-project btn btn-primary">
                         <i class="fa-solid fa-plus"></i>
-                        Submit project
+                        Submit project proposal
                     </a>
                 </div>
             </div>
