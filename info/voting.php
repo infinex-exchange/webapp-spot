@@ -33,9 +33,9 @@
                         Submit project proposal
                     </a>
                 </div>
-                <div class="col-12 order-2 order-lg-3">
+                <div class="col-12 order-2 pb-2 pb-lg-0 order-lg-3">
                     BPX holders decide what projects will be listed on Vayamos.
-                    When you submit a listing proposal, it will be verified by the exchange administrator.
+                    When you submit a listing proposal, it will be verified by the exchange administrators.
                     If the project does not raise any doubts and meets our technical requirements,
                     it will be included in the next voting.
                     Each voting begins at midnight on the first day of each month and continues until the end of the month.
