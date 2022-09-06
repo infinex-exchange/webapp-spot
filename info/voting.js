@@ -48,6 +48,7 @@ $(document).ready(function() {
             url: config.apiUrl + '/info/voting/submit/check',
             type: 'POST',
             data: JSON.stringify({
+                api_key: window.apiKey
             }),
             contentType: "application/json",
             dataType: "json",
