@@ -87,13 +87,13 @@
                             <div class="col-12 pt-1">
                                 <input id="msp-symbol" type="text" class="form-control">
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 pt-2">
                                 <h5>Token full name:</h5>
                             </div>
                             <div class="col-12 pt-1">
                                 <input id="msp-name" type="text" class="form-control">
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 pt-2">
                                 <h5>Project website:</h5>
                             </div>
                             <div class="col-12 pt-1">
