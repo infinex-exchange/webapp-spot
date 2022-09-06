@@ -42,17 +42,8 @@
             <div class="row p-2 ui-card-light">
             <div class="col-12">
                 
-                <div id="no-voting" class="row d-none">
-                    <div class="col-12 py-2">
-                        <div class="alert alert-danger d-flex align-items-center" role="alert">
-                            <div class="px-2">
-                                <i class="fa-solid fa-ban fa-2x"></i>
-                            </div>
-                            <div class="px-2">
-                                There is no vote at the moment
-                            </div>
-                        </div>
-                    </div>
+                <div id="no-voting" class="d-none text-center py-2">
+                    <h4 class="secondary">There is no active voting at the moment</h4>
                 </div>
                 
                 <div id="current-voting-data">
