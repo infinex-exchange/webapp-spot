@@ -121,7 +121,7 @@ $(document).ready(function() {
             $('#msp-help-name').show();
     });
     
-    $('#msp-symbol').on('input', function() {
+    $('#msp-website').on('input', function() {
         if(validateVotingWebsite($(this).val()))
             $('#msp-help-website').hide();
         else
