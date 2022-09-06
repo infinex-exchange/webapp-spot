@@ -6,6 +6,9 @@ $(document).ready(function() {
         $('#select-coin-dropdown').toggle();
         $('#select-coin-arrow').toggleClass('flip');
         
+        if($('#select-coin-arrow').hasClass('flip'))
+            $('#select-coin-search').focus();
+        
         event.stopPropagation();
     });
     

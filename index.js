@@ -3,6 +3,14 @@ function gotoMarket(pair) {
 }
 
 function getMarketsForIndex(div, req) {
+    var lsKey = div.attr('id').replace('-', '');
+    var lsCache = localStorage.getItem(lsKey);
+    
+    if(lsCache !== null) {
+        div.html(lsCache);
+		$(document).trigger('renderingStage');
+    }
+    
     $.ajax({
         url: config.apiUrl + '/spot/markets_ex',
         type: 'POST',
@@ -54,14 +62,19 @@ function getMarketsForIndex(div, req) {
                         </div>
                     </div>
                 `);
-            }); 
+            });
+            
+            if(lsCache === null)
+	            $(document).trigger('renderingStage');
+	        
+	        localStorage.setItem(lsKey, div.html());
         }
         else {
-            msgBox(data.error);
+            msgBoxRedirect(data.error);
         }
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(false); 
+        msgBoxNoConn(true); 
     });    
 }
 
@@ -86,8 +99,7 @@ function indexUpdate() {
 }
 
 $(document).ready(function() {
-    window.renderingStagesTarget = 1;
-    $(document).trigger('renderingStage');
+    window.renderingStagesTarget = 3;
     
     indexUpdate();
     setInterval(indexUpdate, 5000);
