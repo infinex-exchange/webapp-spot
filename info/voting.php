@@ -28,8 +28,8 @@
                     <h2>Vote for listing</h2>
                 </div>
                 <div class="col-auto ms-auto my-auto">
-                    <a href="#_" class="btn btn-primary">
-                        <i class="submit-project fa-solid fa-plus"></i>
+                    <a href="#_" class="submit-project btn btn-primary">
+                        <i class="fa-solid fa-plus"></i>
                         Submit project
                     </a>
                 </div>
@@ -68,6 +68,47 @@
         
         <!-- / Root container -->
         </div>
+        </div>
+        
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-submit-project">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="ps-1 modal-title">Submit project</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                    
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Token symbol:</h5>
+                            </div>
+                            <div class="col-12 pt-1">
+                                <input id="msp-symbol" type="text" class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <h5>Token full name:</h5>
+                            </div>
+                            <div class="col-12 pt-1">
+                                <input id="msp-name" type="text" class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <h5>Project website:</h5>
+                            </div>
+                            <div class="col-12 pt-1">
+                                <input id="msp-website" type="text" class="form-control">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a href="#_" id="msp-submit" class="btn btn-primary">Submit</a>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <script src="/info/voting.js?<?php echo filemtime(__DIR__.'/voting.js'); ?>"></script>
