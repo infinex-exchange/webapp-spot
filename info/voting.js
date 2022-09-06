@@ -44,8 +44,27 @@ $(document).ready(function() {
     window.renderingStagesTarget = 2;
     
     $('.submit-project').click(function() {
-        $('#msp-symbol, #msp-name, #msp-website').val('');
-        $('#modal-submit-project').modal('show');
+        $.ajax({
+            url: config.apiUrl + '/info/voting/submit/check',
+            type: 'POST',
+            data: JSON.stringify({
+            }),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                $('#msp-symbol, #msp-name, #msp-website').val('');
+                $('#modal-submit-project').modal('show');
+            }
+            else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false); 
+        });
     });
     
     $.ajax({
