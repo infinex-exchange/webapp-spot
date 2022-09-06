@@ -43,16 +43,6 @@ function validateVotingName(name) {
     return name.length <= 64;
 }
 
-function validateVotingWebsite(website, recur = true) {
-	var url;
-	
-	try { 
-      	url = new URL(website); 
-    }
-    catch(e) {
-        if(recur) return validateVotingWebsite('https://' + website, false);
-	    return false; 
-    }
-    
-    return url.protocol === "http:" || url.protocol === "https:";
+function validateVotingWebsite(website) {
+    return website.match(/^(https?:\/\/)([a-z0-9\-]\.)+[a-z]{2,20}(\/[a-z0-9\-\/])?$/, website);
 }
