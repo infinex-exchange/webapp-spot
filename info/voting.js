@@ -43,6 +43,11 @@ function renderVoting(data, canVote) {
 $(document).ready(function() {
     window.renderingStagesTarget = 2;
     
+    $('#submit-project').click(function() {
+        $('#msp-symbol, #msp-name, #msp-website').val('');
+        $('#modal-submit-project').modal('show');
+    });
+    
     $.ajax({
         url: config.apiUrl + '/info/voting/current',
         type: 'POST',
