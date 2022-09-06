@@ -34,3 +34,24 @@ function validateReflinkDescription(desc) {
 function validateTransferMessage(msg) {
     return msg.match(/^[a-zA-Z0-9 _,@#%\.\\\/\+\?\[\]\$\(\)\=\!\:\-]{1,255}$/);
 }
+
+function validateAssetSymbol(symbol) {
+    return symbol.match(/^[A-Z0-9]{1,32}$/, symbol);
+}
+
+function validateVotingName(name) {
+    return name.length <= 64;
+}
+
+function validateVotingWebsite(website) {
+	var url;
+	
+	try { 
+      	url = new URL(website); 
+    }
+    catch(e) { 
+	    return false; 
+    }
+    
+    return url.protocol === "http:" || url.protocol === "https:";
+}

@@ -73,6 +73,14 @@ $(document).ready(function() {
         var name = $('#msp-name').val();
         var website = $('#msp-website').val();
         
+        if(!validateAssetSymbol(symbol) ||
+           !validateVotingName(name) ||
+           !validateVotingWebsite(website)
+        ) {
+            msgBox('Fill the form correctly');
+            return;
+        }
+        
         $.ajax({
             url: config.apiUrl + '/info/voting/submit',
             type: 'POST',
@@ -88,7 +96,7 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                msgBox('The proposal has been sent and will appear in the next vote after being checked by the Vayamos staff.');
+                msgBox('The proposal has been sent and will appear in the next vote after being verified.');
             }
             else {
                 msgBox(data.error);
