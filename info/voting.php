@@ -43,11 +43,15 @@
             <div class="col-12">
                 
                 <div id="no-voting" class="row d-none">
-                    <div class="col-12 col-lg-4 py-4">
-                        Img
-                    </div>
-                    <div class="col-12 col-lg-8 py-4">
-                        Text
+                    <div class="col-12 py-2">
+                        <div class="alert alert-danger d-flex align-items-center" role="alert">
+                            <div class="px-2">
+                                <i class="fa-solid fa-ban fa-2x"></i>
+                            </div>
+                            <div class="px-2">
+                                There is no vote at the moment
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
