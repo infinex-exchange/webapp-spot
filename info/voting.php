@@ -24,7 +24,15 @@
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
         
             <div class="row p-2">
-                <h2>Vote for listing</h2>
+                <div class="col-auto my-auto">
+                    <h2>Vote for listing</h2>
+                </div>
+                <div class="col-auto ms-auto my-auto">
+                    <a href="#_" class="btn btn-primary">
+                        <i class="submit-project fa-solid fa-plus"></i>
+                        Submit project proposal
+                    </a>
+                </div>
             </div>
             
             <div class="row p-2">
