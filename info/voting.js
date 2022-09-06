@@ -107,6 +107,27 @@ $(document).ready(function() {
         });
     });
     
+	$('#msp-symbol').on('input', function() {
+        if(validateAssetSymbol($(this).val()))
+            $('#msp-help-symbol').hide();
+        else
+            $('#msp-help-symbol').show();
+    });
+    
+    $('#msp-name').on('input', function() {
+        if(validateVotingName($(this).val()))
+            $('#msp-help-name').hide();
+        else
+            $('#msp-help-name').show();
+    });
+    
+    $('#msp-symbol').on('input', function() {
+        if(validateVotingWebsite($(this).val()))
+            $('#msp-help-website').hide();
+        else
+            $('#msp-help-website').show();
+    });
+    
     $.ajax({
         url: config.apiUrl + '/info/voting/current',
         type: 'POST',
