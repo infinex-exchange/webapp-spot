@@ -25,7 +25,7 @@ function renderVoting(data, canVote) {
     
         if(window.loggedIn) {
             voteButton = `
-                <a href="#_" class="btn btn-sm btn-primary" onClick="vote(${proj.projectid})">
+                <a href="#_" class="btn btn-sm btn-primary w-100" onClick="vote(${proj.projectid})">
                     Vote
                 </a>
             `;
@@ -33,7 +33,7 @@ function renderVoting(data, canVote) {
         
         else {
             voteButton = `
-                <div class="small border border-primary rounded p-2 text-center">
+                <div class="small border border-primary rounded p-2 text-center w-100">
                     <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
                 </div>
             `;
