@@ -231,7 +231,7 @@ $(document).ready(function() {
     
     $('#mv-submit').click(function() {
         var projectid = $(this).data('projectid');
-        var votesCount = $('#mv-range').val();
+        var votesCount = parseInt($('#mv-range').val());
         
         $.ajax({
             url: config.apiUrl + '/info/voting/current/vote',
