@@ -280,7 +280,7 @@ $(document).ready(function() {
             .done(function (data) {
                 if(data.success) {
                     $.each(data.votings, function(k, voting) {
-                        thisAS.append(voting.projects);
+                        thisAS.append(renderVoting(voting, false));
                     });
                     
                     thisAS.done();
