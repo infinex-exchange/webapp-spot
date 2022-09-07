@@ -184,7 +184,10 @@ $(document).ready(function() {
                         $(document).trigger('renderingStage');
                        
                     if(data.votings.length != 50)
-                        thisAS.noMoreData(); 
+                        thisAS.noMoreData();
+                        
+                    if(thisAS.offset == 0 && data.votings.length == 0)
+                        $('#no-history').removeClass('d-none');
                 }
                 else {
                     msgBoxRedirect(data.error);

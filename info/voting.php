@@ -69,8 +69,14 @@
             
             <div class="row p-2 ui-card-light">
             <div class="col-12">
+            
+	            <div id="no-history" class="d-none text-center py-2">
+                    <h4 class="secondary">No voting has taken place yet</h4>
+                </div>
+            
                 <div id="previous-votings-data">
                 </div>
+                
             </div>
             </div>
         
