@@ -48,9 +48,7 @@ function renderVoting(data, canVote) {
                             <strong>${proj.symbol}</strong>
                             <span class="secondary">${proj.name}</span>
                             <span class="small">
-                                (
-                                <a href="${proj.website}" target="_blank">${proj.website}</a>
-                                )
+                                <a href="${proj.website}" target="_blank">(website)</a>
                             </span>
                         </div>
                         <div class="col-auto ms-auto">
