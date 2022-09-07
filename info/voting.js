@@ -16,7 +16,7 @@ function renderVoting(data, canVote) {
     
     $.each(data.projects, function(k, proj) {
         maxVotes += proj.votes;
-    }
+    });
     
     $.each(data.projects, function(k, proj) {    
         var progressVal = Math.floor(proj.votes / maxVotes * 100); 
