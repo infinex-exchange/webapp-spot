@@ -40,9 +40,9 @@ function renderVoting(data, canVote) {
         }
         
         projects += `
-            <div class="col-12 ${projHover} py-3">
+            <div class="col-12 ${projHover}">
                 <div class="row">
-                    <div class="col-9 col-lg-11 my-auto">
+                    <div class="col-9 col-lg-11 my-auto py-3">
                     <div class="row">
                         <div class="col-auto pb-1">
                             <strong>${proj.symbol}</strong>
@@ -62,7 +62,7 @@ function renderVoting(data, canVote) {
                         </div>
                     </div>
                     </div>
-                    <div class="col-3 col-lg-1 my-auto">
+                    <div class="col-3 col-lg-1 my-auto py-1">
                         ${voteButton}
                     </div>
                 </div>
