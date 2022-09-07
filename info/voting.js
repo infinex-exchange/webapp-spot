@@ -97,7 +97,7 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                $('#modal-submit').modal('hide');
+                $('#modal-submit-project').modal('hide');
                 msgBox('The proposal has been sent and will appear in the next vote after being verified.');
             }
             else {
