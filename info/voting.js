@@ -1,10 +1,13 @@
 function renderVoting(data, canVote) {
     var header = '';
     
+    var month = new Date(data.month * 1000);
+    var dateString = month.getMonth() = '/' + month.getYear(); 
+    
     if(typeof(data.votingid) !== 'undefined' && typeof(data.month) !== 'undefined')
         header = `
             <div class="col-12">
-                <h4>Voting #${data.votingid} - ${data.month}</h4>
+                <h4>Voting #${data.votingid} - ${dateString}</h4>
             </div>
         `;
     
