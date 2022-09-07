@@ -12,13 +12,13 @@ function renderVoting(data, canVote) {
     var projHover = '';
     if(canVote) projHover = 'hoverable';
     
-    var maxVotes = null;
+    var maxVotes = 0;
     
     $.each(data.projects, function(k, proj) {
-        if(maxVotes == null) {
-            maxVotes = proj.votes;
-        }
-        
+        maxVotes += proj.votes;
+    }
+    
+    $.each(data.projects, function(k, proj) {    
         var progressVal = Math.floor(proj.votes / maxVotes * 100); 
     
         var voteButton = '';
