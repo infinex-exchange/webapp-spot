@@ -19,7 +19,7 @@ function renderVoting(data, canVote) {
             maxVotes = proj.votes;
         }
         
-        var progressVal = floor(proj.votes / maxVotes * 100); 
+        var progressVal = Math.floor(proj.votes / maxVotes * 100); 
     
         var voteButton = '';
     
