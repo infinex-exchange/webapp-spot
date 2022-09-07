@@ -2,7 +2,7 @@ function renderVoting(data, canVote) {
     var header = '';
     
     var month = new Date(data.month * 1000);
-    var dateString = month.getMonth() + '/' + month.getYear(); 
+    var dateString = month.getMonth() + '/' + month.getFullYear(); 
     
     if(typeof(data.votingid) !== 'undefined' && typeof(data.month) !== 'undefined')
         header = `
