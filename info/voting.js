@@ -9,10 +9,12 @@ function renderVoting(data, canVote) {
         `;
     
     var projects = '';
+    var projHover = '';
+    if(canVote) projHover = 'hoverable';
     
     $.each(data.projects, function(k, proj) {
         projects += `
-            <div class="col-10">
+            <div class="col-12 ${projHover}">
                 <div class="row">
                     <div class="col-12">
                         ${proj.symbol} ${proj.name} ${proj.website}
@@ -20,21 +22,24 @@ function renderVoting(data, canVote) {
                     <div class="col-12">
                         chart
                     </div>
-                </div>
-            </div>
-            <div class="col-2">
-                <a href="#_" class="btn btn-primary user-only" onClick="vote(${proj.projectid})">
-                    Vote
-                </a>
-                <div class="guest-only small border border-primary rounded p-2 text-center">
-                    <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
+                    <div class="col-12">
+                        <a href="#_" class="btn btn-primary user-only" onClick="vote(${proj.projectid})">
+                            Vote
+                        </a>
+                        <div class="guest-only small border border-primary rounded p-2 text-center">
+                            <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
     });
     
+    var mainHover = 'hoverable';
+    if(canVote) mainHover = '';
+    
     return `
-        <div class="row p-2 hoverable">
+        <div class="row p-2 ${mainHover}">
             ${header}
             ${projects}
         </div>
