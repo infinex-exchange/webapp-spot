@@ -45,6 +45,24 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
             
+            <form id="tfa-form" class="d-grid gap-3">
+                <div class="form-group">
+                    <label for="tfa-code">2FA code:</label>
+                    <input type="email" class="form-control" id="login-email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" class="form-control" id="login-password">
+                </div>
+                <div class="form-group mx-auto pretty p-switch p-bigger">
+                    <input type="checkbox" id="login-remember">
+                    <div class="state p-primary">
+                        <label for="login-remember">Remember me</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            
             </div>
             
             <div class="col-12 col-lg-5 p-4 my-auto secondary">
