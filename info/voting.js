@@ -57,6 +57,7 @@ $(document).ready(function() {
         .done(function (data) {
             if(data.success) {
                 $('#msp-symbol, #msp-name, #msp-website').val('');
+                $('.msp-help').hide();
                 $('#modal-submit-project').modal('show');
             }
             else {
