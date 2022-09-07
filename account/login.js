@@ -1,24 +1,27 @@
 $(document).ready(function() {
-    $('#login-form').submit(function(event) {
+    $('#login-form, #tfa-form').submit(function(event) {
         event.preventDefault();
         
-        var email = $(this).find('#login-email').val().toLowerCase();
-        var password = $(this).find('#login-password').val();
-        var remember = $(this).find('#login-remember').prop('checked');
+        var email = $('#login-email').val().toLowerCase();
+        var password = $('#login-password').val();
+        var remember = $('#login-remember').prop('checked');
+        var tfa = $('#tfa-code').val();
         
         if(!email.length || !password.length) {
             msgBox('Fill the form correctly');
             return;
         }
+        
+        var data = {
+            email: email,
+            password: password,
+            remember: remember
+        };
     
         $.ajax({
             url: config.apiUrl + '/account/login',
             type: 'POST',
-            data: JSON.stringify({
-                email: email,
-                password: password,
-                remember: remember
-            }),
+            data: JSON.stringify(data),
             contentType: "application/json",
             dataType: "json"
         })
