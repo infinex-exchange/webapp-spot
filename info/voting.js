@@ -17,7 +17,7 @@ function renderVoting(data, canVote) {
     
         if(window.loggedIn) {
             voteButton = `
-                <a href="#_" class="btn btn-primary" onClick="vote(${proj.projectid})">
+                <a href="#_" class="btn btn-sm btn-primary" onClick="vote(${proj.projectid})">
                     Vote
                 </a>
             `;
