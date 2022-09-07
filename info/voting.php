@@ -28,11 +28,14 @@
                 <div class="col-12 col-lg-auto order-1 my-auto">
                     <h2>Vote for listing</h2>
                 </div>
-                <div class="user-only col-12 col-lg-auto ms-0 ms-lg-auto order-3 order-lg-2">
-                    <a href="#_" class="submit-project btn btn-primary">
+                <div class="col-12 col-lg-auto ms-0 ms-lg-auto order-3 order-lg-2">
+                    <a href="#_" class="submit-project btn btn-primary user-only">
                         <i class="fa-solid fa-plus"></i>
                         Submit project proposal
                     </a>
+                    <div class="guest-only border border-ultra rounded p-2 text-center">
+                        <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to trade
+                    </div>
                 </div>
                 <div class="col-12 order-2 pb-2 pb-lg-0 order-lg-3">
                     BPX holders decide what projects will be listed on Vayamos.
