@@ -21,6 +21,8 @@ function renderVoting(data, canVote) {
         maxVotes += proj.votes;
     });
     
+    var winner = false;
+    
     $.each(data.projects, function(k, proj) {    
         var progressVal = Math.floor(proj.votes / maxVotes * 100); 
     
@@ -41,6 +43,15 @@ function renderVoting(data, canVote) {
                     <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
                 </div>
             `;
+        }
+        
+        else if(!winner) {
+            voteButton = `
+                <strong class="secondary">
+                    WINNER!
+                </strong>
+            `;
+            winner = true;
         }
         
         projects += `
