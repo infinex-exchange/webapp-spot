@@ -52,7 +52,7 @@ function renderVoting(data, canVote) {
                                 <a href="${proj.website}" target="_blank">${proj.website}</a>
                                 )
                             </span>
-                            <span class="float-right">
+                            <span class="text-right">
                                 <strong>${proj.votes} votes</strong>
                             </span>
                         </div>
