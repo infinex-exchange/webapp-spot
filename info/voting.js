@@ -36,8 +36,14 @@ function renderVoting(data, canVote) {
                 <div class="row">
                     <div class="col-9 col-lg-11 my-auto">
                     <div class="row">
-                        <div class="col-12">
-                            ${proj.symbol} ${proj.name} ${proj.website}
+                        <div class="col-12 pb-1">
+                            <strong>${proj.symbol}</strong>
+                            <span class="secondary">${proj.name}</span>
+                            <span class="small">
+                                (
+                                <a href="${proj.website}" target="_blank">${proj.website}</a>
+                                )
+                            </span>
                         </div>
                         <div class="col-12">
                             <div class="progress">   
