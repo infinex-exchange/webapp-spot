@@ -33,7 +33,7 @@
                         <i class="fa-solid fa-plus"></i>
                         Submit project proposal
                     </a>
-                    <div class="guest-only border border-primary rounded p-2 text-center">
+                    <div class="guest-only small border border-primary rounded p-2 text-center">
                         <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
                     </div>
                 </div>
