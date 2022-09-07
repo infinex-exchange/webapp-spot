@@ -34,13 +34,17 @@ function renderVoting(data, canVote) {
         projects += `
             <div class="col-12 ${projHover}">
                 <div class="row">
-                    <div class="col-12">
-                        ${proj.symbol} ${proj.name} ${proj.website}
+                    <div class="col-9">
+                    <div class="row">
+                        <div class="col-12">
+                            ${proj.symbol} ${proj.name} ${proj.website}
+                        </div>
+                        <div class="col-12">
+                            chart
+                        </div>
                     </div>
-                    <div class="col-12">
-                        chart
                     </div>
-                    <div class="col-12">
+                    <div class="col-3">
                         ${voteButton}
                     </div>
                 </div>
