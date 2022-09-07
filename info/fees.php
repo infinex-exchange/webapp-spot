@@ -27,7 +27,7 @@
                 <h2>Fees</h2>
             </div>
             
-            <div class="row p-2">
+            <div class="row p-2 pt-3">
                 <h3>Spot trading</h3>
             </div>
             
@@ -62,7 +62,7 @@
             </div>
             </div>
             
-            <div class="row p-2">
+            <div class="row p-2 pt-3">
                 <h3>Deposits and withdrawals</h3>
             </div>
             
