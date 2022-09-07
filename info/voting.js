@@ -40,7 +40,10 @@ function renderVoting(data, canVote) {
                             ${proj.symbol} ${proj.name} ${proj.website}
                         </div>
                         <div class="col-12">
-                            chart
+                            <div class="progress">   
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%; background-color: ${proj.color};" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     </div>
