@@ -44,7 +44,7 @@ function renderVoting(data, canVote) {
                 <div class="row">
                     <div class="col-9 col-lg-11 my-auto">
                     <div class="row">
-                        <div class="col-12 pb-1">
+                        <div class="col-auto pb-1">
                             <strong>${proj.symbol}</strong>
                             <span class="secondary">${proj.name}</span>
                             <span class="small">
@@ -52,7 +52,9 @@ function renderVoting(data, canVote) {
                                 <a href="${proj.website}" target="_blank">${proj.website}</a>
                                 )
                             </span>
-                            <strong class="float-right">${proj.votes} votes</strong>
+                        </div>
+                        <div class="col-auto ms-auto">
+                            <strong>${proj.votes} votes</strong>
                         </div>
                         <div class="col-12">
                             <div class="progress">   
