@@ -23,6 +23,12 @@ function renderVoting(data, canVote) {
                 </div>
             </div>
             <div class="col-2">
+                <a href="#_" class="btn btn-primary user-only" onClick="vote(${proj.projectid})">
+                    Vote
+                </a>
+                <div class="guest-only small border border-primary rounded p-2 text-center">
+                    <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
+                </div>
             </div>
         `;
     });
