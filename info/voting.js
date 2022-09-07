@@ -1,41 +1,36 @@
 function renderVoting(data, canVote) {
-    return `
-        <div class="row p-2 hoverable">
-            <div class="col-1 d-none d-lg-block">
-                ${level}
+    var header = '';
+    
+    if(typeof(data.votingid) !== 'undefined' && typeof(data.month) !== 'undefined')
+        header = `
+            <div class="col-12">
+                <h4>Voting #${data.votingid} - ${data.month}</h4>
             </div>
-            <div class="col-1 d-lg-none my-auto text-center">
-                Lvl
-                <h3>${level}</h3>
-            </div>
-            <div class="col-11">
+        `;
+    
+    var projects = '';
+    
+    $.each(data.projects, function(k, proj) {
+        projects += `
+            <div class="col-10">
                 <div class="row">
-                    <div class="col-6 d-lg-none secondary">
-                        30d trade volume:
+                    <div class="col-12">
+                        ${proj.symbol} ${proj.name} ${proj.website}
                     </div>
-                    <div class="col-6 col-lg text-end">
-                        &ge; ${data.volume} ${data.volume_asset}
-                    </div>
-                    <div class="col-6 d-lg-none secondary">
-                        Hold:
-                    </div>
-                    <div class="col-6 col-lg text-end">
-                        &ge; ${data.hold} ${data.hold_asset}
-                    </div>
-                    <div class="col-6 d-lg-none secondary">
-                        Maker fee:
-                    </div>
-                    <div class="col-6 col-lg text-end">
-                        ${data.maker_fee}%
-                    </div>
-                    <div class="col-6 d-lg-none secondary">
-                        Taker fee:
-                    </div>
-                    <div class="col-6 col-lg text-end">
-                        ${data.taker_fee}%
+                    <div class="col-12">
+                        chart
                     </div>
                 </div>
             </div>
+            <div class="col-2">
+            </div>
+        `;
+    });
+    
+    return `
+        <div class="row p-2 hoverable">
+            ${header}
+            ${projects}
         </div>
     `;
 }
@@ -142,7 +137,7 @@ $(document).ready(function() {
     .done(function (data) {
         if(data.success) {
             if(data.voting_open)
-                $('#current-voting-data').html(renderVoting(data.projects, true));
+                $('#current-voting-data').html(renderVoting(data, true));
             
             else
                 $('#no-voting').removeClass('d-none');
