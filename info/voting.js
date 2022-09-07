@@ -96,6 +96,7 @@ function voteShowModal(projectid) {
     .done(function (data) {
         if(data.success) {
             $('#mv-range').val('0').attr('max', data.avbl_votes);
+            $('#mv-submit').data('projectid', projectid).prop('disabled', true);
             $('#modal-vote').modal('show');
         }
         else {
@@ -104,6 +105,37 @@ function voteShowModal(projectid) {
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(false); 
+    });
+}
+
+function reloadCurrentVoting() {
+    $.ajax({
+        url: config.apiUrl + '/info/voting/current',
+        type: 'POST',
+        data: JSON.stringify({
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            if(data.voting_open) {
+                $('#current-voting-data').html(renderVoting(data, true));
+                $('#no-voting').addClass('d-none');
+            }
+            
+            else
+                $('#no-voting').removeClass('d-none');
+            
+            $(document).trigger('renderingStage'); 
+        }
+        else {
+            msgBoxRedirect(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true); 
     });
 }
 
@@ -197,32 +229,37 @@ $(document).ready(function() {
             $('#msp-help-website').show();
     });
     
-    $.ajax({
-        url: config.apiUrl + '/info/voting/current',
-        type: 'POST',
-        data: JSON.stringify({
-        }),
-        contentType: "application/json",
-        dataType: "json",
-    })
-    .retry(config.retry)
-    .done(function (data) {
-        if(data.success) {
-            if(data.voting_open)
-                $('#current-voting-data').html(renderVoting(data, true));
-            
-            else
-                $('#no-voting').removeClass('d-none');
-            
-            $(document).trigger('renderingStage'); 
-        }
-        else {
-            msgBoxRedirect(data.error);
-        }
-    })
-    .fail(function (jqXHR, textStatus, errorThrown) {
-        msgBoxNoConn(true); 
+    $('#mv-submit').click(function() {
+        var projectid = $(this).data('projectid');
+        var votesCount = $('#mv-range').val();
+        
+        $.ajax({
+            url: config.apiUrl + '/info/voting/current/vote',
+            type: 'POST',
+            data: JSON.stringify({
+                api_key: window.apiKey,
+                projectid: projectid,
+                votes_count: votesCount
+            }),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                reloadCurrentVoting();
+                $('#modal-vote').modal('hide');
+            }
+            else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false); 
+        });
     });
+    
+    reloadCurrentVoting();
     
     window.votingHistoryAS = new AjaxScroll(
         $('#previous-votings-data'),
