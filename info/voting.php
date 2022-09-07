@@ -151,6 +151,11 @@
                             <div class="col-12 pt-1">
                                 <input id="mv-range" type="range" class="form-range" min="0" max="0" step="1" value="0">
                             </div>
+                            <div class="col-12 pt-1 text-center">
+                                <span class="secondary" id="mv-val"></span>
+                                /
+                                <span class="secondary" id="mv-max"></span>
+                            </div>
                         </div>
                         
                     </div>

@@ -110,7 +110,9 @@ function voteShowModal(projectid) {
     .done(function (data) {
         if(data.success) {
             $('#mv-range').val('0').attr('max', data.avbl_votes);
-            $('#mv-submit').data('projectid', projectid).prop('disabled', true);
+            $('#mv-val').html(0);
+            $('#mv-max').html(data.avbl_votes);
+            $('#mv-submit').data('projectid', projectid).attr('disabled', true);
             $('#modal-vote').modal('show');
         }
         else {
