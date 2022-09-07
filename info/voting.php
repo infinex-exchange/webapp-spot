@@ -46,7 +46,7 @@
                 </div>
             </div>
             
-            <div class="row p-2">
+            <div class="row p-2 pt-3">
                 <h3>Current voting</h3>
             </div>
             
@@ -63,7 +63,7 @@
             </div>
             </div>
             
-            <div class="row p-2">
+            <div class="row p-2 pt-3">
                 <h3>Previous votings</h3>
             </div>
             
