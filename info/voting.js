@@ -22,8 +22,8 @@ function renderVoting(data, canVote) {
         var progressVal = Math.floor(proj.votes / maxVotes * 100); 
     
         var voteButton = '';
-    
-        if(window.loggedIn) {
+        
+        if(canVote && window.loggedIn) {
             voteButton = `
                 <a href="#_" class="btn btn-sm btn-primary w-100" onClick="voteShowModal(${proj.projectid})">
                     <i class="fa-solid fa-check-to-slot"></i>
@@ -32,7 +32,7 @@ function renderVoting(data, canVote) {
             `;
         }
         
-        else {
+        else if(canVote) {
             voteButton = `
                 <div class="small border border-primary rounded p-2 text-center w-100">
                     <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
