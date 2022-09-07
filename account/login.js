@@ -7,7 +7,10 @@ $(document).ready(function() {
         var remember = $('#login-remember').prop('checked');
         var tfa = $('#tfa-code').val();
         
-        if(!email.length || !password.length) {
+        if(!email.length ||
+           !password.length ||
+           ($(this).is('#tfa-form') && !tfa.length)
+        ) {
             msgBox('Fill the form correctly');
             return;
         }
@@ -17,6 +20,9 @@ $(document).ready(function() {
             password: password,
             remember: remember
         };
+        
+        if(tfa.length)
+	        data = Object.assign(data, {code_2fa: tfa});
     
         $.ajax({
             url: config.apiUrl + '/account/login',
@@ -42,6 +48,8 @@ $(document).ready(function() {
                     redirectUrl = window.location.origin + back;
                 }
                 window.location.replace(redirectUrl);
+            } else if(data.need_2fa) {
+	            $('#login-form, #2fa-form').toggleClass('d-grid d-none');
             } else {
                 msgBox(data.error);
             }
