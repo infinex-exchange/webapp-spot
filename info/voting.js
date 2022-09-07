@@ -25,7 +25,7 @@ function renderVoting(data, canVote) {
     
         if(window.loggedIn) {
             voteButton = `
-                <a href="#_" class="btn btn-sm btn-primary w-100" onClick="vote(${proj.projectid})">
+                <a href="#_" class="btn btn-sm btn-primary w-100" onClick="voteShowModal(${proj.projectid})">
                     <i class="fa-solid fa-check-to-slot"></i>
                     Vote
                 </a>
@@ -80,6 +80,31 @@ function renderVoting(data, canVote) {
             ${projects}
         </div>
     `;
+}
+
+function voteShowModal(projectid) {
+    $.ajax({
+        url: config.apiUrl + '/info/voting/current/avbl_votes',
+        type: 'POST',
+        data: JSON.stringify({
+            api_key: window.apiKey
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            $('#mv-range').val('0').attr('max', data.avbl_votes);
+            $('#modal-vote').modal('show');
+        }
+        else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false); 
+    });
 }
 
 $(document).ready(function() {

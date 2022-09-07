@@ -134,6 +134,35 @@
             </div>
         </div>
         
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-vote">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="ps-1 modal-title">Vote</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">
+                    
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Number of votes:</h5>
+                            </div>
+                            <div class="col-12 pt-1">
+                                <input id="mv-range" type="range" class="form-range" min="0" max="0" step="1" value="0">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a href="#_" id="mv-submit" class="btn btn-primary">Vote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <script src="/info/voting.js?<?php echo filemtime(__DIR__.'/voting.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>
