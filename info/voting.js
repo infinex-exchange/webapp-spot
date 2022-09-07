@@ -13,6 +13,24 @@ function renderVoting(data, canVote) {
     if(canVote) projHover = 'hoverable';
     
     $.each(data.projects, function(k, proj) {
+        var voteButton = '';
+    
+        if(window.loggedIn) {
+            voteButton = `
+                <a href="#_" class="btn btn-primary" onClick="vote(${proj.projectid})">
+                    Vote
+                </a>
+            `;
+        }
+        
+        else {
+            voteButton = `
+                <div class="small border border-primary rounded p-2 text-center">
+                    <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
+                </div>
+            `;
+        }
+        
         projects += `
             <div class="col-12 ${projHover}">
                 <div class="row">
@@ -23,12 +41,7 @@ function renderVoting(data, canVote) {
                         chart
                     </div>
                     <div class="col-12">
-                        <a href="#_" class="btn btn-primary user-only" onClick="vote(${proj.projectid})">
-                            Vote
-                        </a>
-                        <div class="guest-only small border border-primary rounded p-2 text-center">
-                            <a class="link-ultra" href="#_" onClick="gotoLogin()">Log In</a> or <a class="link-ultra" href="/account/register">Register</a> to vote
-                        </div>
+                        ${voteButton}
                     </div>
                 </div>
             </div>
