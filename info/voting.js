@@ -32,7 +32,7 @@ function renderVoting(data, canVote) {
         }
         
         projects += `
-            <div class="col-12 ${projHover}">
+            <div class="col-12 ${projHover} py-2">
                 <div class="row">
                     <div class="col-9 col-lg-11 my-auto">
                     <div class="row">
