@@ -162,7 +162,7 @@
                     
                     <div class="modal-footer">
                         <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <a href="#_" id="mv-submit" class="btn btn-primary">Vote</a>
+                        <button type="button" id="mv-submit" class="btn btn-primary">Vote</button>
                     </div>
                 </div>
             </div>

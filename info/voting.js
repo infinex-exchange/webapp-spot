@@ -112,7 +112,7 @@ function voteShowModal(projectid) {
             $('#mv-range').val('0').attr('max', data.avbl_votes);
             $('#mv-val').html(0);
             $('#mv-max').html(data.avbl_votes);
-            $('#mv-submit').data('projectid', projectid).attr('disabled', true);
+            $('#mv-submit').data('projectid', projectid).prop('disabled', true);
             $('#modal-vote').modal('show');
         }
         else {
@@ -243,6 +243,12 @@ $(document).ready(function() {
             $('#msp-help-website').hide();
         else
             $('#msp-help-website').show();
+    });
+    
+    $('#mv-range').on('input', function() {
+        var val = $(this).val();
+        $('#mv-val').html(val);
+        $('#mv-submit').prop('disabled', val < 1);
     });
     
     $('#mv-submit').click(function() {
