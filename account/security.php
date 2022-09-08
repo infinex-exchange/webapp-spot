@@ -131,37 +131,40 @@
                     </div>  
                     
                     <div class="row p-2">
-                        <div class="col-12 col-lg-6">
+                        <div class="2fa-provider col-12 col-lg-6" data-provider="EMAIL">
                             <div class="alert alert-secondary d-flex align-items-center" role="alert">
                                 <div class="px-2">
                                     <i class="fa-solid fa-envelope fa-2x"></i>
                                 </div>
                                 <div class="px-2">
                                     E-mail codes<br>
-                                    <strong class="text-success">Available</strong>
-                                    <strong class="text-success">Active</strong>
+                                    <strong class="status-avbl text-success">Available</strong>
+                                    <strong class="status-not-avbl text-danger">Not available</strong>
+                                    <strong class="status-active text-success">Active</strong>
+                                    <strong class="status-not-active text-danger">Not active</strong>
                                 </div>
                                 <div class="ms-auto px-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Use</button>
+                                    <button type="button" class="btn-use btn btn-primary btn-sm">Use</button>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-12 col-lg-6">
+                        <div class="2fa-provider col-12 col-lg-6" data-provider="GA">
                             <div class="alert alert-secondary d-flex align-items-center" role="alert">
                                 <div class="px-2">
                                     <i class="fa-brands fa-google fa-2x"></i>
                                 </div>
                                 <div class="px-2">
                                     Google Authenticator<br>
-                                    <strong class="text-success">Available</strong>
-                                    <strong class="text-success">Active</strong>
-                                    <strong class="text-danger">Not available</strong>
+                                    <strong class="status-avbl text-success">Available</strong>
+                                    <strong class="status-not-avbl text-danger">Not available</strong>
+                                    <strong class="status-active text-success">Active</strong>
+                                    <strong class="status-not-active text-danger">Not active</strong>
                                 </div>
                                 <div class="ms-auto px-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Configure</button>
-                                    <button type="button" class="btn btn-primary btn-sm">Remove</button>
-                                    <button type="button" class="btn btn-primary btn-sm">Use</button>
+                                    <button type="button" class="btn-configure btn btn-primary btn-sm">Configure</button>
+                                    <button type="button" class="btn-remove btn btn-primary btn-sm">Remove</button>
+                                    <button type="button" class="btn-use btn btn-primary btn-sm">Use</button>
                                 </div>
                             </div>
                         </div>
@@ -174,23 +177,16 @@
                         
                         <div class="col-12 col-lg-9 my-auto">
                             <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-login">
+                                <input type="radio" name="2fa-login" value="false">
                                 <div class="state">
                                     <label>Disabled</label>
                                 </div>
                             </div>
                         
                             <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-login">
+                                <input type="radio" name="2fa-login" value="true">
                                 <div class="state">
-                                    <label>E-mail</label>
-                                </div>
-                            </div>
-                        
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-login">
-                                <div class="state">
-                                    <label>Google</label>
+                                    <label>Enabled</label>
                                 </div>
                             </div>
                         </div>
@@ -203,23 +199,16 @@
                         
                         <div class="col-12 col-lg-9 my-auto">
                             <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-withdraw">
+                                <input type="radio" name="2fa-withdraw" value="false">
                                 <div class="state">
                                     <label>Disabled</label>
                                 </div>
                             </div>
                         
                             <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-withdraw">
+                                <input type="radio" name="2fa-withdraw" value="true">
                                 <div class="state">
-                                    <label>E-mail</label>
-                                </div>
-                            </div>
-                        
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-withdraw">
-                                <div class="state">
-                                    <label>Google</label>
+                                    <label>Enabled</label>
                                 </div>
                             </div>
                         </div>
