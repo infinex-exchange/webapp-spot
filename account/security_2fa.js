@@ -56,12 +56,15 @@ $(document).ready(function() {
     function btnConfigure(event) {
         event.preventDefault();
         
+        var provider = $(this).closest('.2fa-provider').data('provider');
+        alert(provider);
+        
         $('#2fa-form').unbind('submit');
         $('#2fa-form').bind('submit', btnConfigure);
         
         var data = new Object();
         data['api_key'] = window.apiKey;
-        data['provider'] = $(this).closest('.2fa-provider').data('provider');
+        data['provider'] = provider
         
         var tfa = $('#2fa-code').val();
         if(tfa != '')
