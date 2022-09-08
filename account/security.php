@@ -176,7 +176,7 @@
                                 <input type="checkbox" class="2fa-case" data-case="LOGIN" id="case-login">
                                 <div class="state p-primary">
                                     <label for="case-login">
-                                        <h5>Login to account</h5>
+                                        Login to account
                                     </label>
                                 </div>
                             </div>  
@@ -187,7 +187,7 @@
                                 <input type="checkbox" class="2fa-case" data-case="WITHDRAW" id="case-withdraw">
                                 <div class="state p-primary">
                                     <label for="case-withdraw">
-                                        <h5>Withdraw funds</h5>
+                                        Withdraw funds
                                     </label>
                                 </div>
                             </div>  
