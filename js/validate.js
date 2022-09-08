@@ -47,3 +47,7 @@ function validateVotingWebsite(website) {
     if(website.length > 255) return false;
     return website.match(/^(https?:\/\/)?([a-z0-9\-]+\.)+[a-z]{2,20}(\/[a-z0-9\-\.]+)*\/?$/, website);
 }
+
+function validate2FA(code) {
+    return code.match(/^[0-9]{4,20}$/);
+}
