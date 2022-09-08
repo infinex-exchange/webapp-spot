@@ -49,7 +49,7 @@ $(document).ready(function() {
                 }
                 window.location.replace(redirectUrl);
             } else if(data.need_2fa) {
-	            $('#login-form, #2fa-form').toggleClass('d-grid d-none');
+	            $('#login-form, #tfa-form').toggleClass('d-grid d-none');
             } else {
                 msgBox(data.error);
             }
