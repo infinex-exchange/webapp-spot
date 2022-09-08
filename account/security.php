@@ -211,8 +211,10 @@
         </div>
         
         <script src="/account/security.js?<?php echo filemtime(__DIR__.'/security.js'); ?>"></script>
+        <script src="/account/security_2fa.js?<?php echo filemtime(__DIR__.'/security_2fa.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>
+        <?php include('../templates/2fa.php'); ?>
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
     
     </body>
