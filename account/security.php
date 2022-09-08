@@ -171,7 +171,7 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-12 py-2">
+                        <div class="col-12 p-2">
                             <div class="pretty p-switch p-bigger">
                                 <input type="checkbox" class="2fa-case" data-case="LOGIN" id="case-login">
                                 <div class="state p-primary">
@@ -182,7 +182,7 @@
                             </div>  
                         </div>
 
-                        <div class="col-12 py-2">
+                        <div class="col-12 p-2">
                             <div class="pretty p-switch p-bigger">
                                 <input type="checkbox" class="2fa-case" data-case="WITHDRAW" id="case-withdraw">
                                 <div class="state p-primary">
