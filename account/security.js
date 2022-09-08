@@ -69,22 +69,23 @@ function reload2faConfig() {
                     div.find('.status-not-avbl').hide();
                     div.find('.btn-configure').hide();
                     div.find('.btn-remove').show();
+                    if(v.enabled) {
+                        div.find('.status-active').show();
+                        div.find('.status-not-active').hide();
+                        div.find('.btn-use').hide();
+                    }
+                    else {
+                        div.find('.status-active').hide();
+                        div.find('.status-not-active').show();
+                        div.find('.btn-use').show();
+                    }
                 }
                 else {
                     div.find('.status-avbl').hide();
                     div.find('.status-not-avbl').show();
                     div.find('.btn-configure').show();
                     div.find('.btn-remove').hide();
-                }
-                if(v.enabled) {
-                    div.find('.status-active').show();
-                    div.find('.status-not-active').hide();
-                    div.find('.btn-use').hide();
-                }
-                else {
-                    div.find('.status-active').hide();
-                    div.find('.status-not-active').show();
-                    div.find('.btn-use').show();
+                    div.find('.status-active, .status-not-active, .btn-use').hide();
                 }
             });
                     
