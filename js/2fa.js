@@ -9,6 +9,13 @@ $(document).ready(function() {
             $('#2fa-submit').prop('disabled', true);  
         }
     });
+    
+    $('#2fa-submit').on('click', function() {
+        $('#2fa-modal').modal('hide');
+        setTimeout(function() {
+            $('#2fa-code').val('');
+        }, 200);
+    });
 });
 
 function start2fa(provider) {
