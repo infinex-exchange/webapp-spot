@@ -170,47 +170,27 @@
                         </div>
                     </div>
                     
-                    <div class="row p-2">
-                        <div class="col-12 col-lg-3 pb-1 pb-lg-0 my-auto">
-                            <h5>Login to account</h5>
+                    <div class="row">
+                        <div class="col-12 py-2">
+                            <div class="pretty p-switch p-bigger">
+                                <input type="checkbox" class="2fa-case" data-case="LOGIN" id="case-login">
+                                <div class="state p-primary">
+                                    <label for="case-login">
+                                        <h5>Login to account</h5>
+                                    </label>
+                                </div>
+                            </div>  
                         </div>
-                        
-                        <div class="col-12 col-lg-9 my-auto">
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-login" value="false">
-                                <div class="state">
-                                    <label>Disabled</label>
+
+                        <div class="col-12 py-2">
+                            <div class="pretty p-switch p-bigger">
+                                <input type="checkbox" class="2fa-case" data-case="WITHDRAW" id="case-withdraw">
+                                <div class="state p-primary">
+                                    <label for="case-withdraw">
+                                        <h5>Withdraw funds</h5>
+                                    </label>
                                 </div>
-                            </div>
-                        
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-login" value="true">
-                                <div class="state">
-                                    <label>Enabled</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row p-2">
-                        <div class="col-12 col-lg-3 pb-1 pb-lg-0 my-auto">
-                            <h5>Withdraw funds</h5>
-                        </div>
-                        
-                        <div class="col-12 col-lg-9 my-auto">
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-withdraw" value="false">
-                                <div class="state">
-                                    <label>Disabled</label>
-                                </div>
-                            </div>
-                        
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-withdraw" value="true">
-                                <div class="state">
-                                    <label>Enabled</label>
-                                </div>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                     

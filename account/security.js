@@ -88,6 +88,10 @@ function reload2faConfig() {
                     div.find('.status-active, .status-not-active, .btn-use').hide();
                 }
             });
+            
+            $.each(data.cases, function(k, v) {
+                $('.2fa-case[data-case="' + k + '"]').prop('checked', v);
+            }
                     
             $(document).trigger('renderingStage');
         } else {
