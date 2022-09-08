@@ -57,7 +57,10 @@ $(document).ready(function() {
         event.preventDefault();
         
         var provider = $(this).closest('.2fa-provider').data('provider');
-        alert(provider);
+        if(typeof(provider) == 'undefined')
+            provider = $(this).data('provider');
+        else
+            $('#2fa-form').data('provider', provider);
         
         $('#2fa-form').unbind('submit');
         $('#2fa-form').bind('submit', btnConfigure);
@@ -99,12 +102,18 @@ $(document).ready(function() {
     function btnRemove(event) {
         event.preventDefault();
         
+        var provider = $(this).closest('.2fa-provider').data('provider');
+        if(typeof(provider) == 'undefined')
+            provider = $(this).data('provider');
+        else
+            $('#2fa-form').data('provider', provider);
+        
         $('#2fa-form').unbind('submit');
         $('#2fa-form').bind('submit', btnRemove);
         
         var data = new Object();
         data['api_key'] = window.apiKey;
-        data['provider'] = $(this).closest('.2fa-provider').data('provider');
+        data['provider'] = provider;
         
         var tfa = $('#2fa-code').val();
         if(tfa != '')
@@ -139,12 +148,18 @@ $(document).ready(function() {
     function btnUse(event) {
         event.preventDefault();
         
+        var provider = $(this).closest('.2fa-provider').data('provider');
+        if(typeof(provider) == 'undefined')
+            provider = $(this).data('provider');
+        else
+            $('#2fa-form').data('provider', provider);
+        
         $('#2fa-form').unbind('submit');
         $('#2fa-form').bind('submit', btnUse);
         
         var data = new Object();
         data['api_key'] = window.apiKey;
-        data['provider'] = $(this).closest('.2fa-provider').data('provider');
+        data['provider'] = provider;
         
         var tfa = $('#2fa-code').val();
         if(tfa != '')
