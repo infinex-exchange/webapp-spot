@@ -84,6 +84,7 @@ $(document).ready(function() {
         .done(function (data) {
             if(data.success) {
                 alert(data);
+                reload2faConfig();
             }
             else if(data.need_2fa) {
                 start2fa(data.provider_2fa);
