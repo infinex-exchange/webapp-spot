@@ -196,7 +196,7 @@ $(document).ready(function() {
         event.preventDefault();
         
         $('#2fa-form').unbind('submit');
-        $('#2fa-form').bind('submit', btnUse);
+        $('#2fa-form').bind('submit', btnSaveCases);
         
         var cases = new Object();
         
