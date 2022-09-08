@@ -49,8 +49,57 @@ function cheStep2(newEmail) {
     $('#che-pending').addClass('d-flex').removeClass('d-none');
 }
 
+function reload2faConfig() {
+    $.ajax({
+        url: config.apiUrl + '/account/2fa',
+        type: 'POST',
+        data: JSON.stringify({
+            api_key: window.apiKey
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            $.each(data.providers, function(k, v) {
+                var div = $('.2fa-provider[data-provider="' + k + '"]');
+                if(v.configured) {
+                    div.find('.status-avbl').show();
+                    div.find('.status-not-avbl').hide();
+                    div.find('.btn-configure').hide();
+                    div.find('.btn-remove').show();
+                }
+                else {
+                    div.find('.status-avbl').hide();
+                    div.find('.status-not-avbl').show();
+                    div.find('.btn-configure').show();
+                    div.find('.btn-remove').hide();
+                }
+                if(v.enabled) {
+                    div.find('.status-active').show();
+                    div.find('.status-not-active').hide();
+                    div.find('.btn-use').hide();
+                }
+                else {
+                    div.find('.status-active').hide();
+                    div.find('.status-not-active').show();
+                    div.find('.btn-use').show();
+                }
+            });
+                    
+            $(document).trigger('renderingStage');
+        } else {
+            msgBoxRedirect(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);
+    });                 
+}
+
 $(document).ready(function() {
-    window.renderingStagesTarget = 2;
+    window.renderingStagesTarget = 3;
     
     // Change passsword form
     $('#chp-old').on('input', function() {
@@ -331,6 +380,8 @@ $(document).on('authChecked', function() {
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             msgBoxNoConn(true);
-        });          
+        });
+        
+        reload2faConfig();   
     }
 });
