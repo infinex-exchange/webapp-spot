@@ -124,6 +124,7 @@
         <script src="/wallet/transfer.js?<?php echo filemtime(__DIR__.'/transfer.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>
+        <?php include('../templates/2fa.php'); ?>
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
     
     </body>

@@ -189,6 +189,7 @@
         <script src="/wallet/withdraw.js?<?php echo filemtime(__DIR__.'/withdraw.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>
+        <?php include('../templates/2fa.php'); ?>
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
     
     </body>

@@ -158,7 +158,7 @@ $(document).ready(function() {
     
     
     // Submit withdraw
-    $('#transfer-form').on('submit', function(event) {
+    $('#transfer-form, #2fa-form').on('submit', function(event) {
         // Prevent standard submit
         event.preventDefault();
         
@@ -185,6 +185,10 @@ $(document).ready(function() {
         if(memo != '')
             data['memo'] = memo;
         
+        var tfa = $('#2fa-code').val();
+        if(tfa != '')
+            data['code_2fa'] = tfa;
+        
         if(!window.validAddress ||
            (memo != '' && !window.validMemo))
         {
@@ -206,6 +210,9 @@ $(document).ready(function() {
                 $('#transfer-step2').hide();
                 window.latestTransferXid = data.xid;
                 updateTxHistory();
+            }
+            else if(data.need_2fa) {
+                start2fa(data.provider_2fa);
             }
             else {
                 msgBox(data.error);

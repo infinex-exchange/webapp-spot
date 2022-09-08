@@ -322,7 +322,7 @@ $(document).ready(function() {
     
     
     // Submit withdraw
-    $('#withdraw-form').on('submit', function(event) {
+    $('#withdraw-form, #2fa-form').on('submit', function(event) {
         // Prevent standard submit
         event.preventDefault();
         
@@ -359,6 +359,10 @@ $(document).ready(function() {
         var memo = $('#withdraw-memo').val();
         if(memo != '')
             data['memo'] = memo;
+            
+        var tfa = $('#2fa-code').val();
+        if(tfa != '')
+            data['code_2fa'] = tfa;
         
         if(adbkSave)
 	        data['adbk_name'] = adbkName;
@@ -386,6 +390,9 @@ $(document).ready(function() {
                 $('#withdraw-step3').hide();
                 window.latestWithdrawalXid = data.xid;
                 updateTxHistory();
+            }
+            else if(data.need_2fa) {
+                start2fa(data.provider_2fa);
             }
             else {
                 msgBox(data.error);
