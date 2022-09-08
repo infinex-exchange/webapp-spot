@@ -45,6 +45,14 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
             
+            <form id="tfa-form" class="d-none gap-3">
+                <div class="form-group">
+                    <label for="tfa-code">2FA code:</label>
+                    <input type="text" class="form-control" id="tfa-code">
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            
             </div>
             
             <div class="col-12 col-lg-5 p-4 my-auto secondary">

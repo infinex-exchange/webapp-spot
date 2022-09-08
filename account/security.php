@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
+        <?php include('../imports/qrcode.html'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <title>Security settings | Vayamos Exchange</title>
     </head>
@@ -125,115 +126,82 @@
                     </form>
                 </div>
                 
-                <!--
                 <div class="col-12">
                     <div class="row p-2 pt-4">
                         <h3>Two factor authentication</h3>
                     </div>  
                     
                     <div class="row p-2">
-                        <div class="col-12 col-lg-6">
+                        <div class="2fa-provider col-12 col-lg-6" data-provider="EMAIL">
                             <div class="alert alert-secondary d-flex align-items-center" role="alert">
                                 <div class="px-2">
                                     <i class="fa-solid fa-envelope fa-2x"></i>
                                 </div>
                                 <div class="px-2">
                                     E-mail codes<br>
-                                    <strong class="text-success">Available</strong>
-                                    <strong class="text-success">Active</strong>
+                                    <strong class="status-avbl text-success">Available</strong>
+                                    <strong class="status-not-avbl text-danger">Not available</strong>
+                                    <strong class="status-active text-success">Active</strong>
+                                    <strong class="status-not-active text-danger">Not active</strong>
                                 </div>
                                 <div class="ms-auto px-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Use</button>
+                                    <button type="button" class="btn-use btn btn-primary btn-sm">Use</button>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-12 col-lg-6">
+                        <div class="2fa-provider col-12 col-lg-6" data-provider="GA">
                             <div class="alert alert-secondary d-flex align-items-center" role="alert">
                                 <div class="px-2">
                                     <i class="fa-brands fa-google fa-2x"></i>
                                 </div>
                                 <div class="px-2">
                                     Google Authenticator<br>
-                                    <strong class="text-success">Available</strong>
-                                    <strong class="text-success">Active</strong>
-                                    <strong class="text-danger">Not available</strong>
+                                    <strong class="status-avbl text-success">Available</strong>
+                                    <strong class="status-not-avbl text-danger">Not available</strong>
+                                    <strong class="status-active text-success">Active</strong>
+                                    <strong class="status-not-active text-danger">Not active</strong>
                                 </div>
                                 <div class="ms-auto px-2">
-                                    <button type="button" class="btn btn-primary btn-sm">Configure</button>
-                                    <button type="button" class="btn btn-primary btn-sm">Remove</button>
-                                    <button type="button" class="btn btn-primary btn-sm">Use</button>
+                                    <button type="button" class="btn-configure btn btn-primary btn-sm">Configure</button>
+                                    <button type="button" class="btn-remove btn btn-primary btn-sm">Remove</button>
+                                    <button type="button" class="btn-use btn btn-primary btn-sm">Use</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="row p-2">
-                        <div class="col-12 col-lg-3 pb-1 pb-lg-0 my-auto">
-                            <h5>Login to account</h5>
+                    <div class="row px-2">
+                        <div class="col-12 py-2">
+                            <div class="pretty p-switch p-bigger">
+                                <input type="checkbox" class="2fa-case" data-case="LOGIN" id="case-login">
+                                <div class="state p-primary">
+                                    <label for="case-login">
+                                        Login to account
+                                    </label>
+                                </div>
+                            </div>  
                         </div>
-                        
-                        <div class="col-12 col-lg-9 my-auto">
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-login">
-                                <div class="state">
-                                    <label>Disabled</label>
+
+                        <div class="col-12 py-2">
+                            <div class="pretty p-switch p-bigger">
+                                <input type="checkbox" class="2fa-case" data-case="WITHDRAW" id="case-withdraw">
+                                <div class="state p-primary">
+                                    <label for="case-withdraw">
+                                        Withdraw funds
+                                    </label>
                                 </div>
-                            </div>
-                        
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-login">
-                                <div class="state">
-                                    <label>E-mail</label>
-                                </div>
-                            </div>
-                        
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-login">
-                                <div class="state">
-                                    <label>Google</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row p-2">
-                        <div class="col-12 col-lg-3 pb-1 pb-lg-0 my-auto">
-                            <h5>Withdraw funds</h5>
-                        </div>
-                        
-                        <div class="col-12 col-lg-9 my-auto">
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-withdraw">
-                                <div class="state">
-                                    <label>Disabled</label>
-                                </div>
-                            </div>
-                        
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-withdraw">
-                                <div class="state">
-                                    <label>E-mail</label>
-                                </div>
-                            </div>
-                        
-                            <div class="pretty p-default p-round p-bigger">
-                                <input type="radio" name="2fa-withdraw">
-                                <div class="state">
-                                    <label>Google</label>
-                                </div>
-                            </div>
+                            </div>  
                         </div>
                     </div>
                     
                     <div class="row p-2">
                         <div class="col-12 col-lg-6">
-                            <button type="button" class="btn btn-primary w-100">Save</button>
+                            <button type="button" class="btn-save-cases btn btn-primary w-100">Save</button>
                         </div>
                     </div>
                     
                 </div>
-                -->
             </div>
         
         <!-- / Main column -->
@@ -244,8 +212,37 @@
         </div>
         
         <script src="/account/security.js?<?php echo filemtime(__DIR__.'/security.js'); ?>"></script>
+        <script src="/account/security_2fa.js?<?php echo filemtime(__DIR__.'/security_2fa.js'); ?>"></script>
+        
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-configure">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Configure 2FA</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                Scan QR code:
+                            </div>
+                            
+                            <div class="col-12 p-4 text-center">
+                                <div class="qrcode-wrapper d-inline-block">
+                                    <div id="mc-qrcode"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <?php include('../templates/modals.php'); ?>
+        <?php include('../templates/2fa.php'); ?>
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
     
     </body>

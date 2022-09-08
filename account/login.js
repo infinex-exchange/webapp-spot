@@ -1,24 +1,33 @@
 $(document).ready(function() {
-    $('#login-form').submit(function(event) {
+    $('#login-form, #tfa-form').submit(function(event) {
         event.preventDefault();
         
-        var email = $(this).find('#login-email').val().toLowerCase();
-        var password = $(this).find('#login-password').val();
-        var remember = $(this).find('#login-remember').prop('checked');
+        var email = $('#login-email').val().toLowerCase();
+        var password = $('#login-password').val();
+        var remember = $('#login-remember').prop('checked');
+        var tfa = $('#tfa-code').val();
         
-        if(!email.length || !password.length) {
+        if(!email.length ||
+           !password.length ||
+           ($(this).is('#tfa-form') && !tfa.length)
+        ) {
             msgBox('Fill the form correctly');
             return;
         }
+        
+        var data = {
+            email: email,
+            password: password,
+            remember: remember
+        };
+        
+        if(tfa.length)
+	        data = Object.assign(data, {code_2fa: tfa});
     
         $.ajax({
             url: config.apiUrl + '/account/login',
             type: 'POST',
-            data: JSON.stringify({
-                email: email,
-                password: password,
-                remember: remember
-            }),
+            data: JSON.stringify(data),
             contentType: "application/json",
             dataType: "json"
         })
@@ -39,6 +48,8 @@ $(document).ready(function() {
                     redirectUrl = window.location.origin + back;
                 }
                 window.location.replace(redirectUrl);
+            } else if(data.need_2fa) {
+	            $('#login-form, #tfa-form').toggleClass('d-grid d-none');
             } else {
                 msgBox(data.error);
             }

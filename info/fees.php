@@ -62,7 +62,7 @@
             </div>
             </div>
             
-            <div class="row p-2">
+            <div class="row p-2 pt-3">
                 <h3>Deposits and withdrawals</h3>
             </div>
             

@@ -50,7 +50,7 @@ function cheStep2(newEmail) {
 }
 
 $(document).ready(function() {
-    window.renderingStagesTarget = 2;
+    window.renderingStagesTarget = 3;
     
     // Change passsword form
     $('#chp-old').on('input', function() {
@@ -331,6 +331,6 @@ $(document).on('authChecked', function() {
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             msgBoxNoConn(true);
-        });          
+        });
     }
 });
