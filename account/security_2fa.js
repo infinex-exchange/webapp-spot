@@ -53,6 +53,10 @@ function reload2faConfig() {
 }
 
 $(document).ready(function() {
+    window.qrcode = new QRCode("mc-qrcode", {
+        correctLevel : QRCode.CorrectLevel.H
+    });
+                
     function btnConfigure(event) {
         event.preventDefault();
         
@@ -83,7 +87,15 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                console.log(data);
+                if($(window).width() < 992) {
+                    window.location = data.ga_qr;
+                }
+                else {
+                    window.qrcode.clear();
+                    window.qrcode.makeCode(data.ga_qr);
+                    $('#modal-configure').modal('show');
+                }
+                
                 reload2faConfig();
             }
             else if(data.need_2fa) {

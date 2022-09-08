@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
+        <?php include('../imports/qrcode.html'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <title>Security settings | Vayamos Exchange</title>
     </head>
@@ -212,6 +213,33 @@
         
         <script src="/account/security.js?<?php echo filemtime(__DIR__.'/security.js'); ?>"></script>
         <script src="/account/security_2fa.js?<?php echo filemtime(__DIR__.'/security_2fa.js'); ?>"></script>
+        
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-configure">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Configure 2FA</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12">
+                                Scan QR code:
+                            </div>
+                            
+                            <div class="col-12 p-4 text-center">
+                                <div class="qrcode-wrapper d-inline-block">
+                                    <div id="mc-qrcode"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <?php include('../templates/modals.php'); ?>
         <?php include('../templates/2fa.php'); ?>
