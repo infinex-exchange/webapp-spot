@@ -83,7 +83,7 @@ $(document).ready(function() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-                alert(data);
+                console.log(data);
                 reload2faConfig();
             }
             else if(data.need_2fa) {
