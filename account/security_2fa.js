@@ -191,6 +191,52 @@ $(document).ready(function() {
     }
     
     $('.btn-use').on('click', btnUse);
+    
+    function btnSaveCases(event) {
+        event.preventDefault();
+        
+        $('#2fa-form').unbind('submit');
+        $('#2fa-form').bind('submit', btnUse);
+        
+        var cases = new Object();
+        
+        $('.2fa-case').each(function(){
+            cases[ $(this).data('case') ] = $(this).prop('checked');
+        });
+        
+        var data = new Object();
+        data['api_key'] = window.apiKey;
+        data['cases'] = cases;
+        
+        var tfa = $('#2fa-code').val();
+        if(tfa != '')
+            data['code_2fa'] = tfa;
+        
+        $.ajax({
+            url: config.apiUrl + '/account/2fa/cases',
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+                reload2faConfig();
+            }
+            else if(data.need_2fa) {
+                start2fa(data.provider_2fa);
+            }
+            else {
+                msgBox(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(false);
+        });
+    }
+    
+    $('.btn-save-cases').on('click', btnSaveCases);
 });
 
 $(document).on('authChecked', function() {
