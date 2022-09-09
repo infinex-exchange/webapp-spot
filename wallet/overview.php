@@ -36,7 +36,7 @@
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
             
             <form>
-            <div class="row p-2 flex-nowrap">
+            <div class="row p-2">
                 <div class="col-12 col-lg-auto auto my-auto px-1">
                     <a href="/wallet/deposit" class="btn btn-primary btn-sm">Deposit</a>
                     <a href="/wallet/withdraw" class="btn btn-primary btn-sm">Withdraw</a>
