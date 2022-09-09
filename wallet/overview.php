@@ -43,7 +43,7 @@
                     <a href="/wallet/transfer" class="btn btn-primary btn-sm">Transfer</a>
                 </div>
                 
-                <div class="col-6 col-lg-auto order-3 order-lg-2 my-auto p-1 p-lg-2">
+                <div class="col-12 col-lg-auto order-3 order-lg-2 my-auto p-1 p-lg-2">
                     <input id="asset-search" type="text" size="7" placeholder="Search" class="form-control input-search">
                 </div>
                 
