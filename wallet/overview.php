@@ -36,18 +36,18 @@
         <div class="col-12 col-lg-9 p-0 ui-card ui-column">
             
             <form>
-            <div class="row p-2 flex-nowrap">
-                <div class="col-auto my-auto px-1">
+            <div class="row">
+                <div class="col-auto order-1 my-auto p-1 p-lg-2">
                     <a href="/wallet/deposit" class="btn btn-primary btn-sm">Deposit</a>
                     <a href="/wallet/withdraw" class="btn btn-primary btn-sm">Withdraw</a>
                     <a href="/wallet/transfer" class="btn btn-primary btn-sm">Transfer</a>
                 </div>
                 
-                <div class="col-auto my-auto px-1">
+                <div class="col-12 col-lg-auto order-3 order-lg-2 my-auto p-1 p-lg-2">
                     <input id="asset-search" type="text" size="7" placeholder="Search" class="form-control input-search">
                 </div>
                 
-                <div class="col-auto my-auto px-1">
+                <div class="col-auto order-2 order-lg-3 ms-auto ms-lg-0 my-auto p-1 p-lg-2">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="asset-hide-zero">
                         <label class="form-check-label" for="asset-hide-zero">
