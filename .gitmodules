@@ -10,6 +10,3 @@
 [submodule "exchange/dex"]
 	path = exchange/dex
 	url = git@github.com:vayamos-exchange/webapp-dex
-[submodule "exchange/mining"]
-	path = exchange/mining
-	url = git@github.com:vayamos-exchange/webapp-mining
