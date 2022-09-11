@@ -12,4 +12,4 @@
 	url = git@github.com:vayamos-exchange/webapp-dex
 [submodule "exchange/mining"]
 	path = exchange/mining
-	url = https://github.com/vayamos-exchange/webapp-mining
+	url = git@github.com:vayamos-exchange/webapp-mining
