@@ -281,8 +281,6 @@ $(document).ready(function() {
         });
     });
     
-    reloadCurrentVoting();
-    
     window.votingHistoryAS = new AjaxScroll(
         $('#previous-votings-data'),
         $('#previous-votings-data-preloader'),
@@ -331,4 +329,9 @@ $(document).ready(function() {
         true,
         true
     );        
+});
+
+$(document).on('authChecked', function() {
+    reloadCurrentVoting();
+    setTimeout(reloadCurrentVoting, 10000);
 });
