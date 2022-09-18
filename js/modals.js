@@ -32,7 +32,7 @@ $(document).on('renderingComplete', function() {
             var bannerId = localStorage.getItem('bannerId');
                 
             if(bannerId === null || bannerId != data.bannerid) {
-                window.bannerIdToSet = data.bannerid;
+                localStorage.setItem("bannerId", data.bannerid);
                 
                 var modal = $('#modal-banner');
                 modal.find('.modal-title').html(data.title);
@@ -41,8 +41,4 @@ $(document).on('renderingComplete', function() {
             }
         }
     });
-});
-
-$('#modal-banner .modal-close').click(function() {
-    localStorage.setItem("bannerId", window.bannerIdToSet);
 });
