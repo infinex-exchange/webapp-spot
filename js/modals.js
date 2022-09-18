@@ -38,12 +38,16 @@ $(document).on('renderingComplete', function() {
                bannerId != data.bannerid
             ) {
                 localStorage.setItem("bannerId", data.bannerId);
-                localStorage.setItem("bannerTimestamp", Date.now());
                 
                 var modal = $('.modal-banner');
                 modal.find('.modal-title').html(data.title);
                 modal.find('.modal-body').html(data.body);
+                modal.modal('show');
             }
         }
     });
+});
+
+$('.modal-banner .modal-close').click(function() {
+    localStorage.setItem("bannerTimestamp", Date.now());
 });
