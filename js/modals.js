@@ -39,7 +39,7 @@ $(document).on('renderingComplete', function() {
             ) {
                 localStorage.setItem("bannerId", data.bannerid);
                 
-                var modal = $('.modal-banner');
+                var modal = $('#modal-banner');
                 modal.find('.modal-title').html(data.title);
                 modal.find('.modal-body').html(data.body);
                 modal.modal('show');
