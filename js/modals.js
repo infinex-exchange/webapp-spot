@@ -34,7 +34,7 @@ $(document).on('renderingComplete', function() {
                 
             if(bannerId === null ||
                bannerTimestamp === null ||
-               bannerTimestamp > Date.now() - 86400000 ||
+               bannerTimestamp < Date.now() - 86400000 ||
                bannerId != data.bannerid
             ) {
                 localStorage.setItem("bannerId", data.bannerid);
