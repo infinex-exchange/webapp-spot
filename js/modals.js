@@ -37,7 +37,7 @@ $(document).on('renderingComplete', function() {
                bannerTimestamp > Date.now() - 86400000 ||
                bannerId != data.bannerid
             ) {
-                localStorage.setItem("bannerId", data.bannerId);
+                localStorage.setItem("bannerId", data.bannerid);
                 
                 var modal = $('.modal-banner');
                 modal.find('.modal-title').html(data.title);
