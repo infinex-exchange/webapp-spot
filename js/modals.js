@@ -30,14 +30,9 @@ $(document).on('renderingComplete', function() {
     .done(function (data) {
         if(data.success && data.active) {
             var bannerId = localStorage.getItem('bannerId');
-            var bannerTimestamp = localStorage.getItem('bannerTimestamp');
                 
-            if(bannerId === null ||
-               bannerTimestamp === null ||
-               bannerTimestamp < Date.now() - 86400000 ||
-               bannerId != data.bannerid
-            ) {
-                localStorage.setItem("bannerId", data.bannerid);
+            if(bannerId === null || bannerId != data.bannerid) {
+                window.bannerIdToSet = data.bannerid;
                 
                 var modal = $('#modal-banner');
                 modal.find('.modal-title').html(data.title);
@@ -49,5 +44,5 @@ $(document).on('renderingComplete', function() {
 });
 
 $('#modal-banner .modal-close').click(function() {
-    localStorage.setItem("bannerTimestamp", Date.now());
+    localStorage.setItem("bannerId", window.bannerIdToSet);
 });
