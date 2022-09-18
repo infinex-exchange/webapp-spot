@@ -48,6 +48,6 @@ $(document).on('renderingComplete', function() {
     });
 });
 
-$('.modal-banner .modal-close').click(function() {
+$('#modal-banner .modal-close').click(function() {
     localStorage.setItem("bannerTimestamp", Date.now());
 });
