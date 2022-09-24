@@ -380,13 +380,12 @@ input[type="range"]::-moz-range-thumb {
 
 /* Button */
 
-.btn-primary {
-    background-color: var(--color-ultra);
+.btn, .btn-primary, .btn-secondary, .btn-danger, .btn-warning, .btn-success {
     font-size: var(--font-normal);
 }
 
-.btn-secondary {
-    font-size: var(--font-normal);
+.btn-primary {
+    background-color: var(--color-ultra);
 }
 
 /* Coin / net / address selector */
