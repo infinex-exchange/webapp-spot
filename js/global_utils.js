@@ -56,9 +56,10 @@ $( document ).ready(function() {
         }
     });
     
-    if(aaCandidate != null)
+    if(aaCandidate != null) {
         $(aaCandidate).addClass('active');
-    else alert('no candidate');
+        alert('cand '+$(aaCandidate).attr('href'));
+    }
     
     $('.auto-active-group').each(function() {
         if($(this).parent().find('.auto-active.active').length !== 0)
