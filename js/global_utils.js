@@ -29,22 +29,35 @@ $( document ).ready(function() {
     },
     function() {
         $(this).find('.dropdown-menu').removeClass('show');
-    }); 
+    });
+    
+    // Mobile navbar
+    $('.nav-link[data-ui-card-target]').onFirst('click', function() {
+        gotoUiCard($(this).attr('data-ui-card-target'));        
+    });
+    
+    var urlCard = window.location.hash.substr(1);
+    if($('[data-ui-card~="' + urlCard + '"]').length)
+        gotoUiCard(urlCard);
+    else
+	    gotoUiCard( $('.nav-link.active[data-ui-card-target]').data('ui-card-target') );
     
     // Auto active menu item
     var loc = window.location.pathname;
+    var aaCandidate = null;
     
     $('.auto-active').each(function() {
         var href = $(this).attr('href');
         
-        if(loc.startsWith(href)) {
-            // Exceptions
-            if(href == '/' && loc != '/') return;
-            if((href == '/wallet' || href == '/wallet/') && (loc != '/wallet' && loc != '/wallet/')) return;
-            
-            $(this).addClass('active');
+        if(aaCandidate == null ||
+           (loc.startsWith(href) && href.length > $(aaCandidate).attr('href').length)
+        ) {
+            aaCandidate = this;
         }
     });
+    
+    if(aaCandidate != null)
+        $(aaCandidate).addClass('active');
     
     $('.auto-active-group').each(function() {
         if($(this).parent().find('.auto-active.active').length !== 0)
@@ -55,12 +68,6 @@ $( document ).ready(function() {
     document.addEventListener('dblclick', (event) => {
         event.preventDefault()
     }, { passive: false });
-    
-    // Mobile navbar
-    $('.nav-link[data-ui-card-target]').onFirst('click', function() {
-        gotoUiCard($(this).attr('data-ui-card-target'));        
-    });
-    gotoUiCard( $('.nav-link.active[data-ui-card-target]').data('ui-card-target') );
     
     // Copy button
     $('.copy-button').on('click', function() {
