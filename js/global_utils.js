@@ -45,7 +45,7 @@ $( document ).ready(function() {
     // Auto active menu item
     var loc = window.location.pathname;
     if(loc.startsWith('/')) loc = loc.substr(1);
-    if(local.endsWith('/')) loc = loc.slice(0, -1);
+    if(loc.endsWith('/')) loc = loc.slice(0, -1);
     
     $('.auto-active').each(function() {
         var href = $(this).attr('href');
