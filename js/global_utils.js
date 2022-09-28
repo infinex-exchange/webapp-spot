@@ -54,6 +54,8 @@ $( document ).ready(function() {
         
         if(loc == href)
             $(this).addClass('active');
+        else
+            $(this).removeClass('active');
     });
     
     $('.auto-active-group').each(function() {
