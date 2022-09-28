@@ -39,8 +39,16 @@ $( document ).ready(function() {
     var urlCard = window.location.hash.substr(1);
     if($('[data-ui-card~="' + urlCard + '"]').length)
         gotoUiCard(urlCard);
-    else
-	    gotoUiCard( $('.nav-link.active[data-ui-card-target]').data('ui-card-target') );
+    else {
+        var initialLink = $('.nav-link.active[data-ui-card-target]');
+        if(initialLink.length) {
+            var icTarget = initialLink.data('ui-card-target');
+            if($('[data-ui-card~="' + icTarget + '"]').length)
+                gotoUiCard(icTarget);
+            else
+                initialLink.removeClass('active');
+        }
+    }
     
     // Auto active menu item
     var loc = window.location.pathname;
@@ -54,8 +62,6 @@ $( document ).ready(function() {
         
         if(loc == href)
             $(this).addClass('active');
-        else
-            $(this).removeClass('active');
     });
     
     $('.auto-active-group').each(function() {
