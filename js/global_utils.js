@@ -44,20 +44,17 @@ $( document ).ready(function() {
     
     // Auto active menu item
     var loc = window.location.pathname;
-    var aaCandidate = null;
+    if(loc.startsWith('/')) loc = loc.substr(1);
+    if(local.endsWith('/')) loc = loc.slice(0, -1);
     
     $('.auto-active').each(function() {
         var href = $(this).attr('href');
+        if(href.startsWith('/')) href = href.substr(1);
+        if(href.endsWith('/')) href = href.slice(0, -1);
         
-        if(loc.startsWith(href) ||
-           (aaCandidate == null && href.length > aaCandidate.attr('href').length)
-        ) {
-            aaCandidate = $(this);
-        }
+        if(loc == href)
+            $(this).addClass('active');
     });
-    
-    if(aaCandidate != null)
-        aaCandidate.addClass('active');
     
     $('.auto-active-group').each(function() {
         if($(this).parent().find('.auto-active.active').length !== 0)
