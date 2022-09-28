@@ -49,17 +49,15 @@ $( document ).ready(function() {
     $('.auto-active').each(function() {
         var href = $(this).attr('href');
         
-        if(aaCandidate == null ||
-           (loc.startsWith(href) && href.length > $(aaCandidate).attr('href').length)
+        if(loc.startsWith(href) ||
+           (aaCandidate == null && href.length > aaCandidate.attr('href').length)
         ) {
-            aaCandidate = this;
+            aaCandidate = $(this);
         }
     });
     
-    if(aaCandidate != null) {
-        $(aaCandidate).addClass('active');
-        alert('cand '+$(aaCandidate).attr('href'));
-    }
+    if(aaCandidate != null)
+        aaCandidate.addClass('active');
     
     $('.auto-active-group').each(function() {
         if($(this).parent().find('.auto-active.active').length !== 0)
