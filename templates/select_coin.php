@@ -6,7 +6,7 @@
         </div>
     </form>
     <div id="select-coin-dropdown" class="selector-dropdown">
-        <input id="select-coin-search" type="text" placeholder="Search..." class="input-search form-control selector-search">
+        <input id="select-coin-search" type="text" placeholder="Search..." class="input-search form-control selector-search" data-prec="">
         <div id="select-coin-data" class="scrollable selector-data"></div>
         <div id="select-coin-data-preloader">
             Loading...

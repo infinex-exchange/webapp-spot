@@ -52,8 +52,11 @@ function initSelectCoin(endpoint = '/wallet/assets') {
             .done(function (data) {
                 if(data.success) {
                     $.each(data.assets, function(k, v) {
+                        var prec = '';
+                        if(typeof(v.prec) !== 'undefined') prec = v.prec;
+                        
                         thisAS.append(`
-                            <div class="select-coin-item row p-1 hoverable" data-asset="${k}">
+                            <div class="select-coin-item row p-1 hoverable" data-asset="${k}" data-prec="${prec}">
                                 <div class="col-auto my-auto text-center" style="width: 32px">
                                     <img width="24px" height="24px" src="${v.icon_url}">
                                 </div>
@@ -69,6 +72,7 @@ function initSelectCoin(endpoint = '/wallet/assets') {
                     
                     $('.select-coin-item').on('click', function(event) {
                         $('#select-coin').val($(this).attr('data-asset'));
+                        $('#select-coin').data('prec', $(this).attr('data-prec'));
                         $('#select-coin').trigger('change');
                     });
                         
