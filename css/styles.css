@@ -751,3 +751,9 @@ footer {
 	text-align: center;
 	display: inline-block;
 }
+
+/* Textarea non resizable */
+
+textarea {
+    resize: none;
+}
