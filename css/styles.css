@@ -177,7 +177,8 @@ h6 {
 
 input[type=text], input[type=text]:focus, input[type=text][readonly],
 input[type=email], input[type=email]:focus, input[type=email][readonly],
-input[type=password], input[type=password]:focus, input[type=password][readonly] {
+input[type=password], input[type=password]:focus, input[type=password][readonly],
+textarea, textarea:focus {
     background-color: var(--color-input);
     border-width: 0px;
     box-shadow: none !important;
@@ -187,11 +188,13 @@ input[type=password], input[type=password]:focus, input[type=password][readonly]
 
 input[type=text], input[type=text][readonly],
 input[type=email], input[type=email][readonly],
-input[type=password], input[type=password][readonly] {
+input[type=password], input[type=password][readonly],
+textarea {
     outline: none !important;
 }
 
-input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus,
+textarea:focus {
     outline: 1px solid var(--color-ultra) !important;
 }
 
