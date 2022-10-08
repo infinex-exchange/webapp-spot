@@ -152,5 +152,7 @@ $(document).ready(function() {
         var display = $(this).data('display');
         $('#orderbook').removeClass('orderbook-display-split orderbook-display-asks orderbook-display-bids')
                        .addClass('orderbook-display-' + display);
+        
+        doJsSizing();
     });
 });
