@@ -12,7 +12,7 @@ class MuxClient {
                 
                 t.request(
                     options.url,
-                    options.data,
+                    $.parseJSON(options.data),
                     function(body) {
                         deferred.resolve(body);
                     },
