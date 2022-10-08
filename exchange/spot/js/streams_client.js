@@ -97,7 +97,7 @@ class StreamsClient {
     send(obj) {
         if(this.ws && this.ws.readyState === this.ws.OPEN)
             var xdd = JSON.stringify(obj);
-            if(xdd.contains('BPX/USDT@tickerEx')) {
+            if(xdd.includes('BPX/USDT@tickerEx')) {
                 console.log(obj);
                 console.trace();
             }
