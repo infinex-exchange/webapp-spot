@@ -194,7 +194,7 @@ class StreamsClient {
     }
     
     sub(streams, dataCallback, errorCallback) {
-        if(streams == 'BPX/USDT@tickerEx')
+        if(streams == 'BPX/USDT@tickerEx' || streams.includes('BPX/USDT@tickerEx'))
             console.trace();
         var t = this;
         
