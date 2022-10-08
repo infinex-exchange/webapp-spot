@@ -170,7 +170,6 @@ class StreamsClient {
     }
     
     restoreSubs() {
-        console.trace();
 	    var t = this;
         
         var id = t.randomId();
