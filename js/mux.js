@@ -8,7 +8,7 @@ class MuxClient {
         var oldAjax = $.ajax;
         $.ajax = function(u, o) {
             console.log('overriden ajax');
-            return $.ajax(u, o);
+            return oldAjax(u, o);
         };
     }
     
