@@ -9,6 +9,7 @@ class MuxClient {
         $.ajax = function(u, o) {
             if(t.ws && t.ws.readyState === t.ws.OPEN) {
                 var deferred = $.Deferred();
+                console.log(o);
                 
                 t.request(
                     u,
