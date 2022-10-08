@@ -21,7 +21,7 @@ class MuxClient {
                     }
                 );
                 
-                return deferred.promise();
+                return deferred;
             }
             else
                 return oldAjax(u, o);
