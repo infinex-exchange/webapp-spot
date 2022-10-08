@@ -194,6 +194,8 @@ class StreamsClient {
     }
     
     sub(streams, dataCallback, errorCallback) {
+        if(streams == 'BPX/USDT@tickerEx')
+            console.trace();
         var t = this;
         
         var streamsArr = streams;
