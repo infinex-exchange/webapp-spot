@@ -111,3 +111,4 @@ class MuxClient {
 }
 
 window.mux = new MuxClient(config.muxUrl);
+window.mux.open();
