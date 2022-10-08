@@ -6,15 +6,13 @@ class MuxClient {
         
         var t = this;
         var oldAjax = $.ajax;
-        $.ajax = function(u, o) {
+        $.ajax = function(options) {
             if(t.ws && t.ws.readyState === t.ws.OPEN) {
                 var deferred = $.Deferred();
-                console.log(o);
-                console.log(u);
                 
                 t.request(
-                    u,
-                    o.data,
+                    options.url,
+                    options.data,
                     function(body) {
                         deferred.resolve(body);
                     },
