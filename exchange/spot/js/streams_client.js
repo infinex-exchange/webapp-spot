@@ -6,6 +6,7 @@ class StreamsClient {
         this.subDb = new Array();
         this.reconDelay = 0;
         this.onCloseCalled = false;
+        this.restoreSubsAfterAuth = false;
     }
     
     open() {
@@ -25,8 +26,10 @@ class StreamsClient {
                 t.ping();
             }, 5000);
             
-            if(typeof(t.apiKey) !== 'undefined')
-	            t.auth(t.apiKey, t.authRespCb, t.authErrorCb);
+            if(typeof(t.apiKey) !== 'undefined') {
+	            t.restoreSubsAfterAuth = true;
+                t.auth(t.apiKey, t.authRespCb, t.authErrorCb);
+            }
             else
 	            t.restoreSubs();
             
@@ -115,7 +118,8 @@ class StreamsClient {
             
             if(msg.id == t.authId) {
                 if(msg.success) {
-                    t.restoreSubs();
+                    if(t.restoreSubsAfterAuth)
+                        t.restoreSubs();
                     t.authRespCb();
                 }
                 else {
