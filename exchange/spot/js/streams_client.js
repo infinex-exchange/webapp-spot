@@ -96,7 +96,12 @@ class StreamsClient {
     
     send(obj) {
         if(this.ws && this.ws.readyState === this.ws.OPEN)
-            this.ws.send(JSON.stringify(obj));
+            var xdd = JSON.stringify(obj);
+            if(xdd.contains('BPX/USDT@tickerEx')) {
+                console.log(obj);
+                console.trace();
+            }
+            this.ws.send(xdd);
     }
     
     randomId() {
@@ -194,8 +199,6 @@ class StreamsClient {
     }
     
     sub(streams, dataCallback, errorCallback) {
-        if(streams == 'BPX/USDT@tickerEx' || streams.includes('BPX/USDT@tickerEx'))
-            console.trace();
         var t = this;
         
         var streamsArr = streams;
