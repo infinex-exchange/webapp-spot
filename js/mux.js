@@ -21,6 +21,10 @@ class MuxClient {
                     }
                 );
                 
+                deferred.retry = function(opts) {
+                    return this;
+                }
+                
                 return deferred;
             }
             else
