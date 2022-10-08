@@ -3,6 +3,13 @@ class MuxClient {
         this.url = url;
         this.reconDelay = 0;
         this.requestsDb = new Object();
+        
+        var t = this;
+        var oldAjax = $.ajax;
+        $.ajax = function(u, o) {
+            console.log('overriden ajax');
+            return $.ajax(u, o);
+        };
     }
     
     open() {
