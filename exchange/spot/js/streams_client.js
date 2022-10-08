@@ -96,12 +96,7 @@ class StreamsClient {
     
     send(obj) {
         if(this.ws && this.ws.readyState === this.ws.OPEN)
-            var xdd = JSON.stringify(obj);
-            if(xdd.includes('BPX/USDT@tickerEx')) {
-                console.log(obj);
-                console.trace();
-            }
-            this.ws.send(xdd);
+            this.ws.send(JSON.stringify(obj));
     }
     
     randomId() {
@@ -171,6 +166,7 @@ class StreamsClient {
     }
     
     restoreSubs() {
+        console.trace();
 	    var t = this;
         
         var id = t.randomId();
