@@ -7,8 +7,24 @@ class MuxClient {
         var t = this;
         var oldAjax = $.ajax;
         $.ajax = function(u, o) {
-            console.log('overriden ajax');
-            return oldAjax(u, o);
+            if(t.ws && t.ws.readyState === t.ws.OPEN) {
+                var deferred = $.Deferred();
+                
+                t.request(
+                    u,
+                    o.data,
+                    function(body) {
+                        deferred.resolve(body);
+                    },
+                    function () {
+                        deferred.reject();
+                    }
+                );
+                
+                return deferred.promise();
+            }
+            else
+                return oldAjax(u, o);
         };
     }
     
@@ -68,11 +84,8 @@ class MuxClient {
     }
     
     send(obj) {
-        if(this.ws && this.ws.readyState === this.ws.OPEN) {
+        if(this.ws && this.ws.readyState === this.ws.OPEN)
             this.ws.send(JSON.stringify(obj));
-            return true;
-        }
-        return false;
     }
     
     randomId() {
@@ -108,7 +121,7 @@ class MuxClient {
             errorCallback: errorCallback
         };
         
-        return this.send({
+        this.send({
             op: 'req',
             url: url,
             post: post,
