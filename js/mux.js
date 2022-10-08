@@ -94,7 +94,7 @@ class MuxClient {
     }
     
     request(url, post, dataCallback, errorCallback) {
-        var id = t.randomId();
+        var id = this.randomId();
         
         this.requestsDb[id] = {
             dataCallback: dataCallback,
