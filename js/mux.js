@@ -104,7 +104,7 @@ class MuxClient {
         return this.send({
             op: 'req',
             url: url,
-            post: post
+            post: post,
             id: id
         });                 
     }
