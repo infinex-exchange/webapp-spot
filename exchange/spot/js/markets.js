@@ -16,6 +16,9 @@ function gotoMarket(pair) {
 }
 
 function filterMarketsByQuote(q) {
+    if(typeof(window.defaultQuoteFilter) !== 'undefined' && window.defaultQuoteFilter == q)
+        return;
+    
     window.defaultQuoteFilter = q;
     
     delete window.marketsAS.data.search;
