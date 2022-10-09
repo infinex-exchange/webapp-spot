@@ -133,16 +133,8 @@ $(document).on('pairSelected', function() {
     // Update balance
     updateBalance();
     
-    // Select default order type
-    $('.switch-order-type').on('click', function() {
-        switchOrderType($(this).attr('data-type'));
-    });     
+    // Select default order type   
     switchOrderType('LIMIT');
-    
-    // Select default time in force
-    $('.switch-time-in-force').on('click', function() {
-        switchTimeInForce($(this).attr('data-tif'));
-    });
     
     // Suffixes
     $('.form-base-suffix').html(window.currentBase);
@@ -152,6 +144,18 @@ $(document).on('pairSelected', function() {
     window.keepOnTypeChange = new Object();
     window.keepOnTypeChange['BUY'] = 'total';
     window.keepOnTypeChange['SELL'] = 'amount';
+});
+
+$(document).ready(function() {
+    // Select default order type
+    $('.switch-order-type').on('click', function() {
+        switchOrderType($(this).attr('data-type'));
+    });     
+    
+    // Select default time in force
+    $('.switch-time-in-force').on('click', function() {
+        switchTimeInForce($(this).attr('data-tif'));
+    });
     
     
     
