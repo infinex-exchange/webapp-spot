@@ -3,8 +3,7 @@ function gotoMarket(pair) {
     window.wsClient.unsub([
         window.currentPair + '@tickerEx',
         window.currentPair + '@orderBook',
-        window.currentPair + '@marketTrade',
-        window.tradingViewSubscription
+        window.currentPair + '@marketTrade'
     ]);
     
     // Clear orderbook as this is only module not handled by AjaxScroll
