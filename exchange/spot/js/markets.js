@@ -1,8 +1,19 @@
 function gotoMarket(pair) {
-    if(typeof(window.currentPair) !== 'undefined' && pair == window.currentPair)
-        gotoUiCard('chart');
-    else
-        window.location.replace('/spot/' + pair.replace('/', '_'));
+    // Unsub
+    window.wsClient.unsub([
+        window.currentPair + '@tickerEx',
+        window.currentPair + '@orderBook',
+        window.currentPair + '@marketTrade',
+        window.tradingViewSubscription
+    ]);
+    
+    // Clear orderbook as this is only module not handled by AjaxScroll
+    $('#orderbook-buy, #orderbook-sell').empty();
+    
+    // Goto
+    window.history.replaceState(null, '', '/spot/' + pair.replace('/', '_'));
+    $(document).trigger('prePairSelected');
+    gotoUiCard('chart');
 }
 
 function filterMarketsByQuote(q) {
