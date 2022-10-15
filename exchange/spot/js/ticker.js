@@ -53,7 +53,7 @@ $(document).on('prePairSelected', function() {
     
     var pathArray = window.location.pathname.split('/');
     var pathPairName = pathArray[pathArray.length - 1].replace('_', '/');
-    if(pathPairName != 'spot')
+    if(pathPairName != 'spot' && pathPairName != '')
         window.currentPair = pathPairName;
     else {
         window.currentPair = window.defaultPair;
