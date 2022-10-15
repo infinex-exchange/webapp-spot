@@ -7,17 +7,16 @@ function doJsSizing() {
 	document.body.style.setProperty('--height-main-nav', $('#main-navbar').outerHeight() + 'px');
     document.body.style.setProperty('--height-desktop-header', $('#desktop-header').outerHeight() + 'px');
     
-    var obRemainH = $('#orderbook').height() - $('.orderbook-header').first().outerHeight() - $('#orderbook-middle').outerHeight();
+    var obHeaderH = $('.orderbook-header').first().outerHeight();
+    if(typeof(obHeaderH) == 'undefined' || obHeaderH == 0)
+        obHeaderH = 14.39;
+    var obRemainH = $('#orderbook').height() - obHeaderH - $('#orderbook-middle').outerHeight();
     var obSideRemainH = obRemainH / 2;
-    
-    if(typeof(window.obItemH) == 'undefined') {
-        window.obItemH = obItemH = $('.orderbook-item').first().outerHeight();
-        if(typeof(window.obItemH) == 'undefined' || window.obItemH == 0)
-            window.obItemH = 18;
-    }
-
-    var obTargetSideH = Math.round(obSideRemainH / window.obItemH) * window.obItemH;
-    var obTargetSideHSm = Math.round(obRemainH / window.obItemH) * window.obItemH;
+    var obItemH = $('.orderbook-item').first().outerHeight();
+    if(typeof(obItemH) == 'undefined' || obItemH == 0)
+        obItemH = 18;
+    var obTargetSideH = Math.round(obSideRemainH / obItemH) * obItemH;
+    var obTargetSideHSm = Math.round(obRemainH / obItemH) * obItemH;
     document.body.style.setProperty('--target-height-orderbook-side', obTargetSideH + 'px');
     document.body.style.setProperty('--target-height-orderbook-side-sm', obTargetSideHSm + 'px');
     
