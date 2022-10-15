@@ -9,7 +9,11 @@ function doJsSizing() {
     
     var obRemainH = $('#orderbook').height() - $('.orderbook-header').first().outerHeight() - $('#orderbook-middle').outerHeight();
     var obSideRemainH = obRemainH / 2;
-    var obItemH = $('.orderbook-item').first().outerHeight();
+    var obItemH = null;
+    if($('#orderbook').hasClass('orderbook-display-asks'))
+        obItemH = $('#orderbook-sell .orderbook-item').first().outerHeight();
+    else
+        obItemH = $('#orderbook-buy .orderbook-item').first().outerHeight();
     if(typeof(obItemH) === 'undefined') obItemH = 18;
     var obTargetSideH = Math.round(obSideRemainH / obItemH) * obItemH;
     var obTargetSideHSm = Math.round(obRemainH / obItemH) * obItemH;
