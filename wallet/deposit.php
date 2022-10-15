@@ -63,6 +63,16 @@
                         </div>
                     </div>
                     
+                    <div id="deposit-warning" class="col-12">
+                        <div class="alert alert-warning d-flex align-items-center my-2" role="alert">
+                            <div class="px-2">
+                                <i class="fa-solid fa-triangle-exclamation fa-2x"></i>
+                            </div>
+                            <div class="px-2" id="deposit-warning-content">
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div id="deposit-qr-wrapper" class="col-12 col-lg-auto p-4 text-center">
                         <div class="qrcode-wrapper d-inline-block">
                             <div id="deposit-qrcode"></div>
