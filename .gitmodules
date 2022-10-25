@@ -18,4 +18,4 @@
 	url = git@github.com:vayamos-exchange/webapp-p2p
 [submodule "exchange/nft"]
 	path = exchange/nft
-	url = https://github.com/vayamos-exchange/webapp-nft
+	url = git@github.com:vayamos-exchange/webapp-nft
