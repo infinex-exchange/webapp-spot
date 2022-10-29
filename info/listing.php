@@ -67,35 +67,6 @@
             </div>
             </div>
             
-            <div class="row p-2 pt-4">
-                <h3>Listing fee</h3>
-            </div>
-            
-            <div class="row p-2">
-            <div class="col-12">
-                <ul>
-                    <li class="py-1">
-                        Standard token on already supported blockchain<br>
-                        <i>e.g. your project is TRC-20 token</i><br>
-                        <strong>FREE LISTING</strong>
-                    </li>
-                    <li class="py-1">
-                        Own blockchain, with compatible RPC interface<br>
-                        <i>e.g. your project is fork of Chia, with the same RPC interface, and we're already supporting Chia</i><br>
-                        <strong>FREE LISTING</strong>
-                    </li>
-                    <li class="py-1">
-                        Own blockchain, with incompatible RPC interface<br>
-                        <i>e.g. your project is a custom blockchain created from the scratch</i><br>
-                        <strong>FREE LISTING</strong> - if you develop and provide the integration plugin on your own
-                        in accordance with the template available on our GitHub<br>
-                        Otherwise, you have to pay for the listing in our BPX token, and the price depends
-                        on the complexity of your project.
-                    </li>
-                </ul>
-            </div>
-            </div>
-            
         <!-- / Main column -->
         </div>
         
