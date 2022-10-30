@@ -103,8 +103,8 @@
                         Quick & easy listing
                     </h3>
                     <span class="secondary">
-                    Vayamos helps make the addition of new crypto projects as simple as possible.
-                    If there are no technical barriers, it can be listed for free.
+                    Vayamos it's a good place to launch your crypto project.
+                    We help make the addition of new tokens as simple as possible.
                     </span>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
