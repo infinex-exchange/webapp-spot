@@ -103,7 +103,7 @@
                         Quick & easy listing
                     </h3>
                     <span class="secondary">
-                    Vayamos it's a good place to launch your crypto project.
+                    Vayamos is a good place to launch your crypto project.
                     We help make the addition of new tokens as simple as possible.
                     </span>
                 </div>
