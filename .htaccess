@@ -1,7 +1,6 @@
 Options -MultiViews -Indexes
 
 RewriteEngine on
-RewriteBase /
 
 RewriteRule ^.*\.git.* - [R=404]
 
