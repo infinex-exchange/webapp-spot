@@ -42,7 +42,7 @@ RewriteRule ^mining(/.*)?$ /exchange/mining/$1 [L]
 
 RewriteRule ^p2p(/.*)?$ /exchange/p2p/$1 [L]
 
-RewriteRule ^nft/?(.*)?/?$ /exchange/nft/$1 [L]
+RewriteRule ^nft(/.*)?$ /exchange/nft/$1 [L]
 
 RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
 
