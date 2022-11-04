@@ -1,5 +1,5 @@
 function strMiddleCut(s, chars) {
-    return s.substr(0, chars) + '...' + txid.substr(-chars);
+    return s.substr(0, chars) + '...' + s.substr(-chars);
 }
 
 function gotoUiCard(card) {
