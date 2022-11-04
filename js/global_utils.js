@@ -1,5 +1,5 @@
-function showTxid(txid) {
-    return txid.substr(0, 5) + '...' + txid.substr(-5);
+function strMiddleCut(s, chars) {
+    return s.substr(0, chars) + '...' + txid.substr(-chars);
 }
 
 function gotoUiCard(card) {
