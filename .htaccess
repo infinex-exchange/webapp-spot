@@ -1,6 +1,8 @@
 Options -MultiViews -Indexes
 
 RewriteEngine on
+RewriteOptions AllowNoSlash
+DirectorySlash Off
 
 RewriteRule ^.*\.git.* - [R=404]
 
