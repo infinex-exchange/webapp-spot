@@ -232,9 +232,17 @@ class StreamsClient {
         var id = t.randomId();
         
         $.each(streamsArr, function(k, stream) {
+            if(typeof(t.subDb[stream]) == 'undefined') {
+                streamsArr.splice(k, 1);
+                return;
+            }
+            
             t.subDb[stream]['status'] = 'unsub_wait';
             t.subDb[stream]['id'] = id;
         });
+        
+        if(streamsArr.length == 0)
+            return;
         
         t.send({
             op: 'unsub',
