@@ -3,6 +3,8 @@ function updateBalance() {
         if(typeof(window.balanceUpdatedFirstTime) === 'undefined') {
             window.balanceUpdatedFirstTime = true;
             $(document).trigger('renderingStage'); // 9
+            
+            setInterval(updateBalance, 5000); // detect deposits and withdrawals
         }
                 
         $('#form-base-balance').html(window.currentBaseBalance.toFixed() + ' ' + window.currentBase);
