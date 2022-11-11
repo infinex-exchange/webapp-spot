@@ -1,5 +1,5 @@
 class AjaxScroll {
-    constructor(container, preloader, data, callback, runNow = true, scrollBody = false) {
+    constructor(container, preloader, data, callback, runNow = true, scrollBody = false, scrollElem = container) {
         this.container = container;
         this.preloader = preloader;
         this.data = data;
@@ -10,7 +10,10 @@ class AjaxScroll {
         
         var thisAS = this;
         
-        $(scrollBody ? window : container).on('scroll', function() {
+        if(scrollBody)
+            scrollElem = window;
+        
+        $(scrollElem).on('scroll', function() {
             if(thisAS.working || thisAS.noMore)
 	            return;
 	        
