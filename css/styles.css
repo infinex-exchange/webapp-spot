@@ -511,6 +511,12 @@ input[type="range"]::-moz-range-thumb {
     padding-bottom: 10px;
 }
 
+.jumbotron {
+	background-image: url("/img/spot_jumbotron.jpg");
+	background-size: cover;
+    background-position: center;
+}
+
 /* Trading colors */
 
 .text-green {
