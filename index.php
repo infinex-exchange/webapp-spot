@@ -23,7 +23,7 @@
                 <div class="col-12">
                     <strong>Official digital assets exchange of BPX ecosystem.</strong>
                 </div>
-                <div class="col-12 pt-2">
+                <div class="col-12 pt-4">
                     <a href="/spot" class="btn btn-primary">START TRADING</a>
                 </div>
             </div>
