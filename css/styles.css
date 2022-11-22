@@ -501,16 +501,6 @@ input[type="range"]::-moz-range-thumb {
 
 /* Jumbotron */
 
-.jumbotron p {
-    font-size: var(--font-big);
-    color: var(--font-secondary);
-}
-
-.jumbotron > * {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
 .jumbotron {
 	background-image: url("/img/index_jumbotron.jpg");
 	background-size: cover;

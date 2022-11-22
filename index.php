@@ -16,8 +16,8 @@
         <!-- Root container -->
         <div id="root" class="container-fluid container-1500 h-rest pt-2 p-0">
         
-            <div class="row m-0 px-4 py-5">
-                <div class="jumbotron col-12">
+            <div class="jumbotron row m-0 px-4 py-5">
+                <div class="col-12">
                     <h1>Vayamos Exchange</h1>
                     <p>Official digital assets exchange of BPX ecosystem.</p>
                     <a href="/spot" class="btn btn-primary">START TRADING</a>
