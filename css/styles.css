@@ -501,7 +501,7 @@ input[type="range"]::-moz-range-thumb {
 
 /* Jumbotron */
 
-.jumbotron {
+.jumbotron-index {
 	background-image: url("/img/index_jumbotron.jpg");
 	background-size: cover;
     background-position: center;
