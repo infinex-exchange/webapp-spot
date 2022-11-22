@@ -19,7 +19,7 @@
             <div class="jumbotron row m-0 px-4 py-5">
                 <div class="col-12">
                     <h1>Vayamos Exchange</h1>
-                    <p>Official digital assets exchange of BPX ecosystem.</p>
+                    <strong>Official digital assets exchange of BPX ecosystem.</strong>
                     <a href="/spot" class="btn btn-primary">START TRADING</a>
                 </div>
             </div>
