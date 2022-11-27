@@ -4,7 +4,7 @@
         <?php include('../templates/head.php'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Vote for listing | Vayamos Exchange</title>
+        <title>Vote for listing | Infinex</title>
     </head>
     <body class="body-background">
     
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="col-12 order-2 pb-2 pb-lg-0 order-lg-3">
-                    BPX holders decide what projects will be listed on Vayamos.
+                    BPX holders decide what projects will be listed on Infinex.
                     When you submit a listing proposal, it will be verified by the exchange administrators.
                     If the project does not raise any doubts and meets our technical requirements,
                     it will be included in the next voting.

@@ -5,7 +5,7 @@
         <?php include('../imports/bignumber.html'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Internal transfer | Vayamos Exchange</title>
+        <title>Internal transfer | Infinex</title>
     </head>
     <body>
     
@@ -92,7 +92,7 @@
                             <div class="px-2">
                                 Make sure the recipient's e-mail address is correct!<br>
                                 Transfers to invalid e-mail addresses will also be made to make it impossible to use this form
-                                to verify that someone else has an account on Vayamos.<br>
+                                to verify that someone else has an account on Infinex.<br>
                                 In case of a mistake, it is possible to recover the funds by contacting the support.
                             </div>
                         </div>

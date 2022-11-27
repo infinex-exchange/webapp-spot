@@ -3,7 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
-        <title>Registration | Vayamos Exchange</title>
+        <title>Registration | Infinex</title>
     </head>
     <body class="vh-100 body-background">
     
@@ -77,7 +77,7 @@
                     </div>
                     <div class="col small my-auto">
                         Make sure you are visiting:<br>
-                        <strong class="primary">https://vayamos.cc</strong>
+                        <strong class="primary">https://infinex.cc</strong>
                     </div>
                 </div>
                 <div class="row py-3">

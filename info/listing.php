@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
-        <title>Listing | Vayamos Exchange</title>
+        <title>Listing | Infinex</title>
     </head>
     <body class="body-background">
     
@@ -28,7 +28,7 @@
             
             <div class="row p-2">
             <div class="col-12">
-                Vayamos Exchange is a good place to launch a new crypto project.
+                Infinex is a good place to launch a new crypto project.
                 Want your coin to be listed on our exchange?
                 <br>
                 Contact us at the e-mail address below to arrange a listing.
@@ -38,9 +38,9 @@
             
             <div class="row p-2">
             <div class="col-12">
-                <a href="mailto:listing@vayamos.cc" class="btn btn-primary">
+                <a href="mailto:listing@infinex.cc" class="btn btn-primary">
                     <i class="fa-solid fa-envelope"></i>
-                    listing@vayamos.cc
+                    listing@infinex.cc
                 </a>
             </div>
             </div>

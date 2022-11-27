@@ -5,7 +5,7 @@
         <?php include('../imports/bignumber.html'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Withdrawal | Vayamos Exchange</title>
+        <title>Withdrawal | Infinex</title>
     </head>
     <body>
     
@@ -106,7 +106,7 @@
                                     <i class="fa-solid fa-people-arrows fa-2x"></i>
                                 </div>
                                 <div class="px-2">
-                                    This is the deposit address of another Vayamos user.<br>
+                                    This is the deposit address of another Infinex user.<br>
                                     Withdrawal will be processed internally and you will not pay any fee.
                                 </div>
                             </div>

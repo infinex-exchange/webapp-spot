@@ -37,7 +37,7 @@ $(document).ready(function() {
             var markdown = marked.parse(data.body);
             var time = new Date(data.time * 1000).toLocaleString();
             
-            document.title = data.title + ' | Vayamos Spot';
+            document.title = data.title + ' | Infinex Spot';
             
             $('#anno-title').html(data.title);
             $('#anno-time').html(time);

@@ -4,7 +4,7 @@
         <?php include('../templates/head.php'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Address book | Vayamos Exchange</title>
+        <title>Address book | Infinex</title>
     </head>
     <body>
     

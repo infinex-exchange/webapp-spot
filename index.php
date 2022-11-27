@@ -3,7 +3,7 @@
     <head>
         <?php include('templates/head.php'); ?>
         <?php include('imports/bignumber.html'); ?>
-        <title>Vayamos Exchange - cryptocurrency trading platform</title>
+        <title>Infinex - cryptocurrency trading platform</title>
     </head>
     <body class="body-background">
     
@@ -18,7 +18,7 @@
         
             <div class="jumbotron-index row m-0 px-4 py-5">
                 <div class="col-12">
-                    <h1>Vayamos Exchange</h1>
+                    <h1>Infinex</h1>
                 </div>
                 <div class="col-12">
                     <strong>Official digital assets exchange of BPX ecosystem.</strong>
@@ -97,7 +97,7 @@
                     </h3>
                     <span class="secondary">
                     Are you annoyed by SMS or 2FA codes every time you open exchange app?
-                    In Vayamos, you can use it or you can turn it off.
+                    On Infinex, you can use it or you can turn it off.
                     We don't force anything.
                     </span>
                 </div>
@@ -107,7 +107,7 @@
                         Quick & easy listing
                     </h3>
                     <span class="secondary">
-                    Vayamos is a good place to launch your crypto project.
+                    Infinex is a good place to launch your crypto project.
                     We help make the addition of new tokens as simple as possible.
                     </span>
                 </div>

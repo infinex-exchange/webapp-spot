@@ -4,7 +4,7 @@
         <?php include('../templates/head.php'); ?>
         <?php include('../imports/bignumber.html'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Trading rules | Vayamos Exchange</title>
+        <title>Trading rules | Infinex</title>
     </head>
     <body class="body-background">
     

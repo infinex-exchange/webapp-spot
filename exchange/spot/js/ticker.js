@@ -3,7 +3,7 @@ function liveTicker(data) {
     window.currentMarketPrice = new BigNumber(data.price);
     
     // Document title
-    document.title = data.price + ' | ' + window.currentPair + ' | Vayamos Spot';
+    document.title = data.price + ' | ' + window.currentPair + ' | Infinex Spot';
     
     // Ticker HTML
     var color = '';

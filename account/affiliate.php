@@ -3,7 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
-        <title>Affiliate program | Vayamos Exchange</title>
+        <title>Affiliate program | Infinex</title>
         <style type="text/css">
             @media (min-width: 992px) {
                 .reflinks-item ~ .reflinks-item {
@@ -37,9 +37,9 @@
             <div class="row py-3">
                 <div class="col-12">
                     <p>
-                        Recommend Vayamos to your friends or share a reflink on your website or social media and earn
+                        Recommend Infinex to your friends or share a reflink on your website or social media and earn
                         20% lifetime commissions on every trade.
-                        Users who sign up for a Vayamos account using your unique referral link will be attributed as a successful referral.
+                        Users who sign up for a Infinex account using your unique referral link will be attributed as a successful referral.
                         You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to the 4th level.
                     </p>
                 </div>
@@ -79,7 +79,7 @@
                 <div class="col-12">
                     <p>
                         You can track the performance of each referral links in the "Your campaigns" table.
-                        Affiliate rewards are calculated on the 1st day of each month and distributed as internal deposit from the user: <i>system@vayamos.cc</i>.
+                        Affiliate rewards are calculated on the 1st day of each month and distributed as internal deposit from the user: <i>system@infinex.cc</i>.
                     </p>
                 </div>
             </div>

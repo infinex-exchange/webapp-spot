@@ -74,7 +74,7 @@ function addChangeReflink(refid, description, members) {
                         <div class="col-12 p-2">
                             <div class="row px-2 py-3 flex-nowrap ui-card-light rounded">
                                 <div class="col-auto my-auto wrap">
-                                    <span class="wrap" id="reflink-${refid}-index">http://vayamos.cc/?r=${refid}</span>
+                                    <span class="wrap" id="reflink-${refid}-index">http://infinex.cc/?r=${refid}</span>
                                 </div>
                                 <div class="col-auto my-auto">
                                     <a href="#_" class="secondary" data-copy="#reflink-${refid}-index" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
@@ -87,7 +87,7 @@ function addChangeReflink(refid, description, members) {
                         <div class="col-12 p-2">
                             <div class="row px-2 py-3 flex-nowrap ui-card-light rounded">
                                 <div class="col-auto my-auto wrap">
-                                    <span class="wrap" id="reflink-${refid}-reg">http://vayamos.cc/account/register?r=${refid}</span>
+                                    <span class="wrap" id="reflink-${refid}-reg">http://infinex.cc/account/register?r=${refid}</span>
                                 </div>
                                 <div class="col-auto my-auto">
                                     <a href="#_" class="secondary" data-copy="#reflink-${refid}-reg" onClick="copyButton(this); event.stopPropagation();"><i class="fa-solid fa-copy fa-xl"></i></a>
@@ -235,8 +235,8 @@ function mobileReflinkDetails(item) {
         $('#modal-reflink-details').modal('hide');
         removeReflink(refid);
     });
-    $('#mrd-reflink-index').html('https://vayamos.cc/?r=' + $(item).data('refid'));
-    $('#mrd-reflink-reg').html('https://vayamos.cc/account/register?r=' + $(item).data('refid'));
+    $('#mrd-reflink-index').html('https://infinex.cc/?r=' + $(item).data('refid'));
+    $('#mrd-reflink-reg').html('https://infinex.cc/account/register?r=' + $(item).data('refid'));
     
     var levelsInnerHtml = '';
     for(var i = 1; i <= 4; i++) {

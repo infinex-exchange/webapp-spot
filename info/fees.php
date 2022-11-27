@@ -3,7 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Fees | Vayamos Exchange</title>
+        <title>Fees | Infinex</title>
     </head>
     <body class="body-background">
     

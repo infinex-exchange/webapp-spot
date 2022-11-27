@@ -4,7 +4,7 @@
         <?php include('../templates/head.php'); ?>
         <?php include('../imports/marked.html'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Announcements | Vayamos Exchange</title>
+        <title>Announcements | Infinex</title>
     </head>
     <body class="body-background">
     

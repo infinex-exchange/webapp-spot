@@ -3,7 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Wallet | Vayamos Exchange</title>
+        <title>Wallet | Infinex</title>
         <style type="text/css">
             .hide-zero .zero {
                 display: none;

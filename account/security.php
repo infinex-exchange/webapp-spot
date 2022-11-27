@@ -4,7 +4,7 @@
         <?php include('../templates/head.php'); ?>
         <?php include('../imports/qrcode.html'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
-        <title>Security settings | Vayamos Exchange</title>
+        <title>Security settings | Infinex</title>
     </head>
     <body>
     

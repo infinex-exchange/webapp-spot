@@ -3,7 +3,7 @@
     <head>
         <?php include('../templates/head.php'); ?>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
-        <title>Transactions | Vayamos Exchange</title>
+        <title>Transactions | Infinex</title>
     </head>
     <body>
     
