@@ -14,6 +14,7 @@ var txTypeDict = {
 
 var txStatusIconDict = {
     PENDING: 'fa-solid fa-clock',
+    PROCESSING: 'fa-solid fa-clock',
     DONE: 'fa-solid fa-check',
     CANCELED: 'fa-solid fa-xmark'
 };
