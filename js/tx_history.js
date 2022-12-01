@@ -237,7 +237,7 @@ function renderTxHistoryItem(data, forceSmall) {
     `;
 }
 
-function initTxHistory(container, preloader, data, forceSmall = false, disableScroll = false) {
+function initTxHistory(container, preloader, data, forceSmall = false, disableScroll = false, limit = 0) {
     window.TxHistoryAS = new AjaxScroll(
         container,
         preloader,
@@ -257,6 +257,9 @@ function initTxHistory(container, preloader, data, forceSmall = false, disableSc
             .retry(config.retry)
             .done(function (data) {
                 if(data.success) {
+                    if(limit != 0)
+                        data.transactions = data.transactions.slice(0, limit);
+                
                     $.each(data.transactions, function() {
                         thisAS.append(renderTxHistoryItem(this, forceSmall));
                         

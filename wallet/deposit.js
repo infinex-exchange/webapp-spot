@@ -105,7 +105,7 @@ $(document).on('authChecked', function() {
             api_key: window.apiKey,
             type: 'DEPOSIT'
         };
-        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true, true);
+        initTxHistory($('#recent-tx-data'), $('#recent-tx-preloader'), txHistoryData, true, true, 10);
         
         var pathArray = window.location.pathname.split('/');
         var pathLast = pathArray[pathArray.length - 1];
