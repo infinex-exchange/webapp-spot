@@ -84,7 +84,7 @@ $(document).on('authChecked', function() {
                         if(thisAS.offset == 0)
                             $(document).trigger('renderingStage');
                             
-                        console.log(Object.keys(obj).length);
+                        console.log(Object.keys(data.balances).length);
                         if(Object.keys(data.balances).length != 50)
                             thisAS.noMoreData();
                     } else {
