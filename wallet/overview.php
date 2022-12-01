@@ -5,10 +5,6 @@
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../js/ajax_scroll.js'); ?>"></script>
         <title>Wallet | Infinex</title>
         <style type="text/css">
-            .hide-zero .zero {
-                display: none;
-            }
-            
             @media (max-width: 991px) {
                 .m-50-percent {
                     width: 50% !important;

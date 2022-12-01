@@ -11,17 +11,24 @@ $(document).ready(function() {
     });
     
     $('#asset-hide-zero').change(function() {
-        $('#asset-data').toggleClass('hide-zero')
+        localStorage.setItem('wallet_hideZero', $(this).prop('checked'));
+        window.assetAS.data.no_zero = $(this).prop('checked');
+        window.assetAS.reset();
     });
 });
 
 $(document).on('authChecked', function() {
     if(window.loggedIn) {
+        var hideZero = localStorage.getItem('wallet_hideZero');
+        if(hideZero === null)
+            hideZero = false;
+    
         window.assetAS = new AjaxScroll(
             $('#asset-data'),
             $('#asset-data-preloader'),
             {
-                api_key: window.apiKey
+                api_key: window.apiKey,
+                no_zero: hideZero
             },
             function() {
                 
@@ -40,11 +47,8 @@ $(document).on('authChecked', function() {
                 .done(function (data) {
                     if(data.success) {
                         $.each(data.balances, function(k, v) {
-                            zero = '';
-                            if(v.total == '0') zero = 'zero';
-                            
                             thisAS.append(`
-                                <div class="assets-item row p-1 hoverable ${zero}" onClick="mobileAssetDetails(this)"
+                                <div class="assets-item row p-1 hoverable" onClick="mobileAssetDetails(this)"
                                 data-icon="${v.icon_url}" data-symbol="${k}" data-name="${v.name}"
                                 data-total="${v.total}" data-avbl="${v.avbl}" data-locked="${v.locked}">
                                     <div class="my-auto" style="width: 60px">
