@@ -14,24 +14,18 @@ class AjaxScroll {
             scrollElem = window;
         
         $(scrollElem).on('scroll', function() {
-            console.log('got scroll height');
-                console.log(thisAS.working);
-                console.log(thisAS.noMore);
             if(thisAS.working || thisAS.noMore)
 	            return;
-            console.log('not returned');
 	        
             if(this != window &&
                Math.round($(this).scrollTop() + $(this).innerHeight(), 10) >= Math.round($(this)[0].scrollHeight, 10)
             ) {
-                console.log('condition ok');
                 thisAS.work();
             }
             
             else if(this == window &&
                     $(window).scrollTop() + $(window).height() >= thisAS.container.height()
             ) {
-                console.log('condition 2 ok');
                 thisAS.work();
             }
         });
