@@ -22,6 +22,9 @@ $(document).on('authChecked', function() {
         var hideZero = localStorage.getItem('wallet_hideZero');
         if(hideZero === null)
             hideZero = false;
+        else
+            hideZero = $.parseJSON(hideZero);
+        $('#asset-hide-zero').prop('checked', hideZero);
     
         window.assetAS = new AjaxScroll(
             $('#asset-data'),
