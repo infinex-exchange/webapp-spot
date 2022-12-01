@@ -78,8 +78,7 @@ function initSelectCoin(endpoint = '/wallet/assets') {
                         
                     thisAS.done();
                             
-                    console.log(data.assets.length);
-                    if(data.assets.length != 50)
+                    if(Object.keys(data.assets).length != 50)
                         thisAS.noMoreData();
                 } else {
                     msgBoxRedirect(data.error);
