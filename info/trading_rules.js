@@ -67,8 +67,7 @@ $(document).ready(function() {
                     
                     if(thisAS.offset == 0)
                         $(document).trigger('renderingStage');
-                    
-                    console.log(data.markets.length);   
+                     
                     if(data.markets.length != 50)
                         thisAS.noMoreData(); 
                 }
