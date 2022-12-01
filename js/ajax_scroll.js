@@ -14,6 +14,7 @@ class AjaxScroll {
             scrollElem = window;
         
         $(scrollElem).on('scroll', function() {
+            console.log('got scroll height');
             if(thisAS.working || thisAS.noMore)
 	            return;
 	        
