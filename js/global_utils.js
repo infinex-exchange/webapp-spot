@@ -100,4 +100,7 @@ $( document ).ready(function() {
         localStorage.setItem('refid', refid);
         localStorage.setItem('refid_expires', expires);
     }
+    
+    // Init tooltips
+    $('[data-toggle="tooltip"]').tooltip();
 });
