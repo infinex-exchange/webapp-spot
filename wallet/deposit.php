@@ -63,6 +63,23 @@
                         </div>
                     </div>
                     
+                    <div id="deposit-experimental-warning" class="col-12">
+                        <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
+                            <div class="px-2">
+                                <i class="fa-solid fa-flask fa-2x"></i>
+                            </div>
+                            <div class="px-2">
+                                We have classified this coin as <strong>experimental</strong>.
+                                We cannot guarantee the correct operation of deposits and withdrawals,
+                                because the official wallet provided by the developers of this project
+                                is unstable and often causes some issues. Your deposit may take a long time to reach your exchange account
+                                or even never and you will not receive any support from us. Unpredictable losts of synchronization,
+                                from a few minutes to even couple of weeks can occur. These situations are beyond our control.
+                                Use this coin at your own risk.
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div id="deposit-warning" class="col-12">
                         <div class="alert alert-warning d-flex align-items-center my-2" role="alert">
                             <div class="px-2">

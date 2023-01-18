@@ -38,6 +38,12 @@ $(document).ready(function() {
                 else
                     $('#deposit-operating-warning').removeClass('d-none');
                 
+                // Experimental warning
+                if(data.operating)
+                    $('#deposit-experimental-warning').addClass('d-none');
+                else
+                    $('#deposit-experimental-warning').removeClass('d-none');
+                
                 // Warning
                 if(typeof(data.warning) !== 'undefined') {
                     $('#deposit-warning-content').html(data.warning);

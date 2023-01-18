@@ -91,6 +91,12 @@ $(document).ready(function() {
                 else
                     $('#withdraw-operating-warning').removeClass('d-none');
                 
+                // Experimental warning
+                if(data.operating)
+                    $('#withdraw-experimental-warning').addClass('d-none');
+                else
+                    $('#withdraw-experimental-warning').removeClass('d-none');
+                
                 // Precision
                 window.wdAmountPrec = data.prec;
                 

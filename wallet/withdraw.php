@@ -68,6 +68,25 @@
                         </div>
                     </div>
                     
+                    <div class="row" id="withdraw-experimental-warning">
+                        <div class="col-12 py-2">
+                            <div class="alert alert-danger d-flex align-items-center" role="alert">
+                                <div class="px-2">
+                                    <i class="fa-solid fa-flask fa-2x"></i>
+                                </div>
+                                <div class="px-2">
+                                    We have classified this coin as <strong>experimental</strong>.
+                                    We cannot guarantee the correct operation of deposits and withdrawals,
+                                    because the official wallet provided by the developers of this project
+                                    is unstable and often causes some issues. If your withdrawal will be not executed,
+                                    you will not receive any support from us. Unpredictable losts of synchronization,
+                                    from a few minutes to even couple of weeks can occur. These situations are beyond our control.
+                                    Use this coin at your own risk.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="row">
                         <div class="col-12 col-lg-6 py-2">
                             <label for="select-adbk">Address:</label>
