@@ -129,11 +129,11 @@ $(document).onFirst('pairSelected', function() {
 
 $(document).ready(function() {
     $('.experimental').click(function() {
-        msgBox('We have classified this coin as experimental. We cannot guarantee the correct operation
+        msgBox(`We have classified this coin as experimental. We cannot guarantee the correct operation
             of deposits and withdrawals, because the official wallet provided by the developers of this project
             is unstable and often causes some issues. We do not provide any technical support for this coin.
             You can contact the developers of the project directly and request an update to the official client.
             Unpredictable losts of synchronization, from a few minutes to even couple of weeks can occur.
-            These cases are beyond our control. Use this coin at your own risk.');
+            These cases are beyond our control. Use this coin at your own risk.`);
     });
 });
