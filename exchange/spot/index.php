@@ -99,7 +99,7 @@
             
             <div class="col-3 ui-card ui-card-hor my-auto small" data-ui-card="trades chart orderbook orders">
                 <h4 class="primary ticker-name"></h4>
-                <i class="fa-solid fa-flask primary bg-red"></i>
+                <i class="fa-solid fa-flask primary bg-red p-1 rounded"></i>
                 <span class="ticker-base-name"></span>
             </div>
                 
