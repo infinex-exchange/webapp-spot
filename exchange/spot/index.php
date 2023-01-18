@@ -101,9 +101,7 @@
                 <h4 class="primary ticker-name"></h4>
                 <i class="experimental fa-solid fa-flask primary bg-red p-1 rounded"
                  data-toggle="tooltip" title="We have classified this coin as experimental. We cannot guarantee the correct operation
-                 of deposits and withdrawals, because the official wallet provided by the developers of this project is unstable
-                 and often causes some issues. We do not provide any technical support for this coin. These cases are beyond our control.
-                 Use this coin at your own risk."></i>
+                 of deposits and withdrawals, we do not provide any technical support for this coin. Use this coin at your own risk."></i>
                 <span class="ticker-base-name"></span>
             </div>
                 
@@ -210,9 +208,7 @@
                 <h4 class="primary ticker-name"></h4>
                 <i class="experimental fa-solid fa-flask primary bg-red p-1 rounded"
                  data-toggle="tooltip" title="We have classified this coin as experimental. We cannot guarantee the correct operation
-                 of deposits and withdrawals, because the official wallet provided by the developers of this project is unstable
-                 and often causes some issues. We do not provide any technical support for this coin. These cases are beyond our control.
-                 Use this coin at your own risk."></i>
+                 of deposits and withdrawals, we do not provide any technical support for this coin. Use this coin at your own risk."></i>
                 <span class="ticker-base-name"></span>
             </div>
                 
