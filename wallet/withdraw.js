@@ -92,7 +92,7 @@ $(document).ready(function() {
                     $('#withdraw-operating-warning').removeClass('d-none');
                 
                 // Experimental warning
-                if(data.operating)
+                if(data.experimental)
                     $('#withdraw-experimental-warning').addClass('d-none');
                 else
                     $('#withdraw-experimental-warning').removeClass('d-none');

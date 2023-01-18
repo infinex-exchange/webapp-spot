@@ -39,7 +39,7 @@ $(document).ready(function() {
                     $('#deposit-operating-warning').removeClass('d-none');
                 
                 // Experimental warning
-                if(data.operating)
+                if(data.experimental)
                     $('#deposit-experimental-warning').addClass('d-none');
                 else
                     $('#deposit-experimental-warning').removeClass('d-none');
