@@ -95,6 +95,12 @@ $(document).on('prePairSelected', function() {
             $('.ticker-base-legend').html(window.currentBase);
             $('.ticker-quote-legend').html(window.currentQuote);
             
+            // Experimental
+            if(v.experimental)
+                $('.experimental').removeClass('d-none');
+            else
+                $('.experimental').addClass('d-none');
+            
             // Subscribe to live events
             window.wsClient.sub(
                 window.currentPair + '@tickerEx',
@@ -119,4 +125,15 @@ $(document).on('prePairSelected', function() {
 
 $(document).onFirst('pairSelected', function() {
     window.multiEvents['pairSelected'] = true;
+});
+
+$(document).ready(function() {
+    $('.experimental').click(function() {
+        msgBox('We have classified this coin as experimental. We cannot guarantee the correct operation
+            of deposits and withdrawals, because the official wallet provided by the developers of this project
+            is unstable and often causes some issues. We do not provide any technical support for this coin.
+            You can contact the developers of the project directly and request an update to the official client.
+            Unpredictable losts of synchronization, from a few minutes to even couple of weeks can occur.
+            These cases are beyond our control. Use this coin at your own risk.');
+    });
 });
