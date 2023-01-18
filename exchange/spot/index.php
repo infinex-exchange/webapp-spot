@@ -100,7 +100,7 @@
             <div class="col-3 ui-card ui-card-hor my-auto small" data-ui-card="trades chart orderbook orders">
                 <h4 class="primary ticker-name"></h4>
                 <i class="experimental fa-solid fa-flask p-1 rounded"
-                 data-toggle="tooltip" data-placement="bottom" title="Experimental project"></i>
+                 data-toggle="tooltip" title="Experimental project"></i>
                 <span class="ticker-base-name"></span>
             </div>
                 
@@ -206,7 +206,7 @@
             <div id="desktop-header" class="col-3 ui-card ui-card-ver ui-card-hor my-auto small d-none d-lg-block secondary">
                 <h4 class="primary ticker-name"></h4>
                 <i class="experimental fa-solid fa-flask p-1 rounded"
-                 data-toggle="tooltip" data-placement="bottom" title="Experimental project"></i>
+                 data-toggle="tooltip" title="Experimental project"></i>
                 <span class="ticker-base-name"></span>
             </div>
                 
