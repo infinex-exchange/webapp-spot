@@ -55,6 +55,8 @@ RewriteRule ^info/trading-rules/?$ /info/trading_rules.php [L]
 RewriteRule ^info/listing/?$ /info/listing.php [L]
 RewriteRule ^info/announcements/([^/]+)/?$ /info/announcement.php [L]
 RewriteRule ^info/voting/?$ /info/voting.php [L]
+RewriteRule ^info/rules/?$ /info/rules.php [L]
+RewriteRule ^info/support/?$ /info/support.php [L]
 
 RewriteRule ^error/403/?$ /error/403.php [L]
 RewriteRule ^error/404/?$ /error/404.php [L]
