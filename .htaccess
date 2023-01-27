@@ -47,6 +47,8 @@ RewriteRule ^p2p(/.*)?$ /exchange/p2p/$1 [L]
 RewriteRule ^nft/studio(/.*)?$ /exchange/nft/studio/$1 [L]
 RewriteRule ^nft(/.*)?$ /exchange/nft/$1 [L]
 
+RewriteRule ^gamble(/.*)?$ /exchange/gamble/$1 [L]
+
 RewriteRule ^ico/([^/]+)$ /asset-icons/$1 [L]
 
 RewriteRule ^info/announcements/?$ /info/announcements.php [L]
