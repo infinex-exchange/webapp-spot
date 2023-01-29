@@ -211,12 +211,12 @@
                         <div class="col-12 pb-1 guest-only">
                             <h5 class="secondary">Your e-mail address:</h5>
                         </div>
-                        <div class="col-12 col-lg-6 guest-only">
+                        <div class="col-12 col-lg-6 pb-3 guest-only">
                             <input id="so-email" type="email" class="form-control">
                         </div>
     
     
-                        <div class="col-12 pt-3 pb-1">
+                        <div class="col-12 pb-1">
                             <h5 class="secondary">Please describe the problem:</h5>
                         </div>
                         <div class="col-12">
