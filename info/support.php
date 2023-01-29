@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 
-                <div id="support-login" class="col-12 p-2">
+                <div id="support-login" class="col-12 p-2 d-none">
                     <div class="row">
                     
                     
@@ -66,7 +66,7 @@
                         <div class="col-12 pt-3 pb-1">
                             <h5 class="secondary">Please describe the problem:</h5>
                         </div>
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12">
                             <textarea id="sl-description" class="form-control"></textarea>
                         </div>
                         
@@ -79,18 +79,44 @@
                     </div>
                 </div>
                 
-                <div class="col-12 p-2">
-                    <strong>3.</strong> Only e-mail address and password are needed to create an account allowing access to all features of the exchange.
-                </div>
-                
-                <div class="col-12 p-2">
-                    <strong>4.</strong> We provide technical support to our users. The only allowed way of reporting issues is the contact form
-                    available at Info -> Support. Any issue reports submitted by other ways (e.g. on social media) will be ignored.
-                </div>
-                
-                <div class="col-12 p-2">
-                    <strong>5.</strong> We do not provide any technical support for assets marked as experimental (the red alert on deposit/withdrawal page,
-                    the red flask icon in the trading interface)
+                <div id="support-deposit" class="col-12 p-2">
+                    <div class="row">
+                    
+                    
+                        <div class="col-12 pb-1">
+                            <h5 class="secondary">Has the full 8 hours passed since the deposit was made?</h5>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <button id="sl-submit" type="button" class="btn btn-primary w-100">Yes</button>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <button id="sl-submit" type="button" class="btn btn-primary w-100">No</button>
+                        </div>
+                        
+                        
+                        <div class="col-12 pb-1">
+                            <h5 class="secondary">Which coin did you deposited?</h5>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <?php include('../templates/select_coin.php'); ?>
+                        </div>
+    
+    
+                        <div class="col-12 pt-3 pb-1">
+                            <h5 class="secondary">Which network did you use?</h5>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <?php include('../templates/select_net.php'); ?>
+                        </div>
+                        
+                        
+                        <div class="col-12 pt-3">
+                            <button id="sl-submit" type="button" class="btn btn-primary">Submit</button>
+                            <button id="sl-submit" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                        
+                        
+                    </div>
                 </div>
             </div>
             
