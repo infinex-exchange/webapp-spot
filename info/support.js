@@ -90,12 +90,12 @@ function renderWithdrawal(data) {
 }
 
 function selectWithdrawal(item) {
-    window.swXid = $(this).data('xid');
-    window.swAsset = $(this).data('asset');
-    window.swNetwork = $(this).data('network');
-    window.swAddress = $(this).data('address');
+    window.swXid = $(item).data('xid');
+    window.swAsset = $(item).data('asset');
+    window.swNetwork = $(item).data('network');
+    window.swAddress = $(item).data('address');
     
-    var then = new Date($(this).data('time'));
+    var then = new Date($(item).data('time'));
     alert(then);
     var now = new Date();
     
