@@ -213,7 +213,7 @@
         </div>
         </div>
         
-        <?php include('../templates/modals.html'); ?>
+        <?php include('../templates/modals.php'); ?>
         
         <script src="/info/support.js?<?php echo filemtime(__DIR__.'/support.js'); ?>"></script>
         
