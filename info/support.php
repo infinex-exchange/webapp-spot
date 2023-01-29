@@ -68,7 +68,7 @@
                             <h5 class="secondary">Please describe the problem:</h5>
                         </div>
                         <div class="col-12">
-                            <textarea id="sl-description"></textarea>
+                            <textarea id="sl-description" class="w-100"></textarea>
                         </div>
                         
                         
@@ -130,7 +130,7 @@
                             <h5 class="secondary">Please describe the problem:</h5>
                         </div>
                         <div class="col-12">
-                            <textarea id="sd-description"></textarea>
+                            <textarea id="sd-description" class="w-100"></textarea>
                         </div>
                         
                         
@@ -179,7 +179,7 @@
                             <h5 class="secondary">Please describe the problem:</h5>
                         </div>
                         <div class="col-12">
-                            <textarea id="sw-description"></textarea>
+                            <textarea id="sw-description" class="w-100"></textarea>
                         </div>
                         
                         
@@ -221,7 +221,7 @@
                             <h5 class="secondary">Please describe the problem:</h5>
                         </div>
                         <div class="col-12">
-                            <textarea id="so-description"></textarea>
+                            <textarea id="so-description" class="w-100"></textarea>
                         </div>
                         
                         
