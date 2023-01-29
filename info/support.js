@@ -96,6 +96,7 @@ function selectWithdrawal(item) {
     window.swAddress = $(this).data('address');
     
     var then = new Date($(this).data('time'));
+    alert(then);
     var now = new Date();
     
     var msBetweenDates = Math.abs(then.getTime() - now.getTime());
