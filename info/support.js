@@ -24,6 +24,11 @@ $(document).ready(function() {
     });
     
     $('#select-coin').on('change', function() {
+        if($('#select-coin').data('experimental') == 'true') {
+            gotoStep('support-experimental');
+            return;
+        }
+
         initSelectNet($('#select-coin').val());
     });
 });
