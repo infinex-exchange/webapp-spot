@@ -98,7 +98,7 @@ function renderWithdrawal(data) {
             </div>
             
             <div style="width: calc(100% - 60px)" class="my-auto">
-                <small class="secondary">${cDate}</small>
+                <small class="secondary">${cTime}</small>
                 <br>
                 ${data.amount} ${data.asset}
                 <br>
