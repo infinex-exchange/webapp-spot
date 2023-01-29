@@ -58,7 +58,7 @@
                         <div class="col-12 pb-1">
                             <h5 class="secondary">Your e-mail address:</h5>
                         </div>
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12 col-lg-6 pb-2">
                             <input id="sl-email" type="email" class="form-control">
                         </div>
     
@@ -68,6 +68,11 @@
                         </div>
                         <div class="col-12 col-lg-6">
                             <textarea id="sl-description" class="form-control"></textarea>
+                        </div>
+                        
+                        
+                        <div class="col-12">
+                            <button id="sl-submit" type="button" class="btn btn-primary">Submit</button>
                         </div>
                         
                         
