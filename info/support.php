@@ -85,24 +85,6 @@
                     
                     
                         <div class="col-12 pb-1">
-                            <h5 class="secondary">Has the full 8 hours passed since the deposit was made?</h5>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <button id="sl-submit" type="button" class="btn btn-primary w-100" data-goto="support-deposit-gt8h">Yes</button>
-                        </div>
-                        <div class="col-6 col-lg-3">
-                            <button id="sl-submit" type="button" class="btn btn-primary w-100" data-goto="support-deposit-lt8h">No</button>
-                        </div>
-                    
-                    
-                    </div>
-                </div>
-                
-                <div id="support-deposit-gt8h" class="support-step col-12 p-2 d-none">
-                    <div class="row">
-                        
-                        
-                        <div class="col-12 pb-1">
                             <h5 class="secondary">Which coin did you deposited?</h5>
                         </div>
                         <div class="col-12 col-lg-6">
@@ -115,6 +97,20 @@
                         </div>
                         <div class="col-12 col-lg-6">
                             <?php include('../templates/select_net.php'); ?>
+                        </div>
+
+
+                        <div class="col-12 pb-1">
+                            <h5 class="secondary">Has the full 8 hours passed since the deposit was made?</h5>
+                        </div>
+                        <div class="col-6 col-lg-3 sd-ynprompt">
+                            <button id="sd-yes" type="button" class="btn btn-primary w-100">Yes</button>
+                        </div>
+                        <div class="col-6 col-lg-3 sd-ynprompt">
+                            <button type="button" class="btn btn-primary w-100" data-goto="support-deposit-lt8h">No</button>
+                        </div>
+                        <div class="col-12 sd-yes-answer d-none">
+                            Yes
                         </div>
                         
                         
@@ -137,8 +133,8 @@
                         <div class="col-12 pt-3">
                             <button id="sd-submit" type="button" class="btn btn-primary">Submit</button>
                         </div>
-                        
-                        
+                    
+                    
                     </div>
                 </div>
                 
@@ -177,15 +173,8 @@
                         </div>
                         <div id="sw-list" class="col-12 col-lg-8 ui-card-light">
                         </div>
-                    
-                    
-                    </div>
-                </div>
-                
-                <div id="support-withdrawal-gt8h" class="support-step col-12 p-2 d-none">
-                    <div class="row">
-                        
-                        
+
+
                         <div class="col-12 pt-3 pb-1">
                             <h5 class="secondary">Please describe the problem:</h5>
                         </div>
@@ -197,10 +186,11 @@
                         <div class="col-12 pt-3">
                             <button id="sw-submit" type="button" class="btn btn-primary">Submit</button>
                         </div>
-                        
-                        
+                    
+                    
                     </div>
                 </div>
+                
                 
                 <div id="support-withdrawal-lt8h" class="support-step col-12 p-2 d-none">
                     <div class="alert alert-warning d-flex align-items-center my-2" role="alert">
