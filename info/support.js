@@ -6,6 +6,9 @@ function gotoStep(step) {
 $(document).ready(function() {
     window.renderingStagesTarget = 1;
     $(document).trigger('renderingStage');
+
+    window.swXid = null;
+    window.sdYes = false;
     
     $('[data-goto]').click(function() {
         var datafor = $(this).data('for');
@@ -31,6 +34,12 @@ $(document).ready(function() {
 
         initSelectNet($('#select-coin').val());
     });
+
+    $('#sd-yes').click(function() {
+        window.sdYes = true;
+        $('.sd-ynprompt').addClass('d-none');
+        $('.sd-yes-answer').removeClass('d-none');
+    });
 });
 
 $(document).on('authChecked', function() {
@@ -53,7 +62,14 @@ $(document).on('authChecked', function() {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
+            var i = 0;
+
             $.each(data.transactions, function(k, v) {
+                if(i > 19)
+                    return;
+
+                i++;
+
                 if(v.status == 'CANCELED')
                     return;
                 
@@ -95,6 +111,8 @@ function renderWithdrawal(data) {
 
 function selectWithdrawal(item) {
     window.swXid = $(item).data('xid');
+
+    $('.sw-trans-item').not(item).remove();
     
     var then = new Date($(item).data('time'));
     var now = new Date();
