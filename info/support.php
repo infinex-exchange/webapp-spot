@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
-        <title>Rules | Infinex</title>
+        <title>Support | Infinex</title>
     </head>
     <body class="body-background">
     
@@ -27,7 +27,7 @@
             </div>
             
             <div class="row">
-                <div class="support-menu col-12 p-2">
+                <div id="support-menu" class="col-12 p-2">
                     <p>
                         This is the official Infinex support contact form. We do not respond to requests sent in any other way, like social media.
                         We'll respond to your request by e-mail, usually within 48 hours, excluding Saturdays and Sundays.
@@ -35,25 +35,32 @@
                     </p>
                     
                     <div class="list-group list-group-flush">
-                        <button type="button" class="list-group-item list-group-item-action">
+                        <button type="button" class="list-group-item list-group-item-action" data-goto="support-login" data-for="guest">
                             I'm having trouble with login or registration
                         </button>
-                        <button type="button" class="list-group-item list-group-item-action">
+                        <button type="button" class="list-group-item list-group-item-action" data-goto="support-deposit" data-for="user">
                             I have an issue with my deposit
                         </button>
-                        <button type="button" class="list-group-item list-group-item-action">
+                        <button type="button" class="list-group-item list-group-item-action" data-goto="support-withdrawal" data-for="user">
                             I have an issue with my withdrawal
                         </button>
-                        <button type="button" class="list-group-item list-group-item-action">
+                        <button type="button" class="list-group-item list-group-item-action" data-goto="support-other" data-for="guest,user">
                             I have an issue with other services
                         </button>
                     </div>
                 </div>
                 
-                <div class="col-12 p-2">
-                    <strong>2.</strong> We are using various technologies on many different networking layers, making it impossible to track
-                    our exchange datacenter physical location. Therefore, slow pages loading and temporary downtimes not exceeding a few minutes should
-                    be considered as completely normal.
+                <div id="support-login" class="col-12 p-2">
+                
+                    <div class="row mt-4 mt-lg-5">
+                        <div class="col-12 pb-1">
+                            <h5 class="secondary">E-mail address:</h5>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <input id="sl-email" type="email" class="form-control">
+                        </div>
+                    </div>
+                    
                 </div>
                 
                 <div class="col-12 p-2">
