@@ -70,21 +70,17 @@ function renderWithdrawal(data) {
     return `
         <div class="row hoverable withdrawal-item small p-1">
 
-            <div class="col-2">
+            <div class="col-4">
                 ${cTime}
             </div>
             
-            <div class="col-2">
+            <div class="col-4">
                 ${data.amount}
                 ${data.asset}
             </div>
             
-            <div class="col-2">
+            <div class="col-4">
                 ${data.network_description}
-            </div>
-            
-            <div class="col-6 text-break">
-                ${data.address}
             </div>
             
         </div>

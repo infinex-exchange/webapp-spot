@@ -164,7 +164,7 @@
                         <div class="col-12 pb-1">
                             <h5 class="secondary">Which withdrawal is having issues?</h5>
                         </div>
-                        <div id="sw-list" class="col-12">
+                        <div id="sw-list" class="col-12 col-lg-8 ui-card-light">
                         </div>
                     
                     
