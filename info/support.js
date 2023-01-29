@@ -40,6 +40,37 @@ $(document).ready(function() {
         $('.sd-ynprompt').addClass('d-none');
         $('.sd-yes-answer').removeClass('d-none');
     });
+
+    $('#sl-submit').click(function() {
+        var email = $('#sl-email').val();
+        var description = $('#sl-description').val();
+
+        if(email == '' || description == '') {
+            supportFormError();
+            return;
+        }
+
+        supportAjax({
+            email: email,
+            description: description
+        });
+    });
+
+    $('#so-submit').click(function() {
+        var email = $('#sl-email').val();
+        var description = $('#sl-description').val();
+
+        if((!window.loggedIn && email == '') || description == '') {
+            supportFormError();
+            return;
+        }
+
+        var data = new Object();
+        data.description = description;
+        if(!window.loggedIn) data.email = email;
+
+        supportAjax(data);
+    });
 });
 
 $(document).on('authChecked', function() {
