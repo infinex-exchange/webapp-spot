@@ -100,7 +100,7 @@
                         </div>
 
 
-                        <div class="col-12 pb-1">
+                        <div class="col-12 pt-3 pb-1">
                             <h5 class="secondary">Has the full 8 hours passed since the deposit was made?</h5>
                         </div>
                         <div class="col-6 col-lg-3 sd-ynprompt">
