@@ -100,6 +100,7 @@ function selectWithdrawal(item) {
     
     var msBetweenDates = Math.abs(then.getTime() - now.getTime());
     var hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
+    alert(hoursBetweenDates);
     
     if(hoursBetweenDates > 8)    
         gotoStep('support-withdrawal-gt8h');
