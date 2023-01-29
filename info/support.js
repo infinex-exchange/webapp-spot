@@ -90,7 +90,7 @@ function renderWithdrawal(data) {
     var cTime = new Date(unixTime).toLocaleString();
     
     return `
-        <div class="row hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
+        <div class="row sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
 
             <div class="col-4">
                 ${cTime}
