@@ -22,4 +22,15 @@ $(document).ready(function() {
         
         gotoStep($(this).data('goto'));
     });
+    
+    $('#select-coin').on('change', function() {
+        initSelectNet($('#select-coin').val());
+    });
+});
+
+$(document).on('authChecked', function() {
+    if(!window.loggedIn)
+        return;
+    
+    initSelectCoin();
 });
