@@ -164,8 +164,7 @@
                         <div class="col-12 pb-1">
                             <h5 class="secondary">Which withdrawal is having issues?</h5>
                         </div>
-                        <div class="col-12">
-                            list
+                        <div id="sw-list" class="col-12">
                         </div>
                     
                     
@@ -180,12 +179,12 @@
                             <h5 class="secondary">Please describe the problem:</h5>
                         </div>
                         <div class="col-12">
-                            <textarea id="sd-description" class="form-control"></textarea>
+                            <textarea id="sw-description" class="form-control"></textarea>
                         </div>
                         
                         
                         <div class="col-12 pt-3">
-                            <button id="sd-submit" type="button" class="btn btn-primary">Submit</button>
+                            <button id="sw-submit" type="button" class="btn btn-primary">Submit</button>
                         </div>
                         
                         

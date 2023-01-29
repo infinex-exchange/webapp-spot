@@ -33,4 +33,56 @@ $(document).on('authChecked', function() {
         return;
     
     initSelectCoin();
+    
+    $.ajax({
+        url: config.apiUrl + '/wallet/transactions',
+        type: 'POST',
+        data: JSON.stringify({
+            api_key: window.apiKey,
+            offset: 0,
+            type: 'WITHDRAWAL'
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            $.each(data.transactions, function(k, v) {
+                if(v.status == 'CANCELED')
+                    return;
+                
+                $('#sw-list').append(renderWithdrawal(v));
+            });
+        }
+        else {
+            msgBoxRedirect(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);
+    });
 });
+
+function renderWithdrawal(data) { 
+    var cTime = new Date(data.create_time * 1000).toLocaleString();
+    
+    return `
+        <div class="row hoverable withdrawal-item px-1 py-2">
+
+            <div class="col-3">
+                ${cTime}
+            </div>
+            
+            <div class="col-3">
+                ${data.amount}
+                ${data.asset}
+            </div>
+            
+            <div class="col-6">
+                ${data.address}
+            </div>
+            
+        </div>
+    `;
+}
