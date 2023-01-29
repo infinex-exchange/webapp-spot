@@ -68,7 +68,7 @@ function renderWithdrawal(data) {
     var cTime = new Date(data.create_time * 1000).toLocaleString();
     
     return `
-        <div class="row hoverable withdrawal-item px-1 py-2">
+        <div class="row hoverable withdrawal-item small px-1 py-2">
 
             <div class="col-3">
                 ${cTime}
