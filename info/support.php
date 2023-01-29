@@ -155,6 +155,18 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="support-experimental" class="support-step col-12 p-2 d-none">
+                    <div class="alert alert-warning d-flex align-items-center my-2" role="alert">
+                        <div class="px-2">
+                            <i class="fa-solid fa-flask fa-2x"></i>
+                        </div>
+                        <div class="px-2">
+                            <h5 class="pb-2">We can't accept your request</h5>
+                            //
+                        </div>
+                    </div>
+                </div>
                 
                 <div id="support-withdrawal" class="support-step col-12 p-2 d-none">
                     <div class="row">
