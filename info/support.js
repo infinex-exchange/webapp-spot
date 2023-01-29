@@ -65,10 +65,12 @@ $(document).on('authChecked', function() {
 });
 
 function renderWithdrawal(data) { 
-    var cTime = new Date(data.create_time * 1000).toLocaleString();
+    var unixTime = data.create_time * 1000;
+    var cTime = new Date(unixTime).toLocaleString();
     
     return `
-        <div class="row hoverable withdrawal-item small p-1">
+        <div class="row hoverable withdrawal-item small p-1" data-xid="${data.xid}" data-asset="${data.asset}"
+         data-network="${data.network}" data-address="${data.address}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
 
             <div class="col-4">
                 ${cTime}
@@ -85,4 +87,22 @@ function renderWithdrawal(data) {
             
         </div>
     `;
+}
+
+function selectWithdrawal(item) {
+    window.swXid = $(this).data('xid');
+    window.swAsset = $(this).data('asset');
+    window.swNetwork = $(this).data('network');
+    window.swAddress = $(this).data('address');
+    
+    var then = new Date($(this).data('time'));
+    var now = new Date();
+    
+    var msBetweenDates = Math.abs(then.getTime() - now.getTime());
+    var hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
+    
+    if(hoursBetweenDates > 8)    
+        gotoStep('support-withdrawal-gt8h');
+    else
+        gotoStep('support-withdrawal-gt8h');
 }
