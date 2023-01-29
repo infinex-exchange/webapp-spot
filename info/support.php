@@ -28,6 +28,12 @@
             
             <div class="row">
                 <div class="support-menu col-12 p-2">
+                    <p>
+                        This is the official Infinex support contact form. We do not respond to requests sent in any other way, like social media.
+                        We'll respond to your request by e-mail, usually within 48 hours, excluding Saturdays and Sundays.
+                        Please select the subject of your request.
+                    </p>
+                    
                     <div class="list-group list-group-flush">
                         <button type="button" class="list-group-item list-group-item-action">
                             I'm having trouble with login or registration
