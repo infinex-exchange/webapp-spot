@@ -163,7 +163,7 @@
                         </div>
                         <div class="px-2">
                             <h5 class="pb-2">We can't accept your request</h5>
-                            //
+                            We have classified the coin of your transaction as experimental and we do not provide any support related to it.
                         </div>
                     </div>
                 </div>
