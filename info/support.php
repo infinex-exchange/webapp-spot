@@ -87,10 +87,10 @@
                             <h5 class="secondary">Has the full 8 hours passed since the deposit was made?</h5>
                         </div>
                         <div class="col-6 col-lg-3">
-                            <button id="sl-submit" type="button" class="btn btn-primary w-100">Yes</button>
+                            <button id="sl-submit" type="button" class="btn btn-primary w-100" data-goto="support-deposit-gt8h">Yes</button>
                         </div>
                         <div class="col-6 col-lg-3">
-                            <button id="sl-submit" type="button" class="btn btn-primary w-100">No</button>
+                            <button id="sl-submit" type="button" class="btn btn-primary w-100" data-goto="support-deposit-lt8h">No</button>
                         </div>
                     
                     
