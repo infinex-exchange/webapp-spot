@@ -110,6 +110,9 @@ function renderWithdrawal(data) {
 }
 
 function selectWithdrawal(item) {
+    if(window.swXid !== null)
+        return;
+
     window.swXid = $(item).data('xid');
 
     $('.sw-trans-item').not(item).remove();
