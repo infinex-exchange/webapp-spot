@@ -186,3 +186,7 @@ function supportAjax(data) {
         msgBoxNoConn();
     });
 }
+
+function supportFormError() {
+    msgBox('Please fill in the form correctly');
+}
