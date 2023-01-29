@@ -129,7 +129,7 @@
                 <div id="support-deposit-lt8h" class="col-12 p-2">
                     <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
                         <div class="px-2">
-                            <i class="fa-solid fa-plug-circle-xmark fa-2x"></i>
+                            <i class="fa-solid fa-hourglass-half fa-2x"></i>
                         </div>
                         <div class="px-2">
                             <h5>We can't accept your request right now</h5>
