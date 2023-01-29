@@ -92,6 +92,13 @@
                         <div class="col-6 col-lg-3">
                             <button id="sl-submit" type="button" class="btn btn-primary w-100">No</button>
                         </div>
+                    
+                    
+                    </div>
+                </div>
+                
+                <div id="support-deposit-gt8h" class="col-12 p-2">
+                    <div class="row">
                         
                         
                         <div class="col-12 pb-1">
@@ -116,6 +123,21 @@
                         </div>
                         
                         
+                    </div>
+                </div>
+                
+                <div id="support-deposit-lt8h" class="col-12 p-2">
+                    <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
+                        <div class="px-2">
+                            <i class="fa-solid fa-plug-circle-xmark fa-2x"></i>
+                        </div>
+                        <div class="px-2">
+                            <h5>We can't accept your request right now</h5>
+                            Most deposit issues are temporary only and will resolve automatically after a few minutes or hours.<br>
+                            Perhaps our technicians are already working on fixing this issue.<br>
+                            You can submit a support request only if a full 8 hours have passed since the deposit was made.<br>
+                            Attempts to work around this question will remain unanswered.
+                        </div>
                     </div>
                 </div>
             </div>
