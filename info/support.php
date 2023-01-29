@@ -213,6 +213,8 @@
         </div>
         </div>
         
+        <?php include('../templates/modals.html'); ?>
+        
         <script src="/info/support.js?<?php echo filemtime(__DIR__.'/support.js'); ?>"></script>
         
         <?php include('../templates/footer.html'); ?>
