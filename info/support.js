@@ -65,13 +65,13 @@ $(document).on('authChecked', function() {
             var i = 0;
 
             $.each(data.transactions, function(k, v) {
+                if(v.status == 'CANCELED')
+                    return;
+
                 if(i > 19)
                     return;
 
                 i++;
-
-                if(v.status == 'CANCELED')
-                    return;
                 
                 $('#sw-list').append(renderWithdrawal(v));
             });
