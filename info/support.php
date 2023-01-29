@@ -156,7 +156,7 @@
                     </div>
                 </div>
                 
-                <div id="support-withdrawal" class="support-step col-12 p-2">
+                <div id="support-withdrawal" class="support-step col-12 p-2 d-none">
                     <div class="row">
                     
                     
@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 
-                <div id="support-withdrawal-gt8h" class="support-step col-12 p-2">
+                <div id="support-withdrawal-gt8h" class="support-step col-12 p-2 d-none">
                     <div class="row">
                         
                         
@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 
-                <div id="support-withdrawal-lt8h" class="support-step col-12 p-2">
+                <div id="support-withdrawal-lt8h" class="support-step col-12 p-2 d-none">
                     <div class="alert alert-warning d-flex align-items-center my-2" role="alert">
                         <div class="px-2">
                             <i class="fa-solid fa-hourglass-half fa-2x"></i>
@@ -213,7 +213,7 @@
         </div>
         </div>
         
-        <script src="/info/listing.js?<?php echo filemtime(__DIR__.'/listing.js'); ?>"></script>
+        <script src="/info/support.js?<?php echo filemtime(__DIR__.'/support.js'); ?>"></script>
         
         <?php include('../templates/footer.html'); ?>
         <?php include('../templates/vanilla_mobile_nav.php'); ?>
