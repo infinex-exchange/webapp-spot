@@ -69,8 +69,7 @@ function renderWithdrawal(data) {
     var cTime = new Date(unixTime).toLocaleString();
     
     return `
-        <div class="row hoverable withdrawal-item small p-1" data-xid="${data.xid}" data-asset="${data.asset}"
-         data-network="${data.network}" data-address="${data.address}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
+        <div class="row hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
 
             <div class="col-4">
                 ${cTime}
@@ -91,9 +90,6 @@ function renderWithdrawal(data) {
 
 function selectWithdrawal(item) {
     window.swXid = $(item).data('xid');
-    window.swAsset = $(item).data('asset');
-    window.swNetwork = $(item).data('network');
-    window.swAddress = $(item).data('address');
     
     var then = new Date($(item).data('time'));
     var now = new Date();
