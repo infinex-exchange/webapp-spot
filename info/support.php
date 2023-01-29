@@ -204,6 +204,34 @@
                         </div>
                     </div>
                 </div>
+                
+                <div id="support-other" class="support-step col-12 p-2 d-none">
+                    <div class="row">
+                    
+                    
+                        <div class="col-12 pb-1">
+                            <h5 class="secondary">Your e-mail address:</h5>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <input id="so-email" type="email" class="form-control">
+                        </div>
+    
+    
+                        <div class="col-12 pt-3 pb-1">
+                            <h5 class="secondary">Please describe the problem:</h5>
+                        </div>
+                        <div class="col-12">
+                            <textarea id="so-description" class="form-control"></textarea>
+                        </div>
+                        
+                        
+                        <div class="col-12 pt-3">
+                            <button id="so-submit" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
             </div>
             
         <!-- / Main column -->
