@@ -57,8 +57,8 @@ $(document).ready(function() {
     });
 
     $('#so-submit').click(function() {
-        var email = $('#sl-email').val();
-        var description = $('#sl-description').val();
+        var email = $('#so-email').val();
+        var description = $('#so-description').val();
 
         if((!window.loggedIn && email == '') || description == '') {
             supportFormError();
