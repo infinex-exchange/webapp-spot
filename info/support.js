@@ -90,7 +90,7 @@ function renderWithdrawal(data) {
     var cTime = new Date(unixTime).toLocaleString();
     
     return `
-        <div class="col-6 col-lg-12 sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
+        <div class="col-12 col-lg-6 sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
         <div class="row">
 
             <div style="width: 60px" class="my-auto p-2">
@@ -117,6 +117,7 @@ function selectWithdrawal(item) {
     window.swXid = $(item).data('xid');
 
     $('.sw-trans-item').not(item).remove();
+    $(item).removeClass('col-lg-6');
     
     var then = new Date($(item).data('time'));
     var now = new Date();
