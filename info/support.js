@@ -128,3 +128,30 @@ function selectWithdrawal(item) {
     if(hoursBetweenDates < 8)    
         gotoStep('support-withdrawal-lt8h');
 }
+
+function supportAjax(data) {
+    if(window.loggedIn)
+        data = Object.assign(data, {
+            api_key: window.apiKey
+        });
+
+    $.ajax({
+        url: config.apiUrl + '/info/support',
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            msgBoxRedirect('Your request was successfully submited. Please wait for a reply.');
+        }
+        else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn();
+    });
+}
