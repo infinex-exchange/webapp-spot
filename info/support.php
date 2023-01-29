@@ -32,22 +32,22 @@
                     <p>
                         This is the official Infinex support contact form. We do not respond to requests sent in any other way, like social media.
                         We'll respond to your request by e-mail, usually within 48 hours, excluding Saturdays and Sundays.
-                        Please select the subject of your request.
                     </p>
                 </div>
                 <div class="support-step col-12 p-2">
+                    <h5 class="secondary pb-1">Please select the request subject:</h5>
                     <div class="list-group">
                         <button type="button" class="list-group-item list-group-item-action" data-goto="support-login" data-for="guest">
-                            I'm having trouble with login or registration
+                            I have the issue with login or registration
                         </button>
                         <button type="button" class="list-group-item list-group-item-action" data-goto="support-deposit" data-for="user">
-                            I have an issue with my deposit
+                            I have the issue with my deposit
                         </button>
                         <button type="button" class="list-group-item list-group-item-action" data-goto="support-withdrawal" data-for="user">
-                            I have an issue with my withdrawal
+                            I have the issue with my withdrawal
                         </button>
                         <button type="button" class="list-group-item list-group-item-action" data-goto="support-other" data-for="guest,user">
-                            I have an issue with other services
+                            I have the issue with other services
                         </button>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                     
                     
                         <div class="col-12 pb-1">
-                            <h5 class="secondary">Your e-mail address:</h5>
+                            <h5 class="secondary">Please enter your e-mail address:</h5>
                         </div>
                         <div class="col-12 col-lg-6">
                             <input id="sl-email" type="email" class="form-control">
@@ -119,7 +119,7 @@
                         
                         
                         <div class="col-12 pt-3 pb-1">
-                            <h5 class="secondary">Enter the transaction ID (txid, hash) of the transaction you made:</h5>
+                            <h5 class="secondary">TxID of the transaction you made:</h5>
                         </div>
                         <div class="col-12 col-lg-6">
                             <input id="sd-txid" type="text" class="form-control">
@@ -150,9 +150,8 @@
                         <div class="px-2">
                             <h5 class="pb-2">We can't accept your request right now</h5>
                             Most deposit issues are temporary only and will resolve automatically after a few minutes or hours.<br>
-                            Perhaps our technicians are already working on fixing this issue.<br>
-                            You can submit a support request only if a full 8 hours have passed since the deposit was made.<br>
-                            Attempts to work around this question will remain unanswered.
+                            Probably our technicians are already working on fixing this issue.<br>
+                            You can submit a support request only if a full 8 hours have passed since the deposit was made.
                         </div>
                     </div>
                 </div>
@@ -162,7 +161,7 @@
                     
                     
                         <div class="col-12 pb-1">
-                            <h5 class="secondary">Which withdrawal is having issues?</h5>
+                            <h5 class="secondary">Please select the transaction you are having an issue with:</h5>
                         </div>
                         <div id="sw-list" class="col-12 col-lg-8 ui-card-light">
                         </div>
@@ -199,7 +198,7 @@
                         <div class="px-2">
                             <h5 class="pb-2">We can't accept your request right now</h5>
                             Most withdrawal issues are temporary only and will resolve automatically after a few minutes or hours.<br>
-                            Perhaps our technicians are already working on fixing this issue.<br>
+                            Probably our technicians are already working on fixing this issue.<br>
                             You can submit a support request only if a full 8 hours have passed since the withdrawal was ordered.
                         </div>
                     </div>
@@ -209,10 +208,10 @@
                     <div class="row">
                     
                     
-                        <div class="col-12 pb-1">
+                        <div class="col-12 pb-1 guest-only">
                             <h5 class="secondary">Your e-mail address:</h5>
                         </div>
-                        <div class="col-12 col-lg-6">
+                        <div class="col-12 col-lg-6 guest-only">
                             <input id="so-email" type="email" class="form-control">
                         </div>
     
