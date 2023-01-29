@@ -8,13 +8,13 @@ $(document).ready(function() {
     $(document).trigger('renderingStage');
     
     $('[data-goto]').click(function() {
-        var for = $(this).data('for');
-        if(typeof(for) !== 'undefined') {
-            if(window.loggedIn && !for.includes('user')) {
+        var datafor = $(this).data('for');
+        if(typeof(datafor) !== 'undefined') {
+            if(window.loggedIn && !datafor.includes('user')) {
                 msgBox('This option cannot be used as a logged in user');
                 return;
             }
-            if(!window.loggedIn && !for.includes('guest')) {
+            if(!window.loggedIn && !datafor.includes('guest')) {
                 gotoLogin();
                 return;
             }
