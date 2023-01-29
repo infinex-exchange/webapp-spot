@@ -79,7 +79,7 @@ function renderWithdrawal(data) {
                 ${data.asset}
             </div>
             
-            <div class="col-6 break-words">
+            <div class="col-6 text-break">
                 ${data.address}
             </div>
             
