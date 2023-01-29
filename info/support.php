@@ -54,10 +54,19 @@
                 
                     <div class="row mt-4 mt-lg-5">
                         <div class="col-12 pb-1">
-                            <h5 class="secondary">E-mail address:</h5>
+                            <h5 class="secondary">Your e-mail address:</h5>
                         </div>
                         <div class="col-12 col-lg-6">
                             <input id="sl-email" type="email" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4 mt-lg-5">
+                        <div class="col-12 pb-1">
+                            <h5 class="secondary">Please describe the problem:</h5>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <textarea id="sl-description" class="form-control"></textarea>
                         </div>
                     </div>
                     
