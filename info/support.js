@@ -90,21 +90,22 @@ function renderWithdrawal(data) {
     var cTime = new Date(unixTime).toLocaleString();
     
     return `
-        <div class="row sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
+        <div class="col-6 col-lg-12 sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
+        <div class="row">
 
-            <div class="col-4">
-                ${cTime}
+            <div style="width: 60px" class="my-auto p-2">
+                <img width="40" height="40" src="${data.icon_url}">
             </div>
             
-            <div class="col-4">
-                ${data.amount}
-                ${data.asset}
-            </div>
-            
-            <div class="col-4">
+            <div style="width: calc(100% - 60px)" class="my-auto">
+                <small class="secondary">${cDate}</small>
+                <br>
+                ${data.amount} ${data.asset}
+                <br>
                 ${data.network_description}
             </div>
             
+        </div>
         </div>
     `;
 }
