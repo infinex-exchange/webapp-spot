@@ -127,7 +127,7 @@
                 </div>
                 
                 <div id="support-deposit-lt8h" class="col-12 p-2">
-                    <div class="alert alert-danger d-flex align-items-center my-2" role="alert">
+                    <div class="alert alert-warning d-flex align-items-center my-2" role="alert">
                         <div class="px-2">
                             <i class="fa-solid fa-hourglass-half fa-2x"></i>
                         </div>
