@@ -35,7 +35,7 @@
                     </p>
                 </div>
                 <div class="support-step col-12 p-2">
-                    <div class="list-group list-group-flush">
+                    <div class="list-group">
                         <button type="button" class="list-group-item list-group-item-action" data-goto="support-login" data-for="guest">
                             I'm having trouble with login or registration
                         </button>
