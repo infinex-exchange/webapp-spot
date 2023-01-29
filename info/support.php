@@ -117,9 +117,24 @@
                         </div>
                         
                         
+                        <div class="col-12 pt-3 pb-1">
+                            <h5 class="secondary">Enter the transaction ID (txid, hash) of the transaction you made:</h5>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <input id="sd-txid" type="text" class="form-control">
+                        </div>
+                        
+                        
+                        <div class="col-12 pt-3 pb-1">
+                            <h5 class="secondary">Please describe the problem:</h5>
+                        </div>
+                        <div class="col-12">
+                            <textarea id="sd-description" class="form-control"></textarea>
+                        </div>
+                        
+                        
                         <div class="col-12 pt-3">
-                            <button id="sl-submit" type="button" class="btn btn-primary">Submit</button>
-                            <button id="sl-submit" type="button" class="btn btn-primary">Submit</button>
+                            <button id="sd-submit" type="button" class="btn btn-primary">Submit</button>
                         </div>
                         
                         
