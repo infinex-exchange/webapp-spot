@@ -96,12 +96,10 @@ function selectWithdrawal(item) {
     window.swAddress = $(item).data('address');
     
     var then = new Date($(item).data('time'));
-    alert(then);
     var now = new Date();
     
     var msBetweenDates = Math.abs(then.getTime() - now.getTime());
     var hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
-    alert(hoursBetweenDates);
     
     if(hoursBetweenDates > 8)    
         gotoStep('support-withdrawal-gt8h');
