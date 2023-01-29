@@ -104,5 +104,5 @@ function selectWithdrawal(item) {
     if(hoursBetweenDates > 8)    
         gotoStep('support-withdrawal-gt8h');
     else
-        gotoStep('support-withdrawal-gt8h');
+        gotoStep('support-withdrawal-lt8h');
 }
