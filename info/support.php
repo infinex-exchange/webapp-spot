@@ -34,7 +34,7 @@
                         Please select the subject of your request.
                     </p>
                 </div>
-                <div id="support-menu" class="col-12 p-2">
+                <div class="support-step col-12 p-2">
                     <div class="list-group list-group-flush">
                         <button type="button" class="list-group-item list-group-item-action" data-goto="support-login" data-for="guest">
                             I'm having trouble with login or registration
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 
-                <div id="support-login" class="col-12 p-2 d-none">
+                <div id="support-login" class="support-step col-12 p-2 d-none">
                     <div class="row">
                     
                     
@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 
-                <div id="support-deposit" class="col-12 p-2">
+                <div id="support-deposit" class="support-step col-12 p-2 d-none">
                     <div class="row">
                     
                     
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 
-                <div id="support-deposit-gt8h" class="col-12 p-2">
+                <div id="support-deposit-gt8h" class="support-step col-12 p-2 d-none">
                     <div class="row">
                         
                         
@@ -141,7 +141,7 @@
                     </div>
                 </div>
                 
-                <div id="support-deposit-lt8h" class="col-12 p-2">
+                <div id="support-deposit-lt8h" class="support-step col-12 p-2 d-none">
                     <div class="alert alert-warning d-flex align-items-center my-2" role="alert">
                         <div class="px-2">
                             <i class="fa-solid fa-hourglass-half fa-2x"></i>
@@ -152,6 +152,55 @@
                             Perhaps our technicians are already working on fixing this issue.<br>
                             You can submit a support request only if a full 8 hours have passed since the deposit was made.<br>
                             Attempts to work around this question will remain unanswered.
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="support-withdrawal" class="support-step col-12 p-2">
+                    <div class="row">
+                    
+                    
+                        <div class="col-12 pb-1">
+                            <h5 class="secondary">Which withdrawal is having issues?</h5>
+                        </div>
+                        <div class="col-12">
+                            list
+                        </div>
+                    
+                    
+                    </div>
+                </div>
+                
+                <div id="support-withdrawal-gt8h" class="support-step col-12 p-2">
+                    <div class="row">
+                        
+                        
+                        <div class="col-12 pt-3 pb-1">
+                            <h5 class="secondary">Please describe the problem:</h5>
+                        </div>
+                        <div class="col-12">
+                            <textarea id="sd-description" class="form-control"></textarea>
+                        </div>
+                        
+                        
+                        <div class="col-12 pt-3">
+                            <button id="sd-submit" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                
+                <div id="support-withdrawal-lt8h" class="support-step col-12 p-2">
+                    <div class="alert alert-warning d-flex align-items-center my-2" role="alert">
+                        <div class="px-2">
+                            <i class="fa-solid fa-hourglass-half fa-2x"></i>
+                        </div>
+                        <div class="px-2">
+                            <h5 class="pb-2">We can't accept your request right now</h5>
+                            Most withdrawal issues are temporary only and will resolve automatically after a few minutes or hours.<br>
+                            Perhaps our technicians are already working on fixing this issue.<br>
+                            You can submit a support request only if a full 8 hours have passed since the withdrawal was ordered.
                         </div>
                     </div>
                 </div>
