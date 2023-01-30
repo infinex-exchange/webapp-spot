@@ -176,11 +176,13 @@ function selectWithdrawal(item) {
         return;
     }
     
+    var assetid = $(item).data('assetid');
+    
     $.ajax({
         url: config.apiUrl + '/wallet/assets',
         type: 'POST',
         data: JSON.stringify({
-            symbols: [ $(item).data('assetid') ]
+            symbols: [ assetid ]
         }),
         contentType: "application/json",
         dataType: "json",
@@ -188,7 +190,7 @@ function selectWithdrawal(item) {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            if(data.assets[0].experimental) {
+            if(data.assets[assetid].experimental) {
                 gotoStep('support-experimental');
                 return;
             }
