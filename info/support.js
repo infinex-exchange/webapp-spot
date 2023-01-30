@@ -78,7 +78,7 @@ $(document).ready(function() {
     });
     
     $('#sw-submit').click(function() {
-        var description = $('#sd-description').val();
+        var description = $('#sw-description').val();
 
         if(window.swXid === null || description == '') {
             supportFormError();
