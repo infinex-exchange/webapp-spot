@@ -121,7 +121,7 @@ function renderWithdrawal(data) {
     var cTime = new Date(unixTime).toLocaleString();
     
     return `
-        <div class="col-12 col-lg-6 sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
+        <div class="col-12 col-md-6 col-lg-4 sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
         <div class="row m-0">
 
             <div style="width: 60px" class="my-auto p-2">
