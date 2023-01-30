@@ -87,7 +87,7 @@ $(document).ready(function() {
 
         supportAjax({
             topic: 'withdrawal',
-            xid: txid,
+            xid: swXid,
             description: description
         });
     });
