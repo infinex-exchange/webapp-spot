@@ -51,6 +51,7 @@ $(document).ready(function() {
         }
 
         supportAjax({
+            topic: 'login',
             email: email,
             description: description
         });
@@ -68,9 +69,25 @@ $(document).ready(function() {
         }
 
         supportAjax({
+            topic: 'deposit',
             assetid: assetid,
             netid: netid,
             txid: txid,
+            description: description
+        });
+    });
+    
+    $('#sw-submit').click(function() {
+        var description = $('#sd-description').val();
+
+        if(window.swXid === null || description == '') {
+            supportFormError();
+            return;
+        }
+
+        supportAjax({
+            topic: 'withdrawal',
+            xid: txid,
             description: description
         });
     });
@@ -85,6 +102,7 @@ $(document).ready(function() {
         }
 
         var data = new Object();
+        data.topic = 'other';
         data.description = description;
         if(!window.loggedIn) data.email = email;
 
