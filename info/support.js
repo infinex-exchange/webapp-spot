@@ -148,7 +148,7 @@ function selectWithdrawal(item) {
     window.swXid = $(item).data('xid');
 
     $('.sw-trans-item').not(item).remove();
-    $(item).removeClass('col-lg-6');
+    $(item).removeClass('col-md-6 col-lg-4');
     
     var then = new Date($(item).data('time'));
     var now = new Date();
