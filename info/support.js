@@ -55,6 +55,25 @@ $(document).ready(function() {
             description: description
         });
     });
+    
+    $('#sd-submit').click(function() {
+        var assetid = $('#select-coin').val();
+        var netid = $('#select-net').data('network');
+        var txid = $('#sd-txid').val();
+        var description = $('#sd-description').val();
+
+        if(assetid == '' || netid == '' || !window.sdYes || txid == '' || description == '') {
+            supportFormError();
+            return;
+        }
+
+        supportAjax({
+            assetid: assetid,
+            netid: netid,
+            txid: txid,
+            description: description
+        });
+    });
 
     $('#so-submit').click(function() {
         var email = $('#so-email').val();
@@ -121,7 +140,8 @@ function renderWithdrawal(data) {
     var cTime = new Date(unixTime).toLocaleString();
     
     return `
-        <div class="col-12 col-md-6 col-lg-4 sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
+        <div class="col-12 col-md-6 col-lg-4 sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}"
+         data-assetid="${data.asset}" onClick="selectWithdrawal(this)">
         <div class="row m-0">
 
             <div style="width: 60px" class="my-auto p-2">
@@ -144,11 +164,6 @@ function renderWithdrawal(data) {
 function selectWithdrawal(item) {
     if(window.swXid !== null)
         return;
-
-    window.swXid = $(item).data('xid');
-
-    $('.sw-trans-item').not(item).remove();
-    $(item).removeClass('col-md-6 col-lg-4');
     
     var then = new Date($(item).data('time'));
     var now = new Date();
@@ -156,8 +171,40 @@ function selectWithdrawal(item) {
     var msBetweenDates = Math.abs(then.getTime() - now.getTime());
     var hoursBetweenDates = msBetweenDates / (60 * 60 * 1000);
     
-    if(hoursBetweenDates < 8)    
+    if(hoursBetweenDates < 8) {    
         gotoStep('support-withdrawal-lt8h');
+        return;
+    }
+    
+    $.ajax({
+        url: config.apiUrl + '/wallet/assets',
+        type: 'POST',
+        data: JSON.stringify({
+            symbols: [ $(item).data('assetid') ]
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            if(data.assets[0].experimental) {
+                gotoStep('support-experimental');
+                return;
+            }
+            
+            window.swXid = $(item).data('xid');
+            
+            $('.sw-trans-item').not(item).remove();
+            $(item).removeClass('col-md-6 col-lg-4');
+        }
+        else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn();
+    });
 }
 
 function supportAjax(data) {
