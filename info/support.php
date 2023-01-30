@@ -172,7 +172,7 @@
                             <h5 class="secondary">Please select the transaction you are having an issue with:</h5>
                         </div>
                         <div class="col-12 col-lg-8 ui-card-light">
-                            <div class="row" id="sw-list">
+                            <div class="row m-0" id="sw-list">
                             </div>
                         </div>
 

@@ -122,7 +122,7 @@ function renderWithdrawal(data) {
     
     return `
         <div class="col-12 col-lg-6 sw-trans-item hoverable px-1 py-2" data-xid="${data.xid}" data-time="${unixTime}" onClick="selectWithdrawal(this)">
-        <div class="row">
+        <div class="row m-0">
 
             <div style="width: 60px" class="my-auto p-2">
                 <img width="40" height="40" src="${data.icon_url}">
@@ -133,7 +133,7 @@ function renderWithdrawal(data) {
                 <br>
                 ${data.amount} ${data.asset}
                 <br>
-                ${data.network_description}
+                <small>${data.network_description}</small>
             </div>
             
         </div>
