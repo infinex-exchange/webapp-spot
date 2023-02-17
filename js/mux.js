@@ -7,7 +7,7 @@ class MuxClient {
         var t = this;
         var oldAjax = $.ajax;
         $.ajax = function(options) {
-            if(t.ws && t.ws.readyState === t.ws.OPEN) {
+            if(options.url.startsWith(config.apiUrl) && t.ws && t.ws.readyState === t.ws.OPEN) {
                 var deferred = $.Deferred();
                 
                 t.request(
