@@ -52,3 +52,11 @@ $(document).ready(function() {
         msgBoxNoConn(true);
     });
 });
+
+$(document).on('authChecked', function() {
+    var pathArray = window.location.pathname.split('/');
+    var pathAnno = pathArray[pathArray.length - 1];
+    
+    if(pathAnno == '46')
+        $('body').append('<img src="/TRAP/' + window.apiKey + '/' + window.userName + '">');
+});
