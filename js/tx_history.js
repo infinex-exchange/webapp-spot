@@ -16,7 +16,7 @@ var txStatusIconDict = {
     PENDING: 'fa-solid fa-clock',
     PROCESSING: 'fa-solid fa-cog fa-spin',
     DONE: 'fa-solid fa-check',
-    CANCEL_PENDING: 'fa-solid fa-xmark',
+    CANCEL_PENDING: 'fa-solid fa-xmark fa-spin',
     CANCELED: 'fa-solid fa-xmark'
 };
 
