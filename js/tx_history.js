@@ -84,7 +84,7 @@ function mobileTxDetails(item, update = false) {
     else
         $('#mtd-delayed-alert').hide();
     
-    if(type == 'WITHDRAWAL' && (status == 'PENDING' || status == 'EXECUTING'))
+    if(type == 'WITHDRAWAL' && (status == 'PENDING' || status == 'PROCESSING'))
         $('#mtd-cancel-btn').show();
     else
         $('#mtd-cancel-btn').hide();
