@@ -77,7 +77,7 @@ class MuxClient {
         
         t.pingTimeout = setTimeout(function() {
             t.ws.close();
-        }, 2000);
+        }, 5000);
         
         t.pingId = t.randomId();
         
