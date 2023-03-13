@@ -168,12 +168,7 @@ function loadP2PMarkets(assetid) {
     })
     .retry(config.retry)
     .done(function (data) {
-        if(!data.success) {
-            msgBox(data.error);
-            return;
-        }
-        
-        if(typeof data.assets[assetid] !== 'undefined') {
+        if(data.success) {
             $('.mt-p2p-asset').html(assetid);
             $('#mt-p2p-container').removeClass('d-none');
         }
