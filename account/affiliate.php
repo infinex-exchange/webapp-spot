@@ -59,7 +59,7 @@
                                 <td>
                                     <strong>20%</strong> of spot trading fees
                                     <br>
-                                    <strong>0.2%</strong> of cloud mining purchases
+                                    <strong>0.5%</strong> of cloud mining purchases
                                     <br>
                                     <strong>2%</strong> of NFT trading fees
                                 </td>
@@ -70,7 +70,7 @@
                                 <td>
                                     <strong>10%</strong> of spot trading fees
                                     <br>
-                                    <strong>0.1%</strong> of cloud mining purchases
+                                    <strong>0.2%</strong> of cloud mining purchases
                                     <br>
                                     <strong>1%</strong> of NFT trading fees
                                 </td>
@@ -81,7 +81,7 @@
                                 <td>
                                     <strong>5%</strong> of spot trading fees
                                     <br>
-                                    <strong>0.05%</strong> of cloud mining purchases
+                                    <strong>0.1%</strong> of cloud mining purchases
                                     <br>
                                     <strong>0.5%</strong> of NFT trading fees
                                 </td>
@@ -92,7 +92,7 @@
                                 <td>
                                     <strong>2.5%</strong> of spot trading fees
                                     <br>
-                                    <strong>0.025%</strong> of cloud mining purchases
+                                    <strong>0.05%</strong> of cloud mining purchases
                                     <br>
                                     <strong>0.25%</strong> of NFT trading fees
                                 </td>
