@@ -47,7 +47,10 @@ function loadSpotMarkets(assetid, quote = false, offset = 0) {
 }
 
 function showTrade(assetid) {
+	var modal = $('#modal-trade');
+	
 	loadSpotMarkets(assetid);
     
-    $('#modal-trade').modal('show');
+    modal.find('.modal-title').html('Trade ' + assetid);
+    modal.modal('show');
 }
