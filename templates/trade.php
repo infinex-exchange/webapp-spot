@@ -1,8 +1,3 @@
-<style type="text/css">
-    .wallet-market-item {
-        background-color: var(--color-input);
-    }
-</style>
 <div class="modal fade" tabindex="-1" role="dialog" id="modal-trade">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
