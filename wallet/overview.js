@@ -121,6 +121,9 @@ function mobileAssetDetails(item) {
     $('#mad-deposit').attr('href', '/wallet/deposit/' + $(item).data('symbol'));
     $('#mad-withdraw').attr('href', '/wallet/withdraw/' + $(item).data('symbol'));
     $('#mad-transfer').attr('href', '/wallet/transfer/' + $(item).data('symbol'));
+    $('#mad-trade').off('click').on('click', function() {
+	    showTrade($(item).data('symbol'));
+    });
     
     $('#modal-mobile-asset-details').modal('show');
 }
