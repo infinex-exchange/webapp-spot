@@ -1,16 +1,12 @@
-function loadSpotMarkets(assetid, quote = false, offset = 0) {
+function loadSpotMarkets(assetid, offset = 0) {
 	if(offset == 0)
 		$('#mt-spot-data').html('');
-	
-	search = assetid;
-	if(quote) search = '/' + search;
-	else search = search + '/';
 		
 	$.ajax({
         url: config.apiUrl + '/spot/markets',
         type: 'POST',
         data: JSON.stringify({
-	        search: search,
+	        search: assetid,
 	        offset: offset
         }),
         contentType: "application/json",
@@ -23,7 +19,10 @@ function loadSpotMarkets(assetid, quote = false, offset = 0) {
             return;
         }
         
-        $.each(data.markets, function(k, v) {           
+        $.each(data.markets, function(k, v) {
+	        if(v.base_assetid != assetid && v.quote_assetid != assetid)
+		        return;
+            
             $('#mt-spot-data').append(`
                 <div class="row hoverable flex-nowrap p-1" onClick="gotoMarket('${v.pair}')">
                     <div class="col-1 my-auto">
@@ -37,9 +36,7 @@ function loadSpotMarkets(assetid, quote = false, offset = 0) {
         });
         
         if(data.markets.length == 50)
-	        loadSpotMarkets(assetid, quote, offset + 50);
-	    else if(!quote)
-		    loadSpotMarkets(assetid, true);
+	        loadSpotMarkets(assetid, offset + 50);
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(false);
