@@ -43,7 +43,7 @@
                         You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to the 4th level.
                     </p>
                 </div>
-                <div class="col-12 col-lg-9">
+                <div class="col-12">
                     <table class="table table-bordered primary">
                         <thead>
                             <tr>
@@ -57,36 +57,36 @@
                                 <th scope="row">Lvl 1</th>
                                 <td>Referred directly by you</td>
                                 <td>
-                                    20% of spot trading fees
+                                    <strong>20%</strong> of spot trading fees
                                     <br>
-                                    0.2% of cloud mining purchases
+                                    <strong>0.2%</strong> of cloud mining purchases
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">Lvl 2</th>
                                 <td>Referred by your level 1 referrals</td>
                                 <td>
-                                    10% of spot trading fees
+                                    <strong>10%</strong> of spot trading fees
                                     <br>
-                                    0.1% of cloud mining purchases
+                                    <strong>0.1%</strong> of cloud mining purchases
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">Lvl 3</th>
                                 <td>Referred by your level 2 referrals</td>
                                 <td>
-                                    5% of spot trading fees
+                                    <strong>5%</strong> of spot trading fees
                                     <br>
-                                    0.05% of cloud mining purchases
+                                    <strong>0.05%</strong> of cloud mining purchases
                                 </td>
                             </tr>
                             <tr>
                                 <th scope="row">Lvl 4</th>
                                 <td>Referred by your level 3 referrals</td>
                                 <td>
-                                    2.5% of spot trading fees
+                                    <strong>2.5%</strong> of spot trading fees
                                     <br>
-                                    0.025% of cloud mining purchases
+                                    <strong>0.025%</strong> of cloud mining purchases
                                 </td>
                             </tr>
                         </tbody>
