@@ -107,7 +107,7 @@ function loadDexMarkets(netid, assetid, offset = 0) {
     });
 }
 
-function loadDexNetworks() {
+function loadDexNetworks(assetid) {
 	$.ajax({
         url: config.apiUrl + '/dex/networks',
         type: 'POST',
@@ -146,7 +146,7 @@ function showTrade(assetid, event = null) {
 	var modal = $('#modal-trade');
 	
 	loadSpotMarkets(assetid);
-    loadDexNetworks();
+    loadDexNetworks(assetid);
     
     modal.find('.modal-title').html('Trade ' + assetid);
     modal.modal('show');
