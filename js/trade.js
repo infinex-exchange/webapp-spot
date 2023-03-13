@@ -21,6 +21,8 @@ function loadSpotMarkets(assetid, offset = 0) {
             return;
         }
         
+        found = 0;
+        
         $.each(data.markets, function(k, v) {
 	        if(v.base != assetid && v.quote != assetid)
 		        return;
@@ -39,9 +41,11 @@ function loadSpotMarkets(assetid, offset = 0) {
                     </a>
                 </div>
             `);
+            
+            found++;
         });
         
-        if(data.markets.length != 0 && offset == 0)
+        if(found != 0 && offset == 0)
             $('#mt-spot-header').removeClass('d-none');
         
         if(data.markets.length == 50)
@@ -76,6 +80,8 @@ function loadDexMarkets(netid, assetid, offset = 0) {
             return;
         }
         
+        found = 0;
+        
         $.each(data.markets, function(k, v) {
 	        if(v.base != assetid && v.quote != assetid)
 		        return;
@@ -94,9 +100,11 @@ function loadDexMarkets(netid, assetid, offset = 0) {
                     </a>
                 </div>
             `);
+            
+            found++;
         });
         
-        if(data.markets.length != 0 && offset == 0)
+        if(found && offset == 0)
             $('#mt-dex-' + netid + '-header').removeClass('d-none');
         
         if(data.markets.length == 50)
