@@ -74,7 +74,7 @@ $(document).on('authChecked', function() {
                                         <a href="/wallet/deposit/${k}" class="small link-ultra px-1"><strong>Deposit</strong></a>
                                         <a href="/wallet/withdraw/${k}" class="small link-ultra px-1"><strong>Withdraw</strong></a>
                                         <a href="/wallet/transfer/${k}" class="small link-ultra px-1"><strong>Transfer</strong></a>
-                                        <a href="#_" class="small link-ultra px-1" onClick="showTrade('${k}')"><strong>Trade</strong></a>
+                                        <a href="#_" class="small link-ultra px-1" onClick="showTrade('${k}', event)"><strong>Trade</strong></a>
                                     </div>
                                 </div>
                             `);
@@ -122,6 +122,7 @@ function mobileAssetDetails(item) {
     $('#mad-withdraw').attr('href', '/wallet/withdraw/' + $(item).data('symbol'));
     $('#mad-transfer').attr('href', '/wallet/transfer/' + $(item).data('symbol'));
     $('#mad-trade').off('click').on('click', function() {
+        $('#modal-mobile-asset-details').modal('hide');
 	    showTrade($(item).data('symbol'));
     });
     

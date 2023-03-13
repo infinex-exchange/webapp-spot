@@ -43,7 +43,10 @@ function loadMarkets(xchg, assetid, offset = 0) {
     });
 }
 
-function showTrade(assetid) {
+function showTrade(assetid, event = null) {
+    if(event)
+        event.stopPropagation();
+    
 	var modal = $('#modal-trade');
 	
 	loadMarkets('spot', assetid);
