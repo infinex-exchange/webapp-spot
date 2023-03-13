@@ -222,7 +222,7 @@ $(document).ready(function() {
             window.dexes.push(k);
             
             $('#mt-dex-container').append(`
-                <div id="mt-dex-${k}-header" class="row pb-2 d-none">
+                <div id="mt-dex-${k}-header" class="row py-2 d-none">
                     <h5 class="secondary">${v.description} DEX markets:</h5>
                 </div>
 	            <div class="row" id="mt-dex-${k}-data">

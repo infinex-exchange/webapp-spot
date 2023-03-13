@@ -6,7 +6,7 @@
                 <button type="button" class="modal-close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div id="mt-spot-header" class="row pb-2 d-none">
+                <div id="mt-spot-header" class="row py-2 d-none">
                     <h5 class="secondary">Spot markets:</h5>
                 </div>
                 
@@ -14,7 +14,7 @@
 	            </div>
 	            
 	            <div id="mt-p2p-container" class="d-none">
-                    <div class="row pb-2">
+                    <div class="row py-2">
                         <h5 class="secondary">P2P markets:</h5>
                     </div>
 	               <div class="row" id="mt-p2p-data">
