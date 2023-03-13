@@ -107,8 +107,22 @@ function loadDexMarkets(netid, assetid, offset = 0) {
     });
 }
 
-function loadDexNetworks(assetid) {
-    $('#mt-dex-container').html('');
+function showTrade(assetid, event = null) {
+    if(event)
+        event.stopPropagation();
+    
+	var modal = $('#modal-trade');
+	
+	loadSpotMarkets(assetid);
+    for(dex of window.dexes)
+        loadDexMarkets(dex, assetid);
+    
+    modal.find('.modal-title').html('Trade ' + assetid);
+    modal.modal('show');
+}
+
+$(document).ready(function() {
+    window.dexes = [];
     
 	$.ajax({
         url: config.apiUrl + '/dex/networks',
@@ -125,6 +139,8 @@ function loadDexNetworks(assetid) {
         }
         
         $.each(data.networks, function(k, v) {
+            window.dexes.push(k);
+            
             $('#mt-dex-container').append(`
                 <div id="mt-dex-${k}-header" class="row pb-2 d-none">
                     <h5 class="secondary">${v.description} DEX markets:</h5>
@@ -132,24 +148,9 @@ function loadDexNetworks(assetid) {
 	            <div class="row" id="mt-dex-${k}-data">
 	            </div>
             `);
-            
-            loadDexMarkets(k, assetid);
         });
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(false);
     });
-}
-
-function showTrade(assetid, event = null) {
-    if(event)
-        event.stopPropagation();
-    
-	var modal = $('#modal-trade');
-	
-	loadSpotMarkets(assetid);
-    loadDexNetworks(assetid);
-    
-    modal.find('.modal-title').html('Trade ' + assetid);
-    modal.modal('show');
-}
+});
