@@ -20,7 +20,7 @@ function loadSpotMarkets(assetid, offset = 0) {
         }
         
         $.each(data.markets, function(k, v) {
-	        if(v.base_assetid != assetid && v.quote_assetid != assetid)
+	        if(v.base != assetid && v.quote != assetid)
 		        return;
             
             $('#mt-spot-data').append(`
