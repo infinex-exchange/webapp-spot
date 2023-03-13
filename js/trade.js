@@ -154,7 +154,7 @@ function loadP2PFiats(offset = 0) {
             `);
         });
         
-        if(data.markets.length == 50)
+        if(data.fiats.length == 50)
 	        loadP2PFiats(offset + 50);
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
