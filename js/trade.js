@@ -146,7 +146,7 @@ function loadP2PFiats(offset = 0) {
                             </div>
                         </div>
                         <div class="col-auto ps-0 my-auto">
-                            <span class="mt-fiat-asset"></span><span class="small secondary">/${k}</span>
+                            <span class="mt-p2p-asset"></span><span class="small secondary">/${k}</span>
                         </div>
                     </div>
                     </a>
