@@ -1,6 +1,8 @@
 function loadSpotMarkets(assetid, offset = 0) {
-	if(offset == 0)
+	if(offset == 0) {
 		$('#mt-spot-data').html('');
+        $('#mt-spot-header').addClass('d-none');
+    }
 		
 	$.ajax({
         url: config.apiUrl + '/spot/markets',
@@ -38,6 +40,9 @@ function loadSpotMarkets(assetid, offset = 0) {
                 </div>
             `);
         });
+        
+        if(data.markets.length != 0 && offset == 0)
+            $('#mt-spot-header').removeClass('d-none');
         
         if(data.markets.length == 50)
 	        loadSpotMarkets(assetid, offset + 50);
