@@ -107,6 +107,54 @@ function loadDexMarkets(netid, assetid, offset = 0) {
     });
 }
 
+function loadP2PFiats(offset = 0) {
+	if(offset == 0)
+        window.fiats = [];
+		
+	$.ajax({
+        url: config.apiUrl + '/p2p/fiats',
+        type: 'POST',
+        data: JSON.stringify({
+	        offset: offset
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(!data.success) {
+            msgBox(data.error);
+            return;
+        }
+        
+        $.each(data.fiats, function(k, v) {
+            $('#mt-p2p-data').append(`
+                <div class="col-6 col-lg-4 my-auto p-0">
+                    <a href="#_" class="text-reset text-decoration-none">
+                    <div class="row background hoverable flex-nowrap p-2 m-1" onClick="gotoSpotMarket('')">
+                        <div class="col-auto my-auto">
+                            <div class="bg-white d-flex align-items-center justify-content-center rounded-circle" style="width: 24px; height: 24px; color: black;">
+                                <strong>${v.symbol}</strong>
+                            </div>
+                        </div>
+                        <div class="col-auto ps-0 my-auto">
+                            <strong>${k}</strong>
+                            <span class="secondary">${v.name}</span>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            `);
+        });
+        
+        if(data.markets.length == 50)
+	        loadP2PFiats(offset + 50);
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false);
+    });
+}
+
 function showTrade(assetid, event = null) {
     if(event)
         event.stopPropagation();
@@ -153,4 +201,6 @@ $(document).ready(function() {
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(false);
     });
+    
+    loadP2PFiats();
 });

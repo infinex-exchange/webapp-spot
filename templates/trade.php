@@ -6,18 +6,20 @@
                 <button type="button" class="modal-close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-	            <div id="mt-spot-header" class="row pb-2 d-none">
+                <div id="mt-spot-header" class="row pb-2 d-none">
                     <h5 class="secondary">Spot markets:</h5>
                 </div>
                 
 	            <div class="row" id="mt-spot-data">
 	            </div>
 	            
-	            <div id="mt-p2p-header" class="row pb-2 d-none">
-                    <h5 class="secondary">P2P markets:</h5>
+	            <div id="mt-p2p-container">
+                    <div class="row pb-2 d-none">
+                        <h5 class="secondary">P2P markets:</h5>
+                    </div>
+	               <div class="row" id="mt-p2p-data">
+	               </div>
                 </div>
-	            <div class="row" id="mt-p2p-data">
-	            </div>
 	            
 	            <div id="mt-dex-container">
                 </div>
