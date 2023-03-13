@@ -27,10 +27,12 @@ function loadSpotMarkets(assetid, offset = 0) {
 	        if(v.base != assetid && v.quote != assetid)
 		        return;
             
+            url = '/spot/' + v.pair.replace('/', '_');
+            
             $('#mt-spot-data').append(`
                 <div class="col-6 col-lg-4 my-auto p-0">
-                    <a href="#_" class="text-reset text-decoration-none">
-                    <div class="row background hoverable flex-nowrap p-2 m-1" onClick="gotoSpotMarket('${v.pair}')">
+                    <a href="${url}" class="text-reset text-decoration-none">
+                    <div class="row background hoverable flex-nowrap p-2 m-1">
                         <div class="col-auto my-auto">
                             <img width="22" height="22" src="${v.icon_url}">
                         </div>
@@ -86,10 +88,12 @@ function loadDexMarkets(netid, assetid, offset = 0) {
 	        if(v.base != assetid && v.quote != assetid)
 		        return;
             
+            url = '/dex/' + netid + '/' + v.pair.replace('/', '_');
+            
             $('#mt-dex-' + netid + '-data').append(`
                 <div class="col-6 col-lg-4 my-auto p-0">
-                    <a href="#_" class="text-reset text-decoration-none">
-                    <div class="row background hoverable flex-nowrap p-2 m-1" onClick="gotoDexMarket('${netid}', '${v.pair}')">
+                    <a href="${url}" class="text-reset text-decoration-none">
+                    <div class="row background hoverable flex-nowrap p-2 m-1">
                         <div class="col-auto my-auto">
                             <img width="22" height="22" src="${v.icon_url}">
                         </div>
@@ -138,8 +142,8 @@ function loadP2PFiats(offset = 0) {
         $.each(data.fiats, function(k, v) {
             $('#mt-p2p-data').append(`
                 <div class="col-6 col-lg-4 my-auto p-0">
-                    <a href="#_" class="text-reset text-decoration-none">
-                    <div class="row background hoverable flex-nowrap p-2 m-1" onClick="gotoSpotMarket('')">
+                    <a href="/p2p" class="text-reset text-decoration-none">
+                    <div class="row background hoverable flex-nowrap p-2 m-1">
                         <div class="col-auto my-auto">
                             <div class="bg-white d-flex align-items-center justify-content-center rounded-circle" style="width: 24px; height: 24px; color: black;">
                                 <strong>${v.symbol}</strong>
