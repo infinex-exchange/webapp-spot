@@ -6,7 +6,16 @@
                 <button type="button" class="modal-close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+	            <h5 class="secondary">Spot markets:</h5>
 	            <div id="mt-spot-data">
+	            </div>
+	            
+	            <h5 class="secondary">P2P markets:</h5>
+	            <div id="mt-p2p-data">
+	            </div>
+	            
+	            <h5 class="secondary">DEX markets:</h5>
+	            <div id="mt-dex-data">
 	            </div>
             </div>
             <div class="modal-footer">
