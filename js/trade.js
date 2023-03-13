@@ -1,9 +1,9 @@
-function loadMarkets(xchg, assetid, offset = 0) {
+function loadSpotMarkets(assetid, offset = 0) {
 	if(offset == 0)
-		$('#mt-' + xchg + '-data').html('');
+		$('#mt-spot-data').html('');
 		
 	$.ajax({
-        url: config.apiUrl + '/' + xchg + '/markets',
+        url: config.apiUrl + '/spot/markets',
         type: 'POST',
         data: JSON.stringify({
 	        search: assetid,
@@ -23,7 +23,7 @@ function loadMarkets(xchg, assetid, offset = 0) {
 	        if(v.base != assetid && v.quote != assetid)
 		        return;
             
-            $('#mt-' + xchg + '-data').append(`
+            $('#mt-spot-data').append(`
                 <div class="row hoverable flex-nowrap p-1" onClick="gotoMarket('${v.pair}')">
                     <div class="col-1 my-auto">
                         <img width="22" height="22" src="${v.icon_url}">
@@ -36,7 +36,7 @@ function loadMarkets(xchg, assetid, offset = 0) {
         });
         
         if(data.markets.length == 50)
-	        loadMarkets(xchg, assetid, offset + 50);
+	        loadSpotMarkets(assetid, offset + 50);
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(false);
@@ -49,8 +49,7 @@ function showTrade(assetid, event = null) {
     
 	var modal = $('#modal-trade');
 	
-	loadMarkets('spot', assetid);
-	loadMarkets('dex', assetid);
+	loadSpotMarkets(assetid);
     
     modal.find('.modal-title').html('Trade ' + assetid);
     modal.modal('show');
