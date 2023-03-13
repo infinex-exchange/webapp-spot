@@ -38,8 +38,8 @@
                 <div class="col-12">
                     <p>
                         Recommend Infinex to your friends or share a reflink on your website or social media and earn
-                        20% lifetime commissions on every trade.
-                        Users who sign up for a Infinex account using your unique referral link will be attributed as a successful referral.
+                        lifetime rewards for their trading activity on Infinex.
+                        The user who sign up for a Infinex account using your unique referral link will be attributed as a successful referral.
                         You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to the 4th level.
                     </p>
                 </div>
@@ -56,22 +56,38 @@
                             <tr>
                                 <th scope="row">Lvl 1</th>
                                 <td>Referred directly by you</td>
-                                <td>20%</td>
+                                <td>
+                                    20% of spot trading fees
+                                    <br>
+                                    0.2% of cloud mining purchases
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">Lvl 2</th>
                                 <td>Referred by your level 1 referrals</td>
-                                <td>10%</td>
+                                <td>
+                                    10% of spot trading fees
+                                    <br>
+                                    0.1% of cloud mining purchases
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">Lvl 3</th>
                                 <td>Referred by your level 2 referrals</td>
-                                <td>5%</td>
+                                <td>
+                                    5% of spot trading fees
+                                    <br>
+                                    0.05% of cloud mining purchases
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">Lvl 4</th>
                                 <td>Referred by your level 3 referrals</td>
-                                <td>2.5%</td>
+                                <td>
+                                    2.5% of spot trading fees
+                                    <br>
+                                    0.025% of cloud mining purchases
+                                </td>
                             </tr>
                         </tbody>
                     </table>
