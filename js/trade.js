@@ -107,14 +107,46 @@ function loadDexMarkets(netid, assetid, offset = 0) {
     });
 }
 
-function loadP2PFiats(offset = 0) {
-	if(offset == 0)
-        window.fiats = [];
-		
+function loadP2PMarkets(assetid) {
+    $('#mt-p2p-container').addClass('d-none');
+    
 	$.ajax({
-        url: config.apiUrl + '/p2p/fiats',
+        url: config.apiUrl + '/p2p/assets',
         type: 'POST',
         data: JSON.stringify({
+	        symbols: assetid
+        }),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(!data.success) {
+            msgBox(data.error);
+            return;
+        }
+        
+        if(data.assets.count == 1) {
+            $('.mt-p2p-asset').html(assetid);
+            $('#mt-p2p-container').removeClass('d-none');
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false);
+    });
+}
+
+function loadSpotMarkets(assetid, offset = 0) {
+	if(offset == 0) {
+		$('#mt-spot-data').html('');
+        $('#mt-spot-header').addClass('d-none');
+    }
+		
+	$.ajax({
+        url: config.apiUrl + '/spot/markets',
+        type: 'POST',
+        data: JSON.stringify({
+	        search: assetid,
 	        offset: offset
         }),
         contentType: "application/json",
@@ -127,18 +159,19 @@ function loadP2PFiats(offset = 0) {
             return;
         }
         
-        $.each(data.fiats, function(k, v) {
-            $('#mt-p2p-data').append(`
+        $.each(data.markets, function(k, v) {
+	        if(v.base != assetid && v.quote != assetid)
+		        return;
+            
+            $('#mt-spot-data').append(`
                 <div class="col-6 col-lg-4 my-auto p-0">
                     <a href="#_" class="text-reset text-decoration-none">
-                    <div class="row background hoverable flex-nowrap p-2 m-1" onClick="gotoSpotMarket('')">
+                    <div class="row background hoverable flex-nowrap p-2 m-1" onClick="gotoSpotMarket('${v.pair}')">
                         <div class="col-auto my-auto">
-                            <div class="bg-white d-flex align-items-center justify-content-center rounded-circle" style="width: 24px; height: 24px; color: black;">
-                                <strong>${v.symbol}</strong>
-                            </div>
+                            <img width="22" height="22" src="${v.icon_url}">
                         </div>
                         <div class="col-auto ps-0 my-auto">
-                            <span class="mt-fiat-asset"></span><span class="small secondary">/${k}</span>
+                            ${v.base}<span class="small secondary">/${v.quote}</span>
                         </div>
                     </div>
                     </a>
@@ -146,8 +179,11 @@ function loadP2PFiats(offset = 0) {
             `);
         });
         
+        if(data.markets.length != 0 && offset == 0)
+            $('#mt-spot-header').removeClass('d-none');
+        
         if(data.markets.length == 50)
-	        loadP2PFiats(offset + 50);
+	        loadSpotMarkets(assetid, offset + 50);
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(false);
@@ -161,6 +197,7 @@ function showTrade(assetid, event = null) {
 	var modal = $('#modal-trade');
 	
 	loadSpotMarkets(assetid);
+    loadP2PMarkets(assetid);
     for(dex of window.dexes)
         loadDexMarkets(dex, assetid);
     

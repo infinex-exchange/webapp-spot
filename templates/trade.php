@@ -13,8 +13,8 @@
 	            <div class="row" id="mt-spot-data">
 	            </div>
 	            
-	            <div id="mt-p2p-container">
-                    <div class="row pb-2 d-none">
+	            <div id="mt-p2p-container d-none">
+                    <div class="row pb-2">
                         <h5 class="secondary">P2P markets:</h5>
                     </div>
 	               <div class="row" id="mt-p2p-data">
