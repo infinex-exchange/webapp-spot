@@ -31,7 +31,8 @@ function loadSpotMarkets(assetid, offset = 0) {
                             <img width="22" height="22" src="${v.icon_url}">
                         </div>
                         <div class="col-auto ps-0 my-auto">
-                            ${v.base}<span class="small secondary">/${v.quote}</span>
+                            <span class="primary">${v.base}</span>
+                            <span class="small secondary">/${v.quote}</span>
                         </div>
                     </div>
                     </a>
