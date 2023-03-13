@@ -108,6 +108,8 @@ function loadDexMarkets(netid, assetid, offset = 0) {
 }
 
 function loadDexNetworks(assetid) {
+    $('#mt-dex-container').html('');
+    
 	$.ajax({
         url: config.apiUrl + '/dex/networks',
         type: 'POST',
