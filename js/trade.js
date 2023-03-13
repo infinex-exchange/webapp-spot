@@ -24,8 +24,8 @@ function loadSpotMarkets(assetid, offset = 0) {
 		        return;
             
             $('#mt-spot-data').append(`
-                <div class="col-6 col-lg-4 my-auto m-1">
-                    <div class="row background hoverable flex-nowrap p-1" onClick="gotoMarket('${v.pair}')">
+                <div class="col-6 col-lg-4 my-auto">
+                    <div class="row background hoverable flex-nowrap" onClick="gotoMarket('${v.pair}')">
                         <div class="col-auto my-auto">
                             <img width="22" height="22" src="${v.icon_url}">
                         </div>
