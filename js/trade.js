@@ -173,7 +173,7 @@ function loadP2PMarkets(assetid) {
             return;
         }
         
-        if(data.assets.length == 1) {
+        if(typeof data.assets[assetid] !== 'undefined') {
             $('.mt-p2p-asset').html(assetid);
             $('#mt-p2p-container').removeClass('d-none');
         }
