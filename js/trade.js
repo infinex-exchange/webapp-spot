@@ -161,7 +161,7 @@ function loadP2PMarkets(assetid) {
         url: config.apiUrl + '/p2p/assets',
         type: 'POST',
         data: JSON.stringify({
-	        symbols: assetid
+	        symbols: [ assetid ]
         }),
         contentType: "application/json",
         dataType: "json",
