@@ -19,11 +19,8 @@
 	            <div class="row" id="mt-p2p-data">
 	            </div>
 	            
-	            <div id="mt-dex-header" class="row pb-2 d-none">
-                    <h5 class="secondary">DEX markets:</h5>
+	            <div id="mt-dex-container">
                 </div>
-	            <div class="row" id="mt-dex-data">
-	            </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="modal-close btn btn-secondary" data-bs-dismiss="modal">Close</button>
