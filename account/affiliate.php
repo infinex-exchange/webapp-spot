@@ -61,7 +61,9 @@
                                     <br>
                                     <strong>0.4%</strong> of cloud mining purchases
                                     <br>
-                                    <strong>6%</strong> of NFT trading fees
+                                    <strong>10%</strong> of NFT trading fees
+                                    <br>
+                                    <strong>10%</strong> of NFT Studio fees
                                 </td>
                             </tr>
                             <tr>
@@ -72,7 +74,9 @@
                                     <br>
                                     <strong>0.2%</strong> of cloud mining purchases
                                     <br>
-                                    <strong>3%</strong> of NFT trading fees
+                                    <strong>5%</strong> of NFT trading fees
+                                    <br>
+                                    <strong>5%</strong> of NFT Studio fees
                                 </td>
                             </tr>
                             <tr>
@@ -83,7 +87,9 @@
                                     <br>
                                     <strong>0.1%</strong> of cloud mining purchases
                                     <br>
-                                    <strong>1.5%</strong> of NFT trading fees
+                                    <strong>2.5%</strong> of NFT trading fees
+                                    <br>
+                                    <strong>2.5%</strong> of NFT Studio fees
                                 </td>
                             </tr>
                             <tr>
@@ -94,7 +100,9 @@
                                     <br>
                                     <strong>0.05%</strong> of cloud mining purchases
                                     <br>
-                                    <strong>0.75%</strong> of NFT trading fees
+                                    <strong>1.25%</strong> of NFT trading fees
+                                    <br>
+                                    <strong>1.25%</strong> of NFT Studio fees
                                 </td>
                             </tr>
                         </tbody>
