@@ -120,7 +120,7 @@
         </div>
         </div>
         
-        <?php include('../templates/tx_history.html'); ?>
+        <?php include('../templates/tx_history.php'); ?>
         <script src="/wallet/transfer.js?<?php echo filemtime(__DIR__.'/transfer.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>

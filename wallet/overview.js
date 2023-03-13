@@ -74,6 +74,7 @@ $(document).on('authChecked', function() {
                                         <a href="/wallet/deposit/${k}" class="small link-ultra px-1"><strong>Deposit</strong></a>
                                         <a href="/wallet/withdraw/${k}" class="small link-ultra px-1"><strong>Withdraw</strong></a>
                                         <a href="/wallet/transfer/${k}" class="small link-ultra px-1"><strong>Transfer</strong></a>
+                                        <a href="#_" class="small link-ultra px-1" onClick="showTrade('${k}')"><strong>Trade</strong></a>
                                     </div>
                                 </div>
                             `);

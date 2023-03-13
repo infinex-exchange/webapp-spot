@@ -142,7 +142,8 @@
             </div>
         </div>
         
-        <?php include('../templates/tx_history.html'); ?>
+        <?php include('../templates/tx_history.php'); ?>
+        <?php include('../templates/trade.php'); ?>
         <script src="/wallet/overview.js?<?php echo filemtime(__DIR__.'/overview.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>

@@ -51,7 +51,7 @@
         </div>
         </div>
         
-        <?php include('../templates/tx_history.html'); ?>
+        <?php include('../templates/tx_history.php'); ?>
         <script src="/wallet/transactions.js?<?php echo filemtime(__DIR__.'/transactions.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>

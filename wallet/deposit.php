@@ -174,7 +174,7 @@
         </div>
         </div>
         
-        <?php include('../templates/tx_history.html'); ?>
+        <?php include('../templates/tx_history.php'); ?>
         <script src="/wallet/deposit.js?<?php echo filemtime(__DIR__.'/deposit.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>
