@@ -336,10 +336,10 @@ function generateCharts() {
 		div = this;
 		refid = $(this).data('refid');
 		
-	    earnChart = new ApexCharts(div.find('.chart-earn')[0], earnOptions);
+	    earnChart = new ApexCharts($(div).find('.chart-earn')[0], earnOptions);
 	    earnChart.render();
 	    
-	    acqChart = new ApexCharts(div.find('.chart-acquisition')[0], acqOptions);
+	    acqChart = new ApexCharts($(div).find('.chart-acquisition')[0], acqOptions);
 	    acqChart.render();
 		
 		data = new Object();
