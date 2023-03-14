@@ -275,12 +275,12 @@ function generateCharts() {
             curve: 'straight'
         },
         xaxis: {
-            type: 'categories'
+            type: 'category'
         },
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return value + ' ' + window.billingAsset;
+                    return value + ' ' + 'test';
                 }
             }
         },
