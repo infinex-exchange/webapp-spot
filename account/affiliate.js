@@ -209,7 +209,9 @@ $(document).on('authChecked', function() {
                 $.each(data.reflinks, function(k, v) {
                     addChangeReflink(v.refid, v.description, v.members); 
                 });
-                        
+                
+                generateCharts();
+                
                 $(document).trigger('renderingStage');
             } else {
                 msgBoxRedirect(data.error);
@@ -253,4 +255,11 @@ function mobileReflinkDetails(item) {
     $('#mrd-members-inner').html(levelsInnerHtml);
     
     $('#modal-reflink-details').modal('show');
+}
+
+function generateCharts() {
+	$('.charts').each(function() {
+		var refid = $(this).data('refid');
+		alert(refid);
+	});
 }
