@@ -258,8 +258,89 @@ function mobileReflinkDetails(item) {
 }
 
 function generateCharts() {
+	earnOptions = {
+        series: [],
+        chart: {
+            height: 300,
+            type: 'area',
+            zoom: {
+                enabled: false
+            },
+            toolbar: {
+                show: false
+            },
+            background: $(':root').css('--color-bg-light')
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        xaxis: {
+            type: 'datetime'
+        },
+        yaxis: {
+            labels: {
+                formatter: function (value) {
+                    return value + ' ' + window.billingAsset;
+                }
+            }
+        },
+        noData: {
+            text: 'Loading...'
+        },
+        dataLabels: {
+            enabled: false
+        },
+        theme: {
+	        mode: 'dark'
+	    }
+    };
+    
+    acqOptions = {
+        series: [],
+        chart: {
+            height: 300,
+            type: 'area',
+            zoom: {
+                enabled: false
+            },
+            toolbar: {
+                show: false
+            },
+            background: $(':root').css('--color-bg-light')
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        xaxis: {
+            type: 'datetime'
+        },
+        yaxis: {
+            labels: {
+                formatter: function (value) {
+                    return value + ' ' + 'test';
+                }
+            }
+        },
+        noData: {
+            text: 'Loading...'
+        },
+        dataLabels: {
+            enabled: false
+        },
+        theme: {
+	        mode: 'dark'
+	    }
+    };
+	    
 	$('.charts').each(function() {
+		div = this;
 		refid = $(this).data('refid');
+		
+	    earnChart = new ApexCharts(div.find('.chart-earn')[0], earnOptions);
+	    earnChart.render();
+	    
+	    acqChart = new ApexCharts(div.find('.chart-acquisition')[0], acqOptions);
+	    acqChart.render();
 		
 		data = new Object();
 		data['api_key'] = window.apiKey;
@@ -275,7 +356,44 @@ function generateCharts() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
-	            alert(data.settlements);
+	            earnSeries = new Array();
+				acqSeries = new Array();
+				
+				for(set of data.settlements) {
+					month = set.month + '/' + set.year;
+					
+					earnSeries.push({
+			            x: month,
+			            y: set.mastercoin_equiv
+			        });
+        
+			        acqSeries.push({
+			            x: month,
+			            y: set.acquisition[0]
+			        });
+				}
+				
+				earnChart.updateSeries([
+				    {
+				        name: 'Revenue',
+			            data: earnSeries
+				    },
+			        {
+			            name: 'Profit',
+			            data: earnSeries
+			        }
+			    ], true);
+			    
+			    acqChart.updateSeries([
+				    {
+				        name: 'Revenue',
+			            data: acqSeries
+				    },
+			        {
+			            name: 'Profit',
+			            data: acqSeries
+			        }
+			    ], true);
             } else {
                 msgBoxRedirect(data.error);
             }
