@@ -47,7 +47,7 @@
             </div>
             
             <div class="row py-2">
-	            <h5>Performance</h5>
+	            <h3>Performance</h3>
             </div>
             
             <div class="row">
