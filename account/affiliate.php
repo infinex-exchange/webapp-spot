@@ -30,7 +30,7 @@
         <!-- Main column -->
         <div class="col-12 col-lg-8 p-0 ui-card ui-column">
             
-            <div class="row p-2">
+            <div class="row py-2">
                 <h3>Affiliate program</h3>
             </div>
             
@@ -43,6 +43,38 @@
                         You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to the 4th level.
                     </p>
                 </div>
+            </div>
+            
+            <div class="row py-2">
+                <h3>Your campaigns</h3>
+            </div>
+            
+            <div class="row p-2">
+                <div class="col-auto my-auto">
+                    <button type="button" class="btn btn-primary btn-sm" onClick="showAddReflinkPrompt()">New reflink</a>
+                </div>
+            </div>
+            
+            <div class="row p-2 d-none d-lg-flex secondary">
+                <div class="col-4">
+                <h5>Name</h5>
+                </div>
+                <div class="col-5">
+                <h5>Members, reflinks</h5>
+                </div>
+                <div class="col-3">
+                <h5>Options</h5>
+                </div>
+            </div>
+            
+            <div id="reflinks-data">
+            </div>
+            
+            <div class="row py-2">
+	            <h3>Earn rates</h3>
+            </div>
+            
+            <div class="row py-3">
                 <div class="col-12">
                     <table class="table table-bordered primary">
                         <thead>
@@ -114,31 +146,6 @@
                         Affiliate rewards are calculated on the 1st day of each month and distributed as internal deposit from the user: <i>system@infinex.cc</i>.
                     </p>
                 </div>
-            </div>
-            
-            <div class="row p-2">
-                <h3>Your campaigns</h3>
-            </div>
-            
-            <div class="row p-2">
-                <div class="col-auto my-auto">
-                    <button type="button" class="btn btn-primary btn-sm" onClick="showAddReflinkPrompt()">New reflink</a>
-                </div>
-            </div>
-            
-            <div class="row p-2 d-none d-lg-flex secondary">
-                <div class="col-4">
-                <h5>Name</h5>
-                </div>
-                <div class="col-5">
-                <h5>Members, reflinks</h5>
-                </div>
-                <div class="col-3">
-                <h5>Options</h5>
-                </div>
-            </div>
-            
-            <div id="reflinks-data">
             </div>
         
         <!-- / Main column -->
