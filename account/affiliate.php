@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <?php include('../templates/head.php'); ?>
+        <?php include('../imports/apexcharts.html'); ?>
         <script src="/js/validate.js?<?php echo filemtime(__DIR__.'/../js/validate.js'); ?>"></script>
         <title>Affiliate program | Infinex</title>
         <style type="text/css">
@@ -43,6 +44,19 @@
                         You'll receive commissions on every trade made by your referrals and referrals of your referrals, up to the 4th level.
                     </p>
                 </div>
+            </div>
+            
+            <div class="row py-2">
+	            Performance
+            </div>
+            
+            <div class="row py-3">
+	            <div class="col-12">
+		            <div class="chart-earn" data-refid=""></div>
+	            </div>
+	            <div class="col-12">
+		            <div class="chart-acquisition" data-refid=""></div>
+	            </div>
             </div>
             
             <div class="row py-2">
