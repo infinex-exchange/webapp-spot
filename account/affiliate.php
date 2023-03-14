@@ -50,7 +50,7 @@
 	            <h3>Performance</h3>
             </div>
             
-            <div class="row charts">
+            <div class="row charts" data-refid="">
 	            <div class="col-12">
 		            <div class="chart-earn"></div>
 	            </div>
