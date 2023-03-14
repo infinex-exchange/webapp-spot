@@ -35,7 +35,7 @@
                 <h3>Affiliate program</h3>
             </div>
             
-            <div class="row py-3">
+            <div class="row">
                 <div class="col-12">
                     <p>
                         Recommend Infinex to your friends or share a reflink on your website or social media and earn
@@ -47,10 +47,10 @@
             </div>
             
             <div class="row py-2">
-	            Performance
+	            <h5>Performance</h5>
             </div>
             
-            <div class="row py-3">
+            <div class="row">
 	            <div class="col-12">
 		            <div class="chart-earn" data-refid=""></div>
 	            </div>
@@ -63,13 +63,13 @@
                 <h3>Your campaigns</h3>
             </div>
             
-            <div class="row p-2">
+            <div class="row">
                 <div class="col-auto my-auto">
                     <button type="button" class="btn btn-primary btn-sm" onClick="showAddReflinkPrompt()">New reflink</a>
                 </div>
             </div>
             
-            <div class="row p-2 d-none d-lg-flex secondary">
+            <div class="row py-2 d-none d-lg-flex secondary">
                 <div class="col-4">
                 <h5>Name</h5>
                 </div>
@@ -88,7 +88,7 @@
 	            <h3>Earn rates</h3>
             </div>
             
-            <div class="row py-3">
+            <div class="row">
                 <div class="col-12">
                     <table class="table table-bordered primary">
                         <thead>
