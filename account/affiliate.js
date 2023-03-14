@@ -219,7 +219,7 @@ $(document).on('authChecked', function() {
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
             msgBoxNoConn(true);
-        });     
+        });
     }
 });
 
@@ -259,7 +259,29 @@ function mobileReflinkDetails(item) {
 
 function generateCharts() {
 	$('.charts').each(function() {
-		var refid = $(this).data('refid');
-		alert(refid);
+		refid = $(this).data('refid');
+		
+		data = new Object();
+		data['api_key'] = window.apiKey;
+		if(refid != '') data['refid'] = refid;
+		
+		$.ajax({
+            url: config.apiUrl + '/account/affiliate_settlements',
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            dataType: "json",
+        })
+        .retry(config.retry)
+        .done(function (data) {
+            if(data.success) {
+	            alert(data.settlements);
+            } else {
+                msgBoxRedirect(data.error);
+            }
+        })
+        .fail(function (jqXHR, textStatus, errorThrown) {
+            msgBoxNoConn(true);
+        });
 	});
 }
