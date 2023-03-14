@@ -262,7 +262,7 @@ function generateCharts() {
         series: [],
         chart: {
             height: 300,
-            type: 'area',
+            type: 'bar',
             zoom: {
                 enabled: false
             },
@@ -275,7 +275,7 @@ function generateCharts() {
             curve: 'straight'
         },
         xaxis: {
-            type: 'datetime'
+            type: 'categories'
         },
         yaxis: {
             labels: {
@@ -375,13 +375,9 @@ function generateCharts() {
 				
 				earnChart.updateSeries([
 				    {
-				        name: 'Revenue',
+				        name: 'Earn',
 			            data: earnSeries
-				    },
-			        {
-			            name: 'Profit',
-			            data: earnSeries
-			        }
+				    }
 			    ], true);
 			    
 			    acqChart.updateSeries([
