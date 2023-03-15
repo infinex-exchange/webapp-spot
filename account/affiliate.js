@@ -370,6 +370,8 @@ function generateCharts() {
 			            y: set.acquisition[0]
 			        });
 				}
+                
+                console.log(acqSeries);
 				
 				earnChart.updateSeries([
 				    {
