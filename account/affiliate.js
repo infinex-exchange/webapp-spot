@@ -100,6 +100,16 @@ function addChangeReflink(refid, description, members) {
                     <button type="button" class="btn btn-primary btn-sm" onClick="showEditReflinkPrompt(${refid})">Rename</a>
                     <button type="button" class="btn btn-primary btn-sm" onClick="removeReflink(${refid})">Remove</a>
                 </div>
+                <div class="col-12">
+                    <div class="row charts" data-refid="${refid}">
+        	            <div class="col-12">
+        		            <div class="chart-earn"></div>
+        	            </div>
+        	            <div class="col-12">
+        		            <div class="chart-acquisition"></div>
+        	            </div>
+                    </div>
+                </div>
             </div>
         `);
     }      
