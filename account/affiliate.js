@@ -366,7 +366,6 @@ function generateCharts() {
 			            x: month,
 			            y: set.mastercoin_equiv
 			        });
-			        alert(set.mastercoin_equiv);
         
 			        acqSeries.push({
 			            x: month,
