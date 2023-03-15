@@ -301,7 +301,8 @@ function generateCharts() {
         series: [],
         chart: {
             height: 300,
-            type: 'area',
+            type: 'bar',
+            stacked: true,
             zoom: {
                 enabled: false
             },
@@ -314,14 +315,7 @@ function generateCharts() {
             curve: 'straight'
         },
         xaxis: {
-            type: 'datetime'
-        },
-        yaxis: {
-            labels: {
-                formatter: function (value) {
-                    return value + ' ' + 'test';
-                }
-            }
+            type: 'category'
         },
         noData: {
             text: 'Loading...'
