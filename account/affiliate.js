@@ -325,7 +325,10 @@ function generateCharts() {
         },
         theme: {
 	        mode: 'dark'
-	    }
+	    },
+        tooltip: {
+            shared: true
+        }
     };
 	    
 	$('.charts').each(function() {
