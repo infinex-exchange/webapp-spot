@@ -354,42 +354,62 @@ function generateCharts() {
             if(data.success) {
 	            window.mastercoin = data.mastercoin;
 	            
-	            earnSeries = new Array();
-				acqSeries = new Array();
+	            earnSeries = [
+                    {
+                        name: 'Rewards',
+                        data: new Array()
+                    }
+                ];
+				acqSeries = [
+                    {
+                        name: 'Lvl 1',
+                        data: new Array()
+                    },
+                    {
+                        name: 'Lvl 2',
+                        data: new Array()
+                    },
+                    {
+                        name: 'Lvl 3',
+                        data: new Array()
+                    },
+                    {
+                        name: 'Lvl 4',
+                        data: new Array()
+                    }
+                ];
 				
 				for(set of data.settlements) {
 					month = set.month + '/' + set.year;
 					
-					earnSeries.push({
+					earnSeries[0].data.push({
 			            x: month,
 			            y: set.mastercoin_equiv
 			        });
         
-			        acqSeries.push({
+			        acqSeries[0].data.push({
 			            x: month,
 			            y: set.acquisition['1']
 			        });
+                    
+                    acqSeries[1].data.push({
+			            x: month,
+			            y: set.acquisition['2']
+			        });
+                    
+                    acqSeries[2].data.push({
+			            x: month,
+			            y: set.acquisition['3']
+			        });
+                    
+                    acqSeries[3].data.push({
+			            x: month,
+			            y: set.acquisition['4']
+			        });
 				}
-                
-                console.log(acqSeries);
 				
-				earnChart.updateSeries([
-				    {
-				        name: 'Earn',
-			            data: earnSeries
-				    }
-			    ], true);
-			    
-			    acqChart.updateSeries([
-				    {
-				        name: 'Revenue',
-			            data: acqSeries
-				    },
-			        {
-			            name: 'Profit',
-			            data: acqSeries
-			        }
-			    ], true);
+				earnChart.updateSeries(earnSeries, true);
+			    acqChart.updateSeries(acqSeries, true);
             } else {
                 msgBoxRedirect(data.error);
             }
