@@ -258,6 +258,8 @@ function mobileReflinkDetails(item) {
 }
 
 function generateCharts() {
+	window.mastercoin = '';
+	
 	earnOptions = {
         series: [],
         chart: {
@@ -280,7 +282,7 @@ function generateCharts() {
         yaxis: {
             labels: {
                 formatter: function (value) {
-                    return value + ' ' + 'test';
+                    return value + ' ' + window.mastercoin;
                 }
             }
         },
@@ -356,6 +358,8 @@ function generateCharts() {
         .retry(config.retry)
         .done(function (data) {
             if(data.success) {
+	            window.mastercoin = data.mastercoin;
+	            
 	            earnSeries = new Array();
 				acqSeries = new Array();
 				
