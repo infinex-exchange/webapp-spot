@@ -302,7 +302,7 @@ function generateCharts() {
         chart: {
             height: 200,
             type: 'bar',
-            //stacked: true,
+            stacked: true,
             zoom: {
                 enabled: false
             },
