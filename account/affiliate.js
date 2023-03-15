@@ -327,7 +327,8 @@ function generateCharts() {
 	        mode: 'dark'
 	    },
         tooltip: {
-            shared: true
+            shared: true,
+            intersect: false
         }
     };
 	    
