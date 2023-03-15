@@ -263,7 +263,7 @@ function generateCharts() {
 	earnOptions = {
         series: [],
         chart: {
-            height: 300,
+            height: 200,
             type: 'bar',
             zoom: {
                 enabled: false
@@ -300,7 +300,7 @@ function generateCharts() {
     acqOptions = {
         series: [],
         chart: {
-            height: 300,
+            height: 200,
             type: 'bar',
             stacked: true,
             zoom: {
