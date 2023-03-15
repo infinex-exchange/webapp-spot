@@ -367,7 +367,7 @@ function generateCharts() {
         
 			        acqSeries.push({
 			            x: month,
-			            y: set.acquisition[0]
+			            y: set.acquisition.1
 			        });
 				}
                 
