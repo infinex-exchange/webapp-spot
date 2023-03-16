@@ -100,7 +100,7 @@ function addChangeReflink(refid, description, members) {
                     <button type="button" class="btn btn-primary btn-sm" onClick="showEditReflinkPrompt(${refid})">Rename</a>
                     <button type="button" class="btn btn-primary btn-sm" onClick="removeReflink(${refid})">Remove</a>
                 </div>
-                <div class="col-12">
+                <div class="col-12 d-none d-lg-block">
                     <div class="row charts" data-refid="${refid}">
         	            <div class="col-12">
         		            <div class="chart-earn"></div>
@@ -342,7 +342,7 @@ function generateCharts() {
         }
     };
 	    
-	$('.charts').each(function() {
+	$('.charts:visible').each(function() {
 		div = this;
 		refid = $(this).data('refid');
 		
