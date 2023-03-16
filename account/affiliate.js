@@ -264,12 +264,20 @@ function mobileReflinkDetails(item) {
     }
     $('#mrd-members-inner').html(levelsInnerHtml);
     
+    renderCharts($('#mrd-charts'), refid);
+    
     $('#modal-reflink-details').modal('show');
 }
 
 function generateCharts() {
 	window.mastercoin = '';
-	
+	    
+	$('.charts:visible').each(function() {
+	    renderCharts(this, $(this).data('refid'));
+	});
+}
+
+function renderCharts(div, refid) {
 	earnOptions = {
         series: [],
         chart: {
@@ -341,95 +349,90 @@ function generateCharts() {
             intersect: false
         }
     };
-	    
-	$('.charts:visible').each(function() {
-		div = this;
-		refid = $(this).data('refid');
-		
-	    earnChart = new ApexCharts($(div).find('.chart-earn')[0], earnOptions);
-	    earnChart.render();
-	    
-	    acqChart = new ApexCharts($(div).find('.chart-acquisition')[0], acqOptions);
-	    acqChart.render();
-		
-		data = new Object();
-		data['api_key'] = window.apiKey;
-		if(refid != '') data['refid'] = refid;
-		
-		$.ajax({
-            url: config.apiUrl + '/account/affiliate_settlements',
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: "application/json",
-            dataType: "json",
-        })
-        .retry(config.retry)
-        .done(function (data) {
-            if(data.success) {
-	            window.mastercoin = data.mastercoin;
-	            
-	            earnSeries = [
-                    {
-                        name: 'Rewards',
-                        data: new Array()
-                    }
-                ];
-				acqSeries = [
-                    {
-                        name: 'Lvl 1',
-                        data: new Array()
-                    },
-                    {
-                        name: 'Lvl 2',
-                        data: new Array()
-                    },
-                    {
-                        name: 'Lvl 3',
-                        data: new Array()
-                    },
-                    {
-                        name: 'Lvl 4',
-                        data: new Array()
-                    }
-                ];
+	
+	earnChart = new ApexCharts($(div).find('.chart-earn')[0], earnOptions);
+    earnChart.render();
+    
+    acqChart = new ApexCharts($(div).find('.chart-acquisition')[0], acqOptions);
+    acqChart.render();
+	
+	data = new Object();
+	data['api_key'] = window.apiKey;
+	if(refid != '') data['refid'] = refid;
+	
+	$.ajax({
+        url: config.apiUrl + '/account/affiliate_settlements',
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            window.mastercoin = data.mastercoin;
+            
+            earnSeries = [
+                {
+                    name: 'Rewards',
+                    data: new Array()
+                }
+            ];
+			acqSeries = [
+                {
+                    name: 'Lvl 1',
+                    data: new Array()
+                },
+                {
+                    name: 'Lvl 2',
+                    data: new Array()
+                },
+                {
+                    name: 'Lvl 3',
+                    data: new Array()
+                },
+                {
+                    name: 'Lvl 4',
+                    data: new Array()
+                }
+            ];
+			
+			for(set of data.settlements) {
+				month = set.month + '/' + set.year;
 				
-				for(set of data.settlements) {
-					month = set.month + '/' + set.year;
-					
-					earnSeries[0].data.push({
-			            x: month,
-			            y: set.mastercoin_equiv
-			        });
-        
-			        acqSeries[0].data.push({
-			            x: month,
-			            y: set.acquisition['1']
-			        });
-                    
-                    acqSeries[1].data.push({
-			            x: month,
-			            y: set.acquisition['2']
-			        });
-                    
-                    acqSeries[2].data.push({
-			            x: month,
-			            y: set.acquisition['3']
-			        });
-                    
-                    acqSeries[3].data.push({
-			            x: month,
-			            y: set.acquisition['4']
-			        });
-				}
-				
-				earnChart.updateSeries(earnSeries, true);
-			    acqChart.updateSeries(acqSeries, true);
-            } else {
-                msgBoxRedirect(data.error);
-            }
-        })
-        .fail(function (jqXHR, textStatus, errorThrown) {
-            msgBoxNoConn(true);
-        });
-	});
+				earnSeries[0].data.push({
+		            x: month,
+		            y: set.mastercoin_equiv
+		        });
+    
+		        acqSeries[0].data.push({
+		            x: month,
+		            y: set.acquisition['1']
+		        });
+                
+                acqSeries[1].data.push({
+		            x: month,
+		            y: set.acquisition['2']
+		        });
+                
+                acqSeries[2].data.push({
+		            x: month,
+		            y: set.acquisition['3']
+		        });
+                
+                acqSeries[3].data.push({
+		            x: month,
+		            y: set.acquisition['4']
+		        });
+			}
+			
+			earnChart.updateSeries(earnSeries, true);
+		    acqChart.updateSeries(acqSeries, true);
+        } else {
+            msgBoxRedirect(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(true);
+    });
 }

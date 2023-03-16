@@ -230,6 +230,15 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="row" id="mrd-charts">
+				            <div class="col-12">
+					            <div class="chart-earn"></div>
+				            </div>
+				            <div class="col-12">
+					            <div class="chart-acquisition"></div>
+				            </div>
+			            </div>
                     </div>
                     
                     <div class="modal-footer">
