@@ -278,7 +278,7 @@ function generateCharts() {
 }
 
 function renderCharts(div, refid) {
-	earnOptions = {
+	var earnOptions = {
         series: [],
         chart: {
             height: 200,
@@ -315,7 +315,7 @@ function renderCharts(div, refid) {
 	    }
     };
     
-    acqOptions = {
+    var acqOptions = {
         series: [],
         chart: {
             height: 200,
@@ -350,13 +350,13 @@ function renderCharts(div, refid) {
         }
     };
 	
-	earnChart = new ApexCharts($(div).find('.chart-earn')[0], earnOptions);
+	var earnChart = new ApexCharts($(div).find('.chart-earn')[0], earnOptions);
     earnChart.render();
     
-    acqChart = new ApexCharts($(div).find('.chart-acquisition')[0], acqOptions);
+    var acqChart = new ApexCharts($(div).find('.chart-acquisition')[0], acqOptions);
     acqChart.render();
 	
-	data = new Object();
+	var data = new Object();
 	data['api_key'] = window.apiKey;
 	if(refid != '') data['refid'] = refid;
 	
@@ -372,13 +372,13 @@ function renderCharts(div, refid) {
         if(data.success) {
             window.mastercoin = data.mastercoin;
             
-            earnSeries = [
+            var earnSeries = [
                 {
                     name: 'Rewards',
                     data: new Array()
                 }
             ];
-			acqSeries = [
+			var acqSeries = [
                 {
                     name: 'Lvl 1',
                     data: new Array()
@@ -398,7 +398,7 @@ function renderCharts(div, refid) {
             ];
 			
 			for(set of data.settlements) {
-				month = set.month + '/' + set.year;
+				var month = set.month + '/' + set.year;
 				
 				earnSeries[0].data.push({
 		            x: month,
