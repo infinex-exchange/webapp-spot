@@ -292,10 +292,7 @@ function renderCharts(div, refid) {
             background: $(':root').css('--color-bg-light'),
             events: {
                 dataPointSelection: function(event, chartContext, config) {
-                    console.log(event);
-                    console.log(chartContext);
-                    console.log(config);
-                    alert(config.w.config.series[0].data[config.dataPointIndex].x);
+                    showEarnDetails(config.w.config.series[0].data[config.dataPointIndex].x, refid);
                 }
             }
         },
@@ -442,5 +439,31 @@ function renderCharts(div, refid) {
     })
     .fail(function (jqXHR, textStatus, errorThrown) {
         msgBoxNoConn(true);
+    });
+}
+
+function showEarnDetails(month, refid) {
+    var data = new Object();
+	data['api_key'] = window.apiKey;
+    data['month'] = month;
+	if(refid != '') data['refid'] = refid;
+	
+	$.ajax({
+        url: config.apiUrl + '/account/affiliate_rewards',
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        dataType: "json",
+    })
+    .retry(config.retry)
+    .done(function (data) {
+        if(data.success) {
+            //
+        } else {
+            msgBox(data.error);
+        }
+    })
+    .fail(function (jqXHR, textStatus, errorThrown) {
+        msgBoxNoConn(false);
     });
 }
