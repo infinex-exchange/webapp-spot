@@ -289,7 +289,12 @@ function renderCharts(div, refid) {
             toolbar: {
                 show: false
             },
-            background: $(':root').css('--color-bg-light')
+            background: $(':root').css('--color-bg-light'),
+            events: {
+                dataPointSelection: function(event, chartContext, config) {
+                    console.log(chartContext);
+                }
+            }
         },
         stroke: {
             curve: 'straight'
