@@ -292,6 +292,9 @@ function renderCharts(div, refid) {
             background: $(':root').css('--color-bg-light'),
             events: {
                 dataPointSelection: function(event, chartContext, config) {
+                    console.log(event);
+                    console.log(chartContext);
+                    console.log(config);
                     alert(config.w.config.series[0].data[config.dataPointIndex].x);
                 }
             }
