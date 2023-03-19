@@ -273,6 +273,29 @@
     </div>
 </div>
         
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal-rewards">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Rewards</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    
+                    <div class="modal-body">                        
+                        <div class="row">
+				            <div class="col-12">
+					            <div class="mr-chart"></div>
+				            </div>
+			            </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <script src="/account/affiliate.js?<?php echo filemtime(__DIR__.'/affiliate.js'); ?>"></script>
         
         <?php include('../templates/modals.php'); ?>

@@ -1,3 +1,10 @@
+dictRewardType = {
+    SPOT: 'Spot',
+    MINING: 'Mining',
+    NFT: 'NFT',
+    NFT_STUDIO: 'NFT Studio'
+};
+
 $(document).ready(function() {
     window.renderingStagesTarget = 1;
     
@@ -444,6 +451,50 @@ function renderCharts(div, refid) {
 }
 
 function showEarnDetails(month, year, refid) {
+    var options = {
+        series: [],
+        chart: {
+            //height: 200,
+            type: 'bar',
+            stacked: true,
+            stackType: '100%',
+            zoom: {
+                enabled: false
+            },
+            toolbar: {
+                show: false
+            },
+            background: $(':root').css('--color-bg-light')
+        },
+        plotOptions: {
+            bar: {
+                horizontal: true
+            }
+        },
+        stroke: {
+            curve: 'straight'
+        },
+        xaxis: {
+            type: 'category'
+        },
+        noData: {
+            text: 'Loading...'
+        },
+        dataLabels: {
+            enabled: false
+        },
+        theme: {
+	        mode: 'dark'
+	    },
+        tooltip: {
+            shared: true,
+            intersect: false
+        }
+    };
+	
+	var chart = new ApexCharts($('#mr-chart')[0], opttions);
+    chart.render();
+    
     var data = new Object();
 	data['api_key'] = window.apiKey;
     data['month'] = month;
@@ -460,7 +511,7 @@ function showEarnDetails(month, year, refid) {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            //
+            $('#modal-rewards').show();
         } else {
             msgBox(data.error);
         }
