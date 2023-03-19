@@ -363,10 +363,10 @@ function renderCharts(div, refid) {
         }
     };
 	
-	var earnChart = new ApexCharts($(div).find('.chart-earn')[0], earnOptions);
+	var earnChart = new ApexCharts($(div).find('.chart-earn').html('')[0], earnOptions);
     earnChart.render();
     
-    var acqChart = new ApexCharts($(div).find('.chart-acquisition')[0], acqOptions);
+    var acqChart = new ApexCharts($(div).find('.chart-acquisition').html('')[0], acqOptions);
     acqChart.render();
 	
 	var data = new Object();
@@ -491,7 +491,7 @@ function showEarnDetails(month, year, refid) {
         }
     };
 	
-	var chart = new ApexCharts($('#mr-chart')[0], options);
+	var chart = new ApexCharts($('#mr-chart').html('')[0], options);
     chart.render();
     
     var data = new Object();
