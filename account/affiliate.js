@@ -511,7 +511,28 @@ function showEarnDetails(month, year, refid) {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
+            $('#modal-reflink-details').modal('hide');
             $('#modal-rewards').modal('show');
+            
+            var series = new Array();
+            
+            for(var rtype in dictRewardType) for(var lvl = 1; lvl < 4; lvl++) {
+                var serieData = new Array();
+                
+                for(var reward of data.rewards)
+                    if(reward.reward_type == rtype && reward.slave_level == lvl)
+                        serieData.push({
+                            x: reward.assetid
+                            y: reward.amount
+                        });
+                
+                series.push({
+                    name: dictRewardType[rtype] + ' (Lvl ' + lvl + ')',
+                    data: serieData
+                });
+            }
+            
+            chart.updateSeries(series);
         } else {
             msgBox(data.error);
         }
