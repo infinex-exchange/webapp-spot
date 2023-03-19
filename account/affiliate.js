@@ -522,7 +522,7 @@ function showEarnDetails(month, year, refid) {
                 for(var reward of data.rewards)
                     if(reward.reward_type == rtype && reward.slave_level == lvl)
                         serieData.push({
-                            x: reward.assetid
+                            x: reward.assetid,
                             y: reward.amount
                         });
                 
