@@ -488,6 +488,9 @@ function showEarnDetails(month, year, refid) {
         tooltip: {
             shared: true,
             intersect: false
+        },
+        markers: {
+            colors: ['#F44336', '#E91E63', '#9C27B0']
         }
     };
 	
