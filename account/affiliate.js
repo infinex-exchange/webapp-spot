@@ -454,7 +454,7 @@ function showEarnDetails(month, year, refid) {
     var options = {
         series: [],
         chart: {
-            //height: 200,
+            height: 'auto',
             type: 'bar',
             stacked: true,
             stackType: '100%',
