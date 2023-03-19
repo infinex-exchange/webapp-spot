@@ -292,7 +292,8 @@ function renderCharts(div, refid) {
             background: $(':root').css('--color-bg-light'),
             events: {
                 dataPointSelection: function(event, chartContext, config) {
-                    showEarnDetails(config.w.config.series[0].data[config.dataPointIndex].x, refid);
+                    var date = config.w.config.series[0].data[config.dataPointIndex].x.split('/');
+                    showEarnDetails(parseInt(date[0]), parseInt(date[1]), refid);
                 }
             }
         },
@@ -442,10 +443,11 @@ function renderCharts(div, refid) {
     });
 }
 
-function showEarnDetails(month, refid) {
+function showEarnDetails(month, year, refid) {
     var data = new Object();
 	data['api_key'] = window.apiKey;
     data['month'] = month;
+    data['year'] = year;
 	if(refid != '') data['refid'] = refid;
 	
 	$.ajax({
