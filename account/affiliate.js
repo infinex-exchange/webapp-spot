@@ -12,13 +12,23 @@ dictRewardTypeColor = {
     NFT_STUDIO: 'fd6a6a'
 };
 
-function deriveColor(col, amt) {
-    var num = parseInt(col, 16);
-    var r = (num >> 16) + amt;
-    var b = ((num >> 8) & 0x00FF) + amt;
-    var g = (num & 0x0000FF) + amt;
-    var newColor = g | (b << 8) | (r << 16);
-    return newColor.toString(16);
+function deriveColor(hexColor, magnitude) {
+    hexColor = hexColor.replace(`#`, ``);
+    if (hexColor.length === 6) {
+        const decimalColor = parseInt(hexColor, 16);
+        let r = (decimalColor >> 16) + magnitude;
+        r > 255 && (r = 255);
+        r < 0 && (r = 0);
+        let g = (decimalColor & 0x0000ff) + magnitude;
+        g > 255 && (g = 255);
+        g < 0 && (g = 0);
+        let b = ((decimalColor >> 8) & 0x00ff) + magnitude;
+        b > 255 && (b = 255);
+        b < 0 && (b = 0);
+        return `#${(g | (b << 8) | (r << 16)).toString(16)}`;
+    } else {
+        return hexColor;
+    }
 }
 
 $(document).ready(function() {
