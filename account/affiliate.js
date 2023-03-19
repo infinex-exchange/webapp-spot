@@ -5,6 +5,22 @@ dictRewardType = {
     NFT_STUDIO: 'NFT Studio'
 };
 
+dictRewardTypeColor = {
+    SPOT: '4ecdc4',
+    MINING: 'c7f464',
+    NFT: '81d4fa',
+    NFT_STUDIO: 'fd6a6a'
+};
+
+function deriveColor(col, amt) {
+    var num = parseInt(col, 16);
+    var r = (num >> 16) + amt;
+    var b = ((num >> 8) & 0x00FF) + amt;
+    var g = (num & 0x0000FF) + amt;
+    var newColor = g | (b << 8) | (r << 16);
+    return newColor.toString(16);
+}
+
 $(document).ready(function() {
     window.renderingStagesTarget = 1;
     
@@ -488,8 +504,7 @@ function showEarnDetails(month, year, refid) {
         tooltip: {
             shared: true,
             intersect: false
-        },
-        colors: ['#F44336', '#E91E63', '#9C27B0']
+        }
     };
 	
 	var chart = new ApexCharts($('#mr-chart')[0], options);
@@ -516,6 +531,7 @@ function showEarnDetails(month, year, refid) {
             
             var series = new Array();
             var serieMaxCount = 0;
+            var colors = new Array();
             
             for(var rtype in dictRewardType) for(var lvl = 1; lvl < 4; lvl++) {
                 var serieCount = 0;
@@ -536,6 +552,8 @@ function showEarnDetails(month, year, refid) {
                     data: serieData
                 });
                 
+                colors.push(deriveColor(dictRewardTypeColor[rtype], (lvl - 1) * 10);
+                
                 if(serieCount > serieMaxCount)
                     serieMaxCount = serieCount;
             }
@@ -544,7 +562,8 @@ function showEarnDetails(month, year, refid) {
             chart.updateOptions({
                 chart: {
                     height: serieMaxCount * 35
-                }
+                },
+                colors: colors
             });
         } else {
             msgBox(data.error);
