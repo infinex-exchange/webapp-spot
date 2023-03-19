@@ -542,7 +542,7 @@ function showEarnDetails(month, year, refid) {
             chart.updateSeries(series);
             chart.updateOptions({
                 chart: {
-                    height: serieMaxCount * 20
+                    height: serieMaxCount * 50
                 }
             });
         } else {
