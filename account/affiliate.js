@@ -454,7 +454,6 @@ function showEarnDetails(month, year, refid) {
     var options = {
         series: [],
         chart: {
-            height: '100%',
             type: 'bar',
             stacked: true,
             stackType: '100%',
@@ -515,24 +514,37 @@ function showEarnDetails(month, year, refid) {
             $('#modal-rewards').modal('show');
             
             var series = new Array();
+            var serieMaxCount = 0;
             
             for(var rtype in dictRewardType) for(var lvl = 1; lvl < 4; lvl++) {
+                var serieCount = 0;
                 var serieData = new Array();
                 
                 for(var reward of data.rewards)
-                    if(reward.reward_type == rtype && reward.slave_level == lvl)
+                    if(reward.reward_type == rtype && reward.slave_level == lvl) {
                         serieData.push({
                             x: reward.assetid,
                             y: reward.amount
                         });
+                        
+                        serieCount++;
+                    }
                 
                 series.push({
                     name: dictRewardType[rtype] + ' (Lvl ' + lvl + ')',
                     data: serieData
                 });
+                
+                if(serieCount > serieMaxCount)
+                    serieMaxCount = serieCount;
             }
             
             chart.updateSeries(series);
+            chart.updateOptions({
+                chart: {
+                    height: serieMaxCount * 20
+                }
+            });
         } else {
             msgBox(data.error);
         }
