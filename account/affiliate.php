@@ -284,7 +284,7 @@
                     <div class="modal-body">                        
                         <div class="row">
 				            <div class="col-12">
-					            <div class="mr-chart"></div>
+					            <div id="mr-chart"></div>
 				            </div>
 			            </div>
                     </div>
