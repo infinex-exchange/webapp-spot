@@ -492,7 +492,7 @@ function showEarnDetails(month, year, refid) {
         }
     };
 	
-	var chart = new ApexCharts($('#mr-chart')[0], opttions);
+	var chart = new ApexCharts($('#mr-chart')[0], options);
     chart.render();
     
     var data = new Object();
