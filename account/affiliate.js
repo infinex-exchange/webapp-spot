@@ -511,7 +511,7 @@ function showEarnDetails(month, year, refid) {
     .retry(config.retry)
     .done(function (data) {
         if(data.success) {
-            $('#modal-rewards').show();
+            $('#modal-rewards').modal('show');
         } else {
             msgBox(data.error);
         }
