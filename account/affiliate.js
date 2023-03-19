@@ -480,8 +480,7 @@ function showEarnDetails(month, year, refid) {
             text: 'Loading...'
         },
         dataLabels: {
-            enabled: false,
-            colors: ['#F44336', '#E91E63', '#9C27B0']
+            enabled: false
         },
         theme: {
 	        mode: 'dark'
@@ -489,7 +488,8 @@ function showEarnDetails(month, year, refid) {
         tooltip: {
             shared: true,
             intersect: false
-        }
+        },
+        colors: ['#F44336', '#E91E63', '#9C27B0']
     };
 	
 	var chart = new ApexCharts($('#mr-chart')[0], options);
