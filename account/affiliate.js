@@ -480,7 +480,8 @@ function showEarnDetails(month, year, refid) {
             text: 'Loading...'
         },
         dataLabels: {
-            enabled: false
+            enabled: false,
+            colors: ['#F44336', '#E91E63', '#9C27B0']
         },
         theme: {
 	        mode: 'dark'
@@ -488,9 +489,6 @@ function showEarnDetails(month, year, refid) {
         tooltip: {
             shared: true,
             intersect: false
-        },
-        markers: {
-            colors: ['#F44336', '#E91E63', '#9C27B0']
         }
     };
 	
