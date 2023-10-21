@@ -9,6 +9,9 @@
         <script type="text/javascript" src="/spot/js/streams_client.js?<?php echo filemtime(__DIR__.'/js/streams_client.js'); ?>"></script>
         <script type="text/javascript" src="/spot/js/tv_datafeed.js?<?php echo filemtime(__DIR__.'/js/tv_datafeed.js'); ?>"></script>
         <script src="/js/ajax_scroll.js?<?php echo filemtime(__DIR__.'/../../js/ajax_scroll.js'); ?>"></script>
+        <script type="text/javascript">
+        window.config["pusherUrl"] = "https://stream.infinex.cc";
+        </script>
     </head>
     <body>
     
