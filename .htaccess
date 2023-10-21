@@ -1,1 +1,1 @@
-RewriteRule ^([^/]+)/?$ index.php [L]
+RewriteRule ^([A-Z]+_[A-Z]+)/?$ index.php [L]
