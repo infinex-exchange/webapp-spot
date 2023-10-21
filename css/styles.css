@@ -1,744 +1,136 @@
-/* Variables */
+/* Init variables */
 
 :root {
-    --color-ultra: rgb(55, 113, 200);
-    
-    --color-navbar-text: white;
-    --color-navbar-bg: rgb(10, 15, 20);
-    
-    --color-green: rgb(38, 166, 154);
-    --color-red: rgb(239, 83, 80);
-    
-    --font-small: 12px;
-    --font-normal: 14px;
-    --font-big: 16px;
-    
-    --font-h3: 20px;
-    --font-h2: 40px;
-    --font-h1: 60px;
+    --emulated-100vh: 100vh;
+    --height-main-nav: 0px;
+    --height-mobile-header: 0px;
+    --height-desktop-header: 0px;
+    --height-trading-form: 0px;
+    --height-status-bar: 0px;
+    --height-mobile-nav: 0px;
+    --target-height-orderbook-side: 0px;
+    --target-height-orderbook-side-sm: 0px;
+    --target-height-markets-data: 0px;
+    --target-height-trades-data: 0px;
+    --target-height-orders-data: 0px;
 }
 
-/* Body */
-
-html body {
-    font-size: var(--font-normal);
-    font-family: Arial, sans-serif !important;
-    color: var(--color-primary);
-    background-color: var(--color-bg);
-    touch-action: pan-x pan-y; /* Fix for user-scallable=no on iOS */
-}
-
-/* Containers and document height */
-
-@media (min-width: 1500px) {
-    .container-1500 {
-        max-width: 1500px;
-    }
-}
+/* Reverse sell orderbook on mobile */
 
 @media (max-width: 991px) {
-    .h-rest {
-        min-height: calc(100vh - 70px - 53px);
+    #orderbook-sell {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+    
+    #orderbook-sell .row:hover {
+        border-top: none !important;
+        border-bottom: 1px dashed var(--color-text);  
     }
 }
 
-@media (min-width: 992px) {
-    .h-rest {
-        min-height: calc(100vh - 70px);
-    }
-}
+/* Orderbook */
 
-/* Font sizes */
-
-.small {
-    font-size: var(--font-small);
-}
-
-.big {
-    font-size: var(--font-big);
-}
-
-.form-control-sm {
-    font-size: var(--font-small) !important;
-}
-
-.btn-sm {
-    font-size: var(--font-small) !important;
-    margin: 4px;
-}
-
-/* Font colors */
-
-.primary {
-    color: var(--color-primary);
-}
-
-.secondary {
-    color: var(--color-secondary);
-}
-
-/* Headings */
-
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-}
-
-h4, h5, h6 {
-    margin: 0px;
-}
-
-h1 {
-    font-size: var(--font-h1);
-}
-
-h2 {
-    font-size: var(--font-h2);
-}
-
-h3 {
-    font-size: var(--font-h3);
-}
-
-h4 {
-    font-size: var(--font-big);
-}
-
-h5 {
-    font-size: var(--font-normal);
-}
-
-h6 {
-    font-size: var(--font-small);
-}
-
-/* UI card */
-
-@media (max-width: 991px) {
-    .ui-card {
-        padding: 10px !important;
-    }
-}
-@media (min-width: 992px) {
-    .ui-card {
-        padding: 16px !important;
-    }
-}
-
-.ui-card-light {
-    background-color: var(--color-bg-light);
-}
-
-.ui-card-ver ~ .ui-card-ver {
-    border-top: 1px solid var(--color-border);
-}
-
-.ui-card-hor ~ .ui-card-hor {
-    border-left: 1px solid var(--color-border);
-}
-
-/* UI column */
-
-.ui-column {
-    border: 1px solid var(--color-border);
-    margin: -1px 0 0 -1px;
-}
-
-/* Scrolling */ 
-
-.scrollable {
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
-
-*::-webkit-scrollbar,
-*::-webkit-scrollbar-thumb {
-    width: 26px;
-    border-radius: 13px;
-    background-clip: padding-box;
-    border: 10px solid transparent;
-}
-
-*::-webkit-scrollbar-thumb {        
-    box-shadow: inset 0 0 0 10px;
-}
-
-* {
-	scrollbar-width: none;
-}
-
-/* Hoverable */
-
-.hoverable:hover {
-    background-color: var(--color-input);
-    cursor: pointer;
-}
-
-/* Input type text */
-
-input[type=text], input[type=text]:focus, input[type=text][readonly],
-input[type=email], input[type=email]:focus, input[type=email][readonly],
-input[type=password], input[type=password]:focus, input[type=password][readonly],
-textarea, textarea:focus {
-    background-color: var(--color-input);
-    border-width: 0px;
-    box-shadow: none !important;
-    color: var(--color-primary);
-    font-size: var(--font-normal);
-}
-
-input[type=text], input[type=text][readonly],
-input[type=email], input[type=email][readonly],
-input[type=password], input[type=password][readonly],
-textarea {
-    outline: none !important;
-}
-
-input[type=text]:focus, input[type=email]:focus, input[type=password]:focus,
-textarea:focus {
-    outline: 1px solid var(--color-ultra) !important;
-}
-
-/* Search input with icon */
-
-.input-search {
-    background-image: url('/img/search.svg');
-    background-position: 5px 2px;
-    background-repeat: no-repeat;
-    padding-left: 35px;
-}
-
-/* Input with prefix and suffix */
-
-.input-ps-group {
-    display: flex;
-    align-items: center;
-    background-color: var(--color-input);
-    border-radius: 4px;
+#orderbook-buy, #orderbook-sell {
     overflow: hidden;
 }
 
-.input-ps-group:focus-within {
-    outline: 1px solid var(--color-ultra);
-}
-
-.input-ps-group input, .input-ps-group input[type=text]:focus {
-    flex-grow: 1;
-    color: var(--color-primary);
-    text-align: right;
-    outline: none !important;
-}
-
-.input-ps-group input:disabled {
-    background-color: var(--color-input);
-}
-
-.input-ps-group .suffix {
-    color: var(--color-primary);
-}
-
-.input-ps-group span {
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-
-/* Slider */
-
-input[type=range] {
-    -webkit-appearance: none;
-    appearance: none;
-    background: transparent;
-    cursor: pointer;
-    width: 100%;
-}
-
-input[type="range"]::-webkit-slider-runnable-track { /* Track */
-    background: var(--color-input);
-    height: 0.5rem;
-}
-
-input[type="range"]::-moz-range-track {
-    background: var(--color-input);
-    height: 0.5rem;
-}
-    
-input[type="range"]::-webkit-slider-thumb { /* Thumb */
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: var(--color-secondary);
-    height: 1rem;
-    width: 1rem;    
-}
-    
-input[type="range"]::-moz-range-thumb {
-    border: none;
-    border-radius: 0;
-    background-color: var(--color-secondary);
-    height: 1rem;
-    width: 1rem;
-}
-
-.range-value {
-    position: relative;
-}
-
-/* Links */
-
-.link-ultra {
-    color: var(--color-ultra);
-    text-decoration: none;
-}
-
-.nav-link {
-    color: var(--color-secondary);
-}
-
-.nav-link:hover {
-    color: var(--color-ultra);
-}
-
-.nav-link.active {
-    color: var(--color-ultra);
-    font-weight: 600;
-}
-
-.nav-deco .nav-link.active {
-    text-decoration: solid underline var(--color-ultra) 3px;
-}
-
-/* Master navbar */
-
-.navbar-master {
-    background-color: var(--color-navbar-bg) !important;
-}
-
-.navbar-master .nav-link {
-    color: var(--color-navbar-text) !important;
-    font-weight: 600;
-}
-
-@media (max-width: 991px) {
-    .navbar-master .navbar-collapse {
-        height: 100vh;
-        font-size: var(--font-big);
-    }
-    
-    .navbar-master .dropdown-menu {
-        background-color: var(--color-navbar-bg);
-        border: none;
-    }
-    
-    .navbar-master .dropdown-divider {
-        border-top: 1px solid var(--color-navbar-text);
-    }
-
-    .navbar-master .dropdown-menu .dropdown-divider {
-        border-top: 1px solid var(--color-secondary);
-    }
-}
-
-/* Fix for dropdown out of screen */
-
-.dropdown-menu-end {
-  right: 0;
-  left: auto;
-}
-
-/* Reverse rows order */
-
-.reverse-rows {    
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-.reverse-rows .row:first-child {
-    margin-bottom: auto;
-}
-
-/* Preloader */
-
-.preloader-wrapper {
-    height: 100%;
-    width: 100%;
-    background-color: var(--color-bg);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.preloader-wrapper .preloader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 120px;
-}
-
-.preloader img {
-    width: 120px;
-}
-
-/* Button */
-
-.btn, .btn-primary, .btn-secondary, .btn-danger, .btn-warning, .btn-success {
-    font-size: var(--font-normal);
-}
-
-.btn-primary {
-    background-color: var(--color-ultra);
-}
-
-/* Coin / net / address selector */
-
-.selector-wrapper {
-    max-width: 100%;
-    position: relative;
-}
-
-.selector-dropdown {
-    display: none;
-    position: absolute;
-    background-color: var(--color-bg-light);
-    z-index: 1000;
-    width: 100%;
-    border: 1px solid var(--color-border);
-    padding: 10px;
-}
-
-.selector-search {
-    margin-bottom: 10px;
-}
-
-.selector-data {
-    max-height: 250px;
-}
-
-.selector-input {
-    cursor: pointer;
-    max-width: 100%;
-    width: 100%;
-}
-
-.selector-inner {
-    position: relative;
-    max-width: 100%;
-    width: 100%;
-}
-
-.selector-arrow {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-/* Flip 180deg */
-
-.flippable {
-    -moz-transition: transform 1s;
-    -webkit-transition: transform 1s;
-    transition: transform 1s;
-}
-
-.flip {
-    transform: rotate(180deg);
-}
-
-/* QR code on white background */
-
-.qrcode-wrapper {
-    background-color: white;
-    padding: 16px;
-}
-
-/* Modals */
-
-.modal-content {
-    background-color: var(--color-bg-light);
-}
-
-.modal-header {
-    border-bottom: 1px solid var(--color-border);
-    color: var(--color-secondary);
-}
-
-.modal-footer {
-    border-top: 1px solid var(--color-border);
-}
-
-/* Wrap long text (API key) */
-
-.wrap {
-    word-wrap: break-word;
-}
-
-/* Bottom mobile menu */
-
-.navbar-mobile {
-    background-image: linear-gradient(var(--color-input), var(--color-bg-light));
-    border-top: 1px solid var(--color-border);
-    padding-bottom: min(10px, env(safe-area-inset-bottom, 0)) !important;
-    z-index: 900;
-}
-
-/* Dropdown menu */
-
-.dropdown-menu {
-    background-color: var(--color-bg-light);
-    border: 1px solid var(--color-border);
-}
-
-.dropdown-item {
-    color: var(--color-secondary);
-}
-
-.dropdown-divider {
-    border-top: 1px solid var(--color-border);
-    opacity: 1;
-}
-
-/* Jumbotron */
-
-.jumbotron-index {
-	background-image: url("/img/index_jumbotron.jpg");
-	background-size: cover;
-    background-position: center;
-}
-
-/* Trading colors */
-
-.text-green {
-    color: var(--color-green) !important;
-}
-
-.text-red {
-    color: var(--color-red) !important;
-}
-
-.bg-green {
-    background-color: var(--color-green) !important;
-}
-
-.bg-red {
-    background-color: var(--color-red) !important;
-}
-
-.border-green {
-    border-color: var(--color-green) !important;
-}
-
-.border-red {
-    border-color: var(--color-red) !important;
-}
-
-.btn.bg-green, .btn.bg-red {
-    color: var(--color-primary);
-}
-
-/* Footer */
-
-footer {
-    background-color: var(--color-navbar-bg);
-}
-
-/* Social icons */
-
-.social-icon {
-    color: white;
-    font-size: 24px;
-    text-decoration: none;
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    text-align: center;
-}
-
-.social-icon i {
-    vertical-align: middle;
-}
-
-.social-icon.twitter:hover {
-    color: rgb(29, 155, 240);
-}
-
-.social-icon.discord:hover {
-    color: rgb(88, 101, 242);
-}
-
-/* Add background to any element */
-
-.background {
-    background-color: var(--color-bg);
-}
-
-/* Hide items in expanded on mobile master navbar */
-
-@media (max-width: 991px) {
-    .navbar-master .not-in-expanded-master-navbar {
-        display: none !important;
-    }
-}
-
-/* More order-* classes */
-
-.order-6 {
-    order: 6;
-}
-
-.order-7 {
-    order: 7;
-}
-
-.order-8 {
-    order: 8;
-}
-
-.order-9 {
-    order: 9;
-}
-
-.order-10 {
-    order: 10;
-}
-
-.order-11 {
-    order: 11;
-}
-
-.order-12 {
-    order: 12;
-}
-
-.order-13 {
-    order: 13;
-}
-
-.order-14 {
-    order: 14;
-}
-
-.order-15 {
-    order: 15;
-}
-
-.order-16 {
-    order: 16;
-}
-
-.order-17 {
-    order: 17;
-}
-
-.order-18 {
-    order: 18;
-}
-
-.order-19 {
-    order: 19;
-}
-
-.order-20 {
-    order: 20;
-}
-
 @media (min-width: 992px) {
-    .order-lg-6 {
-        order: 6 !important;
+    .orderbook-display-split #orderbook-buy, .orderbook-display-split #orderbook-sell {
+        height: var(--target-height-orderbook-side);
     }
 
-    .order-lg-7 {
-        order: 7 !important;
-    }
-
-    .order-lg-8 {
-        order: 8 !important;
-    }
-
-    .order-lg-9 {
-        order: 9 !important;
-    }
-
-    .order-lg-10 {
-        order: 10 !important;
-    }
-
-    .order-lg-11 {
-        order: 11 !important;
-    }
-
-    .order-lg-12 {
-        order: 12 !important;
+    .orderbook-display-bids #orderbook-buy, .orderbook-display-asks #orderbook-sell {
+        height: var(--target-height-orderbook-side-sm) !important;
     }
     
-    .order-lg-13 {
-        order: 13 !important;
+    .orderbook-display-bids .orderbook-wrapper-asks, .orderbook-display-asks .orderbook-wrapper-bids {
+        display: none;
     }
     
-    .order-lg-14 {
-        order: 14 !important;
+    .orderbook-display-split #orderbook-middle {
+        order: 3 !important;
     }
     
-    .order-lg-15 {
-        order: 15 !important;
+    .orderbook-display-bids #orderbook-middle, .orderbook-display-asks #orderbook-middle {
+        order: 1 !important;
     }
     
-    .order-lg-16 {
-        order: 16 !important;
-    }
-    
-    .order-lg-17 {
-        order: 17 !important;
-    }
-    
-    .order-lg-18 {
-        order: 18 !important;
-    }
-    
-    .order-lg-19 {
-        order: 19 !important;
-    }
-    
-    .order-lg-20 {
-        order: 20 !important;
+    .orderbook-display-split .orderbook-wrapper-bids .orderbook-header {
+        display: none;
     }
 }
 
-/* Blink red animation */
-
-.blink-red {
-  animation: blink-red 1s;
+@media (max-width: 991px) {
+    #orderbook-buy, #orderbook-sell {
+        height: var(--target-height-orderbook-side-sm) !important;
+    }
+    
+    .orderbook-display-bids .orderbook-wrapper-asks, .orderbook-display-asks .orderbook-wrapper-bids {
+        display: none;
+    }
+    
+    .orderbook-display-split .orderbook-wrapper-bids, .orderbook-display-split .orderbook-wrapper-asks {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    
+    .orderbook-display-asks .orderbook-wrapper-asks, .orderbook-display-bids .orderbook-wrapper-bids {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+    
+    .orderbook-display-split .mobile-ob-col {
+        flex: 0 0 auto;
+        width: 50%;
+    }
+    
+    .orderbook-display-bids .mobile-ob-col, .orderbook-display-asks .mobile-ob-col {
+        flex: 0 0 auto;
+        width: 33.33333333%;
+    }
+    
+    .orderbook-display-split .total {
+        display: none;
+    }
 }
 
-@keyframes blink-red {
-    0% {
-        color: inherit;
-    }
-    10% {
-        color: var(--color-red);
-    }
-    40% {
-        color: var(--color-red);
-    }
-    50% {
-        color: inherit;
-    }
-    60% {
-        color: var(--color-red);
-    }
-    90% {
-        color: var(--color-red);
-    }
-    100% {
-        color: inherit;
+#orderbook-sell .row {
+    background-image: linear-gradient(var(--color-red-light), var(--color-red-light));
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#orderbook-buy .row {
+    background-image: linear-gradient(var(--color-green-light), var(--color-green-light));
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+#orderbook-sell .row:hover {
+    border-top: 1px dashed var(--color-primary);  
+}
+
+#orderbook-buy .row:hover {
+    border-bottom: 1px dashed var(--color-primary);
+}
+
+/* Markets */
+
+#markets-table {
+    height: var(--target-height-markets-data);
+}
+
+@media (max-width: 991px) {
+    .markets-item img {
+        width: 28px;
+        height: 28px;
     }
 }
 
-/* Price change box */
-
-.price-change-box {
-	background-color: var(--color-bg);
+.markets-item .change {
+	background-color: var(--color-bg-light);
 	color: var(--color-primary) !important;
     font-size: var(--font-small);
 	border-radius: 10%;
@@ -748,37 +140,181 @@ footer {
 	display: inline-block;
 }
 
-/* Textarea non resizable */
+/* Trades */
 
-textarea {
-    resize: none;
+#trades-data {
+    height: var(--target-height-trades-data);
 }
 
-/* Indeterminate progress bar */
+/* Orders */
 
-.indet-progress-bar {
-  height: 4px;
-  background-color: rgba(5, 114, 206, 0.2);
-  width: 100%;
-  overflow: hidden;
+#orders {
+    height: 350px;
 }
 
-.indet-progress-bar-value {
-  width: 100%;
-  height: 100%;
-  background-color: rgb(5, 114, 206);
-  animation: indet-progress-bar-animation 1s infinite linear;
-  transform-origin: 0% 50%;
+#orders-open-data, #orders-history-data, #trades-history-data {
+    display: flex;
+    flex-direction: column;
 }
 
-@keyframes indet-progress-bar-animation {
-  0% {
-    transform:  translateX(0) scaleX(0);
-  }
-  40% {
-    transform:  translateX(0) scaleX(0.4);
-  }
-  100% {
-    transform:  translateX(100%) scaleX(0.5);
-  }
+#orders-open-data, #orders-history-data, #trades-history-data {
+    height: var(--target-height-orders-data);
+}
+
+/* Hoverable orderbook */
+
+#orderbook-buy .row:hover, #orderbook-buy .row:hover ~ .row,
+#orderbook-sell .row:hover, #orderbook-sell .row:hover ~ .row {
+    background-color: var(--color-input);
+    cursor: pointer;
+}
+
+/* Status bar */
+
+.status-bar {
+    background-color: var(--color-bg);
+    border-top: 1px solid var(--color-border);
+    z-index: 900;
+}
+
+/* Expand orders history item */
+
+.orders-history-item.expand-trades {
+    background-color: var(--color-bg-light);
+}
+
+.orders-history-item .inner {
+    display: none;
+}
+
+.orders-history-item.expand-trades .inner {
+    display: block;
+}
+
+/* Fixed bottom trading form on mobile */
+
+@media (max-width: 991px) {
+    #trading-form {
+        position: fixed;
+        right: 0;
+        bottom: var(--height-mobile-nav);
+        left: 0;
+    }
+}
+
+/* Js sizing */
+
+.column-height {
+    height: calc(
+                  var(--emulated-100vh)
+                  - var(--height-main-nav)
+                  - var(--height-status-bar)
+                );
+}
+    
+.half-column-height {
+    height: calc(
+                  (
+                    var(--emulated-100vh)
+                    - var(--height-main-nav)
+                    - var(--height-status-bar)
+                  )
+                  / 2
+                );
+}
+
+.rest-of-height {
+    height: calc(var(--emulated-100vh)
+                 - var(--height-main-nav)
+                 - var(--height-desktop-header)
+                 - var(--height-trading-form)
+                 - var(--height-status-bar)
+                );
+}
+
+@media (max-width: 991px) {
+    .sm-rest-of-height {
+        height: calc(var(--emulated-100vh)
+                     - var(--height-main-nav)
+                     - var(--height-mobile-header)
+                     - var(--height-trading-form)
+                     - var(--height-mobile-nav)
+                    ) !important;
+    }
+}
+
+/* Force column height on mobile */
+
+@media (max-width: 991px) {
+    .sm-w-50 {
+        width: 50% !important;
+    }
+    
+    .sm-w-100 {
+        width: 100% !important;
+    }
+}
+
+/* Open orders, orders history, trades history mobile view */
+
+@media (max-width: 991px) {
+    .orders-open-item .pair, .orders-history-item .pair, .trades-history-item .pair, .trades-in-order-item .pair {
+        font-size: var(--font-normal);
+    }
+    
+    .orders-open-item .time, .orders-history-item .time, .trades-history-item .time {
+        text-align: right;
+        color: var(--color-secondary);
+    }
+    
+    .trades-in-order-item .time {
+        text-align: right;
+    }
+    
+    .orders-open-item ~ .orders-open-item,
+    .orders-history-item ~ .orders-history-item,
+    .trades-history-item ~ .trades-history-item,
+    .trades-in-order-item ~ .trades-in-order-item {
+        border-top: 1px solid var(--color-border);
+    }
+    
+    .orders-history-item .status {
+	   background-color: var(--color-bg-light);
+	   border-radius: 10%;
+	   padding: 3px 8px;
+	   text-align: center;
+	   display: inline-block;
+    }
+}
+
+/* Expand / collapse trades in order */
+
+.orders-history-item .expand-button {
+    display: inline;
+}
+
+.orders-history-item .collapse-button {
+    display: none;
+}
+
+.orders-history-item.expand-trades .expand-button {
+    display: none;
+}
+
+.orders-history-item.expand-trades .collapse-button {
+    display: inline;
+}
+
+/* Experimental icon */
+
+.experimental {
+    color: red;
+    background-color: var(--color-bg-light);
+    cursor: pointer;
+    border-radius: 10%;
+    padding: 5px;
+}
+
+.experimental:hover {
+    background-color: var(--color-input);
 }
