@@ -1,6 +1,5 @@
 $(document).on('themeInitialized pairSelected', function() {
     if(typeof(window.multiEvents['themeInitialized']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
-    alert(1);
     
     var interval = window.localStorage.getItem('tradingview.chart.lastUsedTimeBasedResolution');
     if(interval === null) interval = '1D';
@@ -11,7 +10,7 @@ $(document).on('themeInitialized pairSelected', function() {
         datafeed: TvDatafeed,
         interval: interval,
         container_id: 'chart-candles',
-        library_path: '/charting_library/',
+        library_path: '/vendor/charting_library/',
         locale: 'en',
         disabled_features: [
             'header_symbol_search',
