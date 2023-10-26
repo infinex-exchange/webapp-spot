@@ -1,5 +1,6 @@
 $(document).on('themeInitialized pairSelected', function() {
     if(typeof(window.multiEvents['themeInitialized']) == 'undefined' || typeof(window.multiEvents['pairSelected']) == 'undefined') return;
+    alert(1);
     
     var interval = window.localStorage.getItem('tradingview.chart.lastUsedTimeBasedResolution');
     if(interval === null) interval = '1D';
