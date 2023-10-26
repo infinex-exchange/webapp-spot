@@ -414,9 +414,9 @@
                                 </h3>
                             </div>
                             <div class="col-auto ms-auto">
-                                <a class="orderbook-btn-display" data-display="split" href="#_"><img src="/img/ob_split.svg" width="16" height="16"></a>
-                                <a class="orderbook-btn-display px-2" data-display="bids" href="#_"><img src="/img/ob_bids.svg" width="16" height="16"></a>
-                                <a class="orderbook-btn-display" data-display="asks" href="#_"><img src="/img/ob_asks.svg" width="16" height="16"></a>
+                                <a class="orderbook-btn-display" data-display="split" href="#_"><img src="/spot/img/ob_split.svg" width="16" height="16"></a>
+                                <a class="orderbook-btn-display px-2" data-display="bids" href="#_"><img src="/spot/img/ob_bids.svg" width="16" height="16"></a>
+                                <a class="orderbook-btn-display" data-display="asks" href="#_"><img src="/spot/img/ob_asks.svg" width="16" height="16"></a>
                             </div>
                         </div>
                     </div>
