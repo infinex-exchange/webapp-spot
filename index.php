@@ -21,7 +21,7 @@
         <!-- Mobile navbar -->
         <nav id="mobile-navbar" class="navbar fixed-bottom navbar-expand navbar-mobile d-flex d-lg-none py-0 small">
             <ul class="navbar-nav mx-auto text-center" data-ui-card="markets">
-                <?php include('../../templates/mobile_menu_inner.php'); ?>
+                <?php include('../../inc/nav/mobile_nav_inner.php'); ?>
             </ul>
             <ul class="navbar-nav mx-auto text-center" data-ui-card="trades chart orderbook orders">
                 <li class="nav-item">
